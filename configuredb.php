@@ -9,8 +9,6 @@ $db_handle = mysqli_connect($server, $user_name, $password);
 
 print "Connection to the Server opened";
 
-
-
 print "Server found" . "<BR>";
 
 //$database = "addressbook";
