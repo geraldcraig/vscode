@@ -1,12 +1,7 @@
 <?PHP
 
-$user_name = "root";
-$password = "root";
-$database = "addressbook";
-$server = "localhost";
-
-mysqli_connect($server, $user_name, $password);
-
-print "Connection to the Server opened";
+define('DB_SERVER', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', 'root');
 
 ?>
