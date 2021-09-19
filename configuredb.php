@@ -11,7 +11,7 @@ print "Connection to the Server opened";
 
 print "Server found" . "<BR>";
 
-$database = "addressbook";
+$database = "todo";
 
 $db_found = mysqli_select_db( $db_handle, $database );
 
