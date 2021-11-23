@@ -7,11 +7,11 @@ $server = "localhost";
 
 $db_handle = mysqli_connect($server, $user_name, $password);
 
-print "Connection to the Server opened";
+print "Connection to the Server opened" . "<BR>";
 
 print "Server found" . "<BR>";
 
-$database = "hotels.com";
+$database = "hotels_com";
 
 $db_found = mysqli_select_db( $db_handle, $database );
 
