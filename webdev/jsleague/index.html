@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrays</title>
+ 
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            width: 500px;
+            text-align: center;
+        }
+ 
+        th {
+            font-weight: bold;
+        }
+    </style>
+ 
+</head>
+ 
+<body>
+    <h3> Justice League Science Results</h3>
+ 
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td id='sname'></td>
+            <td>Science</td>
+            <td id='sgrade'></td>
+        </tr>
+    </table>
+ 
+    <script>
+ 
+        var science_grades = [["Batman", 54], ["Wonder Woman", 80], ["Flash", 67], ["Superman", 50], ["Martian Manhunter", 71], ["Green Lantern", 45], ["Aquaman", 24]];
+   
+        var aquaman_name = science_grades[6][0];
+        var aquaman_science = science_grades[6][1];
+   
+        console.log("Name: " + aquaman_name + ", Grade: " + aquaman_science);
+       
+    </script>
+ 
+</body>
+ 
+</html>
