@@ -56,7 +56,15 @@
         <script>
  
                 my1 = document.getElementById('title1');
-                console.log(my1.innerHTML);
+                my1data = my1.innerHTML;
+                console.log(my1data);
+
+                my2 = document.getElementById('title2');
+                my2data = my2.innerHTML;
+                console.log(my2data);
+
+                my1.innerHTML = my2data;
+                my2.innerHTML = my1data;
        
         </script>
  
