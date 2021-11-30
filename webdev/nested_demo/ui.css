@@ -1,0 +1,18 @@
+body {
+    background-color: darkorange;
+}
+
+.parent {
+    background-color: green;
+    height: 500px;
+}
+
+.div_1 {
+    background-color: yellow;
+    height: 50%;
+}
+
+.div_2 {
+    background-color: white;
+    height: 50%;
+}

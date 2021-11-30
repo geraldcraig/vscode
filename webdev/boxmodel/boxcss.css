@@ -9,10 +9,20 @@ body {
     height: 300px;
 }
 
-#leftpane #centrepane #rightpane {
+#leftpane, #centrepane, #rightpane {
     width: 30%;
-    border: 5px solid darkgreen;
+    border: solid darkgreen;
     float: left;
+    background-color: lightgreen;
+    color: blue;
     margin: 5px;
+    padding: 5px 5px 50px 5px;
 }
 
+#centrepane {
+    border: solid black;
+}
+
+#rightpane {
+    border: solid darkgray;
+}
