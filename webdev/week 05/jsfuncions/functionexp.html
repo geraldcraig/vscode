@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>functions</title>
+
+    <script>
+        var myCost = function(data1, data2) {
+            console.log(this);
+            console.log(arguments);
+            var cal = data1 * data2;
+            return cal;
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="feedback"></div>
+
+    <script>
+        
+            var output = document.getElementById('feedback');
+            output.innerHTML = 'total cost: ' + myCost(3, 4.99);
+            console.log(myCost);
+
+    </script>
+
+</body>
+</html>

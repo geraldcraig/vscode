@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>functions</title>
+</head>
+<body>
+
+    <button onclick="helloWorld('world')">say hello</button>
+
+    <div id="feedback"></div>
+
+    <script>
+        function helloWorld(data1) {
+            console.log(this);
+            console.log(arguments);
+            console.log('hello' + data1);
+            var output = document.getElementById('feedback');
+            output.innerHTML = 'hello ' + data1;
+        }
+    </script>
+</body>
+</html>

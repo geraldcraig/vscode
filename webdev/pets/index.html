@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script>
+<script>
+$(function() {
+ 
+        $('#Pets').fadeOut('slow');
+        $('#PageContent').fadeIn('slow');
+ 
+});
+</script>
+ 
+<style>
+#contained{
+        margin: 0 auto;
+        width:90%;
+}
+#PageContent{
+        display:none;
+}
+img{
+        width:40%;
+}
+ 
+</style>
+ 
+</head>
+ 
+<body>
+<div id='contained'>
+        <h1> Welcome to my Pet Site! </h1>
+ 
+        <p><img id="Pets" src="img/rabbit.jpg" /> </p>
+ 
+        <div id="PageContent" >
+ 
+                <img src="img/dog.jpg" />
+                <img src="img/cat.jpg" />
+ 
+        </div>
+</div>
+</body>
+</html>
