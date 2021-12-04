@@ -5,6 +5,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Milk Money</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+        <link rel="stylesheet" href="ui.css">
+
+        <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+
+    </script>
+        <script>
+            $(function() {
+                console.log('jquery engine loaded');
+
+                $('form').submit(function(e) {
+                    var inp = $("#pupilname").val();
+                    inp = $.trim(inp);
+
+                    var inp2 = $("#pupilsclass").val();
+                    inp2 = $.trim(inp2);
+
+                    if (inp.length <= 0) {
+                        e.preventDefault(); //prevent default form submission
+                        console.log('form NOT submitted');
+                        $("#pupilsname").after('<span>please submit a name</span>');
+                    }
+
+                    if (inp2.length <= 0) {
+                        e.preventDefault(); //prevent default form submission
+                        console.log('form2 NOT submitted');
+                        $("#pupilsclass").after('<span>please submit a class</span>');
+                    }
+                });
+            });
+        </script>
+
+
     </head>
 
     <body>
@@ -13,12 +47,45 @@
 
         <div class="container">
 
+            <h1>Milk Money</h1>
+
             <!-- just a number and class 'column' or 'columns'-->
 
             <div class="row">
-                <div class="ten columns">Ten</div>
-                <div class="two columns">Two</div>
+                <div class="ten columns">
+                    <!-- a form for web user input -->
+
+                    <p>Please fill in the form to request milk for your child</p>
+        
+                    <form>
+                        <div class="row">
+                            <div class="six columns">
+        
+                                <label for="pupilsname">Pupils name</label>
+                                <input class="u-full-width" type="text" id="pupilsname"/>
+
+                                <label for="pupilsclass">Pupils class</label>
+                                <input class="u-full-width" type="text" id="pupilsclass"/>
+        
+                            </div>
+        
+                        </div>
+        
+                        
+                            <input class="button-primary" type="submit" value="Submit">
+                    
+                    </form>
+
+                </div>
+
+                <div class="two columns">
+                    <a class="button" href="#">Help</a>
+                    <a class="button" href="#">Info</a>
+                    <a class="button" href="#">Contact</a>
+                </div>
             </div>
+        </div>
+        
         </div>
     </body>
 </html>
