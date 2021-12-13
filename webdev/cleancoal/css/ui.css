@@ -49,6 +49,7 @@ body{
     margin-bottom: 30px;
     text-align: center;
     background-color: #46EDFF;
+    overflow: hidden;
 }
 
 #showcase h1{
@@ -56,4 +57,33 @@ body{
     font-size: 50px;
     line-height: 1.6em;
     padding-top: 30px;
+}
+
+.content{
+    width: 80%;
+    margin: 0 auto;
+}
+
+#main{
+    float: left;
+    width: 70%;
+    padding: 0px 30px;
+    box-sizing: border-box;
+}
+
+#sidebar{
+    float: right;
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: coral;
+    color: #fff;
+}
+
+#mainfooter{
+    background: #ddd;
+    color: #fff;
+    padding: 20px;
+    margin-top: 40px;
+    clear: both;
 }
