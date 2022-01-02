@@ -1,0 +1,16 @@
+
+.mybox {
+    border:thin solid black;
+    padding:20px;
+    text-align: center;
+    margin: 10px;
+}
+
+#mybutton {
+    background-color: black;
+    color: white;
+    width:150px;
+    padding:20px;
+    text-align: center;
+
+}
