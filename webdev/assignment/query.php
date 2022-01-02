@@ -10,16 +10,18 @@ catch (PDOException $e)
   throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-$query  = "SELECT * FROM album_list_updated";
+$query  = "SELECT * FROM album_list";
 $result = $pdo->query($query);
 
 while ($row = $result->fetch()) 
 {
-echo 'Number: '     . htmlspecialchars($row['COL 1'])          . "<br>";
-echo 'Title: '      . htmlspecialchars($row['COL 2'])           . "<br>";
-echo 'Artist ID: '  . htmlspecialchars($row['COL 3'])       . "<br>"; 
-echo 'Year ID: '    . htmlspecialchars($row['COL 4'])         . "<br>"; 
-echo 'Genre ID: '   . htmlspecialchars($row['COL 5'])        . "<br>";
-echo 'Subgenre ID: '. htmlspecialchars($row['COL 6'])     . "<br><br>";
+echo 'Number: '     . htmlspecialchars($row['number'])          . "<br>";
+echo 'Title: '      . htmlspecialchars($row['year'])           . "<br>";
+echo 'Artist ID: '  . htmlspecialchars($row['album'])       . "<br>"; 
+echo 'Year ID: '    . htmlspecialchars($row['artist'])         . "<br>"; 
+echo 'Genre ID: '   . htmlspecialchars($row['genre'])        . "<br>";
+echo 'Genre ID: '   . htmlspecialchars($row['subgenre'])        . "<br>";
+echo 'Genre ID: '   . htmlspecialchars($row['thumbnail'])        . "<br>";
+echo 'Subgenre ID: '. htmlspecialchars($row['cover'])     . "<br><br>";
 }
 ?>
