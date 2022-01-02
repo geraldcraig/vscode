@@ -16,12 +16,12 @@ $result = $pdo->query($query);
 while ($row = $result->fetch()) 
 {
 echo 'Number: '     . htmlspecialchars($row['number'])          . "<br>";
-echo 'Title: '      . htmlspecialchars($row['year'])           . "<br>";
-echo 'Artist ID: '  . htmlspecialchars($row['album'])       . "<br>"; 
-echo 'Year ID: '    . htmlspecialchars($row['artist'])         . "<br>"; 
-echo 'Genre ID: '   . htmlspecialchars($row['genre'])        . "<br>";
-echo 'Genre ID: '   . htmlspecialchars($row['subgenre'])        . "<br>";
-echo 'Genre ID: '   . htmlspecialchars($row['thumbnail'])        . "<br>";
-echo 'Subgenre ID: '. htmlspecialchars($row['cover'])     . "<br><br>";
+echo 'Year: '      . htmlspecialchars($row['year'])           . "<br>";
+echo 'Album: '  . htmlspecialchars($row['album'])       . "<br>"; 
+echo 'Artist: '    . htmlspecialchars($row['artist'])         . "<br>"; 
+echo 'Genre: '   . htmlspecialchars($row['genre'])        . "<br>";
+echo 'SubGenre: '   . htmlspecialchars($row['subgenre'])        . "<br>";
+echo 'Thumbnail: '   . htmlspecialchars($row['thumbnail'])        . "<br>";
+echo 'Cover: '. htmlspecialchars($row['cover'])     . "<br><br>";
 }
 ?>
