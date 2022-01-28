@@ -1,0 +1,122 @@
+[
+  {
+    "url": "https://www.kaggle.com/lava18/google-play-store-apps",
+    "rating": 5,
+    "user_score": 12
+  },
+  {
+    "url": "https://www.kaggle.com/shivamb/netflix-shows",
+    "rating": 6,
+    "user_score": 34
+  },
+  {
+    "url": "https://www.kaggle.com/rounakbanik/the-movies-dataset",
+    "rating": 4,
+    "user_score": 23
+  },
+  {
+    "url": "https://www.kaggle.com/gregorut/videogamesales",
+    "rating": 3,
+    "user_score": 13
+  },
+  {
+    "url": "https://www.kaggle.com/sootersaalu/amazon-top-50-bestselling-books-2009-2019",
+    "rating": 8,
+    "user_score": 11
+  },
+  {
+    "url": "https://www.kaggle.com/datasnaek/youtube-new",
+    "rating": 7,
+    "user_score": 7
+  },
+  {
+    "url": "https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data",
+    "rating": 6,
+    "user_score": 21
+  },
+  {
+    "url": "https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results",
+    "rating": 4,
+    "user_score": 22
+  },
+  {
+    "url": "https://www.kaggle.com/aaron7sun/stocknews",
+    "rating": 9,
+    "user_score": 14
+  },
+  {
+    "url": "https://www.kaggle.com/fivethirtyeight/fivethirtyeight-comic-characters-dataset",
+    "rating": 6,
+    "user_score": 16
+  },
+  {
+    "url": "https://www.kaggle.com/martj42/international-football-results-from-1872-to-2017",
+    "rating": 7,
+    "user_score": 17
+  },
+  {
+    "url": "https://www.kaggle.com/jealousleopard/goodreadsbooks",
+    "rating": 7,
+    "user_score": 18
+  },
+  {
+    "url": "https://www.kaggle.com/ramamet4/app-store-apple-data-set-10k-apps",
+    "rating": 7,
+    "user_score": 18
+  },
+  {
+    "url": "https://www.kaggle.com/mylesoneill/game-of-thrones?select=character-deaths.csv",
+    "rating": 5,
+    "user_score": 21
+  },
+  {
+    "url": "https://www.kaggle.com/abecklas/fifa-world-cup",
+    "rating": 4,
+    "user_score": 22
+  },
+  {
+    "url": "https://www.kaggle.com/rounakbanik/ted-talks",
+    "rating": 7,
+    "user_score": 32
+  },
+  {
+    "url": "https://www.kaggle.com/rounakbanik/pokemon",
+    "rating": 9,
+    "user_score": 7
+  },
+  {
+    "url": "https://www.kaggle.com/CooperUnion/anime-recommendations-database",
+    "rating": 8,
+    "user_score": 5
+  },
+  {
+    "url": "https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings",
+    "rating": 5,
+    "user_score": 25
+  },
+  {
+    "url": "https://www.kaggle.com/drgilermo/nba-players-stats",
+    "rating": 6,
+    "user_score": 16
+  },
+  {
+    "url": "https://www.kaggle.com/tristan581/17k-apple-app-store-strategy-games",
+    "rating": 4,
+    "user_score": 13
+  },
+  {
+    "url": "https://www.kaggle.com/austinreese/craigslist-carstrucks-data",
+    "rating": 8,
+    "user_score": 12
+  },
+  {
+    "url": "https://www.kaggle.com/rtatman/chocolate-bar-ratings",
+    "rating": 5,
+    "user_score": 16
+  },
+  {
+    "url": "https://www.kaggle.com/cjgdev/formula-1-race-data-19502017",
+    "rating": 7,
+    "user_score": 18
+  }
+]

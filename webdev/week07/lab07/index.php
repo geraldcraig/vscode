@@ -49,15 +49,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
       </thead>
       <tbody>
           <?php
-
-            $year =  gmdate("Y");  
+ 
             for ($row=0; $row < count($grads); $row++) {
 
                     $name_s = $grads[$row] ["stname"];
                     $start_y = $grads[$row] ["start"];
                     $end_y = $grads[$row] ["end"];
                     $years_y = $end_y - $start_y;
-                    $left_y = $year - $end_y;
+                    $left_y = date("Y") - $end_y;
                     
 
                     echo "<tr>
