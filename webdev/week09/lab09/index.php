@@ -70,6 +70,11 @@
 							<label for="item details">Details:</label> 
 							<textarea name="mydetails"></textarea>
 						</div>
+
+						<div>
+							<label for="imageup">Image:</label>
+							<input class="button" type="file" name="imageup">
+						</div>
 						
 						<div>
 							<input type="submit" id="addButton" value="Add Item">	

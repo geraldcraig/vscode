@@ -48,12 +48,16 @@
 
 							//needs to be formatted to be day-month-year				
 							$duedate = date('d-m-Y', strtotime($listdate));
+
+							$iddata = $row['id'];
 							
-							echo "<li> $listdata 
+							echo "<a href='myitem.php?rowid=$iddata'>
+								  <li> $listdata 
 								  <div class='dateright'>date due: 
 								  <strong>$duedate</strong> 
 								  </div>
-								  </li>";
+								  </li>
+								  </a>";
 						}
 					}		
 				?>

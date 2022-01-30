@@ -30,9 +30,39 @@
 					$mydetails = $conn->real_escape_string($_POST['mydetails']);
 					
 					echo "<p>$myinfo</p>
-						<p>$mytaskdate</p>
-						<p>$mytype</p>
-						<p>$mydetails</p>";
+						  <p>$mytaskdate</p>
+						  <p>$mytype</p>
+						  <p>$mydetails</p>";
+
+					$pic = $_FILES["imageup"]["name"];
+					$pictemp = $_FILES["imageup"]["tmp_name"];
+
+					$move = move_uploaded_file($pictemp, "uploads/$pic");
+
+					if(!$move) {
+						echo "Error uploading the file: ".$_FILES["imageup"]["error"];
+					}
+
+					// date needs to be formatted to year-month-day for DB
+					$mydatedue = date('Y-m-d', strtotime($mytaskdate));
+
+					// create INSERT query string
+					$insertsql = "INSERT INTO mytodolist(info, datedue, type, details) 
+					VALUES ('$myinfo', '$mydatedue', '$mytype', '$mydetails')";
+
+					// perform the query
+					$result = $conn -> query($insertsql);
+
+					if (!$result) {
+
+							echo $conn -> error;
+					} else {
+
+							echo "<p>Thanks for adding the task.<?p>
+							<a href='display.php'>
+							<div class='addright'>View My List</div>
+							</a>";
+					}
 
 				?>
 
