@@ -35,6 +35,7 @@
                 <a class="dropdown-item" href="filter.php?sort=United Kingdom">UK</a>
                 <a class="dropdown-item" href="filter.php?sort=Australia">AU</a>
                 <a class="dropdown-item" href="filter.php?sort=Germany">GER</a>
+                <a class="dropdown-item" href="filter.php?sort=Spain">ESP</a>
               </div>
             </li>
 
@@ -48,7 +49,7 @@
         <?php 
 
             $read_all = readrankingsfilter($filter);
-            echo $read_all;
+            //echo $read_all;
         ?>
  
       </div>
