@@ -1,4 +1,8 @@
 <?php
+  session_start();
+
+  // session variable 'favpet', set in process.php, value is stored in a local variable called $pet.
+  $pet = $_SESSION['favpet'];
 
 ?>
 
@@ -20,7 +24,7 @@
         <h2>What's your favourite animal?</h2>
         
         <?php
-        
+          echo "<p>Its a $pet!</p>";
         ?>
         
         <p>

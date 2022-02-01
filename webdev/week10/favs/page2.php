@@ -1,4 +1,8 @@
 <?php
+      session_start();
+
+      // find and set a local variable called $myfav, its value is using the temporary session data (set in process.php).
+      $myfav = $_SESSION['favcolour'];
 
 ?>
 
@@ -20,11 +24,12 @@
         <h2>What's your favourite colour?</h2>
         
         <?php
-        
+            // display the local $myfav variable data on the webpage
+            echo "<p>Your favourite colour is $myfav.</p>";
         ?>
         
         <p>
-          <a href='page3.php'> Mext Page 3</a>
+          <a href='page3.php'> Next Page 3</a>
         </p>
         
       </div>

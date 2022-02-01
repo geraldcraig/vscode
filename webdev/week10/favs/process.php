@@ -1,4 +1,14 @@
 <?php
+      session_start();
+
+      // get favourite colour & pet from user
+      // store them in a local PHP variables
+      $mycolour = $_POST['fcolour'];
+      $mypet = $_POST['fpet'];
+
+      // create two SESSIONS with the data collected from the local variables set above
+      $_SESSION['favcolour'] = $mycolour;
+      $_SESSION['favpet'] = $mypet;
 
 ?>
 
