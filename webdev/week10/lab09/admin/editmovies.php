@@ -36,6 +36,7 @@
 					<th>Name</th>
 					<th>Year</th>
 					<th>Winner</th>
+					<th>Manage</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -47,11 +48,13 @@
 						$name = $row['movie'];
 						$yr = $row["year"];
 						$win = $row["winner"];
+						$movieid = $row["id"];
 						
 						echo "<tr>	
 								<td>$name</td>
 								<td>$yr</td>
 								<td>$win</td>
+								<td><a href='edit.php?editid=$movieid' class='button button-outline'>edit</a></td>
 							</tr>";
 						
 					}   

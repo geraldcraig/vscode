@@ -1,9 +1,13 @@
 <?php
 	include("dbconn.php");
 
-	$read = "SELECT * FROM myoscars";
+    // read data from two tables linked by foreign key (type_id)
+	$readtables = "SELECT myusers.name, myuserstypes.role 
+                   FROM myusers
+                   INNER JOIN myuserstypes
+                   ON myusers.type_id = myuserstypes.type_id";
 	
-	$result = $conn->query($read);
+	$result = $conn->query($readtables);
 	
 	if (!$result) {
 		echo $conn -> error;
@@ -15,7 +19,7 @@
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 	<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 	<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
-	<title>Oscars Lab Challenge</title>
+	<title>Multiple Table Insert Demo</title>
 </head>
 
 <body>
@@ -23,46 +27,30 @@
 
 		<div class="row">
 			<div class="column column-90">
-				<h2>Oscar Winners</h2>
-			</div>
-			<div class="column">
-				<a class="button button-outline" href="admin/editmovies.php">admin</a>
+				<h2>Contents of Tables</h2>
 			</div>
 		</div>
 
 		<table>
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>Year</th>
-					<th>Winner</th>
+					<th>User</th>
+					<th>Role</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-
 					// iterate through result set to display values
 					while ($row = $result->fetch_assoc()) {
 
-						$name = $row['movie'];
-						$yr = $row["year"];
-						$win = $row["winner"];
-
-						if ($win == '1') {
-							$win = "<img height='30px' src='media/oscar_win.png'>";
-						} else {
-							$win = "<img height='30px' src='media/oscar_none.png'>";
-						}
+						$name = $row['name'];
+						$role = $row["role"];
 
 						echo "<tr>
 								<td>$name</td>
-								<td>$yr</td>
-								<td>$win</td>
-
+								<td>$role</td>
 							</tr>";
-
 					}
-
 				?>
 			<tbody>
 		</table>
