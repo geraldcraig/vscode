@@ -8,7 +8,7 @@ Number,Year,Album
 7,1972,Exile on Main St.
 8,1979,London Calling
 9,1966,Blonde on Blonde
-10,1968,"The Beatles (""The White Album"")"
+10,1968,The Beatles ("The White Album")
 11,1976,The Sun Sessions
 12,1959,Kind of Blue
 13,1967,The Velvet Underground & Nico
@@ -19,11 +19,11 @@ Number,Year,Album
 18,1975,Born to Run
 19,1968,Astral Weeks
 20,1982,Thriller
-21,1982,The Great Twenty_Eight
+21,1982,The Great Twenty-Eight
 22,1990,The Complete Recordings
 23,1970,John Lennon/Plastic Ono Band
 24,1973,Innervisions
-25,1963,"Live at the Apollo, 1962"
+25,1963,Live at the Apollo, 1962
 26,1977,Rumours
 27,1987,The Joshua Tree
 28,1971,Who's Next
@@ -43,7 +43,7 @@ Number,Year,Album
 42,1967,The Doors
 43,1973,The Dark Side of the Moon
 44,1975,Horses
-45,1969,"The Band (""The Brown Album"")"
+45,1969,The Band ("The Brown Album")
 46,1984,Legend: The Best of Bob Marley and The Wailers
 47,1965,A Love Supreme
 48,1988,It Takes a Nation of Millions to Hold Us Back
@@ -67,7 +67,7 @@ Number,Year,Album
 66,1970,Moondance
 67,2000,Kid A
 68,1979,Off the Wall
-69,1971,[Led Zeppelin IV]
+69,1971,Led Zeppelin IV
 70,1977,The Stranger
 71,1986,Graceland
 72,1972,Superfly
@@ -91,7 +91,7 @@ Number,Year,Album
 90,1972,Talking Book
 91,1973,Goodbye Yellow Brick Road
 92,1978,20 Golden Greats
-93,1987,"Sign ""Peace"" the Times"
+93,1987,Sign o' the Times
 94,1984,40 Greatest Hits
 95,1970,Bitches Brew
 96,1969,Tommy
@@ -131,7 +131,7 @@ Number,Year,Album
 130,1977,Marquee Moon
 131,1970,Paranoid
 132,1977,Saturday Night Fever: The Original Movie Sound Track
-133,1973,"The Wild, the Innocent & the E Street Shuffle"
+133,1973,The Wild, the Innocent & the E Street Shuffle
 134,1994,Ready to Die
 135,1992,Slanted and Enchanted
 136,1974,Greatest Hits
@@ -178,7 +178,7 @@ Number,Year,Album
 177,1978,One Nation Under a Groove
 178,1992,The Anthology: 1961-1977
 179,2001,The Definitive Collection
-180,1965,"The Rolling Stones, Now!"
+180,1965,The Rolling Stones, Now!
 181,1974,Natty Dread
 182,1975,Fleetwood Mac
 183,1975,Red Headed Stranger
@@ -193,14 +193,14 @@ Number,Year,Album
 192,1969,The Gilded Palace of Sin
 193,1994,Dookie
 194,1972,Transformer
-195,1966,"Blues Breakers With Eric Clapton (""The Beano Album"")"
-196,1998,"Nuggets: Original Artyfacts From the First Psychedelic Era, 1965-1968"
+195,1966,Blues Breakers With Eric Clapton ("The Beano Album")
+196,1998,Nuggets: Original Artyfacts From the First Psychedelic Era, 1965-1968
 197,1983,Murmur
 198,1967,The Best of Little Walter
 199,2001,Is This It
 200,1979,Highway to Hell
 201,1994,The Downward Spiral
-202,1966,"Parsley, Sage, Rosemary and Thyme"
+202,1966,Parsley, Sage, Rosemary and Thyme
 203,1987,Bad
 204,2006,Modern Times
 205,1968,Wheels of Fire
@@ -253,14 +253,14 @@ Number,Year,Album
 252,2001,The Blueprint
 253,1980,The River
 254,1966,Complete & Unbelievable: The Otis Redding Dictionary of Soul
-255,1991,"Metallica (""The Black Album"")"
+255,1991,Metallica ("The Black Album")
 256,1977,Trans Europa Express
 257,1985,Whitney Houston
 258,1968,The Kinks Are The Village Green Preservation Society
 259,1997,The Velvet Rope
 260,1978,Stardust
 261,1970,American Beauty
-262,1969,"Crosby, Stills & Nash"
+262,1969,Crosby, Stills & Nash
 263,1988,Tracy Chapman
 264,1970,Workingman's Dead
 265,1959,The Genius of Ray Charles
@@ -357,7 +357,7 @@ Number,Year,Album
 356,1970,12 Songs
 357,1967,Between the Buttons
 358,1960,Sketches of Spain
-359,1972,Honky Ch‰teau
+359,1972,Honky Chï¿½teau
 360,1979,Singles Going Steady
 361,2000,Stankonia
 362,1993,Siamese Dream
@@ -369,7 +369,7 @@ Number,Year,Album
 368,1972,Eagles
 369,1987,Louder Than Bombs
 370,1973,Mott
-371,2006,"Whatever People Say I Am, That's What I'm Not"
+371,2006,Whatever People Say I Am, That's What I'm Not
 372,1979,Reggatta de Blanc
 373,1969,Volunteers
 374,1975,Siren
@@ -383,9 +383,9 @@ Number,Year,Album
 382,1976,The Modern Lovers
 383,1978,More Songs About Buildings and Food
 384,1966,A Quick One
-385,2001,"""Love and Theft"""
+385,2001,"Love and Theft"
 386,1974,Pretzel Logic
-387,1993,Enter the Wu_Tang: 36 Chambers
+387,1993,Enter the Wu-Tang: 36 Chambers
 388,1985,The Indestructible Beat of Soweto
 389,1989,The End of the Innocence
 390,2003,Elephant
@@ -418,8 +418,8 @@ Number,Year,Album
 417,1980,Boy
 418,1973,Band on the Run
 419,1994,Dummy
-420,1957,"The ""Chirping"" Crickets"
-421,1990,"The Best of the Girl Groups, Volume 1"
+420,1957,The "Chirping" Crickets
+421,1990,The Best of the Girl Groups, Volume 1
 422,1963,Presenting the Fabulous Ronettes Featuring Veronica
 423,2001,Anthology
 424,2002,The Rising
@@ -429,7 +429,7 @@ Number,Year,Album
 428,1978,Outlandos d'Amour
 429,1975,Another Green World
 430,2007,Vampire Weekend
-431,2000,"Stories From the City, Stories From the Sea"
+431,2000,Stories From the City, Stories From the Sea
 432,1973,Here Come the Warm Jets
 433,1970,All Things Must Pass
 434,1972,#1 Record
@@ -437,7 +437,7 @@ Number,Year,Album
 436,2002,Sea Change
 437,2008,Tha Carter III
 438,1979,Boys Don't Cry
-439,1985,"Live at the Harlem Square Club, 1963"
+439,1985,Live at the Harlem Square Club, 1963
 440,1985,Rum Sodomy & the Lash
 441,1977,Suicide
 442,1978,Q: Are We Not Men? A: We Are Devo!
@@ -454,7 +454,7 @@ Number,Year,Album
 453,1987,Strictly Business
 454,1971,Love It to Death
 455,1984,How Will the Wolf Survive?
-456,1978,"Here, My Dear"
+456,1978,Here, My Dear
 457,2005,Z
 458,1970,Tumbleweed Connection
 459,1968,The Drifters' Golden Hits

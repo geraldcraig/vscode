@@ -1,54 +1,54 @@
 Number,Subgenre
-1,"Rock & Roll, Psychedelic Rock"
-2,"Pop Rock, Psychedelic Rock"
-3,"Psychedelic Rock, Pop Rock"
-4,"Folk Rock, Blues Rock"
+1,Rock & Roll, Psychedelic Rock
+2,Pop Rock, Psychedelic Rock
+3,Psychedelic Rock, Pop Rock
+4,Folk Rock, Blues Rock
 5,Pop Rock
 6,Soul
-7,"Blues Rock, Rock & Roll, Classic Rock"
-8,"Punk, New Wave"
-9,"Folk Rock, Rhythm & Blues"
-10,"Rock & Roll, Pop Rock, Psychedelic Rock, Experimental"
+7,Blues Rock, Rock & Roll, Classic Rock
+8,Punk, New Wave
+9,Folk Rock, Rhythm & Blues
+10,Rock & Roll, Pop Rock, Psychedelic Rock, Experimental
 11,Rock & Roll
 12,Modal
-13,"Garage Rock, Art Rock, Experimental"
-14,"Psychedelic Rock, Classic Rock, Pop Rock"
-15,"Blues Rock, Psychedelic Rock"
-16,"Folk Rock, Acoustic, Ballad"
-17,"Alternative Rock, Grunge"
+13,Garage Rock, Art Rock, Experimental
+14,Psychedelic Rock, Classic Rock, Pop Rock
+15,Blues Rock, Psychedelic Rock
+16,Folk Rock, Acoustic, Ballad
+17,Alternative Rock, Grunge
 18,Pop Rock
-19,"Acoustic, Classic Rock, Free Improvisation"
+19,Acoustic, Classic Rock, Free Improvisation
 20,Disco
 21,Rock & Roll
 22,Delta Blues
 23,Pop Rock
 24,Soul
-25,"Rhythm & Blues, Soul"
+25,Rhythm & Blues, Soul
 26,Pop Rock
-27,"Alternative Rock, Pop Rock"
-28,"Hard Rock, Mod, Prog Rock, Psychedelic Rock"
-29,"Blues Rock, Hard Rock"
-30,"Acoustic, Ballad, Folk"
-31,"Folk Rock, Folk"
-32,"Blues Rock, Hard Rock"
-33,"Rock & Roll, Punk"
-34,"Folk Rock, Acoustic, Blues Rock"
-35,"Classic Rock, Glam"
-36,"Folk Rock, Soft Rock"
+27,Alternative Rock, Pop Rock
+28,Hard Rock, Mod, Prog Rock, Psychedelic Rock
+29,Blues Rock, Hard Rock
+30,Acoustic, Ballad, Folk
+31,Folk Rock, Folk
+32,Blues Rock, Hard Rock
+33,Rock & Roll, Punk
+34,Folk Rock, Acoustic, Blues Rock
+35,Classic Rock, Glam
+36,Folk Rock, Soft Rock
 37,Classic Rock
 38,Folk
-39,"Beat, Rock & Roll"
-40,"Folk Rock, Psychedelic Rock"
+39,Beat, Rock & Roll
+40,Folk Rock, Psychedelic Rock
 41,Punk
 42,Psychedelic Rock
 43,Prog Rock
 44,Art Rock
-45,"Soundtrack, Modern Classical, Contemporary, Score"
-46,"Reggae, Roots Reggae"
-47,"Free Jazz, Hard Bop, Modal"
+45,Soundtrack, Modern Classical, Contemporary, Score
+46,Reggae, Roots Reggae
+47,Free Jazz, Hard Bop, Modal
 48,Conscious
 49,Blues Rock
-50,"Rock & Roll, Rhythm & Blues"
+50,Rock & Roll, Rhythm & Blues
 51,"Folk Rock, Classic Rock"
 52,Soul
 53,"Beat, Rock & Roll"
@@ -120,7 +120,7 @@ Number,Subgenre
 119,"Rhythm & Blues, Soul"
 120,"Folk Rock, Country Rock"
 121,"Funk, Psychedelic, Disco"
-122,"Reggae,ÊRoots Reggae,ÊRocksteady,ÊContemporary,ÊSoundtrack"
+122,"Reggae,ï¿½Roots Reggae,ï¿½Rocksteady,ï¿½Contemporary,ï¿½Soundtrack"
 123,None
 124,"Folk Rock, Psychedelic Rock"
 125,Blues Rock
@@ -130,7 +130,7 @@ Number,Subgenre
 129,"New Wave, Art Rock, Funk"
 130,"New Wave, Punk"
 131,"Hard Rock, Heavy Metal"
-132,"Soundtrack,ÊDisco"
+132,"Soundtrack,ï¿½Disco"
 133,None
 134,Thug Rap
 135,Alternative Rock
@@ -193,8 +193,8 @@ Number,Subgenre
 192,Country Rock
 193,"Alternative Rock, Pop Punk, Punk"
 194,Glam
-195,"Blues Rock,ÊElectric Blues,ÊHarmonica Blues"
-196,"Garage Rock,ÊPsychedelic Rock"
+195,"Blues Rock,ï¿½Electric Blues,ï¿½Harmonica Blues"
+196,"Garage Rock,ï¿½Psychedelic Rock"
 197,Alternative Rock
 198,Chicago Blues
 199,Indie Rock
@@ -357,7 +357,7 @@ Number,Subgenre
 356,"Pop Rock, Vocal"
 357,"Blues Rock, Psychedelic Rock, Pop Rock"
 358,Modal
-359,"Pop Rock,ÊClassic Rock"
+359,"Pop Rock,ï¿½Classic Rock"
 360,Punk
 361,"Gangsta, P.Funk, Crunk, Conscious"
 362,Alternative Rock
@@ -445,9 +445,9 @@ Number,Subgenre
 444,Funk
 445,Pop Rock
 446,"Garage Rock, Rock & Roll"
-447,"Bossa Nova,ÊLatin Jazz"
+447,"Bossa Nova,ï¿½Latin Jazz"
 448,"New Wave, Pop Rock"
-449,"Lo-Fi,ÊIndie Rock"
+449,"Lo-Fi,ï¿½Indie Rock"
 450,"Pop Rock, Classic Rock"
 451,Soul
 452,"Country, Folk"
