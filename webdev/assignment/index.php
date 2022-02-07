@@ -1,30 +1,52 @@
+<?php
+	include("php/functions.php");
+?>
+
 <!DOCTYPE html>
 <html>
-        <head>
-                <title>Records</title>
-        </head>
-        <body>
-                <h1>Welcome to Records Website</h1>
-                                <h2>Rolling Stone Magazine's Top 500 Albums</h2>
-                <p>
-                This website is intended to display top 500 albums
-                </p>
- 
-                 <h2>Introduction</h2>
-                 <p>
-                 Collaboration with peers and your teacher will be essential to the task. 
-                 </p>
-                                 <h3>Getting started</h3>
-                                 <ol>
-                                        <li>Meet as a team</li>
-                                        <li>Discuss every team current opinion</li>
-                                        <li>Decide who will research the theme</li>
-                                       
-                                 </ol>
-                                <p>Remember to write down your thought and decisions.</p>
-                                <p>
-                                        Go to the next section to learn about <a href="login.php">Login</a>
-                                </p>
-                </body>
- 
+<head>
+    <title>Top Albums Lab Challenge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="ui/styles.css">
+</head>
+<body> 
+
+	<div id='container'> 
+
+		<a href='index.php'>
+			<div id="header">
+		
+			</div>
+		</a>
+
+		<nav>
+			<ul id='mynav'>
+				<li><a href="index.php">Homepage</a></li>
+                                <li><a href="top500.php">Top 500</a></li>
+				<li><a href="#">Favourite</a></li>
+				<li><a href="#">Owned</a></li>
+                                <li><a href="#">Login</a></li>
+                                <li><a href="#">Register</a></li>
+				<li><a href="#"></a></li>
+			</ul>
+		</nav>
+		
+		<div id="content">
+			<h1>Record Collection Website</h1>
+			<?php
+
+
+			?>
+			
+		</div>
+		
+		
+		<div id='containerb'>
+			<div id='ftext'> Top Albums | By BBB online</div>
+		</div>
+		
+	</div>
+
+</body>
 </html>

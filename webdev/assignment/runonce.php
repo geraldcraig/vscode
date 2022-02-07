@@ -2,7 +2,7 @@
 
     include("dbconn.php");
 
-    $filename = "data/sample10.csv";
+    $filename = "data/album_list.csv";
 
     if (file_exists($filename)) {
 
@@ -23,7 +23,7 @@
 
 
             // create the INSERT query
-            $sql = "INSERT IGNORE INTO artist (number, artist) VALUES ('$number', '$artist')";
+            $sql = "INSERT IGNORE INTO artist (artist) VALUES ('$artist')";
 
             // execute the query
             $result = $conn->query($sql);
