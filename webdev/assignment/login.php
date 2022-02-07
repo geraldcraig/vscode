@@ -13,7 +13,7 @@
                                <div>You're writing a persuasive presentation so you'll need your own opinions and facts to support those opinions. <div> <img src="paper.jpg" /> </div>  It's a good idea to include opposing opinions so you can address and/or debunk them.  </div>
 
                                <p>
-                                Go to the next section to learn about <a href="index.html">Home Page</a>
+                                Go to the next section to learn about <a href="index.php">Home Page</a>
                         </p>
                        
                 </body>

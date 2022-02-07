@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="column  column-90">
 				<h2>Top 500 Albums</h2>
-			</div>
+			</div> 
 			<div class="column">
 				
 			</div>
@@ -37,7 +37,7 @@
 					<th>Album</th>
 					<th>Artist</th>
                     <th>Year</th>
-                    <th>Cover</th>
+                    
 					<th>More Info</th>
 				</tr>
 			</thead>
@@ -59,7 +59,7 @@
 								<td>$album</td>
                                 <td>$artist</td>
                                 <td>$yr</td>
-                                <td>$cover</td>
+                                
 								<td><a href='edit.php?editid=$albumid' class='button button-outline'>More Info</a></td>
 							</tr>";
 						

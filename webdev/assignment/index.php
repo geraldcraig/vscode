@@ -23,7 +23,7 @@
                                  </ol>
                                 <p>Remember to write down your thought and decisions.</p>
                                 <p>
-                                        Go to the next section to learn about <a href="login.html">Login</a>
+                                        Go to the next section to learn about <a href="login.php">Login</a>
                                 </p>
                 </body>
  
