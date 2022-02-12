@@ -5,10 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Top Albums Lab Challenge</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="ui/styles.css">
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body> 
 
@@ -20,17 +23,23 @@
 			</div>
 		</a>
 
-		<nav>
-			<ul id='mynav'>
-				<li><a href="index.php">Homepage</a></li>
-                                <li><a href="top500.php">Top 500</a></li>
-				<li><a href="#">Favourite</a></li>
-				<li><a href="#">Owned</a></li>
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">Register</a></li>
-				<li><a href="#"></a></li>
+		<nav class="navbar navbar-expand-sm bg-light">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
+                <li class="nav-item"><a class="nav-link" href="top500.php">Top 500</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Favourite</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Owned</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"></a></li>
 			</ul>
 		</nav>
+
+		<div class="container-fluid">
+  <h3>Basic Navbar Example</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  <p>The navbar-expand-xl|lg|md|sm class determines when the navbar should stack vertically (on extra large, large, medium or small screens).</p>
+</div>
 		
 		<div id="content">
 			<h1>Record Collection Website</h1>
