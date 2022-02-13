@@ -13,15 +13,8 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body> 
-
-	<div id='container'> 
-
-		<a href='index.php'>
-			<div id="header">
-		
-			</div>
-		</a>
 
 		<nav class="navbar navbar-expand-sm bg-light">
 			<ul class="navbar-nav">
@@ -35,27 +28,12 @@
 			</ul>
 		</nav>
 
-		<div class="container-fluid">
+<div class="container-fluid">
   <h3>Basic Navbar Example</h3>
   <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
   <p>The navbar-expand-xl|lg|md|sm class determines when the navbar should stack vertically (on extra large, large, medium or small screens).</p>
 </div>
-		
-		<div id="content">
-			<h1>Record Collection Website</h1>
-			<?php
-
-
-			?>
-			
-		</div>
-		
-		
-		<div id='containerb'>
-			<div id='ftext'> Top Albums | By BBB online</div>
-		</div>
-		
-	</div>
+	
 
 </body>
 </html>

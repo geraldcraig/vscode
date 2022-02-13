@@ -26,38 +26,25 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-    
-<div class="container">
-  <h2>Hover Rows</h2>
-  <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>            
-  <table class="table table-hover">
-     
-            </div>
-        </a>
-    
-        <nav>
-            <ul id='mynav'>
-                    <li><a href="index.php">Homepage</a></li>
-                    <li><a href="top500.php">Top 500</a></li>
-				    <li><a href="#">Favourite</a></li>
-				    <li><a href="#">Owned</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-				    <li><a href="#"></a></li>
-			</ul>
-        </nav>
-        
-        <div class="row">
-			<div class="column  column-90">
-				<h2>Top 500 Albums</h2>
-			</div> 
-			<div class="column">
-				
-			</div>
-		</div>
 
-		<table>
+<body>
+
+		<nav class="navbar navbar-expand-sm bg-light">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
+                <li class="nav-item"><a class="nav-link" href="top500.php">Top 500</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Favourite</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Owned</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"></a></li>
+			</ul>
+		</nav>
+    
+	<div class="container">
+  		<h2>Hover Rows</h2>
+  			<p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>            
+ 		 <table class="table table-hover">
 			<thead>
 				<tr>
 					<th>Number</th>
@@ -89,7 +76,7 @@
 						
 					}   
 				?>
-			<tbody>
+			</tbody>
 		</table>
 	</div>
 </body>
