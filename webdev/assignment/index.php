@@ -40,8 +40,8 @@ if (!isset($_SESSION["editpermission123"])) {
 				<li class="nav-item"><a class="nav-link" href="#">Favourite</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Owned</a></li>
         <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"></a></li>
+        <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+        <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
 			</ul>
 		</nav>
 

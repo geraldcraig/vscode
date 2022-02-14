@@ -12,15 +12,22 @@
 
 
         <body>
-                <nav class="navbar navbar-expand-sm bg-light">
+
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                <h1>Record Collection Website</h1>
+                <p>Website for Top 500 albums.<p>
+        </div>
+
+                <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 		        <ul class="navbar-nav">
 		                <li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
                                 <li class="nav-item"><a class="nav-link" href="top500.php">Top 500</a></li>
 		                <li class="nav-item"><a class="nav-link" href="#">Favourite</a></li>
 		                <li class="nav-item"><a class="nav-link" href="#">Owned</a></li>
                                 <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
-		                <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                                <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+                                <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
 		        </ul>
 		</nav>
 
