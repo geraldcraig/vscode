@@ -71,7 +71,7 @@
 								<td>$album</td>
                                 <td>$artist</td>
                                 <td>$yr</td>
-								<td><a href='edit.php?editid=$albumid' class='button button-outline'>More Info</a></td>
+								<td><a href='album.php?id=$albumid' class='button button-outline'>More Info</a></td>
 							</tr>";
 						
 					}   

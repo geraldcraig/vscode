@@ -4,7 +4,7 @@ function displaynav() {
 
     include("connections/dbconn.php");
 
-    $navquery = "SELECT * FROM album";
+    $navquery = "SELECT * FROM artist";
 
     $result = $conn->query($navquery);
 
@@ -14,9 +14,10 @@ function displaynav() {
 
     while ($row = $result->fetch_assoc()) {
 
-        $typedata = $row['number'];
-        echo "<li><a href='top500.php?filter=$typedata'>$typedata</a></li>";
+        $typedata = $row['name'];
+        echo "<li><a href='category.php?filter=$typedata'>$typedata</a></li>";
     }
 }
+
 
 ?>

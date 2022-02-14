@@ -4,11 +4,12 @@
 
     $album = htmlentities($_GET['album_id']);
     
-    $albumquery = "SELECT album.number, album.title, artist.name, album.year, album.id
-                    FROM album
-                    INNER JOIN artist
-                    ON album.artist_id = artist.id
-                    WHERE album.id = '$album' "; 
+    $albumquery = "SELECT album.id, album.year, 
+                          album.title, artist.name
+                   FROM album
+                   INNER JOIN artist
+                   ON album.artist_id = artist.id
+                   WHERE album.id = '$album' ";
     
     $result = $conn->query($albumquery);
     
@@ -28,19 +29,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Top Albums Challenge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
 <body> 
 
 	<div id='container'> 
 
+		<a href='index.php'>
+			<div id="header">
 		
+			</div>
+		</a>
 
 		<nav>
 			<ul id='mynav'>
