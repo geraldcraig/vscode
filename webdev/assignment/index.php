@@ -37,8 +37,8 @@ if (!isset($_SESSION["editpermission123"])) {
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
         <li class="nav-item"><a class="nav-link" href="top500.php">Top 500</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Favourite</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Owned</a></li>
+				<li class="nav-item"><a class="nav-link" href="favourite.php">Favourite</a></li>
+				<li class="nav-item"><a class="nav-link" href="owned.php">Owned</a></li>
         <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
         <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
         <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
@@ -47,7 +47,7 @@ if (!isset($_SESSION["editpermission123"])) {
 
 
 <div class="container-fluid">
-  <h3>Basic Navbar Example</h3>
+  <h3>Top 10 User Rated Albums</h3>
   <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
   <p>The navbar-expand-xl|lg|md|sm class determines when the navbar should stack vertically (on extra large, large, medium or small screens).</p>
 </div>
