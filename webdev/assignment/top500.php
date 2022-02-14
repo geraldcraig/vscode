@@ -1,6 +1,8 @@
 <?php 
     include("php/functions.php"); 
     include("connections/dbconn.php"); 
+
+	$filterdata = htmlentities($_GET['filter']);
  
     $readquery = "SELECT album.number, album.title, artist.name, album.year, album.id
     FROM album
@@ -35,13 +37,15 @@
                 <li class="nav-item"><a class="nav-link" href="top500.php">Top 500</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Favourite</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Owned</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
 				<li class="nav-item"><a class="nav-link" href="#"></a></li>
 			</ul>
 		</nav>
     
 	<div class="container">
+
+
   		<h2>Hover Rows</h2>
   			<p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>            
  		 <table class="table table-hover">

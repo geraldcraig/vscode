@@ -1,10 +1,10 @@
 <?php
-    include("php/functions.php");
+    //include("php/functions.php");
     include("connections/dbconn.php");
 
     $album = htmlentities($_GET['album_id']);
     
-    $albumquery = "SELECT album.number, album.title, artist.name, album.year, album.id
+    $albumquery = "SELECT album.id, album.number, album.title, artist.name, album.year
                     FROM album
                     INNER JOIN artist
                     ON album.artist_id = artist.id
@@ -39,28 +39,16 @@
 <body> 
 
 	<div id='container'> 
-
-		
-
-		<nav>
-			<ul id='mynav'>
-				<?php
-
-					$navbar = displaynav();
-
-				?>
-			</ul>
-		</nav>
 		
 		<div id="content">
             <?php 
 			    echo "<div><h1>$titledata</h1></div>
-                      <div class='album'>
-                        <h2>Artist: $namedata</h2>
-					    <h3>Album: $titledata</h3>
-					    <p>Release Date: $yeardata</p>
-					  </div>
-                      <div><img src='img/albumart/$album.jpg'></div>";
+                <div class='album'>
+                  <h2>Artist: $namedata</h2>
+					        <h3>Album: $titledata</h3>
+					        <p>Release Date: $yeardata</p>
+					      </div>
+                <div><img src='img/albumart/$album.jpg'></div>";
 			?>	
 		</div>
 		

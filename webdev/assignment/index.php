@@ -1,5 +1,16 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["editpermission123"])) {
+  $showBtn = false;
+} else {
+  $showBtn = true;
+  $currentUser = $_SESSION['editpermission123'];
+}
+
 	include("php/functions.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -16,22 +27,30 @@
 
 <body> 
 
-		<nav class="navbar navbar-expand-sm bg-light">
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Record Collection Website</h1>
+    <p>Website for Top 500 albums.<p>
+  </div>
+
+		<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
-                <li class="nav-item"><a class="nav-link" href="top500.php">Top 500</a></li>
+        <li class="nav-item"><a class="nav-link" href="top500.php">Top 500</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Favourite</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Owned</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
 				<li class="nav-item"><a class="nav-link" href="#"></a></li>
 			</ul>
 		</nav>
+
 
 <div class="container-fluid">
   <h3>Basic Navbar Example</h3>
   <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
   <p>The navbar-expand-xl|lg|md|sm class determines when the navbar should stack vertically (on extra large, large, medium or small screens).</p>
+</div>
 </div>
 	
 
