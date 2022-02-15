@@ -1,8 +1,6 @@
 <?php 
-    include("php/functions.php"); 
+    
     include("connections/dbconn.php"); 
-
-	$filterdata = htmlentities($_GET['filter']);
  
     $readquery = "SELECT album.number, album.title, artist.name, album.year, album.id
     FROM album
@@ -81,7 +79,7 @@
                       <td>$album</td>
                       <td>$artist</td>
                       <td>$yr</td>
-                      <td><a href='album.php?id=$albumid' class='button button-outline'>More Info</a></td>
+                      <td><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></td>
                   </tr>";
               
           }   

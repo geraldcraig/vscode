@@ -1,5 +1,5 @@
 <?php 
-    include("php/functions.php"); 
+    
     include("connections/dbconn.php"); 
  
     $readquery = "SELECT album.number, album.title, artist.name, album.year, album.id

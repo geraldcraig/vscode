@@ -9,8 +9,6 @@ if (!isset($_SESSION["editpermission123"])) {
   $currentUser = $_SESSION['editpermission123'];
 }
 
-	include("php/functions.php");
-
 ?>
 
 <!DOCTYPE html>
