@@ -1,14 +1,14 @@
 <?php
-    //include("php/functions.php");
     include("connections/dbconn.php");
 
     $album = htmlentities($_GET['album_id']);
     
-    $albumquery = "SELECT album.id, album.number, album.title, artist.name, album.year
-                    FROM album
-                    INNER JOIN artist
-                    ON album.artist_id = artist.id
-                    WHERE album.id = '$album' "; 
+    $albumquery = "SELECT album.id, album.year, 
+                          album.title, artist.name
+                   FROM album
+                   INNER JOIN artist
+                   ON album.artist_id = artist.id
+                   WHERE album.id = '$album' ";
     
     $result = $conn->query($albumquery);
     
@@ -28,7 +28,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Example</title>
+  <title>Record Website</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -41,7 +41,7 @@
 	<div id='container'> 
 		
 		<div id="content">
-            <?php 
+            <?php
 			    echo "<div><h1>$titledata</h1></div>
                 <div class='album'>
                   <h2>Artist: $namedata</h2>
@@ -51,7 +51,6 @@
                 <div><img src='img/albumart/$album.jpg'></div>";
 			?>	
 		</div>
-		
 		
 		<div id='containerb'>
 			<div id='ftext'> Top Albums | By BBB online</div>
