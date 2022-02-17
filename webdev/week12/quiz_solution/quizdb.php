@@ -79,6 +79,7 @@
         */
 
         // Using prepared statement (approach 2 - result set variables have been 'bound')
+
         while ($stmt->fetch()){
     
                 echo "<div class='row'>";
@@ -89,7 +90,7 @@
                               </div>";
                 echo "</div>";
         }
-
+        
         // close the statement
         $stmt->close();
 
