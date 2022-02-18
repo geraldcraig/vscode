@@ -1,13 +1,12 @@
 <?php
 
-    $newfact = $_POST['myfact'];
+    $fact = $_POST['myfact'];
 
-    $endpoint = "http://localhost/amazingfactsapi/api.php?newfact";
+    $endpoint = "http://localhost/webdev/week12/amazingfactsapi_solution/api.php?newfact";
 
     $postdata = http_build_query(
-        array(
-            'addfact' => $newfact
-        )
+        
+        array('addfact' => $fact)
     );
 
     $opts = array(

@@ -31,7 +31,7 @@
     }
 
 
-    if (($_SERVER['REQUEST_METHOD']==='POST') && isset($_GET['newfact'])) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newfact']))) {
 
         include('dbconn.php');
 
@@ -45,7 +45,11 @@
             
             echo $conn->error;
         
-        } 
+        } else {
+
+            echo "POST request performed";
+            
+        }
     }
 
 ?>

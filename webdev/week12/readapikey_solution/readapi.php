@@ -37,6 +37,7 @@
             $imagedesc = $array['explanation'];
             $imgurl = $array['url'];
 
+            // display the data
             echo "<h3>$imagename</h3>
                   <img src='{$imgurl}' height='200px' width='200px'> 
                   <p>$imagedesc</p>";
