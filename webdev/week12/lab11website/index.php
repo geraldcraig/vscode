@@ -1,4 +1,13 @@
-﻿
+﻿<?php
+
+	$endpoint = "http://localhost/webdev/week12/lab11api/api.php";
+
+	$resourse = file_get_contents($endpoint);
+
+	$data = json_decode($resourse, true);
+
+?>
+
 <!DOCTYPE html>
 <html>
 
