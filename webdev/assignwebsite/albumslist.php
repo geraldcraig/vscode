@@ -57,14 +57,18 @@
                 <?php
                     foreach ($data as $row) { 
                     
-                        $name_data = $row['number'];
+                        $number_data = $row['number'];
+                        $album_data = $row['title'];
+                        $artist_data = $row['name'];
                         $year_data = $row['year'];
-                        $class_data = $row['title'];
+                        $albumid = $row['id'];
                     
 						echo "<tr>
-								<td>$name_data</td>
+								<td>$number_data</td>
+                                <td>$album_data</td>
+                                <td>$artist_data</td>
                                 <td>$year_data</td>
-								<td>$class_data</td>
+								<td><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></td>
 							</tr>";
                     }
                 ?>

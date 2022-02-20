@@ -6,7 +6,12 @@
 
         include ("dbconn.php");
     
-        $read = "SELECT * FROM album";
+        $read = "SELECT album.id, album.year, 
+                album.title, artist.name, album.number
+                FROM album
+                INNER JOIN artist
+                ON album.artist_id = artist.id
+                ORDER BY album.number";
         
         $result = $conn->query($read);
         
