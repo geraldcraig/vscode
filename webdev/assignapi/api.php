@@ -35,6 +35,41 @@
 
     }
 
+     // API GET - with ?item query parameter
+     if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['item']))) {
+
+        include ("dbconn.php");
+
+        $itemid = $conn->real_escape_string($_GET['item']);
+
+        $read = "SELECT album.id, album.year, 
+                album.title, artist.name, album.number
+                FROM album
+                INNER JOIN artist
+                ON album.artist_id = artist.id 
+                WHERE id='$itemid' ";
+
+        $result = $conn->query($read);
+
+        if (!$result) {
+            echo $conn -> error;
+        }
+
+        // build a response array
+        $api_response = array();
+
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+
+        // echo out the response
+        echo $response;
+    }
+
 
     if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newfact']))) {
 
