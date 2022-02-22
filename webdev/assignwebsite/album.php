@@ -42,29 +42,15 @@
 
 	<div id='container'> 
 
-  <h2>Hover Rows</h2>
-  			<p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>            
- 		 <table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Number</th>
-					<th>Album</th>
-          <th>Year</th>
-					<th>More Info</th>
-				</tr>
-			</thead>
-		
 		<div id="content">
     <?php
-                    foreach ($data as $row) { 
+                  
                     
-						        echo "<tr>
-								              <td>{$row['number']}</td>
-                                <td>$album_data</td>
-                                <td>$year_data</td>
-								              <td><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></td>
-							              </tr>";
-                    }
+						        echo "<div><h1>{$row['number']}</h1</div>
+                                <h2>$album_data</h2>
+                                <h3>$year_data</h3>
+								              <h3><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></h3>";
+                    
                 ?>
 		</div>
 		
