@@ -49,7 +49,7 @@
 					<th>Number</th>
 					<th>Album</th>
 					<th>Artist</th>
-                    <th>Year</th>
+          <th>Year</th>
 					<th>More Info</th>
 				</tr>
 			</thead>
@@ -63,13 +63,13 @@
                         $year_data = $row['year'];
                         $albumid = $row['id'];
                     
-						echo "<tr>
-								<td>$number_data</td>
+						        echo "<tr>
+								              <td>$number_data</td>
                                 <td>$album_data</td>
                                 <td>$artist_data</td>
                                 <td>$year_data</td>
-								<td><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></td>
-							</tr>";
+								              <td><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></td>
+							              </tr>";
                     }
                 ?>
 			<tbody>

@@ -42,12 +42,7 @@
 
         $itemid = $conn->real_escape_string($_GET['item']);
 
-        $read = "SELECT album.id, album.year, 
-                album.title, artist.name, album.number
-                FROM album
-                INNER JOIN artist
-                ON album.artist_id = artist.id 
-                WHERE id='$itemid' ";
+        $read = "SELECT * FROM album WHERE id='$itemid' ";
 
         $result = $conn->query($read);
 
@@ -71,13 +66,15 @@
     }
 
 
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newfact']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && isset($_GET['newitem'])) {
+
+        echo "API POST request called";
 
         include('dbconn.php');
 
         $myfactdata = $conn->real_escape_string($_POST['addfact']);
     
-        $insertquery="INSERT INTO myfacts (id, fact) VALUES (null, '$myfactdata')";
+        $insertquery="INSERT INTO album (id, title) VALUES (null, '$myfactdata')";
            
         $result = $conn->query($insertquery);
         

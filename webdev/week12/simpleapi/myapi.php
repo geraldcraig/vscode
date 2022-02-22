@@ -10,7 +10,7 @@
         $client1 = array('name'=>'John','car'=>'YUI 3456','startdate'=>'19-11-2020','days'=>'3');
         $client2 = array('name'=>'Paul','car'=>'BYG 9476','startdate'=>'20-11-2020','days'=>'2');
         $client3 = array('name'=>'Ringo','car'=>'DRU 1975','startdate'=>'12-11-2020','days'=>'7');
-        $client4 = array('name'=>'Geogre','car'=>'GUI 6486','startdate'=>'01-11-2020','days'=>'8');
+        $client4 = array('name'=>'George','car'=>'GUI 6486','startdate'=>'01-11-2020','days'=>'8');
    
         array_push($api_response, $client1);
         array_push($api_response, $client2);
@@ -22,14 +22,17 @@
  
         // echo out the response
         echo $response;
+
+        // api for GET
+
    
     }
 
     // api for GET at /read
     if (isset($_GET["read"])) {
 
-    // return the response to the client
-    get_read_response();
+        // return the response to the client
+        get_read_response();
     }
  
 ?>

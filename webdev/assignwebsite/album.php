@@ -1,6 +1,8 @@
 <?php
 
-    $endpoint = "http://localhost/webdev/assignapi/api.php?item=$itemid";
+    //$itemid = $_GET['item'];
+
+    $endpoint = "http://localhost/webdev/assignapi/api.php?id";
 
     $resource = file_get_contents($endpoint);
 
@@ -39,17 +41,31 @@
 		</nav>
 
 	<div id='container'> 
+
+  <h2>Hover Rows</h2>
+  			<p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>            
+ 		 <table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Number</th>
+					<th>Album</th>
+          <th>Year</th>
+					<th>More Info</th>
+				</tr>
+			</thead>
 		
 		<div id="content">
-            <?php
-			    echo "<div><h1>$titledata</h1></div>
-                <div class='album'>
-                  <h2>Artist: $namedata</h2>
-					        <h3>Album: $titledata</h3>
-					        <p>Release Date: $yeardata</p>
-					      </div>
-                <div><img src='img/albumart/$album.jpg'></div>";
-			?>	
+    <?php
+                    foreach ($data as $row) { 
+                    
+						        echo "<tr>
+								              <td>{$row['number']}</td>
+                                <td>$album_data</td>
+                                <td>$year_data</td>
+								              <td><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></td>
+							              </tr>";
+                    }
+                ?>
 		</div>
 		
 		<div id='containerb'>
