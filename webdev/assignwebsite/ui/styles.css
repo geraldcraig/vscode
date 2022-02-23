@@ -1,0 +1,14 @@
+.box {
+    min-width:180px;
+    min-height:200px;
+    background-image: url('../img/album_bk.png');
+	 background-size: 100%;
+	 background-color: #eee;
+	background-repeat:no-repeat;
+    margin:10px;
+	float:left;
+	text-align: left;
+	max-width:150px;
+	overflow:hidden;
+	padding:5px;
+}
