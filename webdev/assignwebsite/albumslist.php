@@ -68,7 +68,7 @@
                                 <td>$album_data</td>
                                 <td>$artist_data</td>
                                 <td>$year_data</td>
-								              <td><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></td>
+								              <td><a href='https://i.discogs.com/glqJ1j_2BUON9ZSZLcEneh9dUhSqUItK9_3vfg6JbSg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWltYWdlcy9SLTQ3/MDkxMi0xNjA3NzYx/MTgyLTU4MjQuanBl/Zw.jpeg' class='button button-outline'>More Info</a></td>
 							              </tr>";
                     }
                 ?>
