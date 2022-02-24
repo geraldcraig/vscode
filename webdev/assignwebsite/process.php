@@ -1,11 +1,22 @@
 <?php
 
-echo "<p>This is the process page.</p>";
+    include('dbconn.php');
 
-$pet_name = $_POST["mypetname"];
+    $name = $conn -> real_escape_string($_POST["username"]);
 
-$pet_type = $_POST["pettype"];
+    $lastname = "craig";
 
-echo "<p>My {$pet_type} is called {$pet_name}.</p>";
+    $insertquery = "INSERT INTO user (first_name, last_name) VALUES ('$name', '$lastname')";
+
+    $result = $conn -> query($insertquery);
+
+    if(!$result) {
+
+        echo $conn -> error;
+
+    } else {
+
+        echo "<p>$name has been added to your database.</p>";
+    }
 
 ?>

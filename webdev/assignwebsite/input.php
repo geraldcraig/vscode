@@ -1,3 +1,12 @@
+<?php
+
+    $endpoint = "http://localhost/webdev/assignapi/api.php";
+
+    $resource = file_get_contents($endpoint);
+
+    $data = json_decode($resource,true);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,21 +23,16 @@
 <body>
 
 <div class="container">
-    <h1>My Pet</h1>
+    <h1>User input</h1>
 
     <form method="POST" action="process.php">
-        <p>What is the name of your pet?</p>
-        <input type="text" class="form" name="mypetname">
-
-        <p>Type of animal?</p>
-        <select class="form" name="pettype">
-            <option value="Dog">dog</option>
-            <option value="Cat">kitty</option>
-            <option value="Rabbit">bunny</option>
-        </select>
-
-        <br>
-        <input type="submit" value="send info" class="form full">
+        <p>
+            Name: <input type="text" name="username" required/>
+        </p>
+        
+        <p>
+            <input type="submit" value="send info"/>
+        </p>
     </form>
 </div>
 
