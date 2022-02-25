@@ -1,28 +1,5 @@
-<?php
-
-  session_start();
-
-  if (!isset($_SESSION["editpermission123"])) {
-    $showBtn = false;
-  } else {
-    $showBtn = true;
-    $currentUser = $_SESSION['editpermission123'];
-  }
-
-  include("dbconn.php");
-  
-  $query = "SELECT * FROM user";
-  
-  $result = $conn->query($query);
-
-  if (!$result) {
-    echo $conn->error;
-  } 
-
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -34,8 +11,7 @@
   <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
 
-<body> 
-
+<body>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1>Record Collection Website</h1>
@@ -51,32 +27,22 @@
 			</ul>
 		</nav>
 
-<div class="container">
-  <h2>Top 10 User Rated Albums</h2>
-  <div class="card">
-    <div class="card-body">
-
-
-  <?php
-      foreach($data as $row) {
-
-        $album = $row['title'];
-        $year = $row['year'];
-
-        echo "<a href='album.php?album_id=$albumid'>
-                <div class='box'>
-                    <h3>$album</h3>
-                    <h4>$year</h4>
+    <div class="begincontent fg-white bg-black p-6 mx-auto border bd-default win-shadow">
+        <?php
+            echo "<div><h2>Login</h2></div>
+                <form method='POST' action='processlogin.php'>
+                <div class='form-group'>
+                <label>Username</label>
+                <input name='uname' type='text' class='metro-input' required='required' placeholder='Enter your first name'>
                 </div>
-              </a>";
-      }
-
-  ?>
-  </div>
-
-
-</div>
-	
+                <div class='form-group'>
+                <label>Password</label>
+                <input name='pword' type='password' class='metro-input' required='required' placeholder='Enter your password'>
+                </div>
+                <input class='button yellow outline pl-10 pr-10 mt-10 place-right' type='submit' value='login'>
+                </form>";     
+        ?>
+    </div>
 
 </body>
 </html>
