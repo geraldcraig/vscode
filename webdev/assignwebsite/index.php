@@ -42,6 +42,8 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
         <li class="nav-item"><a class="nav-link" href="albumslist.php">Top 500</a></li>
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-success" type="submit">Search</button>
         <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
         <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
 			</ul>
