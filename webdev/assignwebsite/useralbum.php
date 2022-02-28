@@ -1,6 +1,8 @@
 <?php
 
-    $endpoint = "http://localhost/webdev/assignapi/api.php";
+    //$itemid = $_GET['item'];
+
+    $endpoint = "http://localhost/webdev/assignapi/api.php?id";
 
     $resource = file_get_contents($endpoint);
 
@@ -10,16 +12,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Example</title>
+  <title>Record Website</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
-
 <body> 
 
 <div class="jumbotron jumbotron-fluid">
@@ -28,43 +28,36 @@
     <p>Website for Top 500 albums.<p>
   </div>
 
-  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+		<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="userindex.php">Homepage</a></li>
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-success" type="submit">Search</button>
-        <li class="nav-item"><a class="nav-link" href="useralbumslist.php">Top 500</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+        <li class="nav-item"><a class="nav-link" href="usertop500.php">Top 500</a></li>
         <li class="nav-item"><a class="nav-link" href="account.php">Account</a></li>
         <li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>
 			</ul>
 		</nav>
 
-<div class="container">
-  <h2>Top 10 User Rated Albums</h2>
-  <div class="card">
-    <div class="card-body">
+	<div id='container'> 
 
-
-  <?php
-      foreach($data as $row) {
-
-        $album = $row['title'];
-        $year = $row['year'];
-
-        echo "<a href='album.php?album_id=$albumid'>
-                <div class='box'>
-                    <h3>$album</h3>
-                    <h4>$year</h4>
-                </div>
-              </a>";
-      }
-
-  ?>
+		<div id="content">
+    <?php
+                  
+                    
+						        echo "<div><h1>{$row['number']}</h1</div>
+                                <h2>$album_data</h2>
+                                <h3>$year_data</h3>
+								              <h3><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></h3>";
+                    
+                ?>
+		</div>
+		
+		<div id='containerb'>
+			<div id='ftext'> Top Albums | By BBB online</div>
+		</div>
+		
+	</div>
   </div>
-
-
-</div>
-	
 
 </body>
 </html>

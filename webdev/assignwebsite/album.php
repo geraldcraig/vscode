@@ -1,12 +1,14 @@
 <?php
 
-    //$itemid = $_GET['item'];
+    $itemid = $_GET['rowid'];
 
-    $endpoint = "http://localhost/webdev/assignapi/api.php?id";
+    $endpoint = "http://localhost/webdev/assignapi/api.php?item=$itemid";
 
     $resource = file_get_contents($endpoint);
 
-    $data = json_decode($resource,true);
+    $data = json_decode($resource, true);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -31,35 +33,64 @@
 		<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
         <li class="nav-item"><a class="nav-link" href="top500.php">Top 500</a></li>
-				<li class="nav-item"><a class="nav-link" href="favourite.php">Favourite</a></li>
-				<li class="nav-item"><a class="nav-link" href="owned.php">Owned</a></li>
-        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>
         <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
 			</ul>
 		</nav>
 
-	<div id='container'> 
-
-		<div id="content">
-    <?php
-                  
-                    
-						        echo "<div><h1>{$row['number']}</h1</div>
-                                <h2>$album_data</h2>
-                                <h3>$year_data</h3>
-								              <h3><a href='album.php?album_id=$albumid' class='button button-outline'>More Info</a></h3>";
-                    
-                ?>
-		</div>
+    <div id="container">
 		
-		<div id='containerb'>
-			<div id='ftext'> Top Albums | By BBB online</div>
+		<div id="top">	
+			<a href='display.php'>
+				<div class='addright'>Back to my list</div>
+			</a>
+			
+			<div id="title">My ToDo List</div>	
+		</div>
+			
+		<div id="main">	
+			<article>
+				<?php	
+				
+					foreach ($data as $row) {
+							
+						//get data from column 'info'
+						$listdata = $row['info'];
+							
+						$datedue = $row['datedue'];
+							
+						//needs to be converted to be day-month-year
+						$datedue = date('d-m-Y', strtotime($datedue));
+							
+						$typedata = $row["type"];
+						$detailsdata = $row["details"];
+
+						$imgname = $row["imgpath"];
+							
+							
+						echo " <h2>$listdata</h2> 
+								<div class='dateright'>date due: 
+								<strong>$datedue</strong>";
+								if ($imgname != 'Placeholder.png') {
+									echo "<p><img src='uploads/$imgname'/></p>";
+								}
+										
+								echo "</div>
+								<p>Type: $typedata </p>
+								<p>Details: $detailsdata </p>";
+					}		
+				?>
+				
+				<div style="clear:both;"></div>             
+			</article> 
 		</div>
 		
 	</div>
-  </div>
+
+
+</div>
 
 </body>
 </html>

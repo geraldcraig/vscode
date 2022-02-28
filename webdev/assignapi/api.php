@@ -2,7 +2,7 @@
 
     header("Content-Type: application/json");
 
-    if ($_SERVER['REQUEST_METHOD']==='GET') {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['item']))) {
 
         include ("dbconn.php");
     
@@ -77,6 +77,33 @@
         $insertquery="INSERT INTO album (id, title) VALUES (null, '$myfactdata')";
            
         $result = $conn->query($insertquery);
+        
+        if(!$result) {
+            
+            echo $conn->error;
+        
+        } else {
+
+            echo "POST request performed";
+            
+        }
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='POST') && isset($_GET['newuser'])) {
+
+        echo "API POST request called ";
+
+        include('dbconn.php');
+
+        $firstname = $conn->real_escape_string($_POST['addfirstname']);
+        $lastname = $conn->real_escape_string($_POST['addlastname']);
+        $password = $conn->real_escape_string($_POST['addpassword']);
+    
+        // create INSERT query string
+        $insertsql = "INSERT INTO user(first_name, last_name, password) 
+                      VALUES('$firstname', '$lastname','$password')";	
+               
+        $result = $conn->query($insertsql);
         
         if(!$result) {
             

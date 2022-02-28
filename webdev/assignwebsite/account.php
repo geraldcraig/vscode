@@ -22,11 +22,11 @@
 		<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 			<ul class="navbar-nav">
 			    <li class="nav-item"><a class="nav-link" href="userindex.php">Homepage</a></li>
-                <li class="nav-item"><a class="nav-link" href="albumslist.php">Top 500</a></li>
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-success" type="submit">Search</button>
+                <li class="nav-item"><a class="nav-link" href="useralbumslist.php">Top 500</a></li>
                 <li class="nav-item"><a class="nav-link" href="account.php">Account</a></li>
-                <li class="nav-item"><a class="nav-link" href="logout.php">Log out</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>
 			</ul>
 		</nav>
 

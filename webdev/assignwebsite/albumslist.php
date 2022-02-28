@@ -30,51 +30,47 @@
 		<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
         <li class="nav-item"><a class="nav-link" href="albumslist.php">Top 500</a></li>
-				<li class="nav-item"><a class="nav-link" href="favourite.php">Favourite</a></li>
-				<li class="nav-item"><a class="nav-link" href="owned.php">Owned</a></li>
-        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>
         <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
 			</ul>
 		</nav>
 
-    <div class="container">
-    
-    <h2>Hover Rows</h2>
-  			<p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>            
- 		 <table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Number</th>
-					<th>Album</th>
-					<th>Artist</th>
-          <th>Year</th>
-					<th>More Info</th>
-				</tr>
-			</thead>
-			<tbody>
-                <?php
-                    foreach ($data as $row) { 
-                    
-                        $number_data = $row['number'];
-                        $album_data = $row['title'];
-                        $artist_data = $row['name'];
-                        $year_data = $row['year'];
-                        $albumid = $row['id'];
-                    
-						        echo "<tr>
-								              <td>$number_data</td>
-                                <td>$album_data</td>
-                                <td>$artist_data</td>
-                                <td>$year_data</td>
-								              <td><a href='https://i.discogs.com/glqJ1j_2BUON9ZSZLcEneh9dUhSqUItK9_3vfg6JbSg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWltYWdlcy9SLTQ3/MDkxMi0xNjA3NzYx/MTgyLTU4MjQuanBl/Zw.jpeg' class='button button-outline'>More Info</a></td>
-							              </tr>";
-                    }
-                ?>
-			<tbody>
-		</table>
-        
-    </div>
+    <div id="main">		
+			<article>	
+				<ul id='myListText'>
+				
+				<?php
+					
+					// iterate through result set 
+					foreach ($data as $row) {
+							
+						// get data from column 'info'
+						$listdata = $row['info'];
+								
+						//get data from column 'duedate'  
+						$listdate = $row['datedue'];
+
+						//needs to be formatted to be day-month-year				
+						$duedate = date('d-m-Y', strtotime($listdate));
+
+						$iddata = $row['id'];
+							
+						echo "<a href='myitem.php?rowid=$iddata'> 
+								<li> $listdata 
+								<div class='dateright'>date due: 
+								<strong>$duedate</strong> 
+								</div>
+								</li>
+								</a>";
+					}		
+				?>
+					
+				</ul>
+			</article> 
+		</div>
+			
+</div>
 </body>
 </html>

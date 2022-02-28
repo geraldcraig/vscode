@@ -1,6 +1,36 @@
 <?php
-    include("dbconn.php");
 
+	$firstname = $_POST['firstname'];
+	$lastname = $_POST['lastname'];
+	$password = $_POST['password'];
+
+
+	$endpoint = "http://localhost/webdev/assignapi/api.php?newuser";
+
+	$postdata = http_build_query(
+
+		array(
+			'addfirstname' => $firstname,
+			'addlastname' => $lastname,
+			'addpassword' => $password
+		)
+
+	);
+
+	$opts = array(
+
+		'http' => array(
+			'method' => 'POST',
+			'header' => 'Content-Type: application/x-www-form-urlencoded',
+			'content' => $postdata
+		)
+
+	);
+
+	$context = stream_context_create($opts);
+	$resource = file_get_contents($endpoint, false, $context);
+
+	echo $resource;
 ?>
  
 <!DOCTYPE html>
@@ -25,43 +55,32 @@
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
-        <li class="nav-item"><a class="nav-link" href="albumslist.php">Top 500</a></li>
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-success" type="submit">Search</button>
-        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="albumslist.php">Top 500</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>
+       
 			</ul>
 		</nav>
 		
 		<div id="main">
-	
+      <article>
+         
+        <?php
+              if($resource != FALSE) {
+
+                echo "<p>$firstname</p>
+                      <p>$lastname</p>";
+              } else {
+                echo "Unable to add user";
+              }
+        ?>
+
+      </article>
 				
-				<?php
-					$myfirstname = $conn->real_escape_string($_POST['myfirstname']);
-					$mylastname = $conn->real_escape_string($_POST['mylastname']);
-					$mypassword = $conn->real_escape_string($_POST['mypassword']);
+			
 
-
-					 // create INSERT query string
-					 $insertsql = "INSERT INTO user(first_name, last_name, password) 
-					 VALUES('$myfirstname', '$mylastname','$mypassword')";	
-		 
-					 // perform the query
-					 $result = $conn->query($insertsql);
- 
-										  
-					 if (!$result) {
-						 
-						 echo $conn->error;
-						 
-					 } else {
-
-                        echo "<p>Success: thank you {$myfirstname} {$mylastname} for registering</p>";
-                     }
-
-				?>
-
-			</article> 
+		
 		</div>
 	</div>
 </body>
