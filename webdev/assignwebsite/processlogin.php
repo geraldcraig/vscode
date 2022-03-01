@@ -7,7 +7,7 @@
     $uname = $_POST["uname"];
     $upass = $_POST["pword"];
 
-    $checkuser = "SELECT * FROM user WHERE first_name ='$uname' AND password = '$upass' ";
+    $checkuser = "SELECT * FROM user WHERE first_name ='$uname' AND password = MD5('$upass') ";
 
     $result = $conn->query($checkuser);
     

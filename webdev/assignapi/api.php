@@ -101,7 +101,7 @@
     
         // create INSERT query string
         $insertsql = "INSERT INTO user(first_name, last_name, password) 
-                      VALUES('$firstname', '$lastname','$password')";	
+                      VALUES('$firstname', '$lastname', MD5('$password'))";	
                
         $result = $conn->query($insertsql);
         
