@@ -30,7 +30,7 @@
                 <form method='POST' action='processlogin.php'>
                 <div class='form-group'>
                 <label>Username</label>
-                <input name='uname' type='text' class='metro-input' required='required' placeholder='Enter your first name'>
+                <input name='uname' type='text' class='metro-input' required='required' placeholder='Enter your username'>
                 </div>
                 <div class='form-group'>
                 <label>Password</label>

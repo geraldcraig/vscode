@@ -36,11 +36,11 @@
     }
 
      // API GET - with ?item query parameter
-     if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['item']))) {
+     if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album']))) {
 
         include ("dbconn.php");
 
-        $itemid = $conn->real_escape_string($_GET['item']);
+        $itemid = $conn->real_escape_string($_GET['album']);
 
         $read = "SELECT * FROM album WHERE id='$itemid' ";
 
@@ -95,13 +95,12 @@
 
         include('dbconn.php');
 
-        $firstname = $conn->real_escape_string($_POST['addfirstname']);
-        $lastname = $conn->real_escape_string($_POST['addlastname']);
+        $username = $conn->real_escape_string($_POST['addusername']);
         $password = $conn->real_escape_string($_POST['addpassword']);
     
         // create INSERT query string
-        $insertsql = "INSERT INTO user(first_name, last_name, password) 
-                      VALUES('$firstname', '$lastname', MD5('$password'))";	
+        $insertsql = "INSERT INTO user (username, password) 
+                      VALUES('$username', SHA1('$password'))";	
                
         $result = $conn->query($insertsql);
         

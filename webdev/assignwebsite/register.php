@@ -27,14 +27,9 @@
   <h2>Register form</h2>
 	<form name="mylist" method="POST" action="processregister.php" enctype="multipart/form-data">
     <div class="form-group">
-			<label for="first name">First Name:</label> 
-			<input type="text" id="myItemInput" name="firstname"/>
+			<label for="username">First Name:</label> 
+			<input type="text" id="myItemInput" name="username"/>
     </div>
-						
-		<div class="form-group">
-			<label for="last name">Last Name:</label> 
-			<input type="text" id="myItemInput" name="lastname"/>
-		</div>
 
 		<div class="form-group">
 			<label for="password">Password:</label> 

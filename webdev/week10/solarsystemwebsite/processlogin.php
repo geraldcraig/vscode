@@ -1,13 +1,17 @@
 <?php
 
-    session_start();
+    $endpoint = "http://localhost/webdev/week10/solarsystemapi/api.php?user";
 
-    include("dbconn.php");
+    $resource = file_get_contents($endpoint);
+
+    $data = json_decode($resource, true);
+
+    session_start();
 
     $uname = $_POST["uname"];
     $upass = $_POST["pword"];
 
-    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND password = SHA1('$upass') ";
+    $checkuser = "SELECT * FROM mysolarusers WHERE username ='$uname' AND userpass = MD5('$upass') ";
 
     $result = $conn->query($checkuser);
     

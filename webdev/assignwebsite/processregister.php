@@ -1,7 +1,6 @@
 <?php
 
-	$firstname = $_POST['firstname'];
-	$lastname = $_POST['lastname'];
+	$username = $_POST['username'];
 	$password = $_POST['password'];
 
 
@@ -10,8 +9,7 @@
 	$postdata = http_build_query(
 
 		array(
-			'addfirstname' => $firstname,
-			'addlastname' => $lastname,
+			'addusername' => $username,
 			'addpassword' => $password
 		)
 
@@ -69,8 +67,7 @@
         <?php
               if($resource != FALSE) {
 
-                echo "<p>$firstname</p>
-                      <p>$lastname</p>";
+                echo "<p>$username</p>";
               } else {
                 echo "Unable to add user";
               }

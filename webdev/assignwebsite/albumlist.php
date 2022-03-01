@@ -31,7 +31,7 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="index.php">Homepage</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
-        <li class="nav-item"><a class="nav-link" href="albumslist.php">Top 500</a></li>
+        <li class="nav-item"><a class="nav-link" href="albumlist.php">Top 500</a></li>
         <li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>
         <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
 			</ul>
