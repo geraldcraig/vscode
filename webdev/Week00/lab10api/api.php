@@ -4,19 +4,83 @@
 
     if ($_SERVER['REQUEST_METHOD']==='GET') {
 
-        include ("dbconn.php");
+        include("dbconn.php");
+
+	    $readquery = "SELECT mytopalbums.id, mytopalbums.year, 
+	                mytopalbums.title, mytopartists.name
+	                FROM mytopalbums
+				    INNER JOIN mytopartists
+				    ON mytopalbums.artist_id = mytopartists.id";
+
+	    $result = $conn->query($readquery);
+
+	    if (!$result) {
+		echo $conn->error;
+	    }
     
-        $read = "SELECT album.id, album.year, 
-                album.title, artist.name
-                FROM album
-                INNER JOIN artist
-                ON album.artist_id = artist.id";
+        // build a response array
+        $api_response = array();
         
-        $result = $conn->query($read);
-        
-        if (!$result) {
-            echo $conn -> error;
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
         }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['category']))) {
+
+        include("dbconn.php");
+
+	    $readquery = "SELECT mytopalbums.id, mytopalbums.year, 
+	                mytopalbums.title, mytopartists.name
+	                FROM mytopalbums
+				    INNER JOIN mytopartists
+				    ON mytopalbums.artist_id = mytopartists.id";
+
+	    $result = $conn->query($readquery);
+
+	    if (!$result) {
+		echo $conn->error;
+	    }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album']))) {
+
+        include("dbconn.php");
+
+	    $readquery = "SELECT mytopalbums.id, mytopalbums.year, 
+	                mytopalbums.title, mytopartists.name
+	                FROM mytopalbums
+				    INNER JOIN mytopartists
+				    ON mytopalbums.artist_id = mytopartists.id";
+
+	    $result = $conn->query($readquery);
+
+	    if (!$result) {
+		echo $conn->error;
+	    }
     
         // build a response array
         $api_response = array();

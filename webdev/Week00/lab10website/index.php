@@ -1,11 +1,11 @@
 <?php
 	include("php/functions.php");
-	
-	$endpoint = "http://localhost/webdev/week11/lab10api/api.php";
 
-	$resourse = file_get_contents($endpoint);
+	$endpoint = "http://localhost/webdev/week00/lab10api/api.php";
 
-	$data = json_decode($resourse, true);
+	$resource = file_get_contents($endpoint);
+
+	$data = json_decode($resource, true);
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +35,11 @@
 				?>
 			</ul>
 		</nav>
-
+		
 		<div id="content">
 			<h1>My Top Albums</h1>
 			<?php
-				foreach($data as $row) {
+				foreach ($data as $row) {
 
 					$titledata = $row['title'];
 					$yeardata = $row['year'];
