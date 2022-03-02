@@ -1,28 +1,12 @@
 <?php
+
     include("php/functions.php");
-    include("connections/dbconn.php");
 
-    $album = htmlentities($_GET['album_id']);
-    
-    $albumquery = "SELECT mytopalbums.id, mytopalbums.year, 
-                          mytopalbums.title, mytopartists.name
-                   FROM mytopalbums
-                   INNER JOIN mytopartists
-                   ON mytopalbums.artist_id = mytopartists.id
-                   WHERE mytopalbums.id = '$album' ";
-    
-    $result = $conn->query($albumquery);
-    
-    if (!$result) {
-        echo $conn->error;
-    }
-    
-    while ($row = $result->fetch_assoc()) {
+    $endpoint = "http://localhost/webdev/week00/lab10api/api.php";
 
-        $namedata = $row['name'];
-        $titledata = $row['title'];
-        $yeardata = $row['year'];
-    }
+    $resource = file_get_contents($endpoint);
+
+    $data = json_decode($resource, true);
     
 ?>
 

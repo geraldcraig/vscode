@@ -70,17 +70,20 @@
 
         include("dbconn.php");
 
-	    $readquery = "SELECT mytopalbums.id, mytopalbums.year, 
-	                mytopalbums.title, mytopartists.name
-	                FROM mytopalbums
-				    INNER JOIN mytopartists
-				    ON mytopalbums.artist_id = mytopartists.id";
-
-	    $result = $conn->query($readquery);
-
-	    if (!$result) {
-		echo $conn->error;
-	    }
+	    $album = htmlentities($_GET['album_id']);
+    
+        $albumquery = "SELECT mytopalbums.id, mytopalbums.year, 
+                          mytopalbums.title, mytopartists.name
+                   FROM mytopalbums
+                   INNER JOIN mytopartists
+                   ON mytopalbums.artist_id = mytopartists.id
+                   WHERE mytopalbums.id = '$album' ";
+    
+        $result = $conn->query($albumquery);
+    
+        if (!$result) {
+            echo $conn->error;
+        }
     
         // build a response array
         $api_response = array();
