@@ -1,0 +1,14 @@
+
+
+    .beginmenu {
+        width: 50%;
+        height: auto;
+        top: 50%;
+        margin-top: -160px;
+    }
+
+    .begincontent {
+        width: 50%;
+        height: auto;
+        top: 10%;
+    }

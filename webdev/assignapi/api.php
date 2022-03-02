@@ -36,11 +36,11 @@
     }
 
      // API GET - with ?item query parameter
-     if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album']))) {
+     if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['item']))) {
 
         include ("dbconn.php");
 
-        $itemid = $conn->real_escape_string($_GET['album']);
+        $itemid = $conn->real_escape_string($_GET['item']);
 
         $read = "SELECT * FROM album WHERE id='$itemid' ";
 

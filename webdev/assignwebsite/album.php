@@ -1,8 +1,8 @@
 <?php
 
-    $itemid = $_GET['rowid'];
+    $itemid = $_GET['id'];
 
-    $endpoint = "http://localhost/webdev/assignapi/api.php?item=$itemid";
+    $endpoint = "http://localhost/webdev/assignapi/api.php?album=$itemid";
 
     $resource = file_get_contents($endpoint);
 
@@ -57,14 +57,11 @@
 					foreach ($data as $row) {
 							
 						//get data from column 'info'
-						$listdata = $row['info'];
+						$listdata = $row['id'];
 							
-						$datedue = $row['datedue'];
+						$datedue = $row['title'];
 							
-						//needs to be converted to be day-month-year
-						$datedue = date('d-m-Y', strtotime($datedue));
-							
-						$typedata = $row["type"];
+						$typedata = $row["year"];
 						$detailsdata = $row["details"];
 
 						$imgname = $row["imgpath"];
