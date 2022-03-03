@@ -1,6 +1,6 @@
 <?php
 
-	$endpoint = "http://localhost/webdev/week12/lab11apisolution/api.php";
+	$endpoint = "http://localhost/webdev/week00/lab11apisolution/api.php";
 
 	$resource = file_get_contents($endpoint);
 
