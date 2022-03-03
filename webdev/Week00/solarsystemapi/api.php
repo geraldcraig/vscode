@@ -2,7 +2,7 @@
 
     header("Content-Type: application/json");
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['system']))) {
+    if ($_SERVER['REQUEST_METHOD']==='GET') {
 
         include ("dbconn.php");
     

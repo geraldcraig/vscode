@@ -11,7 +11,7 @@
 
   $id = $_GET['info'];
 
-  $endpoint = "http://localhost/webdev/week10/solarsystemapi/api.php?id=$id";
+  $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?id=$id";
 
   $resource = file_get_contents($endpoint);
 

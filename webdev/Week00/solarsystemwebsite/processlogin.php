@@ -1,6 +1,6 @@
 <?php
 
-    $endpoint = "http://localhost/webdev/week10/solarsystemapi/api.php?user";
+    $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?user";
 
     $resource = file_get_contents($endpoint);
 
