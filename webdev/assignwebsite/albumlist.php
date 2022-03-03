@@ -47,17 +47,15 @@
 					foreach ($data as $row) {
 							
 						// get data from column 'info'
-						$listdata = $row['info'];
+						$listdata = $row['number'];
 								
 						//get data from column 'duedate'  
-						$listdate = $row['datedue'];
+						$listdate = $row['title'];
 
-						//needs to be formatted to be day-month-year				
-						$duedate = date('d-m-Y', strtotime($listdate));
 
 						$iddata = $row['id'];
 							
-						echo "<a href='myitem.php?rowid=$iddata'> 
+						echo "<a href='album.php?rowid=$iddata'> 
 								<li> $listdata 
 								<div class='dateright'>date due: 
 								<strong>$duedate</strong> 

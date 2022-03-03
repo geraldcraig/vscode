@@ -9,7 +9,7 @@
     $currentUser = $_SESSION['editpermission123'];
   }
 
-  $endpoint = "http://localhost/webdev/assignapi/api.php?item";
+  $endpoint = "http://localhost/webdev/assignapi/api.php";
 
     $resource = file_get_contents($endpoint);
 
