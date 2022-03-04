@@ -18,6 +18,7 @@ $data = json_decode($result, true);
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
 <body>
 
@@ -66,30 +67,27 @@ $data = json_decode($result, true);
 </nav>
 <br>
 
-    <div class="container">
-        <h1>Top 10 User Rated Albums</h1>
-        <table class="table striped">
-            <thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Year</th>
-                    <th>Album</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($data as $row) {
-                   
-                        echo "<tr>
-                               <td>{$row['number']}</td>
-                               <td>{$row['year']}</td>
-                               <td>{$row['album']}</td>
-                           </tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
-    </div>
+    <div id="content">
+			<h1>My Top Albums</h1>
+			<?php
+				foreach ($data as $row) {
+
+					$titledata = $row['number'];
+					$yeardata = $row['year'];
+					$artistdata = $row['album'];
+					$albumid = $row['id'];
+
+					echo "<a href='album.php?album_id=$albumid'>
+							<div class='box'>
+								<h2>$artistdata</h2>
+								<h3>$titledata</h3>
+								<p>$yeardata</p>
+							</div>
+						</a>";
+				}
+			?>	
+			
+		</div>
 
 </body>
 </html>
