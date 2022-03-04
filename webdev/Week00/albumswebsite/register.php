@@ -1,13 +1,3 @@
-<?php
- 
-    $endpoint = "http://localhost/webdev/week00/albumsapi/api.php";
- 
-    $result = file_get_contents($endpoint);
- 
-    $data = json_decode($result, true);
- 
-?>
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +21,7 @@
     <ul class="navbar-nav mr-auto">
         <?php
         if (!$showBtn) {
-            echo "<li class='nav-item active'>
+            echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
@@ -46,7 +36,7 @@
           <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
         </form> ";
         } else {
-          echo "<li class='nav-item active'>
+          echo "<li class='nav-item'>
           <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
         </li>
         <li class='nav-item'>
@@ -67,29 +57,35 @@
 <br>
 
 <div class="container">
-        <h1>Top 500 Albums</h1>
-        <table class="table striped">
-            <thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Year</th>
-                    <th>Album</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($data as $row) {
-                   
-                        echo "<tr>
-                               <td>{$row['number']}</td>
-                               <td>{$row['year']}</td>
-                               <td>{$row['album']}</td>
-                           </tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
+  <h2>Register form</h2>
+	<form name="mylist" method="POST" action="processregister.php" enctype="multipart/form-data">
+    <div class="form-group">
+			<label for="username">First Name:</label> 
+			<input type="text" id="myItemInput" name="firstname"/>
     </div>
+
+		<div class="form-group">
+			<label for="password">Last Name:</label> 
+			<input type="text" id="myItemInput" name="lastname"/>
+		</div>
+
+    <div class="form-group">
+			<label for="password">Username:</label> 
+			<input type="text" id="myItemInput" name="username"/>
+		</div>
+
+    <div class="form-group">
+			<label for="password">Password:</label> 
+			<input type="text" id="myItemInput" name="password"/>
+		</div>
+						
+		<div class="form-group form-check">
+      <label class="form-check-label">
+		    <input class="form-check-input" type="checkbox" name="remember">Accept terms and conditions.</label>	
+		</div>
+			<button type="submit" class="btn btn-primary">Submit</button>			
+  </form>
+</div>
 
 </body>
 </html>

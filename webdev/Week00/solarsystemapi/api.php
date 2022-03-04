@@ -2,7 +2,7 @@
 
     header("Content-Type: application/json");
 
-    if ($_SERVER['REQUEST_METHOD']==='GET') {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['id'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
     
@@ -30,7 +30,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['id']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['id'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
@@ -60,7 +60,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['id'])) && (isset($_GET['user']))) {
 
         include ("dbconn.php");
     

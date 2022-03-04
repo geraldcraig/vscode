@@ -1,11 +1,5 @@
 <?php
 
-    $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?user";
-
-    $resource = file_get_contents($endpoint);
-
-    $data = json_decode($resource, true);
-
     session_start();
 
     $uname = $_POST["uname"];
@@ -18,6 +12,12 @@
     if (!$result) {
 	    echo $conn->error;
     }
+
+    $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?user=$checkuser";
+
+    $resource = file_get_contents($endpoint);
+
+    $data = json_decode($resource, true);
 
     $num = $result->num_rows;
 

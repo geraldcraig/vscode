@@ -2,7 +2,7 @@
 
     header("Content-Type: application/json");
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
     
@@ -30,7 +30,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['item']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['user'])) && (isset($_GET['item']))) {
 
         include ("dbconn.php");
 
@@ -60,14 +60,45 @@
 
     }
 
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (isset($_GET['user']))) {
 
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newfact']))) {
+        include ("dbconn.php");
+    
+        $read = "SELECT * FROM user";
+        
+        $result = $conn->query($read);
+        
+        if (!$result) {
+            echo $conn -> error;
+        }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
+
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser']))) {
 
         include('dbconn.php');
 
-        $myfactdata = $conn->real_escape_string($_POST['addfact']);
+        $newfirstname = $conn->real_escape_string($_POST['addfirstname']);
+        $newlastname = $conn->real_escape_string($_POST['addlastname']);
+        $newusername = $conn->real_escape_string($_POST['addusername']);
+        $newpassword = $conn->real_escape_string($_POST['addpassword']);
     
-        $insertquery="INSERT INTO myfacts (id, fact) VALUES (null, '$myfactdata')";
+        $insertquery="INSERT INTO user (firstname, lastname, username, password) VALUES ('$newfirstname', '$newlastname', '$newusername', SHA1('$newpassword'))";
            
         $result = $conn->query($insertquery);
         
