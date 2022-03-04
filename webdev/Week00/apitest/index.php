@@ -1,6 +1,6 @@
 <?php
  
-$endpoint = "http://localhost/webdev/week00/albumsapi/api.php";
+$endpoint = "http://localhost/webdev/week00/apitest/api.php";
  
 $result = file_get_contents($endpoint);
  
