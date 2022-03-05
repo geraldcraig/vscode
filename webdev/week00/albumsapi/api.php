@@ -2,7 +2,7 @@
 
     header("Content-Type: application/json");
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (!isset($_GET['userid'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
     
@@ -30,7 +30,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['user'])) && (isset($_GET['item']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['userid'])) && (isset($_GET['item'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
@@ -60,11 +60,41 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (!isset($_GET['userid'])) && (isset($_GET['user']))) {
 
         include ("dbconn.php");
     
         $read = "SELECT * FROM user";
+        
+        $result = $conn->query($read);
+        
+        if (!$result) {
+            echo $conn -> error;
+        }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (!isset($_GET['user'])) && (isset($_GET['userid']))) {
+
+        include ("dbconn.php");
+
+        $userid = $conn->real_escape_string($_GET['userid']);
+    
+        $read = "SELECT * FROM user WHERE id = $userid";
         
         $result = $conn->query($read);
         
