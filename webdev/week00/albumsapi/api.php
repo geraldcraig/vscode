@@ -98,7 +98,7 @@
         $newusername = $conn->real_escape_string($_POST['addusername']);
         $newpassword = $conn->real_escape_string($_POST['addpassword']);
     
-        $insertquery="INSERT INTO user (firstname, lastname, username, password) VALUES ('$newfirstname', '$newlastname', '$newusername', SHA1('$newpassword'))";
+        $insertquery="INSERT INTO user (firstname, lastname, username, userpassword) VALUES ('$newfirstname', '$newlastname', '$newusername', SHA1('$newpassword'))";
            
         $result = $conn->query($insertquery);
         

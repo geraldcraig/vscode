@@ -77,8 +77,8 @@ $data = json_decode($result, true);
 					$artistdata = $row['album'];
 					$albumid = $row['id'];
 
-					echo "<a href='album.php?album_id=$albumid'>
-							<div class='box'>
+					echo "<a href='album.php?item=$albumid'>
+          <div class='box'>
 								<h2>$artistdata</h2>
 								<h3>$titledata</h3>
 								<p>$yeardata</p>

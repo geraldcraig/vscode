@@ -36,10 +36,18 @@ h1 {
 }
 
 .box {
-    float: left;
-    margin: 7px 9px 14px 7px;
-    width: 150px;
-    height: 205px;
+    min-width:180px;
+    min-height:200px;
+    background-image: none;
+	 background-size: 100%;
+	 background-color: #eee;
+	background-repeat:no-repeat;
+    margin:10px;
+	float:left;
+	text-align: left;
+	max-width:150px;
+	overflow:hidden;
+	padding:5px;
 }
 
 #containerb {
