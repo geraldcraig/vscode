@@ -1,10 +1,6 @@
 <?php
 
-    $endpoint = "http://localhost/webdev/week00/albumsapi/api.php?user";
- 
-    $result = file_get_contents($endpoint);
- 
-    $data = json_decode($result, true);
+    include ("dbconn.php");
 
     if (!isset($_SERVER['PHP_AUTH_USER'])) {
 

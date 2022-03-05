@@ -2,7 +2,7 @@
 
     header("Content-Type: application/json");
 
-    if ($_SERVER['REQUEST_METHOD']==='GET') {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['category'])) && (!isset($_GET['album_id']))) {
 
         include("dbconn.php");
 
@@ -34,15 +34,18 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['category']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['category'])) && (!isset($_GET['album_id']))) {
 
         include("dbconn.php");
+
+        $filterdata = htmlentities($_GET['category']);
 
 	    $readquery = "SELECT mytopalbums.id, mytopalbums.year, 
 	                mytopalbums.title, mytopartists.name
 	                FROM mytopalbums
 				    INNER JOIN mytopartists
-				    ON mytopalbums.artist_id = mytopartists.id";
+				    ON mytopalbums.artist_id = mytopartists.id
+                    WHERE mytopartists.name = '$filterdata' ";
 
 	    $result = $conn->query($readquery);
 
@@ -66,7 +69,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['category'])) && (isset($_GET['album_id']))) {
 
         include("dbconn.php");
 

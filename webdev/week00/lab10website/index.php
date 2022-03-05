@@ -1,5 +1,5 @@
 <?php
-	include("php/functions.php");
+	//include("php/functions.php");
 
 	$endpoint = "http://localhost/webdev/week00/lab10api/api.php";
 
@@ -30,7 +30,7 @@
 			<ul id='mynav'>
 				<?php
 
-					$navbar = displaynav();
+					//$navbar = displaynav();
 
 				?>
 			</ul>

@@ -2,7 +2,7 @@
 
 function displaynav() {
 
-    include("connections/dbconn.php");
+    //include("connections/dbconn.php");
 
     $navquery = "SELECT * FROM mytopartists";
 

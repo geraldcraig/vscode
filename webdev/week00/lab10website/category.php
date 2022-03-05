@@ -1,21 +1,15 @@
 <?php
-	include("php/functions.php");
-	include("connections/dbconn.php");
 
-    $filterdata = htmlentities($_GET['filter']);
+    include("php/functions.php");
 
-	$readquery = "SELECT mytopalbums.id, mytopalbums.year, mytopalbums.title, 
-                  mytopartists.name
-	              FROM mytopalbums
-				  INNER JOIN mytopartists
-				  ON mytopalbums.artist_id = mytopartists.id
-                  WHERE mytopartists.name = '$filterdata' ";
+	$albumid = $_GET['filter'];
 
-	$result = $conn->query($readquery);
+    $endpoint = "http://localhost/webdev/week00/lab10api/api.php?album_id=$albumid";
 
-	if (!$result) {
-		echo $conn->error;
-	}
+    $resource = file_get_contents($endpoint);
+
+    $data = json_decode($resource, true);
+    
 ?>
 
 <!DOCTYPE html>

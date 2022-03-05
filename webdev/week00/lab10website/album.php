@@ -1,8 +1,10 @@
 <?php
 
-    include("php/functions.php");
+    //include("php/functions.php");
 
-    $endpoint = "http://localhost/webdev/week00/lab10api/api.php";
+	$albumid = $_GET['album_id'];
+
+    $endpoint = "http://localhost/webdev/week00/lab10api/api.php?album_id=$albumid";
 
     $resource = file_get_contents($endpoint);
 
@@ -32,7 +34,7 @@
 			<ul id='mynav'>
 				<?php
 
-					$navbar = displaynav();
+					//$navbar = displaynav();
 
 				?>
 			</ul>
@@ -40,6 +42,12 @@
 		
 		<div id="content">
             <?php 
+				foreach ($data as $row) {
+
+				$namedata = $row['title'];
+				$titledata = $row['year'];
+				$yeardata = $row['name'];
+
 			    echo "<div><h1>$titledata</h1></div>
                       <div class='album'>
                         <h2>Artist: $namedata</h2>
@@ -47,6 +55,8 @@
 					    <p>Release Date: $yeardata</p>
 					  </div>
                       <div><img src='img/albumart/$album.jpg'></div>";
+
+				}
 			?>	
 		</div>
 		

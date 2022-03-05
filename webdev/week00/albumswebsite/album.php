@@ -1,6 +1,8 @@
 <?php
+
+    $albumid = $_GET['item'];
  
-    $endpoint = "http://localhost/webdev/week00/albumsapi/api.php?item";
+    $endpoint = "http://localhost/webdev/week00/albumsapi/api.php?item=$albumid";
  
     $result = file_get_contents($endpoint);
  
