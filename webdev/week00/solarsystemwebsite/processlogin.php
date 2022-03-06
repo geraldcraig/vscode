@@ -2,22 +2,22 @@
 
     session_start();
 
-    $uname = $_POST["uname"];
-    $upass = $_POST["pword"];
+    $uname = $_POST["admin"];
 
-    $checkuser = "SELECT * FROM mysolarusers WHERE username ='$uname' AND userpass = MD5('$upass') ";
+    $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?user=$uname";
+
+    $resource = file_get_contents($endpoint);
+
+    $data = json_decode($resource, true);
+
+
+    $checkuser = "SELECT * FROM mysolarusers WHERE username ='$uname' ";
 
     $result = $conn->query($checkuser);
     
     if (!$result) {
 	    echo $conn->error;
     }
-
-    $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?user=$checkuser";
-
-    $resource = file_get_contents($endpoint);
-
-    $data = json_decode($resource, true);
 
     $num = $result->num_rows;
 

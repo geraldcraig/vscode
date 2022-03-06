@@ -9,9 +9,9 @@
     $currentUser = $_SESSION['editpermission123'];
   }
 
-  $id = $_GET['id'];
+  $id = $_GET['info'];
 
-  $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?id=$id";
+  $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?info=$id";
 
   $resource = file_get_contents($endpoint);
 
