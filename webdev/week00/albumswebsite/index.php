@@ -49,7 +49,7 @@ $data = json_decode($result, true);
 <br>
 
     <div id="content">
-			<h1>My Top Albums</h1>
+			<h1>Top User Rated Albums</h1>
 			<?php
 				foreach ($data as $row) {
 
@@ -59,11 +59,14 @@ $data = json_decode($result, true);
 					$albumid = $row['id'];
 
 					echo "<a href='album.php?album_id=$albumid'>
-          <div class='box'>
+          <div class='card' style='width: 200px'>
+          <img class='card-img-top' src='img/albumart/$titledata.jpg' alt='Card Image' style='width: 100%'>
+            <div class='card-body'>
 								<h2>$artistdata</h2>
 								<h3>$titledata</h3>
 								<p>$yeardata</p>
-							</div>
+            </div>
+					</div>
 						</a>";
 				}
 			?>	

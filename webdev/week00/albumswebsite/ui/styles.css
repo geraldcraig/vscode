@@ -35,11 +35,18 @@ h1 {
 	margin:0 auto;
 }
 
-.box {
-    float: left;
-    margin: 7px 9px 14px 7px;
-    width: 150px;
-    height: 205px;
+#card {
+    min-width:180px;
+    min-height:200px;
+	 background-size: 100%;
+	 background-color: #eee;
+	background-repeat:no-repeat;
+    margin:10px;
+	float:left;
+	text-align: left;
+	max-width:150px;
+	overflow:hidden;
+	padding:5px;
 }
 
 #containerb {
@@ -99,6 +106,15 @@ a:hover .box{
 h3, h2, p {
 	color: #000;
 }
+
+
+
+
+
+
+
+
+
 
 
 

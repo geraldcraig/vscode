@@ -29,7 +29,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-       <li class='nav-item active'>
+        <li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
@@ -42,7 +42,7 @@
         <form class='form-inline my-2 my-lg-0'>
           <input class='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search'>
           <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
-        </form> 
+        </form>
   </div>
 </nav>
 <br>
@@ -55,17 +55,25 @@
                     <th>Number</th>
                     <th>Year</th>
                     <th>Album</th>
+                    <th>Artwork</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                     foreach ($data as $row) {
+
+                      $number = $row['number'];
+                      $year = $row['year'];
+                      $title = $row['name'];
+                      $albumid = $row['id'];
+                      $artwork = 'img/albumart/$number.jpg';
                    
-                        echo "<tr>
+                        echo " <tr>
                                <td>{$row['number']}</td>
                                <td>{$row['year']}</td>
                                <td>{$row['album']}</td>
-                           </tr>";
+                               <td><img src='img/albumart/$number.jpg' style='width: 50px'></td>
+                           </tr> ";
                     }
                 ?>
             </tbody>
