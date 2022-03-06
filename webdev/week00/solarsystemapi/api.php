@@ -63,8 +63,10 @@
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['id'])) && (isset($_GET['user']))) {
 
         include ("dbconn.php");
+
+        $user = htmlentities($_GET['user']);
     
-        $read = "SELECT * FROM mysolarusers";
+        $read = "SELECT * FROM mysolarusers WHERE id = $user";
         
         $result = $conn->query($read);
         

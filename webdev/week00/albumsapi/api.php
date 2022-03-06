@@ -2,7 +2,7 @@
 
     header("Content-Type: application/json");
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (!isset($_GET['userid'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
     
@@ -30,11 +30,11 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['userid'])) && (isset($_GET['item'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['userid'])) && (isset($_GET['album'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
-        $itemid = $conn->real_escape_string($_GET['item']);
+        $itemid = $conn->real_escape_string($_GET['album']);
     
         $read = "SELECT * FROM album WHERE number = $itemid";
         
@@ -60,7 +60,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (!isset($_GET['userid'])) && (isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (isset($_GET['user']))) {
 
         include ("dbconn.php");
     
@@ -88,7 +88,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['item'])) && (!isset($_GET['user'])) && (isset($_GET['userid']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['user'])) && (isset($_GET['userid']))) {
 
         include ("dbconn.php");
 

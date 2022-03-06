@@ -1,8 +1,8 @@
 <?php
 
-    $albumid = $_GET['item'];
+    $albumid = $_GET['album_id'];
  
-    $endpoint = "http://localhost/webdev/week00/albumsapi/api.php?item=$albumid";
+    $endpoint = "http://localhost/webdev/week00/albumsapi/api.php?album=$albumid";
  
     $result = file_get_contents($endpoint);
  
@@ -60,30 +60,25 @@
 </nav>
 <br>
 
-<div class="container">
-        <h1>Top 500 Albums</h1>
-        <table class="table striped">
-            <thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Year</th>
-                    <th>Album</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($data as $row) {
-                   
-                        echo "<tr>
-                               <td>{$row['number']}</td>
-                               <td>{$row['year']}</td>
-                               <td>{$row['album']}</td>
-                           </tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
-    </div>
+<div id="content">
+			<h1>My Top Albums</h1>
+			<?php
+				foreach ($data as $row) {
+
+					$titledata = $row['number'];
+					$yeardata = $row['year'];
+					$artistdata = $row['album'];
+					$albumid = $row['id'];
+
+					echo "<div><h1>$titledata</h1></div>
+                <div class='album'>
+								<h2>$artistdata</h2>
+								<h3>$titledata</h3>
+								<p>$yeardata</p>
+							</div>
+						<div><img src='img/albumart/$album.jpg'></div>";
+				}
+			?>	
 
 </body>
 </html>
