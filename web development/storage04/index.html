@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <metacharset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> </title>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'> </script>
+        <script>$(function () {
+                console.log('load jquery');
+                //when submit button is clicked
+                $("#save").click(function () {
+                    // get the textvar 
+                    textdata = $('#answer').val();
+                    // set the value in localStorage key called 'test'
+                    localStorage.setItem('test', textdata);
+                    // print value in console panel
+                    console.log(localStorage.getItem('test'));
+                });
+            });</script>
+</head>
+
+<body>
+    <input name="fname" id="answer"></br>
+    <input type="submit" value="Submit" id="save">
+    <p><a href="store.html">Saved Item</a></p>
+</body>
+
+</html>

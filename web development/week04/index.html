@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title> </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+  <link rel="stylesheet" href=" ">
+
+  <!--bit of javascript-->
+  <script>
+
+    $(function () {
+
+      var mydata = " Let me into";
+
+      mydata2 = " the house";
+
+      output = mydata + mydata2;
+
+      //document.getElementById("readjs").innerHTML = output;
+
+      $("#readjs").append(output);
+
+
+      /*$("#myclickable").on("click", function (e) {
+        alert(e.);
+        $("h3").css('color', 'blue');
+      });*/
+
+      $("#myclickable").on("click", function (e) {
+        e.preventDefault();
+
+        acc = $("#myamount").val();
+
+        if (acc == "") {
+          alert('form needs filled in');
+        } else { 
+
+        delivery = $("#del").val();
+        delivery = Number(delivery);
+        console.log(delivery);
+
+
+        price = $("#myprice").val();
+
+        cal = (acc * price) + delivery;
+
+        $("#result").val(cal);
+      }
+      });
+
+    });
+    /*
+    window.onload = function() {
+      var mydata = "Let me into";
+
+      mydata2 = " the house";
+
+      output = mydata + mydata2;
+
+      console.log(output);
+
+      document.getElementById("readjs").innerHTML = output;
+    }
+    */
+
+  </script>
+</head>
+
+<body>
+  <h3>Web user interaction</h3>
+  <div class="container-fluid">
+
+    <p id="readjs">default</p>
+    <form name="myform" method="post">
+      <p>
+        Enter two numbers below and then press the Calculate button.
+      </p>
+      <label for="amount">Amount:</label><input type="number" name="amount" min="1" max="10" id="myamount">
+      <label for="price">Price:</label><input type="text" name="price" required id="myprice">
+      <label for="Choose Delivery">Choose Delivery</label>
+      <select id="del">
+        <option value="1">--Please choose an option--</option>
+        <option value="4">Royal Mail</option>
+        <option value="0">Collect From Store</option>
+      </select>
+
+      <p>
+        <input type="submit" value="Calculate" id="cal">
+        <input type="reset" value="Clear text">
+      </p>
+    </form>
+    <hr>
+    <p>The total is:<input type="text" name="total" readonly id="result"></p>
+    <div id="myclickable">click me</div>
+  </div>
+
+</body>
+
+</html>
