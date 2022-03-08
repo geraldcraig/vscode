@@ -34,7 +34,13 @@ $data = json_decode($result, true);
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
+            <a class='nav-link' href='account.php'>Account</a>
+          </li>
+          <li class='nav-item'>
             <a class='nav-link' href='login.php'>Log In</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='logout.php'>Log Out</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='register.php'>Register</a>
@@ -48,29 +54,36 @@ $data = json_decode($result, true);
 </nav>
 <br>
 
-    <div id="content">
+    <div id="container">
 			<h1>Top User Rated Albums</h1>
+      <div class="row">
+    <div class="col-sm-3" ></div>
+    <div class="col-sm-3" ></div>
+    <div class="col-sm-3" ></div>
+    <div class="col-sm-3" ></div>
+  
 			<?php
 				foreach ($data as $row) {
 
-					$titledata = $row['number'];
-					$yeardata = $row['year'];
-					$artistdata = $row['album'];
+					$number = $row['number'];
+					$year = $row['year'];
+					$album = $row['album'];
 					$albumid = $row['id'];
 
 					echo "<a href='album.php?album_id=$albumid'>
           <div class='card' style='width: 200px'>
-          <img class='card-img-top' src='img/albumart/$titledata.jpg' alt='Card Image' style='width: 100%'>
+          <img class='card-img-top' src='img/albumart/$number.jpg' alt='Card Image' style='width: 100%'>
             <div class='card-body'>
-								<h2>$artistdata</h2>
-								<h3>$titledata</h3>
-								<p>$yeardata</p>
+								<h2>$album</h2>
+								<h3>Artist</h3>
+                <h3>$year</h3>
+								<p>$number</p>
             </div>
 					</div>
 						</a>";
 				}
 			?>	
-			
+			</div>
 		</div>
 
 </body>

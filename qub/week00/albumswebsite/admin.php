@@ -54,40 +54,40 @@ $data = json_decode($result, true);
 <br>
 
 <div class="container">
-  <h2>Account</h2>
+  <h2>Admin Account</h2>
   <br>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">Account</a>
+      <a class="nav-link active" data-toggle="tab" href="#home">Accounts</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">Collection</a>
+      <a class="nav-link" data-toggle="tab" href="#menu1">Add Album</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2">Favourite</a>
+      <a class="nav-link" data-toggle="tab" href="#menu2">Reviews</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu3">Reviews</a>
+      <a class="nav-link" data-toggle="tab" href="#menu3">Menu 3</a>
     </li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
     <div id="home" class="container tab-pane active"><br>
-      <h3>Account</h3>
+      <h3>Accounts</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
     <div id="menu1" class="container tab-pane fade"><br>
-      <h3>Collection</h3>
+      <h3>Add Album</h3>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div id="menu2" class="container tab-pane fade"><br>
-      <h3>Favourite</h3>
+      <h3>Reviews</h3>
       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
     </div>
     <div id="menu3" class="container tab-pane fade"><br>
-      <h3>Reviews</h3>
+      <h3>Menu 3</h3>
       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
     </div>
   </div>

@@ -1,15 +1,3 @@
-<?php
-
-    $albumid = $_GET['album_id'];
- 
-    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?album=$albumid";
- 
-    $result = file_get_contents($endpoint);
- 
-    $data = json_decode($result, true);
- 
-?>
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +19,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <li class='nav-item'>
+       <li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
@@ -50,34 +38,35 @@
 <br>
 
 <div class="container">
-			<h1>Album Info</h1>
-			<?php
-				foreach ($data as $row) {
+  <h2>Register form</h2>
+	<form name="mylist" method="POST" action="processregister.php" enctype="multipart/form-data">
+    <div class="form-group">
+			<label for="username">First Name:</label> 
+			<input type="text" id="myItemInput" name="firstname"/>
+    </div>
 
-					$number = $row['number'];
-					$year = $row['year'];
-					$album = $row['album'];
-					$albumid = $row['id'];
+		<div class="form-group">
+			<label for="password">Last Name:</label> 
+			<input type="text" id="myItemInput" name="lastname"/>
+		</div>
 
-					echo "<div><h1>Title: $album</h1></div>
-                <div class='album'>
-								<h2>Artist: Artist</h2>
-								<h3>Year: $year</h3>
-								<p>Genre: Genre</p>
-                <p>Sub-Genre: Sub-Genre</p>
-                <p>Add to Collection: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add to Collection</a></p>
-                <p>Add Favourite: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Favourite</a></p>
-                <p>Add Rating: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Rating</a></p>
-                <p>Add Review: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Review</a></p>
-                <p>Add Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Album</a></p>
-                <p>Update Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Update Album</a></p>
-                <p>Delete Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Delete Album</a></p>
-                <p>Rating: Rating</p>
-                <p>Reviews: Reviews</p>
-							</div>
-						<div><img src='img/albumart/$number.jpg'></div>";
-				}
-			?>	
+    <div class="form-group">
+			<label for="password">Username:</label> 
+			<input type="text" id="myItemInput" name="username"/>
+		</div>
+
+    <div class="form-group">
+			<label for="password">Password:</label> 
+			<input type="text" id="myItemInput" name="password"/>
+		</div>
+						
+		<div class="form-group form-check">
+      <label class="form-check-label">
+		    <input class="form-check-input" type="checkbox" name="remember">Accept terms and conditions.</label>	
+		</div>
+			<button type="submit" class="btn btn-primary">Submit</button>			
+  </form>
+</div>
 
 </body>
 </html>

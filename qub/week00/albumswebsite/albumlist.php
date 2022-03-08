@@ -33,7 +33,13 @@
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
+            <a class='nav-link' href='account.php'>Account</a>
+          </li>
+          <li class='nav-item'>
             <a class='nav-link' href='login.php'>Log In</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='logout.php'>Log Out</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='register.php'>Register</a>
@@ -53,9 +59,12 @@
             <thead>
                 <tr>
                     <th>Number</th>
-                    <th>Year</th>
                     <th>Album</th>
+                    <th>Artist</th>
+                    <th>Year</th>
+                    <th>Rating</th>
                     <th>Artwork</th>
+                    <th>More Info</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,20 +73,31 @@
 
                       $number = $row['number'];
                       $year = $row['year'];
-                      $title = $row['name'];
+                      $title = $row['album'];
                       $albumid = $row['id'];
                       $artwork = 'img/albumart/$number.jpg';
                    
-                        echo " <tr>
+                        echo " <tr>  
                                <td>{$row['number']}</td>
+                               <td>$title</td>
+                               <td>Artist</td>
                                <td>{$row['year']}</td>
-                               <td>{$row['album']}</td>
-                               <td><img src='img/albumart/$number.jpg' style='width: 50px'></td>
-                           </tr> ";
+                               <td>Rating</td>
+                               <td><img src='img/albumart/$number.jpg' class='img-thumbnail' style='width: 100px'></td>
+                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>More Info</a></td>
+                           </tr>  ";
                     }
                 ?>
             </tbody>
         </table>
+        <p>Default:</p>
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
     </div>
 
 </body>
