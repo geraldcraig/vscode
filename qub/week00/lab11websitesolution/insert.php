@@ -25,7 +25,7 @@
 	// date needs to be formatted to year-month-day for database table column				
 	$mydatedue = date('Y-m-d', strtotime($mytaskdate));
 
-	$endpoint = "http://localhost/webdev/week00/lab11apisolution/api.php?newitem";
+	$endpoint = "http://localhost/qub/week00/lab11apisolution/api.php?newitem";
 
 	$postdata = http_build_query(
 

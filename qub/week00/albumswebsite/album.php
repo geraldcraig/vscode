@@ -2,7 +2,7 @@
 
     $albumid = $_GET['album_id'];
  
-    $endpoint = "http://localhost/webdev/week00/albumsapi/api.php?album=$albumid";
+    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?album=$albumid";
  
     $result = file_get_contents($endpoint);
  

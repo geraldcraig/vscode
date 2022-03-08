@@ -2,7 +2,7 @@
 
     $itemid = $_GET['id'];
 
-    $endpoint = "http://localhost/webdev/assignapi/api.php?album=$itemid";
+    $endpoint = "http://localhost/qub/assignapi/api.php?album=$itemid";
 
     $resource = file_get_contents($endpoint);
 

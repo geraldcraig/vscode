@@ -9,7 +9,7 @@
     $currentUser = $_SESSION['editpermission123'];
   }
 
-  $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php";
+  $endpoint = "http://localhost/qub/week00/solarsystemapi/api.php";
 
   $resource = file_get_contents($endpoint);
 

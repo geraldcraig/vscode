@@ -6,7 +6,7 @@
 	$password = $_POST['password'];
 
 
-	$endpoint = "http://localhost/webdev/week00/albumsapi/api.php?newuser";
+	$endpoint = "http://localhost/qub/week00/albumsapi/api.php?newuser";
 
 	$postdata = http_build_query(
 

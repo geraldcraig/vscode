@@ -1,6 +1,6 @@
 <?php
  
-    $endpoint = "http://localhost/webdev/week12/simpleapi/myapi.php?read";
+    $endpoint = "http://localhost/qub/week12/simpleapi/myapi.php?read";
  
     $result = file_get_contents($endpoint);
  

@@ -1,7 +1,7 @@
 <?php
 	//include("php/functions.php");
 
-	$endpoint = "http://localhost/webdev/week00/lab10api/api.php";
+	$endpoint = "http://localhost/qub/week00/lab10api/api.php";
 
 	$resource = file_get_contents($endpoint);
 

@@ -4,7 +4,7 @@
 
     $uname = $_POST["admin"];
 
-    $endpoint = "http://localhost/webdev/week00/solarsystemapi/api.php?user=$uname";
+    $endpoint = "http://localhost/qub/week00/solarsystemapi/api.php?user=$uname";
 
     $resource = file_get_contents($endpoint);
 

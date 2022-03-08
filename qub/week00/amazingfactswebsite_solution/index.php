@@ -1,6 +1,6 @@
 <?php
 
-    $endpoint = "http://localhost/webdev/week00/amazingfactsapi_solution/api.php";
+    $endpoint = "http://localhost/qub/week00/amazingfactsapi_solution/api.php";
 
     $resource = file_get_contents($endpoint);
 

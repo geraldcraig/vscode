@@ -5,7 +5,7 @@
 	$mytype = $_POST['mydetails'];
 	
 
-	$endpoint = "http://localhost/webdev/week00/lab11solution/api.php?newitem";
+	$endpoint = "http://localhost/qub/week00/lab11solution/api.php?newitem";
 
 	$postdata = http_build_query(
 

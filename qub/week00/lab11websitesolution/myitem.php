@@ -4,7 +4,7 @@
 	$itemid = $_GET['rowid'];
 	
 	// concatenate the ID onto the query parameter for the GET endpoint
-	$endpoint = "http://localhost/webdev/week00/lab11apisolution/api.php?item=$itemid";
+	$endpoint = "http://localhost/qub/week00/lab11apisolution/api.php?item=$itemid";
 
 	$resource = file_get_contents($endpoint);
 

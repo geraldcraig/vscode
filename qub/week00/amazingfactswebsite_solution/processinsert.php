@@ -2,7 +2,7 @@
 
     $fact = $_POST['myfact'];
 
-    $endpoint = "http://localhost/webdev/week00/amazingfactsapi_solution/api.php?newfact";
+    $endpoint = "http://localhost/qub/week00/amazingfactsapi_solution/api.php?newfact";
 
     $postdata = http_build_query(
         

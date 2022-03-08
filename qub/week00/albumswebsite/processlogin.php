@@ -5,7 +5,7 @@ $upass = $_POST["pwd"];
 
 $checkuser = "SELECT * FROM user WHERE username ='$uname' ";
 
-$endpoint = "http://localhost/webdev/week00/albumsapi/api.php?userid=$checkuser";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php?userid=$checkuser";
 
 $resource = file_get_contents($endpoint);
 

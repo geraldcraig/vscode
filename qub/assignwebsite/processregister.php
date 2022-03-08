@@ -4,7 +4,7 @@
 	$password = $_POST['password'];
 
 
-	$endpoint = "http://localhost/webdev/assignapi/api.php?newuser";
+	$endpoint = "http://localhost/qub/assignapi/api.php?newuser";
 
 	$postdata = http_build_query(
 

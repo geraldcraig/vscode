@@ -4,7 +4,7 @@
 
 	$albumid = $_GET['filter'];
 
-    $endpoint = "http://localhost/webdev/week00/lab10api/api.php?album_id=$albumid";
+    $endpoint = "http://localhost/qub/week00/lab10api/api.php?album_id=$albumid";
 
     $resource = file_get_contents($endpoint);
 

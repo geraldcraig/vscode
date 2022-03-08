@@ -1,6 +1,6 @@
 <?php
 
-    $endpoint = "http://localhost/webdev/assignapi/api.php";
+    $endpoint = "http://localhost/qub/assignapi/api.php";
 
     $resource = file_get_contents($endpoint);
 
