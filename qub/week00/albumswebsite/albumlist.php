@@ -83,7 +83,7 @@
                                <td>Artist</td>
                                <td>{$row['year']}</td>
                                <td>Rating</td>
-                               <td><img src='img/albumart/$number.jpg' class='img-thumbnail' style='width: 100px'></td>
+                               <td><img src='img/albumart/$number.jpg' class='img-thumbnail' style='width: 150px'></td>
                                <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>More Info</a></td>
                            </tr>  ";
                     }
