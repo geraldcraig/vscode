@@ -1,28 +1,51 @@
 <?php
 
-    $albumid = $_GET['album_id'];
- 
-    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?album=$albumid";
- 
-    $result = file_get_contents($endpoint);
- 
-    $data = json_decode($result, true);
- 
+  $number = $_POST['number'];
+  $year = $_POST['year'];
+	$title = $_POST['title'];
+
+
+	$endpoint = "http://localhost/qub/week00/albumsapi/api.php?newalbum";
+
+	$postdata = http_build_query(
+
+		array(
+      'addnumber' => $number,
+      'addyear' => $year,
+			'addtitle' => $title
+		)
+
+	);
+
+	$opts = array(
+
+		'http' => array(
+			'method' => 'POST',
+			'header' => 'Content-Type: application/x-www-form-urlencoded',
+			'content' => $postdata
+		)
+
+	);
+
+	$context = stream_context_create($opts);
+	$resource = file_get_contents($endpoint, false, $context);
+
+	echo $resource;
 ?>
  
 <!DOCTYPE html>
-<html lang="en">
 <head>
-  <title>Album Website</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
+ 
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="index.php">Record Website</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,35 +70,26 @@
         </form>
   </div>
 </nav>
-<br>
+		
+		<div id="main">
+      <article>
+         
+        <?php
+              if($resource != FALSE) {
 
-<div class="container">
-			<h1>Album Info</h1>
-			<?php
-				foreach ($data as $row) {
+                echo "<p>$title</p>";
+              } else {
+                echo "Unable to add album";
+              }
+        ?>
 
-					$number = $row['number'];
-					$year = $row['year'];
-					$album = $row['album'];
-					$albumid = $row['id'];
+      </article>
+				
+			
 
-					echo "<div><h1>Title: $album</h1></div>
-                <div class='album'>
-								<h2>Artist: Artist</h2>
-								<h3>Year: $year</h3>
-								<p>Genre: Genre</p>
-                <p>Sub-Genre: Sub-Genre</p>
-                <p>Add Rating: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Rating</a></p>
-                <p>Add Review: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Review</a></p>
-                <p>Add Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Album</a></p>
-                <p>Update Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Update Album</a></p>
-                <p>Delete Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Delete Album</a></p>
-                <p><img src='img/albumart/$number.jpg'><p>
-                <p>Rating: Rating</p>
-                <p>Reviews: Reviews</p>
-							</div> ";
-				}
-			?>	
-
+		
+		</div>
+	</div>
 </body>
+
 </html>

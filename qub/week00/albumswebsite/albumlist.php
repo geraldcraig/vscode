@@ -63,8 +63,10 @@
                     <th>Artist</th>
                     <th>Year</th>
                     <th>Rating</th>
-                    <th>Artwork</th>
+                    <th>Owned</th>
+                    <th>Favourite</th>
                     <th>More Info</th>
+                    <th>Artwork</th>
                 </tr>
             </thead>
             <tbody>
@@ -83,8 +85,10 @@
                                <td>Artist</td>
                                <td>{$row['year']}</td>
                                <td>Rating</td>
-                               <td><img src='img/albumart/$number.jpg' class='img-thumbnail' style='width: 150px'></td>
+                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
+                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
                                <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>More Info</a></td>
+                               <td><img src='img/albumart/$number.jpg' class='img-thumbnail' style='width: 150px'></td>
                            </tr>  ";
                     }
                 ?>

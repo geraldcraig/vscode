@@ -119,7 +119,7 @@
     }
 
 
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['newalbum']))) {
 
         include('dbconn.php');
 
@@ -129,6 +129,29 @@
         $newpassword = $conn->real_escape_string($_POST['addpassword']);
     
         $insertquery="INSERT INTO user (firstname, lastname, username, userpassword) VALUES ('$newfirstname', '$newlastname', '$newusername', '$newpassword')";
+           
+        $result = $conn->query($insertquery);
+        
+        if(!$result) {
+            
+            echo $conn->error;
+        
+        } else {
+
+            echo "POST request performed";
+            
+        }
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum']))) {
+
+        include('dbconn.php');
+
+        $number = $conn->real_escape_string($_POST['addnumber']);
+        $year = $conn->real_escape_string($_POST['addyear']);
+        $title = $conn->real_escape_string($_POST['addtitle']);
+    
+        $insertquery="INSERT INTO album (number, year, album) VALUES ('$number', '$year', '$title')";
            
         $result = $conn->query($insertquery);
         
