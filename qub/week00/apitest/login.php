@@ -13,15 +13,27 @@ $data = json_decode($result, true);
 <body>
  
 <?php
+
 $uid = $_POST['userid'];
 $pw = $_POST['password'];
- 
-if($uid == 'ben' and $pw == 'ben23')
-{    
-    session_start();
-    $_SESSION['sid']=session_id();
-    echo "Logged in successfully";
+
+foreach ($data as $row) {
+
+    $name = $row['firstname'];
+    $pass = $row['userpassword'];
+
+    if($uid == $name and $pw == $pass)
+    {    
+        session_start();
+        $_SESSION['sid']=session_id();
+        echo "Logged in successfully";
+        header("Location: index.php");
+    } else {
+	    header("Location: form.php");
+    }
+
 }
+ 
 ?>
  
 </body>

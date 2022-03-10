@@ -33,6 +33,14 @@ $data = json_decode($result, true);
         <li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse By</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Artist</a>
+              <a class="dropdown-item" href="#">Year</a>
+             <a class="dropdown-item" href="#">Genre</a>
+            </div>
+          </li>
           <li class='nav-item'>
             <a class='nav-link' href='account.php'>Account</a>
           </li>
@@ -47,7 +55,7 @@ $data = json_decode($result, true);
           </li>
         </ul>
         <form class='form-inline my-2 my-lg-0'>
-          <input class='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search'>
+          <input class='form-control mr-sm-2' type='search' placeholder='Search artist, album..' aria-label='Search'>
           <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
         </form>
   </div>
@@ -55,7 +63,7 @@ $data = json_decode($result, true);
 <br>
 
     <div id="container">
-			<h1>Top User Rated Albums</h1>
+			<h1>Top 10 User Rated Albums</h1>
       <div class="row">
     <div class="col-sm-3" ></div>
     <div class="col-sm-3" ></div>
@@ -74,10 +82,10 @@ $data = json_decode($result, true);
           <div class='card' style='width: 200px'>
           <img class='card-img-top' src='img/albumart/$number.jpg' alt='Card Image' style='width: 100%'>
             <div class='card-body'>
-								<h2>$album</h2>
+								<h3>$album</h3>
 								<h3>Artist</h3>
                 <h3>$year</h3>
-								<p>$number</p>
+								<h4>$number</h4>
             </div>
 					</div>
 						</a>";
