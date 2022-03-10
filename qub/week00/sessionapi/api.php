@@ -6,11 +6,11 @@
 
         include ("dbconn.php");
 
-        $userid = $conn->real_escape_string($_GET['userid']);
+        //$userid = $conn->real_escape_string($_GET['userid']);
     
-        $read = "SELECT * FROM user WHERE id = $userid";
+        //$read = "SELECT * FROM user WHERE id = $userid";
 
-        //$read = "SELECT * FROM user";
+        $read = "SELECT * FROM user";
         
         $result = $conn->query($read);
         
