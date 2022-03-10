@@ -1,3 +1,13 @@
+<?php
+ 
+$endpoint = "http://localhost/qub/week00/apitest/api.php?user";
+ 
+$result = file_get_contents($endpoint);
+ 
+$data = json_decode($result, true);
+ 
+?>
+
 <!DOCTYPE html>
 <html>
 <body>

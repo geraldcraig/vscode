@@ -64,9 +64,9 @@
 
         include ("dbconn.php");
 
-        $user = htmlentities($_GET['user']);
+        //$user = htmlentities($_GET['user']);
     
-        $read = "SELECT * FROM mysolarusers WHERE id = $user";
+        $read = "SELECT * FROM mysolarusers";
         
         $result = $conn->query($read);
         

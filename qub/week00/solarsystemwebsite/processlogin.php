@@ -2,7 +2,7 @@
 
     session_start();
 
-    $uname = $_POST["admin"];
+    $uname = $_POST["miles"];
 
     $endpoint = "http://localhost/qub/week00/solarsystemapi/api.php?user=$uname";
 
