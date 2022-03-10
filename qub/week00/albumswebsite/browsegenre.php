@@ -34,11 +34,11 @@ $data = json_decode($result, true);
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse By</a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse Genre</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="browseartist.php">Artist</a>
-              <a class="dropdown-item" href="browseyear.php">Year</a>
-             <a class="dropdown-item" href="browsegenre.php">Genre</a>
+              <a class="dropdown-item" href="#">Rock</a>
+              <a class="dropdown-item" href="#">Pop</a>
+             <a class="dropdown-item" href="#">Soul</a>
             </div>
           </li>
           <li class='nav-item'>
@@ -62,37 +62,48 @@ $data = json_decode($result, true);
 </nav>
 <br>
 
-    <div id="container">
-			<h1>Top 10 User Rated Albums</h1>
-      <div class="row">
-    <div class="col-sm-3" ></div>
-    <div class="col-sm-3" ></div>
-    <div class="col-sm-3" ></div>
-    <div class="col-sm-3" ></div>
-  
-			<?php
-				foreach ($data as $row) {
+<div class="container">
+        <h1>Top 500 Albums</h1>
+        <table class="table striped">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Album</th>
+                    <th>Artist</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Owned</th>
+                    <th>Favourite</th>
+                    <th>More Info</th>
+                    <th>Artwork</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach ($data as $row) {
 
-					$number = $row['number'];
-					$year = $row['year'];
-					$album = $row['album'];
-					$albumid = $row['id'];
-
-					echo "<a href='album.php?album_id=$albumid'>
-          <div class='card' style='width: 200px'>
-          <img class='card-img-top' src='img/albumart/$number.jpg' alt='Card Image' style='width: 100%'>
-            <div class='card-body'>
-								<h3>$album</h3>
-								<h3>Artist</h3>
-                <h3>$year</h3>
-								<h4>$number</h4>
-            </div>
-					</div>
-						</a>";
-				}
-			?>	
-			</div>
-		</div>
+                      $number = $row['number'];
+                      $year = $row['year'];
+                      $title = $row['album'];
+                      $albumid = $row['id'];
+                      $artwork = 'img/albumart/$number.jpg';
+                   
+                        echo " <tr>  
+                               <td>{$row['number']}</td>
+                               <td>$title</td>
+                               <td>Artist</td>
+                               <td>{$row['year']}</td>
+                               <td>Rating</td>
+                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
+                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
+                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>More Info</a></td>
+                               <td><img src='img/albumart/$number.jpg' class='img-thumbnail' style='width: 150px'></td>
+                           </tr>  ";
+                    }
+                ?>
+            </tbody>
+        </table>
+</div>
 
 </body>
 </html>
