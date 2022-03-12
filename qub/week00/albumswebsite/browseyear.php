@@ -36,9 +36,17 @@ $data = json_decode($result, true);
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse Year</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="filteryear.php?sort=1965">1965</a>
-              <a class="dropdown-item" href="#">1963</a>
-             <a class="dropdown-item" href="#">1973</a>
+  
+            <?php
+
+                foreach ($data as $row) {
+
+                $item = $row['year'];
+                echo "<option value='$item' href='filteryear.php?sort=$item'>$item</option> ";
+
+              }
+            ?>
+
             </div>
           </li>
           <li class='nav-item'>

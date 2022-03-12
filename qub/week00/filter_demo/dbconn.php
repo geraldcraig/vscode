@@ -1,8 +1,8 @@
 <?php
         $host = "localhost";
-        $user = "root";
-        $pw = "root";
-        $db = "albumtest";
+        $user = "testuser";
+        $pw = "password";
+        $db = "mytestdb";
  
         $conn = new mysqli($host, $user, $pw, $db);
  

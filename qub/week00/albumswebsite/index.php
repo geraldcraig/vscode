@@ -76,6 +76,7 @@ $data = json_decode($result, true);
 					$number = $row['number'];
 					$year = $row['year'];
 					$album = $row['album'];
+          $artist = $row['name'];
 					$albumid = $row['id'];
           $artwork = $row['image'];
 
@@ -84,7 +85,7 @@ $data = json_decode($result, true);
           <img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
             <div class='card-body'>
 								<h3>$album</h3>
-								<h3>Artist</h3>
+								<h3>$artist</h3>
                 <h3>$year</h3>
 								<h4>$number</h4>
             </div>

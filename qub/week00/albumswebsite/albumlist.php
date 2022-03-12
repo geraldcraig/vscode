@@ -74,6 +74,7 @@
 
                       $number = $row['number'];
                       $year = $row['year'];
+                      $artist = $row['name'];
                       $title = $row['album'];
                       $albumid = $row['id'];
                       $artwork = $row['image'];
@@ -81,7 +82,7 @@
                         echo " <tr>  
                                <td>{$row['number']}</td>
                                <td>$title</td>
-                               <td>Artist</td>
+                               <td>$artist</td>
                                <td>{$row['year']}</td>
                                <td>Rating</td>
                                <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>

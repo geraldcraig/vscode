@@ -6,7 +6,11 @@
 
         include ("dbconn.php");
     
-        $read = "SELECT * FROM album";
+        $read = "SELECT album.id, album.number, album.album, album.image, artist.name, albumyear.year FROM album
+        INNER JOIN artist 
+        ON album.artistid = artist.id
+        INNER JOIN albumyear 
+        ON album.yearid = albumyear.id";
         
         $result = $conn->query($read);
         
@@ -36,7 +40,12 @@
 
         $itemid = $conn->real_escape_string($_GET['album']);
     
-        $read = "SELECT * FROM album WHERE number = $itemid";
+        $read = "SELECT album.id, album.number, album.album, album.image, artist.name, albumyear.year FROM album
+        INNER JOIN artist 
+        ON album.artistid = artist.id
+        INNER JOIN albumyear 
+        ON album.yearid = albumyear.id
+        WHERE number = $itemid";
         
         $result = $conn->query($read);
         

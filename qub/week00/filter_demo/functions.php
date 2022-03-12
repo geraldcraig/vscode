@@ -5,7 +5,7 @@
         
         include("dbconn.php");
 
-        $selectquery = "SELECT * FROM albumyear";
+        $selectquery = "SELECT * FROM myrankings ";
 
         $result = $conn -> query($selectquery);
 
@@ -28,9 +28,9 @@
         
         while ($row = $result->fetch_assoc()) { 
 
-            $ranking = $row["number"];
-            $university = $row["year"];
-            $country = $row["album"];
+            $ranking = $row["unirank"];
+            $university = $row["uniname"];
+            $country = $row["unicountry"];
 
             echo "<tr>
                     <th scope='row'> {$ranking} </th> 
@@ -49,7 +49,7 @@
 
         include("dbconn.php");
 
-        $filterquery = "SELECT * FROM albumyear WHERE year ='$filterdata' ";
+        $filterquery = "SELECT * FROM myrankings WHERE unicountry='$filterdata' ";
 
         $result = $conn -> query($filterquery);
 
@@ -71,9 +71,9 @@
 
         
         while ($row = $result->fetch_assoc()){ 
-            $ranking = $row["number"];
-            $university = $row["year"];
-            $country = $row["album"];
+            $ranking = $row["unirank"];
+            $university = $row["uniname"];
+            $country = $row["unicountry"];
 
             echo "<tr>
                     <th scope='row'> {$ranking} </th> 

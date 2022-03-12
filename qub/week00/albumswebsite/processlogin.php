@@ -1,9 +1,9 @@
 <?php
 
-$uname = $_POST["sailor"];
-$upass = $_POST["pwd"];
+$uname = $_POST['username'];
+$upass = $_POST['password'];
 
-$checkuser = "SELECT * FROM user WHERE username ='$uname' ";
+$checkuser = "SELECT * FROM user WHERE username =$uname ";
 
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?userid=$checkuser";
 

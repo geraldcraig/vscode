@@ -55,6 +55,7 @@
 				foreach ($data as $row) {
 
 					$number = $row['number'];
+          $artist = $row['name'];
 					$year = $row['year'];
 					$album = $row['album'];
 					$albumid = $row['id'];
@@ -62,7 +63,7 @@
 
 					echo "<div><h1>Title: $album</h1></div>
                 <div class='album'>
-								<h2>Artist: Artist</h2>
+								<h2>Artist: $artist</h2>
 								<h3>Year: $year</h3>
 								<p>Genre: Genre</p>
                 <p>Sub-Genre: Sub-Genre</p>
