@@ -58,6 +58,7 @@
 					$year = $row['year'];
 					$album = $row['album'];
 					$albumid = $row['id'];
+          $artwork = $row['image'];
 
 					echo "<div><h1>Title: $album</h1></div>
                 <div class='album'>
@@ -70,7 +71,7 @@
                 <p>Add Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Album</a></p>
                 <p>Update Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Update Album</a></p>
                 <p>Delete Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Delete Album</a></p>
-                <p><img src='img/albumart/$number.jpg'><p>
+                <p><img src=$artwork><p>
                 <p>Rating: Rating</p>
                 <p>Reviews: Reviews</p>
 							</div> ";

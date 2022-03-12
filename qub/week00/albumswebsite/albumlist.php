@@ -65,7 +65,6 @@
                     <th>Rating</th>
                     <th>Owned</th>
                     <th>Favourite</th>
-                    <th>More Info</th>
                     <th>Artwork</th>
                 </tr>
             </thead>
@@ -77,7 +76,7 @@
                       $year = $row['year'];
                       $title = $row['album'];
                       $albumid = $row['id'];
-                      $artwork = 'img/albumart/$number.jpg';
+                      $artwork = $row['image'];
                    
                         echo " <tr>  
                                <td>{$row['number']}</td>
@@ -87,8 +86,7 @@
                                <td>Rating</td>
                                <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
                                <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
-                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>More Info</a></td>
-                               <td><img src='img/albumart/$number.jpg' class='img-thumbnail' style='width: 150px'></td>
+                               <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'><?a></td>
                            </tr>  ";
                     }
                 ?>
