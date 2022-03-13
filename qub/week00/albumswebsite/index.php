@@ -54,9 +54,9 @@ $data = json_decode($result, true);
             <a class='nav-link' href='register.php'>Register</a>
           </li>
         </ul>
-        <form class='form-inline my-2 my-lg-0'>
-          <input class='form-control mr-sm-2' type='search' placeholder='Search artist, album..' aria-label='Search'>
-          <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
+        <form class="form-inline" action="search.php">
+            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
+            <button class="btn btn-success" type="submit">Search</button>
         </form>
   </div>
 </nav>
