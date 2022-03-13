@@ -6,11 +6,11 @@
 
         include ("dbconn.php");
     
-        $read = "SELECT album.id, album.number, album.album, album.image, artist.name, albumyear.year FROM album
+        $read = "SELECT album.id, album.number, album.title, album.image, artist.name, year.album_year FROM album
         INNER JOIN artist 
-        ON album.artistid = artist.id
-        INNER JOIN albumyear 
-        ON album.yearid = albumyear.id";
+        ON album.artist_id = artist.id
+        INNER JOIN year 
+        ON album.year_id = year.id";
         
         $result = $conn->query($read);
         
@@ -40,11 +40,11 @@
 
         $itemid = $conn->real_escape_string($_GET['album']);
     
-        $read = "SELECT album.id, album.number, album.album, album.image, artist.name, albumyear.year FROM album
+        $read = "SELECT album.id, album.number, album.title, album.image, artist.name, year.album_year FROM album
         INNER JOIN artist 
-        ON album.artistid = artist.id
-        INNER JOIN albumyear 
-        ON album.yearid = albumyear.id
+        ON album.artist_id = artist.id
+        INNER JOIN year 
+        ON album.year_id = year.id
         WHERE number = $itemid";
         
         $result = $conn->query($read);
@@ -157,10 +157,12 @@
         include('dbconn.php');
 
         $number = $conn->real_escape_string($_POST['addnumber']);
-        $year = $conn->real_escape_string($_POST['addyear']);
         $title = $conn->real_escape_string($_POST['addtitle']);
+        $image = $conn->real_escape_string($_POST['addimage']);
+        $artistid = $conn->real_escape_string($_POST['addartist_id']);
+        $yearid = $conn->real_escape_string($_POST['addyear_id']);
     
-        $insertquery="INSERT INTO album (number, year, album) VALUES ('$number', '$year', '$title')";
+        $insertquery="INSERT INTO album (number, title, image, artist_id, year_id) VALUES ('$number', '$title', '$image', '$artistid', '$yearid')";
            
         $result = $conn->query($insertquery);
         

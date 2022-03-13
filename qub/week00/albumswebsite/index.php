@@ -74,8 +74,8 @@ $data = json_decode($result, true);
 				foreach ($data as $row) {
 
 					$number = $row['number'];
-					$year = $row['year'];
-					$album = $row['album'];
+					$year = $row['album_year'];
+					$album = $row['title'];
           $artist = $row['name'];
 					$albumid = $row['id'];
           $artwork = $row['image'];
