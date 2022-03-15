@@ -62,13 +62,10 @@ $data = json_decode($result, true);
 </nav>
 <br>
 
-    <div id="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
 			<h1>Top 10 User Rated Albums</h1>
-      <div class="row">
-    <div class="col-sm-4" ></div>
-    <div class="col-sm-4" ></div>
-    <div class="col-sm-4" ></div>
-    <div class="col-sm-4" ></div>
+      <div class="col">
+   
   
 			<?php
 				foreach ($data as $row) {

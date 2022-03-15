@@ -57,7 +57,7 @@
 					$number = $row['number'];
           $artist = $row['name'];
 					$year = $row['year'];
-					$album = $row['album'];
+					$album = $row['title'];
 					$albumid = $row['id'];
           $artwork = $row['image'];
 
