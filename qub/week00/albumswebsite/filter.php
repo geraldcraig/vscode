@@ -47,6 +47,7 @@
                   echo "<option value=$item><a href='filter.php?sort=$item' /a>$item</option> ";
 
                 }
+                
               ?>
 
               </div>
