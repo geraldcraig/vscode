@@ -3,19 +3,11 @@
     // function to read and display all data from the database table
     function readrankings() {
         
-        include("dbconn.php");
-
-        $selectquery = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
-        INNER JOIN artist 
-        ON album.artist_id = artist.id
-        INNER JOIN year 
-        ON album.year_id = year.id";
-
-        $result = $conn -> query($selectquery);
-
-        if(!$result) {
-            echo $conn->error;
-        }
+        $endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+ 
+        $result = file_get_contents($endpoint);
+         
+        $data = json_decode($result, true);
 
 
         echo " <table class='table'> 
@@ -31,7 +23,7 @@
             ";
 
         
-        while ($row = $result->fetch_assoc()) { 
+        foreach ($data as $row) { 
 
             $number = $row["number"];
             $artist = $row['name'];
@@ -56,17 +48,11 @@
 
         include("dbconn.php");
 
-        $filterquery = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
-        INNER JOIN artist 
-        ON album.artist_id = artist.id
-        INNER JOIN year 
-        ON album.year_id = year.id WHERE name='$filterdata' ";
-
-        $result = $conn -> query($filterquery);
-
-        if(!$result) {
-            echo $conn->error;
-        }
+        $endpoint = "http://localhost/qub/week00/albumsapi/api.php?filter=$filterdata";
+ 
+        $result = file_get_contents($endpoint);
+         
+        $data = json_decode($result, true);
 
 
         echo " <table class='table'> 
@@ -82,7 +68,7 @@
             ";
 
         
-        while ($row = $result->fetch_assoc()) { 
+        foreach ($data as $row) { 
 
             $number = $row["number"];
             $artist = $row['name'];
@@ -98,6 +84,7 @@
         }
         
         echo "</tbody></table>";
+  
     }
 
 ?>

@@ -2,6 +2,12 @@
 
     include("functions.php");
 
+    $endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+ 
+    $result = file_get_contents($endpoint);
+         
+    $data = json_decode($result, true);
+
     $filter = $_GET["sort"];
 
 ?>
@@ -33,8 +39,16 @@
             <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Artist</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="filter.php?sort=The Beatles">The Beatles</a>
-                <a class="dropdown-item" href="filter.php?sort=The Beach Boys">The Beach Boys</a>
+              <?php
+
+                  foreach ($data as $row) {
+
+                  $item = $row['name'];
+                  echo "<option value=$item><a href='filter.php?sort=$item' /a>$item</option> ";
+
+                }
+              ?>
+
               </div>
             </li>
 

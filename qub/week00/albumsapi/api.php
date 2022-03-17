@@ -2,7 +2,7 @@
 
     header("Content-Type: application/json");
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist'])) && (!isset($_GET['filter']))) {
 
         include ("dbconn.php");
     
@@ -34,7 +34,69 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['userid'])) && (isset($_GET['album'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (isset($_GET['artist'])) && (!isset($_GET['filter']))) {
+
+        include ("dbconn.php");
+    
+        $read = "SELECT * FROM artist";
+        
+        $result = $conn->query($read);
+        
+        if (!$result) {
+            echo $conn -> error;
+        }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['userid'])) && (!isset($_GET['album'])) && (!isset($_GET['user'])) && (!isset($_GET['artist'])) && (isset($_GET['filter']))) {
+
+        include ("dbconn.php");
+
+        $filterdata = $conn->real_escape_string($_GET['filter']);
+    
+        $filterquery = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
+        INNER JOIN artist 
+        ON album.artist_id = artist.id
+        INNER JOIN year 
+        ON album.year_id = year.id WHERE name='$filterdata' ";
+
+        $result = $conn -> query($filterquery);
+        
+        if (!$result) {
+            echo $conn -> error;
+        }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['userid'])) && (isset($_GET['album'])) && (!isset($_GET['user'])) && (!isset($_GET['artist'])) && (!isset($_GET['filter']))) {
 
         include ("dbconn.php");
 
@@ -69,7 +131,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (isset($_GET['user'])) && (!isset($_GET['artist'])) && (!isset($_GET['filter']))) {
 
         include ("dbconn.php");
     
@@ -97,7 +159,7 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['user'])) && (isset($_GET['userid']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['user'])) && (isset($_GET['userid'])) && (!isset($_GET['artist'])) && (!isset($_GET['filter']))) {
 
         include ("dbconn.php");
 
