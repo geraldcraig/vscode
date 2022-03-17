@@ -2,13 +2,19 @@
 
     include("functions.php");
 
-    $endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?artist";
  
     $result = file_get_contents($endpoint);
          
     $data = json_decode($result, true);
 
     $filter = $_GET["sort"];
+
+    $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php";
+ 
+    $resultalbum = file_get_contents($endpoint);
+         
+    $dataalbum = json_decode($resultalbum, true);
 
 ?>
 
