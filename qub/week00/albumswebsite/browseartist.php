@@ -36,9 +36,16 @@ $data = json_decode($result, true);
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse Artist</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="filter.php?sort=Revolver">Revolver</a>
-              <a class="dropdown-item" href="#">Rolling Stones</a>
-             <a class="dropdown-item" href="#">The Beatles</a>
+              
+            <?php
+
+              foreach ($data as $row) {
+
+                $item = $row['name'];
+                echo "<option value='filter.php?sort=$item'>$item</option> ";
+              }
+
+            ?>
             </div>
           </li>
           <li class='nav-item'>

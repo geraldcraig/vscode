@@ -1,6 +1,6 @@
 <?php
 
-  include("functionsyear.php");
+  include("functions.php");
 
 ?>
 
@@ -16,7 +16,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-      <a class="navbar-brand" href="readfuncyear.php">University Rankings</a>
+      <a class="navbar-brand" href="readfunc.php">Artist</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
             Countries
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="filteryear.php?sort=1965">1965</a>
+              <a class="dropdown-item" href="filter.php?sort=1965">1965</a>
             </div>
           </li>
       
