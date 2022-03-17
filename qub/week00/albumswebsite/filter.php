@@ -17,7 +17,7 @@
 
   <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <a class="navbar-brand" href="readfunc.php">University Rankings</a>
+        <a class="navbar-brand" href="readfuncyear.php">University Rankings</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -31,11 +31,15 @@
               Countries
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="filter.php?sort=Revolver">Revolver</a>
-                <a class="dropdown-item" href="filter.php?sort=The Beatles">The Beatles</a>
-                <a class="dropdown-item" href="filter.php?sort=Australia">AU</a>
-                <a class="dropdown-item" href="filter.php?sort=Germany">GER</a>
-                <a class="dropdown-item" href="filter.php?sort=Spain">ESP</a>
+                <?php
+
+                while ($row = $result->fetch_assoc()) {
+
+                    $item = $row['year'];
+                    echo "<option value='strtolower($item)' href='filter.php?sort=$item'>$item</option>";
+
+                    }
+                ?>
               </div>
             </li>
 
