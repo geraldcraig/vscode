@@ -62,10 +62,12 @@ $data = json_decode($result, true);
 </nav>
 <br>
 
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-			<h1>Top 10 User Rated Albums</h1>
-      <div class="col">
-   
+<div>
+    <h1>Top 10 User Rated Albums</h1>
+</div>
+
+<div class="row row-cols-1 row-cols-md-5 g-4">
+        
   
 			<?php
 				foreach ($data as $row) {
@@ -78,20 +80,24 @@ $data = json_decode($result, true);
           $artwork = $row['image'];
 
 					echo "<a href='album.php?album_id=$albumid'>
-          <div class='card' style='width: 200px'>
-          <img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
-            <div class='card-body'>
+          <div class='col'>
+            <div class='card' style='width: 200px'>
+                <img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
+              <div class='card-body'>
 								<h3>$album</h3>
 								<h3>$artist</h3>
                 <h3>$year</h3>
 								<h4>$number</h4>
-            </div>
-					</div>
-						</a>";
+              </div>
+					  </div>
+          </div>
+				</a>";
 				}
-			?>	
-			</div>
-		</div>
+			?>
+      
+      
+  </div>
+	
 
 </body>
 </html>
