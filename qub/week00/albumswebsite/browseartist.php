@@ -1,10 +1,6 @@
 <?php
- 
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
- 
-$result = file_get_contents($endpoint);
- 
-$data = json_decode($result, true);
+
+include("functions.php");
  
 ?>
  
@@ -36,16 +32,8 @@ $data = json_decode($result, true);
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse Artist</a>
             <div class="dropdown-menu">
-              
-            <?php
-
-              foreach ($data as $row) {
-
-                $item = $row['name'];
-                echo "<option value='filter.php?sort=$item'>$item</option> ";
-              }
-
-            ?>
+              <a class="dropdown-item" href="filter.php?sort=The Beatles">The Beatles</a>
+              <a class="dropdown-item" href="filter.php?sort=The Beach Boys">The Beach Boys</a>
             </div>
           </li>
           <li class='nav-item'>
@@ -69,50 +57,14 @@ $data = json_decode($result, true);
 </nav>
 <br>
 
-<div class="container">
-        <h1>Top 500 Albums</h1>
-        <table class="table striped">
-            <thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Album</th>
-                    <th>Artist</th>
-                    <th>Year</th>
-                    <th>Rating</th>
-                    <th>Owned</th>
-                    <th>Favourite</th>
-                    <th>More Info</th>
-                    <th>Artwork</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($data as $row) {
+<div class="container-fluid">
+  
+  <?php 
 
-                      $number = $row['number'];
-                      $album = $row['title'];
-                      $artist = $row['name'];
-                      $year = $row['year'];
-                      $title = $row['album'];
-                      $albumid = $row['id'];
-                      $artwork = $row['image'];
-                      $albumid = $row['id'];
-                   
-                        echo " <tr>  
-                               <td>$number</td>
-                               <td>$album</td>
-                               <td>$artist</td>
-                               <td>$year</td>
-                               <td>Rating</td>
-                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
-                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
-                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>More Info</a></td>
-                               <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                           </tr>  ";
-                    }
-                ?>
-            </tbody>
-        </table>
+      // call function to read and display all data
+      $read_all = readrankings();
+  ?>
+
 </div>
 
 </body>

@@ -5,7 +5,11 @@
         
         include("dbconn.php");
 
-        $selectquery = "SELECT * FROM album ";
+        $selectquery = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
+        INNER JOIN artist 
+        ON album.artist_id = artist.id
+        INNER JOIN year 
+        ON album.year_id = year.id";
 
         $result = $conn -> query($selectquery);
 
@@ -17,9 +21,10 @@
         echo " <table class='table'> 
                 <thead>
                     <tr>
-                        <th scope='col'># Ranking</th>
-                        <th scope='col'>University Name</th> 
-                        <th scope='col'>Country</th>  
+                        <th scope='col'># Number</th>
+                        <th scope='col'>Artist</th>
+                        <th scope='col'>Album</th>
+                        <th scope='col'>Year</th>  
                     </tr>
                 </thead>
                 <tbody>
@@ -28,14 +33,16 @@
         
         while ($row = $result->fetch_assoc()) { 
 
-            $ranking = $row["number"];
-            $university = $row["year"];
-            $country = $row["album"];
+            $number = $row["number"];
+            $artist = $row['name'];
+            $album = $row["title"];
+            $year = $row["year"];
 
             echo "<tr>
-                    <th scope='row'> {$ranking} </th> 
-                        <td>{$university}</td>
-                        <td>{$country}</td>
+                    <th scope='row'> {$number} </th> 
+                        <td>{$artist}</td>
+                        <td>{$album}</td>
+                        <td>{$year}</td>
                     </tr>";
         }
         
@@ -49,7 +56,11 @@
 
         include("dbconn.php");
 
-        $filterquery = "SELECT * FROM album WHERE album='$filterdata' ";
+        $filterquery = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
+        INNER JOIN artist 
+        ON album.artist_id = artist.id
+        INNER JOIN year 
+        ON album.year_id = year.id WHERE name='$filterdata' ";
 
         $result = $conn -> query($filterquery);
 
@@ -61,28 +72,32 @@
         echo " <table class='table'> 
                 <thead>
                     <tr>
-                        <th scope='col'># Ranking</th>
-                        <th scope='col'>University Name</th> 
-                        <th scope='col'>Country</th>  
+                        <th scope='col'># Number</th>
+                        <th scope='col'>Artist</th>
+                        <th scope='col'>Album</th>
+                        <th scope='col'>Year</th>  
                     </tr>
                 </thead>
                 <tbody>
             ";
 
         
-        while ($row = $result->fetch_assoc()){ 
-            $ranking = $row["number"];
-            $university = $row["year"];
-            $country = $row["album"];
+        while ($row = $result->fetch_assoc()) { 
+
+            $number = $row["number"];
+            $artist = $row['name'];
+            $album = $row["title"];
+            $year = $row["year"];
 
             echo "<tr>
-                    <th scope='row'> {$ranking} </th> 
-                        <td>{$university}</td>
-                        <td>{$country}</td>
+                    <th scope='row'> {$number} </th> 
+                        <td>{$artist}</td>
+                        <td>{$album}</td>
+                        <td>{$year}</td>
                     </tr>";
         }
         
-        echo "</tbody></table>"; 
+        echo "</tbody></table>";
     }
 
 ?>

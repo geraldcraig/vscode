@@ -2,7 +2,7 @@
         $host = "localhost";
         $user = "root";
         $pw = "root";
-        $db = "albums";
+        $db = "albumtest";
  
         $conn = new mysqli($host, $user, $pw, $db);
  
