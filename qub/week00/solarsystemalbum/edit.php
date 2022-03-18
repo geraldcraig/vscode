@@ -15,7 +15,7 @@
 
         include("dbconn.php");
       
-        $query = "SELECT * FROM mysolarsystem WHERE id = {$planetid}";
+        $query = "SELECT * FROM album WHERE id = {$planetid}";
       
         $result = $conn->query($query);
       
@@ -25,8 +25,8 @@
       
           // obtain the fields from the result set
           while ($row = $result->fetch_assoc()) {
-              $planet = $row["name"];
-              $description = $row["description"];
+              $planet = $row["title"];
+              $description = $row["year"];
           }
         }
     }

@@ -11,7 +11,7 @@
 
   include("dbconn.php");
   
-  $query = "SELECT * FROM mysolarsystem";
+  $query = "SELECT * FROM album";
   
   $result = $conn->query($query);
 
@@ -54,7 +54,7 @@
           while ($row = $result->fetch_assoc()) {
 
             echo "<div class=' bg-crimson fg-white p-1 mb-2 p-3-md p-5-lg p-8-xl text-center'>
-                        <a class='button yellow outline pl-10 pr-10' href='planet.php?info={$row["id"]}'>{$row["name"]}</a>
+                        <a class='button yellow outline pl-10 pr-10' href='planet.php?info={$row["id"]}'>{$row["title"]}</a>
                 </div> ";
           }
     ?>

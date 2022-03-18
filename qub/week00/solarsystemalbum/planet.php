@@ -13,7 +13,7 @@
 
   include("dbconn.php");
 
-  $query = "SELECT * FROM mysolarsystem WHERE id = {$planetid}";
+  $query = "SELECT * FROM album WHERE id = {$planetid}";
 
   $result = $conn->query($query);
 
@@ -70,10 +70,10 @@
 
           $path = $img["query"]["pages"][0]["thumbnail"]["source"];
 
-          echo "<h2>{$row["name"]}</h2>
+          echo "<h2>{$row["title"]}</h2>
                 <div class=' bg-crimson fg-white p-1 mb-2 p-3-md p-5-lg p-8-xl'>
               <h4>
-              {$row["description"]}
+              {$row["year"]}
               </h4>
               </div> ";
 

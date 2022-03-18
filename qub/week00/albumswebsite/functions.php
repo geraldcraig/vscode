@@ -48,11 +48,11 @@
 
         include("dbconn.php");
 
-        $endpoint = "http://localhost/qub/week00/albumsapi/api.php?filter=$filterdata";
+        $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter=$filterdata";
  
-        $result = file_get_contents($endpoint);
+        $resultalbum = file_get_contents($endpointalbum);
          
-        $data = json_decode($result, true);
+        $dataalbum = json_decode($resultalbum, true);
 
 
         echo " <table class='table'> 
@@ -68,7 +68,7 @@
             ";
 
         
-        foreach ($data as $row) { 
+        foreach ($dataalbum as $row) { 
 
             $number = $row["number"];
             $artist = $row['name'];

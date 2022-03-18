@@ -31,14 +31,10 @@
             Countries
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <?php
-        
-        
-        // Iterating through the product array
-                foreach($row as $item){
-                echo "<option value='strtolower($item)'>$item</option>";
-        }
-        ?>
+              <a class="dropdown-item" href="filter.php?sort=United States of America">USA</a>
+              <a class="dropdown-item" href="filter.php?sort=United Kingdom">UK</a>
+              <a class="dropdown-item" href="filter.php?sort=Australia">AUS</a>
+              <a class="dropdown-item" href="filter.php?sort=Germany">GER</a>
             </div>
           </li>
       

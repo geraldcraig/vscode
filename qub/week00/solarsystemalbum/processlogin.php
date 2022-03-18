@@ -7,7 +7,7 @@
     $uname = $_POST["uname"];
     $upass = $_POST["pword"];
 
-    $checkuser = "SELECT * FROM mysolarusers WHERE username ='$uname' AND userpass = MD5('$upass') ";
+    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND password = SHA1('$upass') ";
 
     $result = $conn->query($checkuser);
     

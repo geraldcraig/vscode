@@ -10,7 +10,7 @@
 
     $filter = $_GET["sort"];
 
-    $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php";
+    $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter";
  
     $resultalbum = file_get_contents($endpoint);
          
@@ -68,7 +68,7 @@
       
         <?php 
 
-            $read_all = readrankingsfilter($filter);
+            $read_all = readrankingsfilter($filter); 
             //echo $read_all;
         ?>
  
