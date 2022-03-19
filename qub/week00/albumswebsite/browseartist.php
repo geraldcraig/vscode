@@ -43,7 +43,7 @@ $data = json_decode($result, true);
                 foreach ($data as $row) {
 
                     $item = $row['name'];
-                    echo "<option value=$item><a href='filter.php?sort=$item' /a>$item</option> ";
+                   echo "<a option value='$item' href='filter.php?sort=$item'>$item</option></a>";
 
                 }
                 ?>
