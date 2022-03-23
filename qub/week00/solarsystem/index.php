@@ -9,7 +9,7 @@
     $currentUser = $_SESSION['editpermission123'];
   }
 
-  $endpoint = "http://localhost/qub/week00/solarsystem/api.php?user";
+  $endpoint = "http://localhost/qub/week00/solarsystem/api.php";
 
   $resource = file_get_contents($endpoint);
 
@@ -47,7 +47,7 @@
   <div class="begincontent fg-white bg-black p-6 mx-auto border bd-default win-shadow">
     <h2>Planets</h2>
     <?php
-          while ($row = $result->fetch_assoc()) {
+          foreach ($data as $row) {
 
             echo "<div class=' bg-crimson fg-white p-1 mb-2 p-3-md p-5-lg p-8-xl text-center'>
                         <a class='button yellow outline pl-10 pr-10' href='planet.php?info={$row["id"]}'>{$row["name"]}</a>

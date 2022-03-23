@@ -75,7 +75,7 @@
                       $number = $row['number'];
                       $year = $row['year'];
                       $artist = $row['name'];
-                      $title = $row['album'];
+                      $title = $row['title'];
                       $albumid = $row['id'];
                       $artwork = $row['image'];
                    
@@ -86,7 +86,7 @@
                                <td>{$row['year']}</td>
                                <td>Rating</td>
                                <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
-                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
+                               <td><a href='addfavourite.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
                                <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
                            </tr>  ";
                     }

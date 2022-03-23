@@ -1,33 +1,26 @@
 <?php
 
-session_start();
+    session_start();
 
-$uname = $_POST['username'];
-$upass = $_POST['password'];
+    include("dbconn.php");
 
-$_SESSION['username'] = $uname;
-$_SESSION['password'] = $upass;
+    $uname = $_POST["username"];
+    $upass = $_POST["userpassword"];
 
-$checkuser = "SELECT * FROM user WHERE username =$uname ";
+    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php?userid=$checkuser";
+    $result = $conn->query($checkuser);
+    
+    if (!$result) {
+	    echo $conn->error;
+    }
 
-$resource = file_get_contents($endpoint);
+    $num = $result->num_rows;
 
-$data = json_decode($resource, true);
-
-
-$result = $conn->query($checkuser);
-
-if (!$result) {
-    echo $conn->error;
-}
-
-$num = $result->num_rows;
-
-if ($num > 0) {
-    echo "no match";
-} else {
-    echo "successful";
-}
+    if ($num > 0) {
+        $_SESSION['editpermission123'] = $uname;
+	    header("Location: index.php");
+    } else {
+	    header("Location: login.php");
+    }
 ?>

@@ -2,18 +2,19 @@
 
     session_start();
 
-    $uname = $_POST["admin"];
+    include("dbconn.php");
 
-    $endpoint = "http://localhost/qub/week00/solarsystem/api.php?user=$uname";
+    //$endpoint = "http://localhost/qub/week00/solarsystem/api.php?user";
 
-    $resource = file_get_contents($endpoint);
+    //$resource = file_get_contents($endpoint);
   
-    $data = json_decode($resource, true);
+    //$data = json_decode($resource, true);
 
-    //$uname = $_POST["admin"];
-    //$upass = $_POST["admin123"];
 
-    $checkuser = "SELECT * FROM mysolarusers WHERE username ='$uname' ";
+    $uname = $_POST["uname"];
+    $upass = $_POST["pword"];
+
+    $checkuser = "SELECT * FROM mysolarusers WHERE username ='$uname' AND userpass = MD5('$upass') ";
 
     $result = $conn->query($checkuser);
     

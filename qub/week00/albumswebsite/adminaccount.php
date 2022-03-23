@@ -36,10 +36,10 @@ $data = json_decode($result, true);
             <a class='nav-link' href='account.php'>Account</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='collection.php'>Collection</a>
+            <a class='nav-link' href='useraccounts.php'>User Accounts</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='favourites.php'>Favourites</a>
+            <a class='nav-link' href='addalbum.php'>Add Album</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='reviews.php'>Reviews</a>
