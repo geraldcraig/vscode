@@ -1,8 +1,10 @@
 <?php
 
   $number = $_POST['number'];
-  $year = $_POST['year'];
 	$title = $_POST['title'];
+  $image = $_POST['image'];
+  $artistid = $_POST['artist'];
+  $yearid = $_POST['year'];
 
 
 	$endpoint = "http://localhost/qub/week00/albumsapi/api.php?newalbum";
@@ -11,8 +13,10 @@
 
 		array(
       'addnumber' => $number,
-      'addyear' => $year,
-			'addtitle' => $title
+      'addtitle' => $title,
+      'addimage' => $image,
+      'addartist_id' => $artistid,
+			'addyear_id' => $yearid
 		)
 
 	);

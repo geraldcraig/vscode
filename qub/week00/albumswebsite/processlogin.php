@@ -1,7 +1,12 @@
 <?php
 
+session_start();
+
 $uname = $_POST['username'];
 $upass = $_POST['password'];
+
+$_SESSION['username'] = $uname;
+$_SESSION['password'] = $upass;
 
 $checkuser = "SELECT * FROM user WHERE username =$uname ";
 

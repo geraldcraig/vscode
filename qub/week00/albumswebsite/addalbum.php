@@ -23,33 +23,38 @@
   <h2>Add Album</h2>
 	<form name="mylist" method="POST" action="processaddalbum.php" enctype="multipart/form-data">
     <div class="form-group">
-			<label for="username">Number:</label> 
-			<input type="text" id="myItemInput" name="number"/>
+			<label for="number">Number:</label> 
+			<input type="text" id="number" name="number"/>
     </div>
 
+    <div class="form-group">
+			<label for="title">Title:</label> 
+			<input type="text" id="title" name="title"/>
+		</div>
+
+    <div class="form-group">
+			<label for="image">Image:</label> 
+			<input type="text" id="image" name="image"/>
+		</div>
+
+    <div class="form-group">
+			<label for="genre">Genre:</label> 
+			<input type="text" id="genre" name="genre"/>
+		</div>
+
+    <div class="form-group">
+			<label for="subgenre">Sub-Genre:</label> 
+			<input type="text" id="sungenre" name="subgenre"/>
+		</div>
+
+	<div class="form-group">
+			<label for="artist">Artist:</label> 
+			<input type="text" id="artist" name="artist"/>
+		</div>
+
 		<div class="form-group">
-			<label for="password">Artist:</label> 
-			<input type="text" id="myItemInput" name="artist"/>
-		</div>
-
-    <div class="form-group">
-			<label for="password">Title:</label> 
-			<input type="text" id="myItemInput" name="title"/>
-		</div>
-
-    <div class="form-group">
-			<label for="password">Year:</label> 
-			<input type="text" id="myItemInput" name="year"/>
-		</div>
-
-    <div class="form-group">
-			<label for="password">Genre:</label> 
-			<input type="text" id="myItemInput" name="genre"/>
-		</div>
-
-    <div class="form-group">
-			<label for="password">Sub-Genre:</label> 
-			<input type="text" id="myItemInput" name="subgenre"/>
+			<label for="year">Year:</label> 
+			<input type="text" id="year" name="year"/>
 		</div>
 						
 			<button type="submit" class="btn btn-primary">Submit</button>			

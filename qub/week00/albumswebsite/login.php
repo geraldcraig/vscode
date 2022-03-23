@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +40,7 @@
     <button type="submit" class="btn btn-primary">Submit</button>		
   </form>
 </div>
+
 <br>
 
 </body>

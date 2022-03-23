@@ -218,13 +218,60 @@
 
         include('dbconn.php');
 
+        $artist = $conn->real_escape_string($_POST['addartist_id']);
+
+        $read = "SELECT id FROM artist WHERE name = $artist";
+        
+        $result = $conn->query($read);
+        
+        if (!$result) {
+            echo $conn -> error;
+        }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+
+
         $number = $conn->real_escape_string($_POST['addnumber']);
         $title = $conn->real_escape_string($_POST['addtitle']);
         $image = $conn->real_escape_string($_POST['addimage']);
-        $artistid = $conn->real_escape_string($_POST['addartist_id']);
+        $artistid = $response;
         $yearid = $conn->real_escape_string($_POST['addyear_id']);
     
         $insertquery="INSERT INTO album (number, title, image, artist_id, year_id) VALUES ('$number', '$title', '$image', '$artistid', '$yearid')";
+           
+        $result = $conn->query($insertquery);
+        
+        if(!$result) {
+            
+            echo $conn->error;
+        
+        } else {
+
+            echo "POST request performed";
+            
+        }
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deletealbum']))) {
+
+        include('dbconn.php');
+
+        $albumid = $conn->real_escape_string($_GET['11']);
+    
+        $insertquery="DELETE FROM album WHERE id = $albumid";
            
         $result = $conn->query($insertquery);
         

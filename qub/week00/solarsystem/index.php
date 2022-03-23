@@ -9,15 +9,11 @@
     $currentUser = $_SESSION['editpermission123'];
   }
 
-  include("dbconn.php");
-  
-  $query = "SELECT * FROM mysolarsystem";
-  
-  $result = $conn->query($query);
+  $endpoint = "http://localhost/qub/week00/solarsystem/api.php?user";
 
-  if (!$result) {
-    echo $conn->error;
-  } 
+  $resource = file_get_contents($endpoint);
+
+  $data = json_decode($resource, true);
 
 ?>
 
