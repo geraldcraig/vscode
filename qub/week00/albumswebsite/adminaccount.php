@@ -1,6 +1,6 @@
 <?php
  
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
  
 $result = file_get_contents($endpoint);
  
@@ -55,6 +55,40 @@ $data = json_decode($result, true);
   </div>
 </nav>
 <br>
+
+<div class="container">
+        <h1>User Accounts</h1>
+        <table class="table striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Delete account</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach ($data as $row) {
+
+                      $fname = $row['firstname'];
+                      $lname = $row['lastname'];
+                      $uname = $row['username'];
+                      $pword = $row['userpassword'];
+                      $userid = $row['id'];
+                   
+                        echo " <tr>  
+                               <td>$fname</td>
+                               <td>$lname</td>
+                               <td>$uname</td>
+                               <td>$pword</td>
+                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Delete</a></td>
+                           </tr>  ";
+                    }
+                ?>
+            </tbody>
+        </table>
 
 
 
