@@ -78,8 +78,7 @@
          
         <?php
               if($resource != FALSE) {
-
-                echo "<p>$username</p>";
+                header("Location: account.php");
               } else {
                 echo "Unable to add user";
               }
