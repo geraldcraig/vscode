@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["editpermission123"])) {
+  $showBtn = false;
+} else {
+  $showBtn = true;
+  $currentUser = $_SESSION['editpermission123'];
+}
  
     $endpoint = "http://localhost/qub/week00/albumsapi/api.php";
  
@@ -29,7 +38,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <li class='nav-item'>
+      <?php
+        if (!$showBtn) {
+        echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
@@ -43,7 +54,26 @@
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='register.php'>Register</a>
-          </li>
+          </li>"; 
+        } else {
+          echo "<li class='nav-item'>
+          <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='account.php'>Account</a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='login.php'>Log In</a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='logout.php'>Log Out</a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='register.php'>Register</a>
+        </li>"; 
+
+        }
+        ?>
         </ul>
         <form class='form-inline my-2 my-lg-0'>
           <input class='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search'>

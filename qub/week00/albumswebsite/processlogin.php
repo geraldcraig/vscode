@@ -5,7 +5,7 @@
     include("dbconn.php");
 
     $uname = $_POST["username"];
-    $upass = $_POST["userpassword"];
+    $upass = $_POST["password"];
 
     $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 

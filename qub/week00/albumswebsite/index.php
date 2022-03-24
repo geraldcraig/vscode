@@ -37,11 +37,28 @@ $data = json_decode($result, true);
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <?php
-    if (!showBtn) {
-      echo "<div class='collapse navbar-collapse' id='navbarSupportedContent'>
+  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul class='navbar-nav mr-auto'>
-           <li class='nav-item'>
+              <?php
+              if (!$showBtn) {
+           echo "<li class='nav-item'>
+            <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
+          </li>
+          <li class='nav-item dropdown'>
+              <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
+            <div class='dropdown-menu'>
+              <a class='dropdown-item' href='browseartist.php'>Artist</a>
+              <a class='dropdown-item' href='browseyear.php'>Year</a>
+             <a class='dropdown-item' href='browsegenre.php'>Genre</a>
+            </div>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='login.php'>Log In</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='register.php'>Register</a>
+          </li>"; } else {
+            echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item dropdown'>
@@ -56,26 +73,17 @@ $data = json_decode($result, true);
             <a class='nav-link' href='account.php'>Account</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='login.php'>Log In</a>
-          </li>
-          <li class='nav-item'>
             <a class='nav-link' href='logout.php'>Log Out</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='register.php'>Register</a>
-          </li>
+          </li>";
+          }
+          ?>
         </ul>
+
         <form class='form-inline' action='search.php'>
             <input class='form-control mr-sm-2' type='text' name='search' placeholder='Search'>
             <button class='btn btn-success' type='submit'>Search</button>
         </form>
-        </div>"; } else {
-          echo "<form class='form-inline' action='search.php'>
-          <input class='form-control mr-sm-2' type='text' name='search' placeholder='Search'>
-          <button class='btn btn-success' type='submit'>Search</button>
-      </form> 
-      </div>";
-      ?>
+        </div>
   
 </nav>
 <br>
