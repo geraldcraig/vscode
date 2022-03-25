@@ -17,10 +17,13 @@
 
     $num = $result->num_rows;
 
-    if ($num > 0) {
-        $_SESSION['editpermission123'] = $uname;
+    if ($num > 0 && $uname == 'admin') {
+        $_SESSION['editpermission123'];
+	    header("Location: adminaccount.php");
+    } elseif ($num > 0) {
+        $_SESSION['user'];
 	    header("Location: index.php");
-    } else {
+     } else {
 	    header("Location: login.php");
     }
 ?>
