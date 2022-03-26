@@ -9,7 +9,7 @@ if (!isset($_SESSION["editpermission123"])) {
   $currentUser = $_SESSION['editpermission123'];
 }
  
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
  
 $result = file_get_contents($endpoint);
  
@@ -63,7 +63,7 @@ $data = json_decode($result, true);
             <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='reviews.php'>Edit Reviews</a>
+            <a class='nav-link' href='editreviews.php'>Edit Reviews</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='logout.php'>Log Out</a>
@@ -77,43 +77,54 @@ $data = json_decode($result, true);
 <br>
 
 <div class="container">
-        <h1>Admin Account</h1>
+        <h1>Top 500 Albums</h1>
         <table class="table striped">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Delete account</th>
+                    <th>Number</th>
+                    <th>Album</th>
+                    <th>Artist</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                    <th>Artwork</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                     foreach ($data as $row) {
 
-                      $fname = $row['firstname'];
-                      $lname = $row['lastname'];
-                      $uname = $row['username'];
-                      $pword = $row['userpassword'];
-                      $userid = $row['id'];
-
-                      if ($uname == 'admin') {
+                      $number = $row['number'];
+                      $year = $row['year'];
+                      $artist = $row['name'];
+                      $title = $row['title'];
+                      $albumid = $row['id'];
+                      $artwork = $row['image'];
                    
                         echo " <tr>  
-                               <td>$fname</td>
-                               <td>$lname</td>
-                               <td>$uname</td>
-                               <td>$pword</td>
-                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Delete</a></td>
+                               <td>{$row['number']}</td>
+                               <td>$title</td>
+                               <td>$artist</td>
+                               <td>{$row['year']}</td>
+                               <td>Rating</td>
+                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Update</a></td>
+                               <td><a href='addfavourite.php?album_id=$albumid' class='btn btn-info' role='button'>Delete</a></td>
+                               <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
                            </tr>  ";
-                      } 
                     }
                 ?>
             </tbody>
         </table>
-
-</div>
+        <p>Default:</p>
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+    </div>
 	
 
 </body>

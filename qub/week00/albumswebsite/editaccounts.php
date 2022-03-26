@@ -63,7 +63,7 @@ $data = json_decode($result, true);
             <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='reviews.php'>Edit Reviews</a>
+            <a class='nav-link' href='editreviews.php'>Edit Reviews</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='logout.php'>Log Out</a>
