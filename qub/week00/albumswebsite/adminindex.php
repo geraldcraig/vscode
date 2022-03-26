@@ -9,7 +9,7 @@ if (!isset($_SESSION["editpermission123"])) {
   $currentUser = $_SESSION['editpermission123'];
 }
  
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
  
 $result = file_get_contents($endpoint);
  
@@ -32,7 +32,7 @@ $data = json_decode($result, true);
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.php">Record Website</a>
+  <a class="navbar-brand" href="adminindex.php">Admin Account</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -44,14 +44,6 @@ $data = json_decode($result, true);
            echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
-          <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
-            <div class='dropdown-menu'>
-              <a class='dropdown-item' href='browseartist.php'>Artist</a>
-              <a class='dropdown-item' href='browseyear.php'>Year</a>
-             <a class='dropdown-item' href='browsegenre.php'>Genre</a>
-            </div>
-          </li>
           <li class='nav-item'>
             <a class='nav-link' href='login.php'>Log In</a>
           </li>
@@ -62,18 +54,16 @@ $data = json_decode($result, true);
             <a class='nav-link' href='adminlogin.php'>Admin</a>
           </li>"; } else {
             echo "<li class='nav-item'>
-            <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
-          </li>
-          <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
-            <div class='dropdown-menu'>
-              <a class='dropdown-item' href='browseartist.php'>Artist</a>
-              <a class='dropdown-item' href='browseyear.php'>Year</a>
-             <a class='dropdown-item' href='browsegenre.php'>Genre</a>
-            </div>
+            <a class='nav-link' href='editalbums.php'>Edit Albums</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='account.php'>Account</a>
+            <a class='nav-link' href='addalbum.php'>Add Album</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='useraccounts.php'>Edit Accounts</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='reviews.php'>Edit Reviews</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='logout.php'>Log Out</a>
@@ -81,51 +71,46 @@ $data = json_decode($result, true);
           }
           ?>
         </ul>
-
-        <form class='form-inline' action='search.php'>
-            <input class='form-control mr-sm-2' type='text' name='search' placeholder='Search'>
-            <button class='btn btn-success' type='submit'>Search</button>
-        </form>
         </div>
   
 </nav>
 <br>
 
-<div>
-    <h1>Top 10 User Rated Albums</h1>
+<div class="container">
+        <h1>User Accounts</h1>
+        <table class="table striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Delete account</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach ($data as $row) {
+
+                      $fname = $row['firstname'];
+                      $lname = $row['lastname'];
+                      $uname = $row['username'];
+                      $pword = $row['userpassword'];
+                      $userid = $row['id'];
+                   
+                        echo " <tr>  
+                               <td>$fname</td>
+                               <td>$lname</td>
+                               <td>$uname</td>
+                               <td>$pword</td>
+                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Delete</a></td>
+                           </tr>  ";
+                    }
+                ?>
+            </tbody>
+        </table>
+
 </div>
-
-<div class="row row-cols-1 row-cols-md-5 g-4">
-        
-  
-			<?php
-				foreach ($data as $row) {
-
-					$number = $row['number'];
-					$year = $row['album_year'];
-					$album = $row['title'];
-          $artist = $row['name'];
-					$albumid = $row['id'];
-          $artwork = $row['image'];
-
-					echo "<a href='album.php?album_id=$albumid'>
-          <div class='col'>
-            <div class='card' style='width: 200px'>
-                <img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
-              <div class='card-body'>
-								<h3>$album</h3>
-								<h3>$artist</h3>
-                <h3>$year</h3>
-								<h4>$number</h4>
-              </div>
-					  </div>
-          </div>
-				</a>";
-				}
-			?>
-      
-      
-  </div>
 	
 
 </body>
