@@ -19,7 +19,7 @@
 
     if ($num > 0 && $uname == 'admin') {
         $_SESSION['editpermission123'];
-	    header("Location: adminindex.php");
+	    header("Location: adminaccount.php");
     } else {
 	    header("Location: adminlogin.php");
     }

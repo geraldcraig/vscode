@@ -32,7 +32,7 @@ $data = json_decode($result, true);
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="adminindex.php">Admin Account</a>
+  <a class="navbar-brand" href="adminaccount.php">Admin Account</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -60,7 +60,7 @@ $data = json_decode($result, true);
             <a class='nav-link' href='addalbum.php'>Add Album</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='useraccounts.php'>Edit Accounts</a>
+            <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='reviews.php'>Edit Reviews</a>
@@ -77,7 +77,7 @@ $data = json_decode($result, true);
 <br>
 
 <div class="container">
-        <h1>User Accounts</h1>
+        <h1>Admin Account</h1>
         <table class="table striped">
             <thead>
                 <tr>
@@ -97,6 +97,8 @@ $data = json_decode($result, true);
                       $uname = $row['username'];
                       $pword = $row['userpassword'];
                       $userid = $row['id'];
+
+                      if ($uname == 'admin') {
                    
                         echo " <tr>  
                                <td>$fname</td>
@@ -105,6 +107,7 @@ $data = json_decode($result, true);
                                <td>$pword</td>
                                <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Delete</a></td>
                            </tr>  ";
+                      } 
                     }
                 ?>
             </tbody>

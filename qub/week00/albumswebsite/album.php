@@ -67,14 +67,9 @@
 								<h3>Year: $year</h3>
 								<p>Genre: Genre</p>
                 <p>Sub-Genre: Sub-Genre</p>
-                <p>Add Rating: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Rating</a></p>
-                <p>Add Review: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Add Review</a></p>
-                <p>Add Album: <a href='addalbum.php' class='btn btn-info' role='button'>Add Album</a></p>
-                <p>Update Album: <a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Update Album</a></p>
-                <p>Delete Album: <a href='deletealbum.php?album_id=$albumid' class='btn btn-info' role='button'>Delete Album</a></p>
-                <p><img src=$artwork><p>
                 <p>Rating: Rating</p>
                 <p>Reviews: Reviews</p>
+                <p><img src=$artwork><p>
 							</div> ";
 				}
 			?>	
