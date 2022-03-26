@@ -1,10 +1,10 @@
 <?php
     session_start();
 
-    if (!isset($_SESSION['editpermission123'])) {    
+    if (!isset($_SESSION['user'])) {    
         header("Location: index.php");
     } else { 
-        unset($_SESSION['editpermission123']);
+        unset($_SESSION['user']);
         header("Location: index.php");
     }
 ?>
