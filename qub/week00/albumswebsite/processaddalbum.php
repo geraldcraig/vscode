@@ -7,9 +7,9 @@
   $yearid = $_POST['year'];
 
 
-	//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?newalbum";
+	$endpoint = "http://localhost/qub/week00/albumsapi/api.php?newalbum";
 
-  $endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?newalbum";
+  //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?newalbum";
 
 	$postdata = http_build_query(
 

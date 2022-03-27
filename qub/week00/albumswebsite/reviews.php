@@ -9,9 +9,9 @@ if (!isset($_SESSION["user"])) {
   $currentUser = $_SESSION['user'];
 }
  
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
  
 $result = file_get_contents($endpoint);
  
@@ -102,8 +102,8 @@ $data = json_decode($result, true);
                                <td>$lname</td>
                                <td>$uname</td>
                                <td>$pword</td>
-                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Update</a></td>
-                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Delete</a></td>
+                               <td><a href='album.php?album_id=$userid' class='btn btn-info' role='button'>Update</a></td>
+                               <td><a href='album.php?album_id=$userid' class='btn btn-info' role='button'>Delete</a></td>
                            </tr>  ";
                       } 
                     }
