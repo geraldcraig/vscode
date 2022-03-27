@@ -9,7 +9,7 @@ if (!isset($_SESSION["user"])) {
   $currentUser = $_SESSION['user'];
 }
  
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
  
 $result = file_get_contents($endpoint);
  
@@ -38,10 +38,18 @@ $data = json_decode($result, true);
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <li class='nav-item'>
+      <?php
+      if (!$showBtn) {
+        echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
+            <a class='nav-link' href='login.php'>Log In</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='register.php'>Register</a>
+          </li>"; } else {
+            echo " <li class='nav-item'>
             <a class='nav-link' href='account.php'>Account</a>
           </li>
           <li class='nav-item'>
@@ -55,15 +63,52 @@ $data = json_decode($result, true);
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='logout.php'>Log Out</a>
-          </li>
+          </li>"; }
+          ?>
         </ul>
-        <form class='form-inline my-2 my-lg-0'>
-          <input class='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search'>
-          <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
-        </form>
   </div>
 </nav>
 <br>
+
+<div class="container">
+        <h1>Admin Account</h1>
+        <table class="table striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Update account</th>
+                    <th>Delete account</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach ($data as $row) {
+
+                      $fname = $row['firstname'];
+                      $lname = $row['lastname'];
+                      $uname = $row['username'];
+                      $pword = $row['userpassword'];
+                      $userid = $row['id'];
+
+                      if ($uname == $currentUser) {
+                   
+                        echo " <tr>  
+                               <td>$fname</td>
+                               <td>$lname</td>
+                               <td>$uname</td>
+                               <td>$pword</td>
+                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Update</a></td>
+                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Delete</a></td>
+                           </tr>  ";
+                      } 
+                    }
+                ?>
+            </tbody>
+        </table>
+</div>
 
 
 
