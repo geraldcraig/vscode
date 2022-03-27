@@ -9,7 +9,9 @@ if (!isset($_SESSION["editpermission123"])) {
   $currentUser = $_SESSION['editpermission123'];
 }
  
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
  
 $result = file_get_contents($endpoint);
  

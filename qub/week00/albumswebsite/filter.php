@@ -2,7 +2,9 @@
 
     include("functions.php");
 
-    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?artist";
+    //$endpoint = "http://localhost/qub/week00/albumsapi/api.php?artist";
+
+    $endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?artist";
  
     $result = file_get_contents($endpoint);
          
@@ -10,7 +12,9 @@
 
     $filter = $_GET["sort"];
 
-    $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter";
+    //endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter";
+
+    $endpointalbum = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?filter";
  
     $resultalbum = file_get_contents($endpoint);
          
