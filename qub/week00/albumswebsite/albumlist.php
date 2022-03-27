@@ -2,11 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION["editpermission123"])) {
+if (!isset($_SESSION["user"])) {
   $showBtn = false;
 } else {
   $showBtn = true;
-  $currentUser = $_SESSION['editpermission123'];
+  $currentUser = $_SESSION['user'];
 }
  
     $endpoint = "http://localhost/qub/week00/albumsapi/api.php";
@@ -73,7 +73,39 @@ if (!isset($_SESSION["editpermission123"])) {
 <div class="container">
         <h1>Top 500 Albums</h1>
         <table class="table striped">
-            <thead>
+          <?php
+          if (!$showBtn) {
+           echo "<thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Album</th>
+                    <th>Artist</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Artwork</th>
+                </tr>
+            </thead>";
+            foreach ($data as $row) {
+
+              $number = $row['number'];
+              $album = $row['title'];
+              $artist = $row['name'];
+              $year = $row['year'];
+              $rating = $row['rating'];
+              $artwork = $row['image'];
+              $albumid = $row['id'];
+
+              echo "<tr>
+                    <td>$number</td>
+                    <td>$album</td>
+                    <td>$artist</td>
+                    <td>$year</td>
+                    <td>Rating</td>
+                    <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
+                    </tr>";
+            }
+        } else {
+       echo "<thead>
                 <tr>
                     <th>Number</th>
                     <th>Album</th>
@@ -84,32 +116,32 @@ if (!isset($_SESSION["editpermission123"])) {
                     <th>Favourite</th>
                     <th>Artwork</th>
                 </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($data as $row) {
+            </thead>";
+            foreach ($data as $row) {
 
-                      $number = $row['number'];
-                      $year = $row['year'];
-                      $artist = $row['name'];
-                      $title = $row['title'];
-                      $albumid = $row['id'];
-                      $artwork = $row['image'];
-                   
-                        echo " <tr>  
-                               <td>{$row['number']}</td>
-                               <td>$title</td>
-                               <td>$artist</td>
-                               <td>{$row['year']}</td>
-                               <td>Rating</td>
-                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
-                               <td><a href='addfavourite.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
-                               <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                           </tr>  ";
-                    }
-                ?>
-            </tbody>
+              $number = $row['number'];
+              $album = $row['title'];
+              $artist = $row['name'];
+              $year = $row['year'];
+              $rating = $row['rating'];
+              $artwork = $row['image'];
+              $albumid = $row['id'];
+
+              echo "<tr>
+                    <td>$number</td>
+                    <td>$album</td>
+                    <td>$artist</td>
+                    <td>$year</td>
+                    <td>Rating</td>
+                    <td><a href='addowned.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
+                    <td><a href='addfavourite.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
+                    <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
+                    </tr>";
+            }
+        }          
+        ?>
         </table>
+        
         <p>Default:</p>
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
