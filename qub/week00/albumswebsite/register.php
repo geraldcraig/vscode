@@ -41,6 +41,7 @@
 			<label for="password">Password:</label> 
 			<input type="text" id="myItemInput" name="password"/>
 		</div>
+    <button type="submit" class="btn btn-primary">Submit</button>	
   </form>
 </div>
 

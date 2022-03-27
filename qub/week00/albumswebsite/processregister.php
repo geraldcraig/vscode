@@ -80,7 +80,7 @@
          
         <?php
               if($resource != FALSE) {
-                header("Location: account.php");
+                header("Location: index.php");
               } else {
                 echo "Unable to add user";
               }

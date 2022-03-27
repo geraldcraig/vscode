@@ -2,11 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION["editpermission123"])) {
+if (!isset($_SESSION['admin'])) {
   $showBtn = false;
 } else {
   $showBtn = true;
-  $currentUser = $_SESSION['editpermission123'];
+  $currentUser = $_SESSION['admin'];
 }
  
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
@@ -68,7 +68,7 @@ $data = json_decode($result, true);
             <a class='nav-link' href='editreviews.php'>Edit Reviews</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='logout.php'>Log Out</a>
+            <a class='nav-link' href='adminlogout.php'>Log Out</a>
           </li>";
           }
           ?>
