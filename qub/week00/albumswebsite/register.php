@@ -41,12 +41,6 @@
 			<label for="password">Password:</label> 
 			<input type="text" id="myItemInput" name="password"/>
 		</div>
-						
-		<div class="form-group form-check">
-      <label class="form-check-label">
-		    <input class="form-check-input" type="checkbox" name="remember">Accept terms and conditions.</label>	
-		</div>
-			<button type="submit" class="btn btn-primary">Submit</button>			
   </form>
 </div>
 

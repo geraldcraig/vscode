@@ -77,7 +77,7 @@ $data = json_decode($result, true);
 <br>
 
 <div class="container">
-        <h1>Top 500 Albums</h1>
+        <h1>Edit Albums</h1>
         <table class="table striped">
             <thead>
                 <tr>

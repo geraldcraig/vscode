@@ -2,11 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION["editpermission123"])) {
+if (!isset($_SESSION["user"])) {
   $showBtn = false;
 } else {
   $showBtn = true;
-  $currentUser = $_SESSION['editpermission123'];
+  $currentUser = $_SESSION['user'];
 }
  
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
@@ -27,21 +27,20 @@ $data = json_decode($result, true);
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="adminaccount.php">Admin Account</a>
+  <a class="navbar-brand" href="index.php">Record Website</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-            <ul class='navbar-nav mr-auto'>
-              <?php
-              if (!$showBtn) {
-           echo "<li class='nav-item'>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <?php
+      if (!$showBtn) {
+        echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
@@ -49,35 +48,30 @@ $data = json_decode($result, true);
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='register.php'>Register</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='adminlogin.php'>Admin</a>
           </li>"; } else {
-            echo "<li class='nav-item'>
-            <a class='nav-link' href='editalbums.php'>Edit Albums</a>
+            echo " <li class='nav-item'>
+            <a class='nav-link' href='account.php'>Account</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='addalbum.php'>Add Album</a>
+            <a class='nav-link' href='collection.php'>Collection</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
+            <a class='nav-link' href='favourites.php'>Favourites</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='editreviews.php'>Edit Reviews</a>
+            <a class='nav-link' href='reviews.php'>Reviews</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='logout.php'>Log Out</a>
-          </li>";
-          }
+          </li>"; }
           ?>
         </ul>
-        </div>
-  
+  </div>
 </nav>
 <br>
 
 <div class="container">
-        <h1>Edit Reviews</h1>
+        <h1>My Reviews</h1>
         <table class="table striped">
             <thead>
                 <tr>
@@ -85,6 +79,7 @@ $data = json_decode($result, true);
                     <th>Last Name</th>
                     <th>Username</th>
                     <th>Password</th>
+                    <th>Update account</th>
                     <th>Delete account</th>
                 </tr>
             </thead>
@@ -98,13 +93,14 @@ $data = json_decode($result, true);
                       $pword = $row['userpassword'];
                       $userid = $row['id'];
 
-                      if ($uname == 'admin') {
+                      if ($uname == $currentUser) {
                    
                         echo " <tr>  
                                <td>$fname</td>
                                <td>$lname</td>
                                <td>$uname</td>
                                <td>$pword</td>
+                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Update</a></td>
                                <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Delete</a></td>
                            </tr>  ";
                       } 
@@ -112,9 +108,9 @@ $data = json_decode($result, true);
                 ?>
             </tbody>
         </table>
-
 </div>
-	
+
+
 
 </body>
 </html>

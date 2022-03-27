@@ -77,7 +77,7 @@ $data = json_decode($result, true);
 <br>
 
 <div class="container">
-        <h1>User Accounts</h1>
+        <h1>Edit Accounts</h1>
         <table class="table striped">
             <thead>
                 <tr>
