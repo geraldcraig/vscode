@@ -2,11 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION["editpermission123"])) {
+if (!isset($_SESSION['admin'])) {
   $showBtn = false;
 } else {
   $showBtn = true;
-  $currentUser = $_SESSION['editpermission123'];
+  $currentUser = $_SESSION['admin'];
 }
  
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
