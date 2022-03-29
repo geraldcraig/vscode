@@ -18,7 +18,7 @@
     $num = $result->num_rows;
 
     if ($num > 0 && $uname == 'admin') {
-        $_SESSION['editpermission123'];
+        $_SESSION['admin'] = $uname;
 	    header("Location: adminaccount.php");
     } else {
 	    header("Location: adminlogin.php");

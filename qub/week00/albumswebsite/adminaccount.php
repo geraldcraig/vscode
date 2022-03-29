@@ -2,11 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION["editpermission123"])) {
+if (!isset($_SESSION['admin'])) {
   $showBtn = false;
 } else {
   $showBtn = true;
-  $currentUser = $_SESSION['editpermission123'];
+  $currentUser = $_SESSION['admin'];
 }
  
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
@@ -42,7 +42,7 @@ $data = json_decode($result, true);
   <div class='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul class='navbar-nav mr-auto'>
               <?php
-              if ($showBtn) {
+              if (!$showBtn) {
            echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
