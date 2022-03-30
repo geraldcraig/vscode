@@ -12,13 +12,13 @@
 
     $filter = $_GET["sort"];
 
-    $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter";
+    //$endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter";
 
     //$endpointalbum = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?filter";
  
-    $resultalbum = file_get_contents($endpoint);
+    //$resultalbum = file_get_contents($endpoint);
          
-    $dataalbum = json_decode($resultalbum, true);
+    //$dataalbum = json_decode($resultalbum, true);
 
 ?>
 
@@ -54,7 +54,7 @@
                   foreach ($data as $row) {
 
                   $item = $row['name'];
-                  echo "<option value=$item><a href='filter.php?sort=$item' /a>$item</option> ";
+                  echo "<a href='filter.php?sort=$item' /a><option value='$item' >$item</option>";
 
                 }
                 

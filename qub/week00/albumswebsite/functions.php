@@ -50,13 +50,25 @@
 
         include("dbconn.php");
 
-        $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter=$filterdata";
+       // $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter=$filterdata";
 
         //$endpointalbum = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?filter=$filterdata";
  
-        $resultalbum = file_get_contents($endpointalbum);
+       // $resultalbum = file_get_contents($endpointalbum);
          
-        $dataalbum = json_decode($resultalbum, true);
+        //$dataalbum = json_decode($resultalbum, true);
+
+        $filterquery = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
+        INNER JOIN artist 
+        ON album.artist_id = artist.id
+        INNER JOIN year 
+        ON album.year_id = year.id WHERE name='$filterdata' ";
+
+        $result = $conn -> query($filterquery);
+
+        if (!result) {
+            echo $conn->error;
+        }
 
 
         echo " <table class='table'> 
@@ -72,7 +84,7 @@
             ";
 
         
-        foreach ($dataalbum as $row) { 
+        while ($row = $result->fetch_assoc()) { 
 
             $number = $row["number"];
             $artist = $row['name'];
