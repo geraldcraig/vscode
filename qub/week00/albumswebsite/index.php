@@ -84,7 +84,7 @@ $data = json_decode($result, true);
           ?>
         </ul>
 
-        <form class='form-inline' action='searchtest.php'>
+        <form class='form-inline' action='testsearch.php'>
             <input class='form-control mr-sm-2' type='text' name='search' placeholder='Search'>
             <button class='btn btn-success' type='submit'>Search</button>
         </form>
