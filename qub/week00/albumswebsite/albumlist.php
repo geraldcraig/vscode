@@ -136,6 +136,7 @@ $data = json_decode($result, true);
                     <th>Rating</th>
                     <th>Owned</th>
                     <th>Favourite</th>
+                    <th>Review</th>
                     <th>Artwork</th>
                 </tr>
             </thead>";
@@ -156,6 +157,7 @@ $data = json_decode($result, true);
                     <td>Rating</td>
                     <td><a href='addowned.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
                     <td><a href='addfavourite.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
+                    <td><a href='addreview.php?album_id=$albumid' class='btn btn-info' role='button'>Review</a></td>
                     <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
                     </tr>";
             }

@@ -83,11 +83,9 @@ $data = json_decode($result, true);
         <table class="table striped">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
                     <th>Username</th>
-                    <th>Password</th>
-                    <th>Delete account</th>
+                    <th>Review</th>
+                    <th>Approve Review</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,11 +101,9 @@ $data = json_decode($result, true);
                       if ($uname == 'admin') {
                    
                         echo " <tr>  
-                               <td>$fname</td>
-                               <td>$lname</td>
                                <td>$uname</td>
-                               <td>$pword</td>
-                               <td><a href='album.php?album_id=$usedid' class='btn btn-info' role='button'>Delete</a></td>
+                               <td>Review</td>
+                               <td><a href='processreviews.php?album_id=$userid' class='btn btn-info' role='button'>Delete</a></td>
                            </tr>  ";
                       } 
                     }

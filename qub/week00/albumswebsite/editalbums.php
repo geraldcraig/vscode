@@ -110,8 +110,8 @@ $data = json_decode($result, true);
                                <td>$artist</td>
                                <td>{$row['year']}</td>
                                <td>Rating</td>
-                               <td><a href='album.php?album_id=$albumid' class='btn btn-info' role='button'>Update</a></td>
-                               <td><a href='addfavourite.php?album_id=$albumid' class='btn btn-info' role='button'>Delete</a></td>
+                               <td><a href='updatealbum.php?album_id=$albumid' class='btn btn-info' role='button'>Update</a></td>
+                               <td><a href='deletealbum.php?album_id=$albumid' class='btn btn-info' role='button'>Delete</a></td>
                                <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
                            </tr>  ";
                     }
