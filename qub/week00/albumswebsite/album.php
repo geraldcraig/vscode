@@ -18,6 +18,16 @@ $endpoint = "http://localhost/qub/week00/albumsapi/api.php?album=$albumid";
 $result = file_get_contents($endpoint);
  
 $data = json_decode($result, true);
+
+
+
+$reviewendpoint = "http://localhost/qub/week00/albumsapi/api.php?album_id=$albumid";
+
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?album=$albumid";
+ 
+$viewresult = file_get_contents($reviewendpoint);
+ 
+$viewdata = json_decode($viewresult, true);
  
 ?>
  
@@ -107,20 +117,47 @@ $data = json_decode($result, true);
 					$albumid = $row['id'];
           $artwork = $row['image'];
           $user = $row['username'];
+          $genre = $row['genre_type'];
+          $subgenre = $row['subgenre_type'];
 
 					echo "<div><h1>Title: $album</h1></div>
                 <div class='album'>
 								<h2>Artist: $artist</h2>
 								<h3>Year: $year</h3>
-								<p>Genre: Genre</p>
-                <p>Sub-Genre: Sub-Genre</p>
+								<p>Genre: $genre</p>
+                <p>Sub-Genre: $subgenre</p>
                 <p><img src=$artwork><p>
 							</div> ";
 				}
 			?>	
 </div>
 
+<div class="container">
+  <h1>Reviews</h1>
+  <table class="table striped">
+          <?php
+           echo "<thead>
+                <tr>
+                    <th>Rating</th>
+                    <th>Username</th>
+                    <th>Review</th>
+                </tr>
+            </thead>";
+            foreach ($viewdata as $row) {
 
+              $rating = $row['rating'];
+              $review = $row['review'];
+              $user = $row['username'];
+
+              echo "<tr>
+                    <td>$rating</td>
+                    <td>$user</td>
+                    <td>$review</td>
+                    </tr>";
+    }
+    ?>
+  </table>
+  </div>
 
 </body>
 </html>

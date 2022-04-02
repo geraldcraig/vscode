@@ -2,15 +2,19 @@
 
     header("Content-Type: application/json");
 
-    if (($_SERVER['REQUEST_METHOD']==='GET')) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album_id']))) {
 
         include ("dbconn.php");
+        $albumid = $conn->real_escape_string($_GET['album_id']);
 
         //$userid = $conn->real_escape_string($_GET['userid']);
     
         //$read = "SELECT * FROM user WHERE id = $userid";
 
-        $read = "SELECT * FROM user";
+        $read = "SELECT review.rating, review.review, user.username FROM review
+        INNER JOIN user
+        ON review.user_id = user.id 
+        WHERE album_id = $albumid";
         
         $result = $conn->query($read);
         
