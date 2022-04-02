@@ -1,9 +1,9 @@
 <?php
 error_reporting(0);
-$conn = mysqli_connect("localhost","root","root","dbtest");
+$conn = mysqli_connect("localhost","root","root","studentstutorial");
 if(count($_POST)>0) {
 $roll_no=$_POST[roll_no];
-$result = mysqli_query($conn,"SELECT * FROM Student where RollNo='$roll_no' ");
+$result = mysqli_query($conn,"SELECT * FROM student where RollNo='$roll_no' ");
 }
 ?>
 <!DOCTYPE html>

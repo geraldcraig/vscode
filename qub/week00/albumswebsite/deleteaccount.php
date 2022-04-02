@@ -1,3 +1,25 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+  $showBtn = false;
+} else {
+  $showBtn = true;
+  $currentUser = $_SESSION['admin'];
+}
+
+$userid =$_GET['user'];
+ 
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php?deleteuser=$userid";
+
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userid=$userid";
+ 
+$result = file_get_contents($endpoint);
+ 
+$data = json_decode($result, true);
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

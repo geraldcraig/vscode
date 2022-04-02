@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "root";/* Put your password */
-$dbname = "dbtest";/* Put your database name */
+$dbname = "studentstutorial";/* Put your database name */
 
 /* Create connection */
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 /* sql to create table */
-$sql = "CREATE TABLE Student
+$sql = "CREATE TABLE student
 (
 ID int NOT NULL AUTO_INCREMENT,
 FirstName varchar(50),

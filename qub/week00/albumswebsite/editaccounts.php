@@ -105,7 +105,7 @@ $data = json_decode($result, true);
                                <td>$lname</td>
                                <td>$uname</td>
                                <td>$pword</td>
-                               <td><a href='deleteaccount.php?user=$usedid' class='btn btn-info' role='button'>Delete</a></td>
+                               <td><a href='deleteaccount.php?user=$userid' class='btn btn-info' role='button'>Delete</a></td>
                            </tr>  ";
                     }
                 ?>
