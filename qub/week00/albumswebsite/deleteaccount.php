@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin'])) {
   $currentUser = $_SESSION['admin'];
 }
 
-$userid =$_GET['user'];
+$userid =$_GET['deleteuser'];
  
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?deleteuser=$userid";
 
@@ -18,6 +18,24 @@ $endpoint = "http://localhost/qub/week00/albumsapi/api.php?deleteuser=$userid";
 $result = file_get_contents($endpoint);
  
 $data = json_decode($result, true);
+
+//include('dbconn.php');
+
+       // $userid = $conn->real_escape_string($_GET['user']);
+    
+       // $insertquery="DELETE FROM user WHERE id = $userid";
+           
+       // $result = $conn->query($insertquery);
+        
+       // if(!$result) {
+            
+            //echo $conn->error;
+        
+       // } else {
+
+           // echo "Delete request performed";
+            
+       // }
  
 ?>
 <!DOCTYPE html>

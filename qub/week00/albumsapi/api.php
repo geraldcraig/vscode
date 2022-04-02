@@ -268,7 +268,7 @@
         $number = $conn->real_escape_string($_POST['addnumber']);
         $title = $conn->real_escape_string($_POST['addtitle']);
         $image = $conn->real_escape_string($_POST['addimage']);
-        $artistid = $response;
+        $artistid = $conn->real_escape_string($_POST['addartist_id']);
         $yearid = $conn->real_escape_string($_POST['addyear_id']);
     
         $insertquery="INSERT INTO album (number, title, image, artist_id, year_id) VALUES ('$number', '$title', '$image', '$artistid', '$yearid')";
