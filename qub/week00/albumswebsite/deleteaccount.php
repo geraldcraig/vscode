@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin'])) {
   $currentUser = $_SESSION['admin'];
 }
 
-$userid =$_GET['deleteuser'];
+$userid =$_GET['user'];
  
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?deleteuser=$userid";
 
@@ -57,29 +57,41 @@ $data = json_decode($result, true);
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-        <li class='nav-item'>
+  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+            <ul class='navbar-nav mr-auto'>
+              <?php
+              if (!$showBtn) {
+           echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='account.php'>Account</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='login.php'>Log In</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='logout.php'>Log Out</a>
-          </li>
-          <li class='nav-item'>
             <a class='nav-link' href='register.php'>Register</a>
           </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='adminlogin.php'>Admin</a>
+          </li>"; } else {
+            echo "<li class='nav-item'>
+            <a class='nav-link' href='editalbums.php'>Edit Albums</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='addalbum.php'>Add Album</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='editreviews.php'>Edit Reviews</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='adminlogout.php'>Log Out</a>
+          </li>";
+          }
+          ?>
         </ul>
-        <form class='form-inline my-2 my-lg-0'>
-          <input class='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search'>
-          <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
-        </form>
-  </div>
+        </div>
 </nav>
 <br>
 </body>
