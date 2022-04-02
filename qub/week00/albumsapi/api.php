@@ -102,11 +102,15 @@
 
         $itemid = $conn->real_escape_string($_GET['album']);
     
-        $read = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
+        $read = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year, user.username, review.rating, review.review FROM album
         INNER JOIN artist 
         ON album.artist_id = artist.id
         INNER JOIN year 
         ON album.year_id = year.id
+        INNER JOIN review
+        ON album.id = review.album_id
+        INNER JOIN user
+        ON review.user_id = user.id
         WHERE number = $itemid";
         
         $result = $conn->query($read);

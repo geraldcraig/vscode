@@ -106,6 +106,7 @@ $data = json_decode($result, true);
 					$album = $row['title'];
 					$albumid = $row['id'];
           $artwork = $row['image'];
+          $user = $row['username'];
 
 					echo "<div><h1>Title: $album</h1></div>
                 <div class='album'>
@@ -113,12 +114,13 @@ $data = json_decode($result, true);
 								<h3>Year: $year</h3>
 								<p>Genre: Genre</p>
                 <p>Sub-Genre: Sub-Genre</p>
-                <p>Rating: Rating</p>
-                <p>Reviews: Reviews</p>
                 <p><img src=$artwork><p>
 							</div> ";
 				}
 			?>	
+</div>
+
+
 
 </body>
 </html>
