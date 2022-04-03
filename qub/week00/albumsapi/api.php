@@ -75,7 +75,7 @@
 
         $filterdata = $conn->real_escape_string($_GET['filter']);
     
-        $filterquery = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
+        $filterquery = "SELECT album.id, album.number, album.title, artist.name, year.year FROM album
         INNER JOIN artist 
         ON album.artist_id = artist.id
         INNER JOIN year 

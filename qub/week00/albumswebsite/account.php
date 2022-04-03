@@ -112,7 +112,5 @@ $data = json_decode($result, true);
         </table>
 </div>
 
-
-
 </body>
 </html>

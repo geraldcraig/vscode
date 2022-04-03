@@ -117,6 +117,5 @@ $data = json_decode($result, true);
 
 </div>
 	
-
 </body>
 </html>

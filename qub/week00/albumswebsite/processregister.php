@@ -87,10 +87,6 @@
         ?>
 
       </article>
-				
-			
-
-		
 		</div>
 	</div>
 </body>

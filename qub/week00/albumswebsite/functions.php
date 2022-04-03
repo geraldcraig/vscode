@@ -50,15 +50,15 @@
 
         include("dbconn.php");
 
-       // $endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter=$filterdata";
+        //$endpointalbum = "http://localhost/qub/week00/albumsapi/api.php?filter=$filterdata";
 
         //$endpointalbum = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?filter=$filterdata";
  
-       // $resultalbum = file_get_contents($endpointalbum);
+        //$resultalbum = file_get_contents($endpointalbum);
          
         //$dataalbum = json_decode($resultalbum, true);
 
-        $filterquery = "SELECT album.id, album.number, album.title, album.image, artist.name, year.year FROM album
+        $filterquery = "SELECT album.id, album.number, album.title, artist.name, year.year FROM album
         INNER JOIN artist 
         ON album.artist_id = artist.id
         INNER JOIN year 
