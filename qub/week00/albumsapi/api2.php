@@ -2,19 +2,35 @@
 
     header("Content-Type: application/json");
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album_id']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['search']))) {
 
         include ("dbconn.php");
-        $albumid = $conn->real_escape_string($_GET['album_id']);
+        $searchitem = $conn->real_escape_string($_GET['search']);
 
         //$userid = $conn->real_escape_string($_GET['userid']);
     
         //$read = "SELECT * FROM user WHERE id = $userid";
 
-        $read = "SELECT review.rating, review.review, user.username FROM review
-        INNER JOIN user
-        ON review.user_id = user.id 
-        WHERE album_id = $albumid";
+        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, image.image, genre.genre_type, subgenre.subgenre_type FROM album
+        INNER JOIN artist 
+        ON album.artist_id = artist.id
+        INNER JOIN year 
+        ON album.year_id = year.id
+        INNER JOIN album_image
+        ON album.id = album_image.album_id
+        INNER JOIN image
+        ON image.id = album_image.album_id
+        INNER JOIN album_genre
+        ON album.id = album_genre.album_id
+        INNER JOIN genre
+        ON album_genre.genre_id = genre.id
+        INNER JOIN album_subgenre
+        ON album.id = album_subgenre.album_id
+        INNER JOIN subgenre
+        ON album_subgenre.subgenre_id = subgenre.id
+        WHERE (year LIKE '%$searchitem%') OR (name LIKE '%$searchitem%') 
+        OR (title LIKE '%$searchitem%') OR (genre_type LIKE '%$searchitem%')
+        OR (subgenre_type LIKE '%$searchitem%')";
         
         $result = $conn->query($read);
         
