@@ -8,7 +8,7 @@
     $contents = fopen($filename, "r");
 
     // counter for output
-    $num_students = 0;
+    $num_records = 0;
 
     // loop to read each line from CSV file into $row array
     while ( ($row = fgetcsv($contents)) !== FALSE ) {
@@ -19,15 +19,25 @@
 
         // Perform insert queries
         // 1 - student_details table: id (PK), name (UNIQUE)
-        $insert_students = "INSERT INTO album (number, title) VALUES ('$row[0]', '$row[2]') ";
+        $albums = "INSERT INTO album (number, title) VALUES ('$row[0]', '$row[2]') ";
 
-        $result = $conn -> query($insert_students);
+        $result = $conn -> query($albums);
             
         if (!$result) {         
            echo $conn -> error;       
-       } else {
+       } 
 
-           $num_students++;
+           //$num_students++;
+
+           $artists = "INSERT IGNORE INTO artist (name) VALUES ('$row[3]') ";
+
+           $result = $conn -> query($artists);
+               
+           if (!$result) {         
+              echo $conn -> error;       
+          } else {
+   
+              $num_records++;
             
             // get the last insert id
          //   $last_student_id = $conn->insert_id;
