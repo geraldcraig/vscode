@@ -19,15 +19,15 @@
 
         // Perform insert queries
         // 1 - student_details table: id (PK), name (UNIQUE)
-        //$insert_students = "INSERT INTO student_details (sname) VALUES ('$row[0]') ";
+        $insert_students = "INSERT INTO album (number, title) VALUES ('$row[0]', '$row[2]') ";
 
-       // $result = $conn -> query($insert_students);
+        $result = $conn -> query($insert_students);
             
-       // if (!$result) {         
-      //      echo $conn -> error;       
-      //  } else {
+        if (!$result) {         
+           echo $conn -> error;       
+       } else {
 
-         //   $num_students++;
+           $num_students++;
             
             // get the last insert id
          //   $last_student_id = $conn->insert_id;
@@ -58,10 +58,10 @@
 
           //          if (!$result) {       
           //              echo $conn -> error;      
-                    } 
-                }
-            }
-        }
+          //          } 
+          //      }
+         //   }
+       }
     }
 
     echo "<h3>Total of {$num_students} students inserted into database table</h3>";
