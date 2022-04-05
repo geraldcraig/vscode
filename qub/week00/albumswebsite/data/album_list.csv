@@ -59,7 +59,7 @@
 59,1976,Chronicle: The 20 Greatest Hits,Creedence Clearwater Revival,Rock,None
 60,1969,Trout Mask Replica,Captain Beefheart & His Magic Band,"Rock, Blues","Dialogue, Field Recording, Avantgarde, Electric Blues, Psychedelic Rock, Experimental"
 61,1970,Greatest Hits,Sly & The Family Stone,Funk / Soul,"Rhythm & Blues, Funk"
-62,1987,Appetite for Destruction,Guns N' Roses,Rock,"Hard Rock, Heavy Metal"
+62,1987,Appetite for Destruction,Guns N\' Roses,Rock,"Hard Rock, Heavy Metal"
 63,1991,Achtung Baby,U2,"Electronic, Rock","Pop Rock, Synth-pop, Alternative Rock, Arena Rock"
 64,1971,Sticky Fingers,The Rolling Stones,Rock,Classic Rock
 65,1991,Back to Mono (1958-1969),Phil Spector,"Rock, Funk / Soul, Pop","Doo Wop, Pop Rock, Ballad, Rhythm & Blues"
@@ -149,9 +149,9 @@
 149,1969,Santana,Santana,"Rock, Latin, Funk / Soul","Afro-Cuban, Psychedelic Rock"
 150,1978,Darkness on the Edge of Town,Bruce Springsteen,Rock,Pop Rock
 151,2004,Funeral,Arcade Fire,Rock,Indie Rock
-152,1979,The B 52\'s - Play Loud,The B 52's,"Electronic, Rock, Pop","New Wave, Punk, Mod"
+152,1979,The B 52\'s - Play Loud,The B 52\'s,"Electronic, Rock, Pop","New Wave, Punk, Mod"
 153,1991,The Low End Theory,A Tribe Called Quest,Hip Hop,Conscious
-154,1958,Moanin\' in the Moonlight,Howlin' Wolf,Blues,Chicago Blues
+154,1958,Moanin\' in the Moonlight,Howlin\' Wolf,Blues,Chicago Blues
 155,1980,Pretenders,Pretenders,Rock,"Alternative Rock, New Wave"
 156,1989,Paul\'s Boutique,Beastie Boys,"Hip Hop, Rock, Funk / Soul","Alternative Rock, Pop Rap, Psychedelic"
 157,1980,Closer,Joy Division,Rock,"Post-Punk, New Wave"
@@ -309,13 +309,13 @@
 309,1969,Willy and the Poor Boys,Creedence Clearwater Revival,Rock,"Blues Rock, Rock & Roll, Classic Rock"
 310,1991,Blood Sugar Sex Magik,Red Hot Chili Peppers,Rock,"Alternative Rock, Funk Metal"
 311,1994,The Sun Records Collection,Various,"Rock, Funk / Soul, Blues, Pop, Folk, World, & Country","Country Blues, Rock & Roll, Rockabilly"
-312,1988,Nothing\'s Shocking,Jane's Addiction,Rock,Alternative Rock
+312,1988,Nothing\'s Shocking,Jane\'s Addiction,Rock,Alternative Rock
 313,1994,MTV Unplugged in New York,Nirvana,Rock,"Folk Rock, Acoustic, Grunge"
 314,1998,The Miseducation of Lauryn Hill,Lauryn Hill,Hip Hop,"RnB/Swing, Conscious"
 315,1979,Damn the Torpedoes,Tom Petty and the Heartbreakers,Rock,"Soft Rock, Hard Rock, Pop Rock"
 316,1969,The Velvet Underground,The Velvet Underground,Rock,"Garage Rock, Art Rock, Experimental"
 317,1988,Surfer Rosa,Pixies,Rock,Alternative Rock
-318,1972,Back Stabbers,The O'Jays,Funk / Soul,Soul
+318,1972,Back Stabbers,The O\'Jays,Funk / Soul,Soul
 319,1973,Burnin\',The Wailers,Reggae,Reggae
 320,2001,Amnesiac,Radiohead,"Electronic, Rock","Alternative Rock, Experimental"
 321,1972,Pink Moon,Nick Drake,"Rock, Folk, World, & Country","Folk, Folk Rock, Acoustic"
@@ -405,7 +405,7 @@
 405,1974,Radio City,Big Star,Rock,Power Pop
 406,1993,Rid of Me,PJ Harvey,Rock,Indie Rock
 407,1980,Sandinista!,The Clash,"Rock, Reggae","Rock & Roll, Dub, Punk"
-408,1989,I Do Not Want What I Haven\'t Got,Sinead O'Connor,"Rock, Funk / Soul, Blues","Blues Rock, Rhythm & Blues, Soul"
+408,1989,I Do Not Want What I Haven\'t Got,Sinead O\'Connor,"Rock, Funk / Soul, Blues","Blues Rock, Rhythm & Blues, Soul"
 409,1967,Strange Days,The Doors,Rock,Psychedelic Rock
 410,1997,Time Out of Mind,Bob Dylan,"Rock, Blues",Blues Rock
 411,1974,461 Ocean Boulevard,Eric Clapton,Rock,Blues Rock
