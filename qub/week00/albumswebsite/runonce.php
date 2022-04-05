@@ -76,5 +76,5 @@
           } 
     }
 
-    echo "<h3>Total of {$num_students} students inserted into database table</h3>";
+    echo "<h3>Total of {$num_records} students inserted into database table</h3>";
 ?>
