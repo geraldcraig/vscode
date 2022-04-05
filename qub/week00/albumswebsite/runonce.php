@@ -19,25 +19,27 @@
 
         // Perform insert queries
         // 1 - student_details table: id (PK), name (UNIQUE)
-        $albums = "INSERT INTO album (number, title) VALUES ('$row[0]', '$row[2]') ";
+        $albums = "INSERT IGNORE INTO artist (name) VALUES ('$row[3]') ";
 
         $result = $conn -> query($albums);
             
         if (!$result) {         
            echo $conn -> error;       
-       } 
+       } else {
+
+       $num_records++;
 
            //$num_students++;
 
-           $artists = "INSERT IGNORE INTO artist (name) VALUES ('$row[3]') ";
+           //$artists = "INSERT IGNORE INTO artist (name) VALUES ('$row[3]') ";
 
-           $result = $conn -> query($artists);
+          // $result = $conn -> query($artists);
                
-           if (!$result) {         
-              echo $conn -> error;       
-          } else {
+          // if (!$result) {         
+            //  echo $conn -> error;       
+         // } else {
    
-              $num_records++;
+             // $num_records++;
             
             // get the last insert id
          //   $last_student_id = $conn->insert_id;
@@ -71,7 +73,7 @@
           //          } 
           //      }
          //   }
-       }
+          } 
     }
 
     echo "<h3>Total of {$num_students} students inserted into database table</h3>";
