@@ -2,7 +2,7 @@
 
     include("dbconn.php");
 
-    $filename = "data/album_list.csv";
+    $filename = "data/album_list_updated.csv";
 
     // get the resource object (open the file)
     $contents = fopen($filename, "r");
@@ -19,7 +19,7 @@
 
         // Perform insert queries
         // 1 - student_details table: id (PK), name (UNIQUE)
-        $albums = "INSERT INTO album (number, title) VALUES ('$row[0]', '$row[2]') ";
+        $albums = "INSERT INTO image (image) VALUES ('$row[0]') ";
 
         $result = $conn -> query($albums);
             
