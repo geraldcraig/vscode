@@ -19,7 +19,7 @@
 
         // Perform insert queries
         // 1 - student_details table: id (PK), name (UNIQUE)
-        $albums = "INSERT IGNORE INTO artist (name) VALUES ('$row[3]') ";
+        $albums = "INSERT INTO album (number, title) VALUES ('$row[0]', '$row[2]') ";
 
         $result = $conn -> query($albums);
             
