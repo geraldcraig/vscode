@@ -2,7 +2,7 @@
 
     include("dbconn.php");
 
-    $filename = "data/album_list_updated.csv";
+    $filename = "data/album_list.csv";
 
     // get the resource object (open the file)
     $contents = fopen($filename, "r");
@@ -19,9 +19,10 @@
 
         // Perform insert queries
         // 1 - student_details table: id (PK), name (UNIQUE)
-        $albums = "INSERT INTO image (image) VALUES ('$row[0]') ";
+        $artists = "INSERT IGNORE INTO genre (genre_type) VALUES ('$row[4]') ";
 
-        $result = $conn -> query($albums);
+        $result = $conn -> query($artists);
+       
             
         if (!$result) {         
            echo $conn -> error;       
@@ -30,16 +31,17 @@
        $num_records++;
 
            //$num_students++;
+           $albums = "INSERT INTO album_genre (album_id, genre_id) VALUES ((SELECT id FROM album WHERE title = '$row[2]'), (SELECT id FROM genre WHERE genre_type = '$row[4]')) ";
 
-           //$artists = "INSERT IGNORE INTO artist (name) VALUES ('$row[3]') ";
+          $result = $conn -> query($albums);
 
-          // $result = $conn -> query($artists);
+          
                
-          // if (!$result) {         
-            //  echo $conn -> error;       
-         // } else {
+           if (!$result) {         
+              echo $conn -> error;       
+          } else {
    
-             // $num_records++;
+              $num_records++;
             
             // get the last insert id
          //   $last_student_id = $conn->insert_id;
@@ -72,7 +74,7 @@
           //              echo $conn -> error;      
           //          } 
           //      }
-         //   }
+            }
           } 
     }
 
