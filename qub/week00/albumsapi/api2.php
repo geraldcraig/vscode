@@ -11,7 +11,7 @@
     
         //$read = "SELECT * FROM user WHERE id = $userid";
 
-        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, image.image, genre.genre_type, subgenre.subgenre_type FROM album
+        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, image.image, genre.genre, subgenre.subgenre FROM album
         INNER JOIN artist 
         ON album.artist_id = artist.id
         INNER JOIN year 
