@@ -18,10 +18,11 @@
         echo "</div>";
 
         // Perform insert queries
-        // 1 - student_details table: id (PK), name (UNIQUE)
-        $artists = "INSERT IGNORE INTO genre (genre_type) VALUES ('$row[4]') ";
+        // 1 - album table: id (PK), numder, title, artist_id, year_id
+        $album_insert = "INSERT INTO album (number, title, artist_id, year_id) VALUES ('$row[0]', '$row[2]',
+                        (SELECT id FROM artist WHERE name = '$row[3]'), (SELECT id FROM year WHERE year = '$row[1]')) ";
 
-        $result = $conn -> query($artists);
+        $result = $conn -> query($album_insert);
        
             
         if (!$result) {         
@@ -29,54 +30,9 @@
        } else {
 
        $num_records++;
-
-           //$num_students++;
-           $albums = "INSERT INTO album_genre (album_id, genre_id) VALUES ((SELECT id FROM album WHERE title = '$row[2]'), (SELECT id FROM genre WHERE genre_type = '$row[4]')) ";
-
-          $result = $conn -> query($albums);
-
-          
-               
-           if (!$result) {         
-              echo $conn -> error;       
-          } else {
    
-              $num_records++;
-            
-            // get the last insert id
-         //   $last_student_id = $conn->insert_id;
-
-            // get the number of elements in $row
-          //  $num_elements = count($row);
-            //echo "<p>Array size = $num_elements</p>";
-
-            // iterate over rest of $row array for the classes
-         //   for ($index = 1; $index < $num_elements; $index++) {
-
-                // 2 - student-classes table: id (PK), class_name (UNIQUE)
-                // using $row[$index] to insert each of the classes in $row array
-         //       $insert_classes = "INSERT IGNORE INTO student_classes (class_name) VALUES ('$row[$index]') ";
-
-        //        $result = $conn -> query($insert_classes);
-        //
-        //        if (!$result) {
-         //           echo $conn -> error;      
-         //      } else {
-         //           
-                    // 3 - student-enrolments table: id (PK), student_id (FK), class_id (FK)
-                    // need to get the id for the class from the student_classes table
-          //          $insert_junction = "INSERT INTO student_enrolments (student_id, class_id) 
-          //                              VALUES ('$last_student_id', (SELECT id FROM student_classes WHERE class_name = '$row[$index]')) ";
-
-         //           $result = $conn -> query($insert_junction);
-
-          //          if (!$result) {       
-          //              echo $conn -> error;      
-          //          } 
-          //      }
-            }
-          } 
+      } 
     }
 
-    echo "<h3>Total of {$num_records} students inserted into database table</h3>";
+    echo "<h3>Total of {$num_records} records inserted into database table</h3>";
 ?>
