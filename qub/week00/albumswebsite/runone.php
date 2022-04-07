@@ -40,8 +40,8 @@
             echo $conn -> error;      
         } else {
         
-        //3 - genre table: id (PK), genre_type (UNIQUE)
-        $insert_genre = "INSERT IGNORE INTO genre (genre_type) VALUES ('$row[4]') ";
+        //3 - genre table: id (PK), genre (UNIQUE)
+        $insert_genre = "INSERT IGNORE INTO genre (genre) VALUES ('$row[4]') ";
 
         $result = $conn -> query($insert_genre);
 
@@ -49,8 +49,8 @@
             echo $conn -> error;      
         } else {
 
-        //4- subgenre table: id (PK), sungenre_type (UNIQUE)
-         $insert_subgenre = "INSERT IGNORE INTO subgenre (subgenre_type) VALUES ('$row[5]') ";
+        //4- subgenre table: id (PK), subgenre (UNIQUE)
+         $insert_subgenre = "INSERT IGNORE INTO subgenre (subgenre) VALUES ('$row[5]') ";
 
          $result = $conn -> query($insert_subgenre);
  

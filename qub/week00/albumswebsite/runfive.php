@@ -20,7 +20,7 @@
         // Perform insert queries
         // 1 - album_sungenre table: id (PK), album_id, subgenre_id
         $album_subgenre_insert = "INSERT INTO album_subgenre (album_id, subgenre_id) VALUES ((SELECT id FROM album WHERE title = '$row[2]'),
-                  (SELECT id FROM subgenre WHERE subgenre_type = '$row[5]')) ";
+                  (SELECT id FROM subgenre WHERE subgenre = '$row[5]')) ";
 
         $result = $conn -> query($album_subgenre_insert);
        
