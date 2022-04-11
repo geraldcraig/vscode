@@ -2,7 +2,8 @@
 
     header("Content-Type: application/json");
 
-    if (($_SERVER['REQUEST_METHOD']==='GET')) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
 
         include ("dbconn.php");
     
@@ -34,7 +35,8 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['artist']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (isset($_GET['artist']))
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
 
         include ("dbconn.php");
     
@@ -62,7 +64,8 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['filter']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
+     && (isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
 
         include ("dbconn.php");
 
@@ -96,7 +99,8 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
 
         include ("dbconn.php");
 
@@ -144,7 +148,8 @@
     }
 
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album_id']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
+     && (!isset($_GET['filter'])) && (isset($_GET['album_id'])) && (!isset($_GET['search']))) {
 
         include ("dbconn.php");
         $albumid = $conn->real_escape_string($_GET['album_id']);
@@ -180,7 +185,8 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (isset($_GET['user'])) && (!isset($_GET['artist']))
+    && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
 
         include ("dbconn.php");
     
@@ -208,7 +214,8 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['userid']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
 
         include ("dbconn.php");
 
@@ -238,7 +245,8 @@
 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['search']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (isset($_GET['search']))) {
 
         include ("dbconn.php");
         $searchitem = $conn->real_escape_string($_GET['search']);
@@ -287,7 +295,7 @@
     }
 
 
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
 
@@ -311,7 +319,7 @@
         }
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['deleteuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
 
@@ -332,7 +340,7 @@
         }
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum'])) && (!isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
 
