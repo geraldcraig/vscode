@@ -8,19 +8,20 @@ if (!isset($_SESSION['admin'])) {
   $showBtn = true;
   $currentUser = $_SESSION['admin'];
 }
- 
+
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
 
 //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
- 
+
 $result = file_get_contents($endpoint);
- 
+
 $data = json_decode($result, true);
- 
+
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Album Website</title>
   <meta charset="utf-8">
@@ -31,19 +32,20 @@ $data = json_decode($result, true);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="adminaccount.php">Admin Account</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="adminaccount.php">Admin Account</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-            <ul class='navbar-nav mr-auto'>
-              <?php
-              if (!$showBtn) {
-           echo "<li class='nav-item'>
+    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+      <ul class='navbar-nav mr-auto'>
+        <?php
+        if (!$showBtn) {
+          echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item'>
@@ -54,8 +56,9 @@ $data = json_decode($result, true);
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='adminlogin.php'>Admin</a>
-          </li>"; } else {
-            echo "<li class='nav-item'>
+          </li>";
+        } else {
+          echo "<li class='nav-item'>
             <a class='nav-link' href='editalbums.php'>Edit Albums</a>
           </li>
           <li class='nav-item'>
@@ -70,49 +73,50 @@ $data = json_decode($result, true);
           <li class='nav-item'>
             <a class='nav-link' href='adminlogout.php'>Log Out</a>
           </li>";
-          }
-          ?>
-        </ul>
-        </div>
-  
-</nav>
-<br>
+        }
+        ?>
+      </ul>
+    </div>
 
-<div class="container">
-        <h1>Edit Reviews</h1>
-        <table class="table striped">
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Review</th>
-                    <th>Approve Review</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($data as $row) {
+  </nav>
+  <br>
 
-                      $fname = $row['firstname'];
-                      $lname = $row['lastname'];
-                      $uname = $row['username'];
-                      $pword = $row['userpassword'];
-                      $userid = $row['id'];
+  <div class="container">
+    <h1>Edit Reviews</h1>
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Review</th>
+          <th>Approve Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        foreach ($data as $row) {
 
-                      if ($uname == 'admin') {
-                   
-                        echo " <tr>  
+          $fname = $row['firstname'];
+          $lname = $row['lastname'];
+          $uname = $row['username'];
+          $pword = $row['userpassword'];
+          $userid = $row['id'];
+
+          if ($uname == 'admin') {
+
+            echo " <tr>  
                                <td>$uname</td>
                                <td>Review</td>
                                <td><a href='processreviews.php?album_id=$userid' class='btn btn-info' role='button'>Delete</a></td>
                            </tr>  ";
-                      } 
-                    }
-                ?>
-            </tbody>
-        </table>
+          }
+        }
+        ?>
+      </tbody>
+    </table>
 
-</div>
-	
+  </div>
+
 
 </body>
+
 </html>

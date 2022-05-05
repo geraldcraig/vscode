@@ -102,5 +102,3 @@
         echo "</tbody></table>";
   
     }
-
-?>
