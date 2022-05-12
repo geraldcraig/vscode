@@ -19,8 +19,8 @@
 
         // Perform insert queries
         // 1 - album_image table: id (PK), album_id, image_id
-        $album_image_insert = "INSERT INTO album_image (album_id, image_id) VALUES ((SELECT id FROM album WHERE title = '$row[2]'),
-                  (SELECT id FROM image WHERE image = '$row[5]')) ";
+        $album_image_insert = "INSERT INTO album_image (album_id, image_id) VALUES ((SELECT id FROM album WHERE number = '$row[0]'),
+                  (SELECT id FROM image WHERE number = '$row[0]')) ";
 
         $result = $conn -> query($album_image_insert);
        

@@ -19,7 +19,7 @@
 
         // Perform insert queries
         // 1 - image table: id (PK), image 
-        $image_insert = "INSERT  INTO image (image) VALUES ('$row[0]') ";
+        $image_insert = "INSERT  INTO image (number, image) VALUES ('$row[0]', '$row[1]') ";
 
         $result = $conn -> query($image_insert);
        
