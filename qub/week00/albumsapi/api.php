@@ -7,23 +7,15 @@
 
         include ("dbconn.php");
     
-        $read = "SELECT album.number, album.title, artist.name, genre.genre, subgenre.subgenre, year.year, image.image FROM album
-        INNER JOIN album_genre
-        ON album.id = album_genre.album_id
-        INNER JOIN genre
-        ON album_genre.genre_id = genre.id
-        INNER JOIN album_subgenre
-        ON album.id = album_subgenre.album_id
-        INNER JOIN subgenre
-        ON album_subgenre.subgenre_id = subgenre.id
+        $read = "SELECT album.number, album.title, artist.name, year.year, image.image FROM album
+        INNER JOIN artist
+        ON album.artist_id = artist.id
+        INNER JOIN year
+        ON album.year_id = year.id
         INNER JOIN album_image
         ON album.id = album_image.album_id
         INNER JOIN image
-        ON album_image.image_id = image.id
-        INNER JOIN year
-        ON year.id = album.year_id
-        INNER JOIN artist
-        ON artist.id = album.artist_id";
+        ON album_image.image_id = image.id";
         
         $result = $conn->query($read);
         
@@ -83,11 +75,16 @@
 
         $filterdata = $conn->real_escape_string($_GET['filter']);
     
-        $filterquery = "SELECT album.id, album.number, album.title, artist.name, year.year FROM album
-        INNER JOIN artist 
+        $filterquery = "SELECT album.number, album.title, artist.name, year.year, image.image FROM album
+        INNER JOIN artist
         ON album.artist_id = artist.id
-        INNER JOIN year 
-        ON album.year_id = year.id WHERE name='$filterdata' ";
+        INNER JOIN year
+        ON album.year_id = year.id
+        INNER JOIN album_image
+        ON album.id = album_image.album_id
+        INNER JOIN image
+        ON album_image.image_id = image.id
+        WHERE name='$filterdata' ";
 
         $result = $conn -> query($filterquery);
         
@@ -118,24 +115,16 @@
 
         $itemid = $conn->real_escape_string($_GET['album']);
     
-        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, image.image, genre.genre, subgenre.subgenre FROM album
-        INNER JOIN album_genre
-        ON album.id = album_genre.album_id
-        INNER JOIN genre
-        ON album_genre.genre_id = genre.id
-        INNER JOIN album_subgenre
-        ON album.id = album_subgenre.album_id
-        INNER JOIN subgenre
-        ON album_subgenre.subgenre_id = subgenre.id
+        $read = "SELECT album.number, album.title, artist.name, year.year, image.image FROM album
+        INNER JOIN artist
+        ON album.artist_id = artist.id
+        INNER JOIN year
+        ON album.year_id = year.id
         INNER JOIN album_image
         ON album.id = album_image.album_id
         INNER JOIN image
         ON album_image.image_id = image.id
-        INNER JOIN year
-        ON year.id = album.year_id
-        INNER JOIN artist
-        ON artist.id = album.artist_id
-        WHERE number = $itemid";
+        WHERE album.number = $itemid";
         
         $result = $conn->query($read);
         
@@ -263,23 +252,15 @@
         include ("dbconn.php");
         $searchitem = $conn->real_escape_string($_GET['search']);
 
-        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, image.image, genre.genre, subgenre.subgenre FROM album
-        INNER JOIN album_genre
-        ON album.id = album_genre.album_id
-        INNER JOIN genre
-        ON album_genre.genre_id = genre.id
-        INNER JOIN album_subgenre
-        ON album.id = album_subgenre.album_id
-        INNER JOIN subgenre
-        ON album_subgenre.subgenre_id = subgenre.id
+        $read = "SELECT album.number, album.title, artist.name, year.year, image.image FROM album
+        INNER JOIN artist
+        ON album.artist_id = artist.id
+        INNER JOIN year
+        ON album.year_id = year.id
         INNER JOIN album_image
         ON album.id = album_image.album_id
         INNER JOIN image
         ON album_image.image_id = image.id
-        INNER JOIN year
-        ON year.id = album.year_id
-        INNER JOIN artist
-        ON artist.id = album.artist_id
         WHERE (year LIKE '%$searchitem%') OR (name LIKE '%$searchitem%') 
         OR (title LIKE '%$searchitem%') OR (genre_type LIKE '%$searchitem%')
         OR (subgenre_type LIKE '%$searchitem%')";
