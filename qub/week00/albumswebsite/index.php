@@ -117,9 +117,8 @@ $data = json_decode($result, true);
             <div class='card' style='width: 200px'>
                 <img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
               <div class='card-body'>
-								<h3>$album</h3>
-								<h3>$artist</h3>
-                <h3>$year</h3>
+								<h3>$album</h4>
+								<h3>$artist</h4>
 								<h4>$number</h4>
               </div>
 					  </div>
