@@ -61,10 +61,9 @@ $data = json_decode($result, true);
       $number = $row['number'];
       $album = $row['title'];
       $artist = $row['name'];
-      $albumid = $row['id'];
       $artwork = $row['image'];
 
-      echo "<a href='album.php?album_id=$albumid'>
+      echo "
           <div class='col'>
             <div class='card' style='width: 200px'>
                 <img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
