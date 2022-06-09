@@ -9,9 +9,9 @@ if (!isset($_SESSION['user'])) {
   $currentUser = $_SESSION['user'];
 }
 
-$endpoint = "http://localhost/qub/week00/albumsapinew/api.php";
+//$endpoint = "http://localhost/qub/week00/albumsapinew/api.php";
 
-//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapinew/api.php";
 
 $result = file_get_contents($endpoint);
 
@@ -44,46 +44,7 @@ $data = json_decode($result, true);
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav mr-auto'>
         <?php
-        if (!$showBtn) {
-          echo "<li class='nav-item'>
-            <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
-          </li>
-          <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
-            <div class='dropdown-menu'>
-              <a class='dropdown-item' href='browseartist.php'>Artist</a>
-              <a class='dropdown-item' href='browseyear.php'>Year</a>
-             <a class='dropdown-item' href='browsegenre.php'>Genre</a>
-            </div>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='login.php'>Log In</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='register.php'>Register</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='adminlogin.php'>Admin</a>
-          </li>";
-        } else {
-          echo "<li class='nav-item'>
-            <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
-          </li>
-          <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
-            <div class='dropdown-menu'>
-              <a class='dropdown-item' href='browseartist.php'>Artist</a>
-              <a class='dropdown-item' href='browseyear.php'>Year</a>
-             <a class='dropdown-item' href='browsegenre.php'>Genre</a>
-            </div>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='account.php'>Account</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='logout.php'>Log Out</a>
-          </li>";
-        }
+        
         ?>
       </ul>
 
@@ -97,7 +58,7 @@ $data = json_decode($result, true);
   <br>
 
   <div>
-    <h1>Top 10 User Rated Albums</h1>
+    <h1>Top 10 Most Played Albums</h1>
   </div>
 
   <div class="row row-cols-1 row-cols-md-5 g-4">
@@ -106,7 +67,6 @@ $data = json_decode($result, true);
     foreach ($data as $row) {
 
       $number = $row['number'];
-      $year = $row['year'];
       $album = $row['title'];
       $artist = $row['name'];
       $albumid = $row['id'];
