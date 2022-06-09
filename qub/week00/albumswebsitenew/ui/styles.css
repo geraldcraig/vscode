@@ -1,0 +1,136 @@
+
+
+
+body {
+    margin:0;
+	font-family:arial;
+	background-image: url('../img/pattern.png'); 	
+}
+
+h1 {  
+    padding:0px;
+    margin:5px;
+    font-size:20pt;
+}
+
+
+
+#header {	
+   background-image: url('../img/top-album.jpg');
+	background-repeat:no-repeat;
+	background-color:#000;
+	min-height:170px;
+	padding:10px;
+	background-position: 0px -20px;
+}
+
+#container {
+	width:80%;
+	margin: 0 auto;
+	background-color:#fff;
+}
+
+#content {
+	width:90%;
+	margin:0 auto;
+}
+
+#card {
+    min-width:180px;
+    min-height:200px;
+	 background-size: 100%;
+	 background-color: #eee;
+	background-repeat:no-repeat;
+    margin:10px;
+	float:left;
+	text-align: left;
+	max-width:150px;
+	overflow:hidden;
+	padding:5px;
+}
+
+#containerb {
+	width:100%;
+	margin: 0 auto;
+    background-color:#fff;
+	overflow: auto;
+	padding-bottom:10px;
+}
+
+#ftext {
+
+	padding-top:30px;
+	text-align: center;
+	font-size:small;
+}
+
+
+ul#mynav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+#mynav  li {
+    float: left;
+}
+
+#mynav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+#mynav li a:hover {
+    background-color: #111111;
+}
+
+a:link .box{
+	text-decoration:none;
+	color:black;
+}
+
+a:hover .box{
+	background-color: #f5f5f1;
+}
+
+.album {
+	margin:5px;
+}
+
+
+h3, h2, p {
+	color: #000;
+}
+
+.card.card_large {
+	float: left;
+	margin: 7px 9px 14px 7px;
+	width: 150px;
+	height: 205px;
+}
+
+.card {
+	position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
