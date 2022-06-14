@@ -24,7 +24,7 @@ $data = json_decode($result, true);
 
 <body>
 
-<nav class="navbar bg-secondary navbar-dark">
+<nav class="navbar bg-dark navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand">Record Website</a>
     <form class="d-flex">

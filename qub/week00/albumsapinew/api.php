@@ -23,7 +23,8 @@
         ON album.id = album_subgenre.album_id
         INNER JOIN subgenre
         ON album_subgenre.subgenre_id = subgenre.id
-        ORDER BY album.number";
+        ORDER BY album.number
+        LIMIT 10";
         
         $result = $conn->query($read);
         
