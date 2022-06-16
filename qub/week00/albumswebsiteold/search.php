@@ -13,7 +13,7 @@ $searchitem = $_GET['search'];
 
 $new = str_replace(' ', '%20', $searchitem);
  
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php?search=$new";
+$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?search=$new";
 
 //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$searchitem";
  

@@ -11,7 +11,7 @@ if (!isset($_SESSION['user'])) {
 
 $albumid = $_GET['album_id'];
 
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php?album=$albumid";
+$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?album=$albumid";
 
 //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?album=$albumid";
 
@@ -21,7 +21,7 @@ $data = json_decode($result, true);
 
 
 
-$reviewendpoint = "http://localhost/qub/week00/albumsapi/api.php?album_id=$albumid";
+$reviewendpoint = "http://localhost/qub/week00/albumsapiold/api.php?album_id=$albumid";
 
 //$reviewendpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?album=$albumid";
 

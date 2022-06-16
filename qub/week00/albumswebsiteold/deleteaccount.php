@@ -4,7 +4,7 @@ session_start();
 
 //$userid =$_GET['user'];
  
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?deleteuser=$userid";
+//$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser=$userid";
 
 //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userid=$userid";
  
