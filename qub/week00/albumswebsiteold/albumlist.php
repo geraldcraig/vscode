@@ -9,7 +9,7 @@ if (!isset($_SESSION['user'])) {
   $currentUser = $_SESSION['user'];
 }
 
-$endpoint = "http://localhost/qub/week00/albumsapinew/api.php";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
 
 //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
 
@@ -30,7 +30,7 @@ $data = json_decode($result, true);
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="ui/styles2.css">
+  <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
 
 <body>

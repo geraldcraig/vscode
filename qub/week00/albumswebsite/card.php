@@ -1,9 +1,9 @@
 <?php
 
 
-$endpoint = "http://localhost/qub/week00/albumsapinew/api.php";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
 
-//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapinew/api.php";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
 
 $result = file_get_contents($endpoint);
 

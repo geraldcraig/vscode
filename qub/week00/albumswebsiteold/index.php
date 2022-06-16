@@ -30,7 +30,7 @@ $data = json_decode($result, true);
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="ui/styles2.css">
+  <link rel="stylesheet" type="text/css" href="ui/styles.css">
 </head>
 
 <body>
@@ -96,86 +96,37 @@ $data = json_decode($result, true);
   </nav>
   <br>
 
-  <div class="container">
-    <h1>Top 500 Albums</h1>
-    <table class="table striped">
-      <?php
-      if (!$showBtn) {
-        echo "<thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Album</th>
-                    <th>Artist</th>
-                    <th>Year</th>
-                    <th>Rating</th>
-                    <th>Artwork</th>
-                </tr>
-            </thead>";
-        foreach ($data as $row) {
+  <div>
+    <h1>Top 10 User Rated Albums</h1>
+  </div>
 
-          $number = $row['number'];
-          $album = $row['title'];
-          $artist = $row['name'];
-          $year = $row['year'];
-          $artwork = $row['image'];
-          $albumid = $row['id'];
+  <div class="row row-cols-1 row-cols-md-5 g-4">
 
-          echo "<tr>
-                    <td>$number</td>
-                    <td>$album</td>
-                    <td>$artist</td>
-                    <td>$year</td>
-                    <td>Rating</td>
-                    <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                    </tr>";
-        }
-      } else {
-        echo "<thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Album</th>
-                    <th>Artist</th>
-                    <th>Year</th>
-                    <th>Rating</th>
-                    <th>Owned</th>
-                    <th>Favourite</th>
-                    <th>Review</th>
-                    <th>Artwork</th>
-                </tr>
-            </thead>";
-        foreach ($data as $row) {
+    <?php
+    foreach ($data as $row) {
 
-          $number = $row['number'];
-          $album = $row['title'];
-          $artist = $row['name'];
-          $year = $row['year'];
-          $artwork = $row['image'];
-          $albumid = $row['id'];
+      $number = $row['number'];
+      $year = $row['year'];
+      $album = $row['title'];
+      $artist = $row['name'];
+      $albumid = $row['id'];
+      $artwork = $row['image'];
 
-          echo "<tr>
-                    <td>$number</td>
-                    <td>$album</td>
-                    <td>$artist</td>
-                    <td>$year</td>
-                    <td>Rating</td>
-                    <td><a href='addowned.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
-                    <td><a href='addfavourite.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
-                    <td><a href='addreview.php?album_id=$albumid' class='btn btn-info' role='button'>Review</a></td>
-                    <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                    </tr>";
-        }
-      }
-      ?>
-    </table>
+      echo "<a href='album.php?album_id=$albumid'>
+          <div class='col'>
+            <div class='card' style='width: 200px'>
+                <img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
+              <div class='card-body'>
+								<h3>$album</h4>
+								<h3>$artist</h4>
+								<h4>$number</h4>
+              </div>
+					  </div>
+          </div>
+				</a>";
+    }
+    ?>
 
-    <p>Default:</p>
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
   </div>
 
 </body>
