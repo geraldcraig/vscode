@@ -72,9 +72,9 @@ $data = json_decode($result, true);
   </div>
 </nav>
 
-  <div>
-    <h1>Top 10 Most Listened To Albums</h1>
-  </div>
+<div>
+  <h1>Top 10 Most Listened To Albums</h1>
+</div>
 
   <div class="row row-cols-1 row-cols-md-5 g-4">
 
@@ -86,18 +86,16 @@ $data = json_decode($result, true);
       $artist = $row['name'];
       $artwork = $row['image'];
 
-      echo "
-          <div class='col'>
-            <div class='card' style='width: 200px'>
+      echo "<div class='col'>
+              <div class='card' style='width: 200px'>
                 <img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
-              <div class='card-body'>
-								<h3>$album</h4>
-								<h3>$artist</h4>
-								<h4>$number</h4>
-              </div>
-					  </div>
-          </div>
-				</a>";
+                <div class='card-body'>
+								  <h3>$album</h4>
+								  <h3>$artist</h4>
+								  <h4>$number</h4>
+                </div>
+					    </div>
+            </div>";
     }
     ?>
 
