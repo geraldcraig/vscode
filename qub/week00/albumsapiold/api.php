@@ -7,7 +7,7 @@
 
         include ("dbconn.php");
     
-        $read = "SELECT album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
+        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
         INNER JOIN artist
         ON album.artist_id = artist.id
         INNER JOIN year
@@ -124,7 +124,7 @@
 
         $itemid = $conn->real_escape_string($_GET['album']);
     
-        $read = "SELECT album.number, album.title, artist.name, year.year, image.image FROM album
+        $read = "SELECT album.number, album.title, artist.name, year.year, image.image, genre.genre FROM album
         INNER JOIN artist
         ON album.artist_id = artist.id
         INNER JOIN year
@@ -133,6 +133,10 @@
         ON album.id = album_image.album_id
         INNER JOIN image
         ON album_image.image_id = image.id
+        INNER JOIN album_genre
+        ON album.id = album_genre.album_id
+        INNER JOIN genre
+        ON album_genre.genre_id = genre.id
         WHERE album.number = $itemid";
         
         $result = $conn->query($read);

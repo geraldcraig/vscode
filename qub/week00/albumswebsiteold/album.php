@@ -120,7 +120,7 @@ $viewdata = json_decode($viewresult, true);
       $albumid = $row['id'];
       $artwork = $row['image'];
       $user = $row['username'];
-      $genre = $row['genre_type'];
+      $genre = $row['genre'];
       $subgenre = $row['subgenre_type'];
 
       echo "<div><h1>Title: $album</h1></div>
