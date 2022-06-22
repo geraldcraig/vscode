@@ -108,7 +108,8 @@ $viewdata = json_decode($viewresult, true);
   </nav>
   <br>
 
-  <div class="container">
+  <div class="row">
+    <div class="col m8">
     <h1>Album Info</h1>
     <?php
     foreach ($data as $row) {
@@ -129,13 +130,27 @@ $viewdata = json_decode($viewresult, true);
 								<h3>Year: $year</h3>
 								<p>Genre: $genre</p>
                 <p>Sub-Genre: $subgenre</p>
-                <p><img src=$artwork><p>
 							</div> ";
     }
     ?>
+    </div>
+  
+
+  <div class="col m4">
+    <?php
+    foreach ($data as $row) 
+
+      $artwork = $row['image'];
+
+      echo "<div>
+              <p><img src='$artwork'><p>
+            </div>";
+
+    ?>
+  </div>
   </div>
 
-  <div class="container">
+  <div class="row">
     <h1>Reviews</h1>
     <table class="table striped">
       <?php
