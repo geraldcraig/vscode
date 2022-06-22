@@ -99,7 +99,7 @@ $data = json_decode($result, true);
                   <td>$album</td>
                   <td>$artist</td>
                   <td>$year</td>
-                  <td><img src=$artwork class='img-thumbnail' style='width: 150px'></td>";
+                  <td><a href='album.php?album_id=1'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
         }
       ?>
     </tbody>

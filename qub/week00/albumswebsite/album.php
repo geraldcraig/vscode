@@ -11,7 +11,7 @@ if (!isset($_SESSION['user'])) {
 
 //$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?album=1";
 
 $result = file_get_contents($endpoint);
 
