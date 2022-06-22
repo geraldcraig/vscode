@@ -122,14 +122,14 @@ $viewdata = json_decode($viewresult, true);
       $artwork = $row['image'];
       $user = $row['username'];
       $genre = $row['genre'];
-      $subgenre = $row['subgenre_type'];
+      $subgenre = $row['subgenre'];
 
       echo "<div><h1>Title: $album</h1></div>
                 <div class='album'>
 								<h2>Artist: $artist</h2>
 								<h3>Year: $year</h3>
-								<p>Genre: $genre</p>
-                <p>Sub-Genre: $subgenre</p>
+								<h3>Genre: $genre</h3>
+                <h3>Sub-Genre: $subgenre</h3>
 							</div> ";
     }
     ?>
@@ -138,14 +138,14 @@ $viewdata = json_decode($viewresult, true);
 
   <div class="col m4">
     <?php
-    foreach ($data as $row) 
+    foreach ($data as $row) {
 
       $artwork = $row['image'];
 
       echo "<div>
               <p><img src='$artwork'><p>
             </div>";
-
+    }
     ?>
   </div>
   </div>
