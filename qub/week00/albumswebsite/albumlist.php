@@ -93,7 +93,7 @@ $data = json_decode($result, true);
           $artist = $row['name'];
           $year = $row['year'];
           $artwork = $row['image'];
-          $albumid = $row['row'];
+          $albumid = $row['id'];
 
           echo "<tr>
                   <td>$number</td>
