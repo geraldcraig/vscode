@@ -40,49 +40,46 @@ $data = json_decode($result, true);
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav mr-auto'>
+      <li class='nav-item'>
+            <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
+          </li>
+        
         <?php
         if (!$showBtn) {
-          echo "<li class='nav-item'>
-            <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
-          </li>
-          <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
-            <div class='dropdown-menu'>
-              <a class='dropdown-item' href='browseartist.php'>Artist</a>
-              <a class='dropdown-item' href='browseyear.php'>Year</a>
-             <a class='dropdown-item' href='browsegenre.php'>Genre</a>
-            </div>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='login.php'>Log In</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='register.php'>Register</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='adminlogin.php'>Admin</a>
-          </li>";
+          echo "<li class='nav-item dropdown'>
+                    <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
+                  <div class='dropdown-menu'>
+                   <a class='dropdown-item' href='browseartist.php'>Artist</a>
+                    <a class='dropdown-item' href='browseyear.php'>Year</a>
+                    <a class='dropdown-item' href='browsegenre.php'>Genre</a>
+                  </div>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='login.php'>Log In</a>
+                 </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='register.php'>Register</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='adminlogin.php'>Admin</a>
+                 </li>";
         } else {
-          echo "<li class='nav-item'>
-            <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
-          </li>
-          <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
-            <div class='dropdown-menu'>
-              <a class='dropdown-item' href='browseartist.php'>Artist</a>
-              <a class='dropdown-item' href='browseyear.php'>Year</a>
-             <a class='dropdown-item' href='browsegenre.php'>Genre</a>
-            </div>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='account.php'>Account</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='logout.php'>Log Out</a>
-          </li>";
+          echo "<li class='nav-item dropdown'>
+                    <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
+                  <div class='dropdown-menu'>
+                    <a class='dropdown-item' href='browseartist.php'>Artist</a>
+                    <a class='dropdown-item' href='browseyear.php'>Year</a>
+                    <a class='dropdown-item' href='browsegenre.php'>Genre</a>
+                  </div>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='account.php'>Account</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='logout.php'>Log Out</a>
+                </li>";
         }
         ?>
       </ul>
@@ -92,7 +89,6 @@ $data = json_decode($result, true);
         <button class='btn btn-success' type='submit'>Search</button>
       </form>
     </div>
-
   </nav>
   <br>
 
@@ -112,18 +108,16 @@ $data = json_decode($result, true);
       $albumid = $row['id'];
       $artwork = $row['image'];
 
-      echo "
-          <div class='col'>
-            <div class='card' style='width: 200px'>
+      echo "<div class='col'>
+              <div class='card' style='width: 200px'>
                 <a href='album.php?album_id=$albumid'><img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'></a>
-              <div class='card-body'>
-								<h3>$album</h4>
-								<h3>$artist</h4>
-								<h4>$number</h4>
-              </div>
-					  </div>
-          </div>
-				</a>";
+                <div class='card-body'>
+								  <h3>$album</h4>
+								  <h3>$artist</h4>
+								  <h4>$number</h4>
+                </div>
+					    </div>
+            </div>";
     }
     ?>
 
