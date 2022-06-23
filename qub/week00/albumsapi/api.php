@@ -2,11 +2,12 @@
 
     header("Content-Type: application/json");
 
+    // display top 10 albums
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['album']))) {
 
         include ("dbconn.php");
     
-        $read = "SELECT album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
+        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
         INNER JOIN artist
         ON album.artist_id = artist.id
         INNER JOIN year
@@ -48,11 +49,12 @@
 
     }
 
+    // display all albums
     if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['album']))) {
 
         include ("dbconn.php");
     
-        $read = "SELECT album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
+        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
         INNER JOIN artist
         ON album.artist_id = artist.id
         INNER JOIN year
