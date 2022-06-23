@@ -85,11 +85,12 @@ $data = json_decode($result, true);
       $album = $row['title'];
       $artist = $row['name'];
       $artwork = $row['image'];
+      $albumid = $row['id'];
       
 
       echo "<div class='col'>
               <div class='card' style='width: 200px'>
-                <a href='album.php?album_id=1'><img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'>
+                <a href='album.php?album_id=$albumid'><img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'></a>
                 <div class='card-body'>
 								  <h3>$album</h4>
 								  <h3>$artist</h4>

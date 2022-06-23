@@ -93,13 +93,14 @@ $data = json_decode($result, true);
           $artist = $row['name'];
           $year = $row['year'];
           $artwork = $row['image'];
+          $albumid = $row['row'];
 
           echo "<tr>
                   <td>$number</td>
                   <td>$album</td>
                   <td>$artist</td>
                   <td>$year</td>
-                  <td><a href='album.php?album_id=1'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
+                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
         }
       ?>
     </tbody>

@@ -9,9 +9,11 @@ if (!isset($_SESSION['user'])) {
   $currentUser = $_SESSION['user'];
 }
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+$albumid = $_GET['album_id'];
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?album=1";
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?album=$albumid";
+
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?album=$albumid";
 
 $result = file_get_contents($endpoint);
 
@@ -84,12 +86,13 @@ $data = json_decode($result, true);
             $year = $row['year'];
             $genre = $row['genre'];
             $subgenre = $row['subgenre'];
+            $albumid = $row['id'];
 
             echo "<div>
                     <h1>Title: $album</h1>
                     <h2>Artist: $artist</h2>
                     <h3>Genre: $genre</h3>
-                    <h3>Sungenre: $subgenre</h3>
+                    <h3>Sub-Genre: $subgenre</h3>
                   </div>";
           }
         ?>
