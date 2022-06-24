@@ -90,9 +90,9 @@ $data = json_decode($result, true);
 
             echo "<div>
                     <h1>Title: $album</h1>
-                    <h2>Artist: $artist</h2>
-                    <h3>Genre: $genre</h3>
-                    <h3>Sub-Genre: $subgenre</h3>
+                    <h1>Artist: $artist</h1>
+                    <h1>Genre: $genre</h1>
+                    <h1>Sub-Genre: $subgenre</h1>
                   </div>";
           }
         ?>
