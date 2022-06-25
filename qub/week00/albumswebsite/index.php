@@ -9,9 +9,9 @@ if (!isset($_SESSION['user'])) {
   $currentuser = $_SESSION['user'];
 }
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?count";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?count";
 
 $result = file_get_contents($endpoint);
 
@@ -64,7 +64,7 @@ $data = json_decode($result, true);
         ?>
        
       </ul>
-      <form class="d-flex">
+      <form class="d-flex" action="search.php">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-primary" type="submit">Search</button>
       </form>

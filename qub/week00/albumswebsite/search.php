@@ -9,9 +9,13 @@ if (!isset($_SESSION['user'])) {
   $currentuser = $_SESSION['user'];
 }
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
+$searchitem = $_GET['search'];
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
+$new = str_replace(' ', '%20', $searchitem);
+
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?search=$new";
+
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$new";
 
 $result = file_get_contents($endpoint);
 
@@ -73,7 +77,7 @@ $data = json_decode($result, true);
 </nav>
 
 <div class="container mt-3">
-  <h1>Top 500 Albums</h1>
+  <h1>Search Results</h1>
   <table class="table table-secondary table-striped">
     <thead>
       <tr>
