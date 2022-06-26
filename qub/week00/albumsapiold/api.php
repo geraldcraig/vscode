@@ -316,24 +316,28 @@
 
         include('dbconn.php');
 
-        $newfirstname = $conn->real_escape_string($_POST['addfirstname']);
-        $newlastname = $conn->real_escape_string($_POST['addlastname']);
-        $newusername = $conn->real_escape_string($_POST['addusername']);
-        $newpassword = $conn->real_escape_string($_POST['addpassword']);
-    
-        $insertquery="INSERT INTO user (firstname, lastname, username, userpassword) VALUES ('$newfirstname', '$newlastname', '$newusername', '$newpassword')";
-           
-        $result = $conn->query($insertquery);
-        
-        if(!$result) {
-            
-            echo $conn->error;
-        
-        } else {
+        $firstname = $_POST['addfirstname'];
+        $lastname = $_POST['addlastname'];
+        $username = $_POST['addusername'];
+        $userpassword = $_POST['addpassword'];
 
-            echo "POST request performed";
-            
-        }
+
+        $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
+    
+        //$insertquery="INSERT INTO user (firstname, lastname, username, userpassword) VALUES ('$newfirstname', '$newlastname', '$newusername', '$newpassword')";
+           
+        //$firstname = $_POST['addfirstname'];
+        //$lastname = $_POST['addlastname'];
+        //$username = $_POST['addusername'];
+        //$userpassword = $_POST['addpassword'];
+
+        $stmt->execute();
+
+            echo "New records created successfully";
+
+        $stmt->close();
+        
     }
 
     // post delete user

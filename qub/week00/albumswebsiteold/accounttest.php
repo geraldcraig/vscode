@@ -25,8 +25,8 @@
     */
 
     // Using prepared statement (approach 2)
-    $stmt = $conn->prepare("SELECT firstname, lastname FROM user WHERE id = ? ");
-    $stmt->bind_param('i', $questionid);
+    $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param('ssss', $firstname, $lastname, $username, $userpassword);
     $stmt->execute();
                
     if (!$stmt) {

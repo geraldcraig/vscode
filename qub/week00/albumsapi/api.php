@@ -200,28 +200,15 @@
         $firstname = $_POST['addfirstname'];
         $lastname = $_POST['addlastname'];
         $username = $_POST['addusername'];
-        $password = $_POST['addpassword'];
-        $hash = password_hash($pasword, PASSWORD_DEFAULT);
+        $userpassword = $_POST['addpassword'];
 
-        $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES(?,?,?,?)");
-        $stmt->bind_param('ssss', $firstname, $lastname, $username, $password);
+
+        $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
         $stmt->execute();
 
-        if (!$stmt) {
-            echo $stmt -> error; 
-        }
-
-        $stmt->store_result();
-        $stmt->bind_result($res_1, $res_2, $res_3, $res_4);
-
-           
-
-            while ($stmt->fetch()) {
-                echo "$res_1 $res_2";
-            }
-
-        $stmt->close();   
-
+        $stmt->close();
+        
     }
 
 ?> 
