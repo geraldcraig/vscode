@@ -167,7 +167,8 @@
         INNER JOIN subgenre
         ON album_subgenre.subgenre_id = subgenre.id
         WHERE (year LIKE '%$searchitem%') OR (name LIKE '%$searchitem%')
-        OR (title LIKE '%$searchitem')";
+        OR (title LIKE '%$searchitem')
+        ORDER BY album.number";
         
         $result = $conn->query($read);
         
@@ -188,6 +189,36 @@
         
         // echo out the response
         echo $response;
+
+    }
+
+    // post add user
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser']))) {
+
+        include('dbconn.php');
+
+        $firstname = $_POST['addfirstname'];
+        $lastname = $_POST['addlastname'];
+        $username = $_POST['addusername'];
+        $password = $_POST['addpassword'];
+        $hash = password_hash($pasword, PASSWORD_DEFAULT);
+
+        $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES(?,?,?,?)");
+        $stmt->bind_param('ssss', $firstname, $lastname, $username, $password);
+        $stmt->execute();
+        $insertquery = $stmt->get_result();
+        $stmt->close();
+
+        $result = $conn->query(($insertquery));
+
+        if(!$result) {
+
+            echo $conn->error;
+
+        } else {
+
+            echo "POST request performed";
+        }
 
     }
 
