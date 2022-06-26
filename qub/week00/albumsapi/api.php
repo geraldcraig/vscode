@@ -206,19 +206,21 @@
         $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES(?,?,?,?)");
         $stmt->bind_param('ssss', $firstname, $lastname, $username, $password);
         $stmt->execute();
-        $insertquery = $stmt->get_result();
-        $stmt->close();
 
-        $result = $conn->query(($insertquery));
-
-        if(!$result) {
-
-            echo $conn->error;
-
-        } else {
-
-            echo "POST request performed";
+        if (!$stmt) {
+            echo $stmt -> error; 
         }
+
+        $stmt->store_result();
+        $stmt->bind_result($res_1, $res_2, $res_3, $res_4);
+
+           
+
+            while ($stmt->fetch()) {
+                echo "$res_1 $res_2";
+            }
+
+        $stmt->close();   
 
     }
 
