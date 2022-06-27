@@ -2,7 +2,13 @@
 
     session_start();
 
-    include("dbconn.php");
+    //include("dbconn.php");
+
+    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
+
+    $result = file_get_contents($endpoint);
+
+    $data = json_decode($result, true);
 
     $uname = $_POST["username"];
     $upass = $_POST["password"];

@@ -3,7 +3,7 @@
     header("Content-Type: application/json");
 
     // display top 10 albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['count'])) && (!isset($_GET['album'])) && (!isset($_GET['search']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['count'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
         include ("dbconn.php");
     
         $read = "SELECT album.id, album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
@@ -49,7 +49,7 @@
     }
 
     // display all albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (!isset($_GET['album'])) && (!isset($_GET['search']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
     
@@ -95,7 +95,7 @@
     }
 
      // get album
-     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (isset($_GET['album'])) && (!isset($_GET['search']))) {
+     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
@@ -143,7 +143,7 @@
     }
 
     // search
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (!isset($_GET['album'])) && (isset($_GET['search']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (!isset($_GET['album'])) && (isset($_GET['search'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
@@ -170,6 +170,35 @@
         OR (title LIKE '%$searchitem')
         ORDER BY album.number";
         
+        $result = $conn->query($read);
+        
+        if (!$result) {
+            echo $conn -> error;
+        }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
+    // get user
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (isset($_GET['user']))) {
+
+        include ("dbconn.php");
+    
+        $read = "SELECT * FROM user";
+
         $result = $conn->query($read);
         
         if (!$result) {
