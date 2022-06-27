@@ -16,7 +16,9 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="container">
+</nav>
+
+<div class="container">
   <h2>Register form</h2>
 	<form name="mylist" method="POST" action="processregister.php" enctype="multipart/form-data">
     <div class="form-group">

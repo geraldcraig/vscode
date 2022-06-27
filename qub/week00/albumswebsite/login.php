@@ -2,21 +2,6 @@
 
 session_start();
 
-if (!isset($_SESSION['user'])) {
-  $showBtn =false;
-} else {
-  $showBtn = true;
-  $currentUser = $_SESSION['user'];
-}
-
-$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
-
-//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
-
-$result = file_get_contents($endpoint);
-
-$data = json_decode($result, true);
-
 ?>
 
 <!DOCTYPE html>
@@ -37,44 +22,24 @@ $data = json_decode($result, true);
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="albumlist.php">Top 500 Albums</a>
-        </li>
-        <?php
-        if (!$showBtn) {
-          echo "<li class='nav-item'>
-                  <a class='nav-link' href='login.php'>Log In</a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='register.php'>Register</a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='adminlogin.php'>Admin</a>
-                </li>";
-        } else {
-          echo "<li class='nav-item'>
-                  <a class='nav-link' href='account.php'>Account</a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='logout.php'>Log Out</a>
-                </li>";
-        }
-        ?>
-       
-      </ul>
-      <form class="d-flex" action="search.php" method="get">
-        <input class="form-control me-2" type="text" name="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
-    </div>
   </div>
 </nav>
 
 <div class="container-fluid mt-3">
     <h1>Login</h1>
-</div>
+    <form name="mylist" method="POST" action="processlogin.php" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="myItemInput" name="username" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="text" id="myItemInput" name="password" />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
