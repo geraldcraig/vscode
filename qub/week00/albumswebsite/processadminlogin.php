@@ -4,10 +4,10 @@
 
     include("dbconn.php");
 
-    $uname = $_POST["uname"];
-    $upass = $_POST["pword"];
+    $uname = $_POST["username"];
+    $upass = $_POST["password"];
 
-    $checkuser = "SELECT * FROM mysolarusers WHERE username ='$uname' AND userpass = MD5('$upass') ";
+    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
     $result = $conn->query($checkuser);
     
@@ -17,10 +17,10 @@
 
     $num = $result->num_rows;
 
-    if ($num > 0) {
-        $_SESSION['editpermission123'] = $uname;
-	    header("Location: index.php");
+    if ($num > 0 && $uname == 'admin') {
+        $_SESSION['admin'] = $uname;
+	    header("Location: adminaccount.php");
     } else {
-	    header("Location: login.php");
+	    header("Location: adminlogin.php");
     }
 ?>
