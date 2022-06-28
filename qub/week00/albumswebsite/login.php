@@ -19,7 +19,7 @@
   </div>
 </nav>
 
-<div class="container-fluid mt-3">
+<div class="container mt-3">
     <h1>Login</h1>
     <form name="mylist" method="POST" action="processlogin.php" enctype="multipart/form-data">
       <div class="form-group">

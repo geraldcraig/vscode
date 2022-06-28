@@ -67,7 +67,7 @@ $data = json_decode($result, true);
 </nav>
 
 <div class="container mt-3">
-    <h1>Account</h1>
+    <h1>Admin Account</h1>
     <table class="table table-secondary table striped">
       <thead>
         <tr>
