@@ -52,7 +52,10 @@ $data = json_decode($result, true);
                 </li>";
         } else {
           echo "<li class='nav-item'>
-                  <a class='nav-link' href='logout.php'>Log Out</a>
+                  <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='adminlogout.php'>Admin Log Out</a>
                 </li>";
         }
         ?>
