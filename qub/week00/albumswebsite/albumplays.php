@@ -3,10 +3,10 @@
 session_start();
 
 if (!isset($_SESSION['user'])) {
-  $showBtn =false;
+  $showBtn = false;
 } else {
   $showBtn = true;
-  $currentUser = $_SESSION['user'];
+  $currentuser = $_SESSION['user'];
 }
 
 //$endpoint = "http://localhost/qub/week00/albumsapi/api.php";
@@ -72,10 +72,72 @@ $data = json_decode($result, true);
   </div>
 </nav>
 
-<div class="container-fluid mt-3">
-    <h1>Album Plays</h1>
+<div class="container mt-3">
+  <h1>Number of Album Plays</h1>
+  <table class="table table-secondary table-striped">
+    <?php
+    if (!$showBtn) {
+      echo "<thead>
+              <tr>
+                  <th>Number</th>
+                  <th>Album</th>
+                  <th>Artist</th>
+                  <th>Year</th>
+                 <th>Artwork</th>
+              </tr>
+            </thead>";
+
+        foreach ($data as $row) {
+
+          $number = $row['number'];
+          $album = $row['title'];
+          $artist = $row['name'];
+          $year = $row['year'];
+          $artwork = $row['image'];
+          $albumid = $row['id'];
+
+          echo "<tr>
+                  <td>$number</td>
+                  <td>$album</td>
+                  <td>$artist</td>
+                  <td>$year</td>
+                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
+        }
+    } else {
+      echo "<thead>
+              <tr>
+                <th>Number</th>
+                <th>Album</th>
+                <th>Artist</th>
+                <th>Year</th>
+                <th>Artwork</th>
+                <th>Album Plays</th>
+              </tr>
+            </thead>";
+
+        foreach ($data as $row) {
+
+          $number = $row['number'];
+          $album = $row['title'];
+          $artist = $row['name'];
+          $year = $row['year'];
+          $artwork = $row['image'];
+          $albumid = $row['id'];
+
+          echo "<tr>
+                  <td>$number</td>
+                  <td>$album</td>
+                  <td>$artist</td>
+                  <td>$year</td>
+                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
+                  <td>No of Plays</td>";
+        }
+    }
+    ?>
+  </table>
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
 </html>
