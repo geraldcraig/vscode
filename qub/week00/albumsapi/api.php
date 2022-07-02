@@ -167,7 +167,7 @@
         INNER JOIN subgenre
         ON album_subgenre.subgenre_id = subgenre.id
         WHERE (year LIKE '%$searchitem%') OR (name LIKE '%$searchitem%')
-        OR (title LIKE '%$searchitem')
+        OR (title LIKE '%$searchitem%')
         ORDER BY album.number";
         
         $result = $conn->query($read);
