@@ -38,7 +38,7 @@ $data = json_decode($result, true);
             
         // Using prepared statement (approach 1 - no different original use of result set)
         
-        foreach ($data as $row){
+        while ($row = $result->fetch_assoc()){
  
             $question = $row['content'];
             $qid = $row['id'];
@@ -67,7 +67,7 @@ $data = json_decode($result, true);
         }
 */
         // close the statement
-       // $stmt->close();
+        $stmt->close();
 
     ?>
          

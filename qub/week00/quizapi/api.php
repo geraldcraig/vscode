@@ -8,7 +8,7 @@
 
       // Using prepared statement (approach 1)
      
-     $stmt = $conn->prepare("SELECT id, content FROM myquiz ");
+     $stmt = $conn->prepare("SELECT * FROM myquiz ");
      $stmt->execute();
 
      if (!$stmt) {
@@ -16,11 +16,10 @@
      }
 
      // get the result set
-     $result->$stmt->store_result();
-     $stmt->bind_result($qid, $question);
+     $result->$stmt->get_result();
     
         // build a response array
-        $api_response = array();
+       /* $api_response = array();
         
         while ($row = $result->fetch_assoc()) {
             
@@ -35,7 +34,7 @@
 
      // close the statement
      //stmt->close();
-
+*/
     }
 
      
