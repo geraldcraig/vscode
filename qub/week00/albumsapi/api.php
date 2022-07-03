@@ -222,7 +222,7 @@
     }
 
     // post add user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
 
@@ -238,6 +238,20 @@
 
         $stmt->close();
         
+    }
+
+    // delete user
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['deleteuser']))) {
+
+        include('dbconn.php');
+
+        $userid = $_GET['userid'];
+
+        $stmt = $conn->prepare("DELETE FROM user WHERE id = ?");
+        $stmt->bind_param("i", $userid);
+        $stmt->execute();
+            
+        $stmt->close();
     }
 
 ?> 
