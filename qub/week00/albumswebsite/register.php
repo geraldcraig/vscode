@@ -18,7 +18,7 @@
     </button>
 </nav>
 
-<div class="container">
+<div class="container mt-3 bg-secondary">
   <h2>Register form</h2>
 	<form name="mylist" method="POST" action="processregister.php" enctype="multipart/form-data">
     <div class="form-group">

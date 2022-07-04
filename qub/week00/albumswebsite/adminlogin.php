@@ -19,7 +19,7 @@
   </div>
 </nav>
 
-<div class="container mt-3">
+<div class="container mt-3 bg-secondary">
     <h1>Admin Login</h1>
     <form name="mylist" method="POST" action="processadminlogin.php" enctype="multipart/form-data">
       <div class="form-group">
