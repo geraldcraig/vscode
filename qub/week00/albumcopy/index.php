@@ -12,8 +12,8 @@ include ("dbconn.php");
 
 <?php
 
-$userid = '4';
-$albumid = '1';
+$userid = '1';
+$albumid = '2';
 $count = '1';
 
 $checkuser = "SELECT * FROM album_plays WHERE user_id ='$userid' AND album_id = '$albumid' ";
