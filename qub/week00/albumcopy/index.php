@@ -28,7 +28,7 @@ $num = $result->num_rows;
 
 if ($num > 0) {
 
-     $updatequery = "UPDATE album_plays SET count = count + 1 WHERE user_id = '$userid' AND album_id = '$albumid' ";
+     $updatequery = "UPDATE album_plays SET plays = plays + 1 WHERE user_id = '$userid' AND album_id = '$albumid' ";
 
      $result = $conn->query($updatequery);
     
@@ -54,7 +54,7 @@ if ($num > 0) {
 
     $stmt->close();*/
 
-    $insertquery = "INSERT INTO album_plays (user_id, album_id, count) VALUES ('$userid', '$albumid', '$count')";
+    $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) VALUES ('$userid', '$albumid', '$count')";
            
     $result = $conn->query($insertquery);
     

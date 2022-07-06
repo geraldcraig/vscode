@@ -12,9 +12,15 @@ include ("dbconn.php");
 
 <?php
     
-    $read = "SELECT SUM(count), album_id
+    $read = "SELECT SUM(plays), album_id, album.title, artist.name
     FROM album_plays
-    GROUP BY album_id";
+    INNER JOIN 
+    album ON
+    album_plays.album_id = album.id
+    INNER JOIN artist
+    ON album.artist_id = artist.id
+    GROUP BY album_id
+    ORDER BY SUM(plays) DESC";
     
     $result = $conn->query($read);
 
@@ -22,12 +28,14 @@ include ("dbconn.php");
 		echo $conn->error;
 	}
 
-    var_dump(json_decode($result));
+    //var_dump(json_decode($result));
 
     ?>
 
 <div id="content">
 			<h1>Top 10 Album Plays</h1>
+
+            
 			<?php
 
                 echo "<thead>
@@ -39,13 +47,15 @@ include ("dbconn.php");
 
 				while ($row = $result->fetch_assoc()) {
 
-					$titledata = $row['album_id'];
-					$yeardata = $row['count'];
+					$albumid = $row['title'];
+					$count = $row['SUM(plays)'];
 
-					echo "<div>
-								<h3>$titledata</h3>
-								<h3>$yeardata</h3>
-							</div>";
+					echo "<thead>
+                            <tr>
+								<td>$albumid</td>
+								<td>$count</td>
+                            </tr>
+                        </thead>";
 				}
 			?>	
 			
