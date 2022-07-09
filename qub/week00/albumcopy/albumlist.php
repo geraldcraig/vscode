@@ -1,21 +1,46 @@
 <?php
 
-session_start();
+include ("dbconn.php");
 
-if (!isset($_SESSION['user'])) {
-  $showBtn = false;
-} else {
-  $showBtn = true;
-  $currentUser = $_SESSION['user'];
+$read = "SELECT album.id, album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
+INNER JOIN artist
+ON album.artist_id = artist.id
+INNER JOIN year
+ON album.year_id = year.id
+INNER JOIN album_image
+ON album.id = album_image.album_id
+INNER JOIN image
+ON album_image.image_id = image.id
+INNER JOIN album_genre
+ON album.id = album_genre.album_id
+INNER JOIN genre
+ON album_genre.genre_id = genre.id
+INNER JOIN album_subgenre
+ON album.id = album_subgenre.album_id
+INNER JOIN subgenre
+ON album_subgenre.subgenre_id = subgenre.id
+ORDER BY album.number
+LIMIT 10";
+
+$result = $conn->query($read);
+
+if (!$result) {
+    echo $conn -> error;
 }
 
-$endpoint = "http://localhost/qub/week00/albumsapiold/api.php";
+// build a response array
+$api_response = array();
 
-//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
+while ($row = $result->fetch_assoc()) {
+    
+    array_push($api_response, $row);
+}
+    
+// encode the response as JSON
+$response = json_encode($api_response);
 
-$result = file_get_contents($endpoint);
-
-$data = json_decode($result, true);
+// echo out the response
+echo $response;
 
 ?>
 
@@ -111,7 +136,7 @@ $data = json_decode($result, true);
                     <th>Artwork</th>
                 </tr>
             </thead>";
-        foreach ($data as $row) {
+        while ($row = $result->fetch_assoc()) {
 
           $number = $row['number'];
           $album = $row['title'];
@@ -143,7 +168,7 @@ $data = json_decode($result, true);
                     <th>Artwork</th>
                 </tr>
             </thead>";
-        foreach ($data as $row) {
+        while ($row = $result->fetch_assoc()) {
 
           $number = $row['number'];
           $album = $row['title'];
@@ -167,16 +192,6 @@ $data = json_decode($result, true);
       }
       ?>
     </table>
-
-    <p>Default:</p>
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-  </div>
 
 </body>
 
