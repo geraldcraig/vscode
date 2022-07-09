@@ -12,7 +12,8 @@ include ("dbconn.php");
 
 <?php
     
-    $read = "SELECT SUM(plays), album_plays.album_id, album.title, artist.name, image.image FROM album
+    $read = "SELECT SUM(plays), album_plays.album_id, album.title, artist.name
+	FROM album
     INNER JOIN artist
     ON album.artist_id = artist.id
     INNER JOIN album_plays
