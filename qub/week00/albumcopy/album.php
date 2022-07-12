@@ -1,29 +1,15 @@
 <?php
 
 include ("dbconn.php");
-
-?>
-
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>Top 10 Album Count Test</h1>
-
-<?php
     
-    $read = "SELECT SUM(plays), album_plays.album_id, album.title, artist.name
-	FROM album
+    $read = "SELECT SUM(plays), title, name, image FROM album_plays
+    INNER JOIN album
+    on album_plays.album_id = album.id
     INNER JOIN artist
     ON album.artist_id = artist.id
-    INNER JOIN album_plays
-    ON album.id = album_plays.album_id
-    INNER JOIN album_image
-    ON album.id = album_image.album_id
     INNER JOIN image
-    ON album_image.image_id = image.id
+    ON album.image_id = image.id
     GROUP BY album_plays.album_id
-    ORDER BY SUM(plays) DESC
     LIMIT 10";
     
     $result = $conn->query($read);
@@ -33,21 +19,22 @@ include ("dbconn.php");
 	}
 
     //var_dump(json_decode($result));
+?>
 
-    ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Albums</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 
 <div id="content">
 			<h1>Top 10 Album Plays</h1>
 
             
 			<?php
-
-                echo "<thead>
-                        <tr>
-                            <th>album id</th>
-                            <th>count</th>    
-                        </tr>
-                    </thead>";
 
 				while ($row = $result->fetch_assoc()) {
 

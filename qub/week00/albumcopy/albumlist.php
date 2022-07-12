@@ -7,10 +7,8 @@ INNER JOIN artist
 ON album.artist_id = artist.id
 INNER JOIN year
 ON album.year_id = year.id
-INNER JOIN album_image
-ON album.id = album_image.album_id
 INNER JOIN image
-ON album_image.image_id = image.id
+ON album.image_id = image.id
 INNER JOIN album_genre
 ON album.id = album_genre.album_id
 INNER JOIN genre
@@ -20,28 +18,13 @@ ON album.id = album_subgenre.album_id
 INNER JOIN subgenre
 ON album_subgenre.subgenre_id = subgenre.id
 ORDER BY album.number
-LIMIT 10";
+LIMIT 50";
 
 $result = $conn->query($read);
 
 if (!$result) {
     echo $conn -> error;
 }
-
-// build a response array
-$api_response = array();
-
-while ($row = $result->fetch_assoc()) {
-    
-    array_push($api_response, $row);
-}
-    
-// encode the response as JSON
-$response = json_encode($api_response);
-
-// echo out the response
-echo $response;
-
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +52,6 @@ echo $response;
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav mr-auto'>
         <?php
-        if (!$showBtn) {
           echo "<li class='nav-item'>
             <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
           </li>
@@ -90,25 +72,7 @@ echo $response;
           <li class='nav-item'>
             <a class='nav-link' href='adminlogin.php'>Admin</a>
           </li>";
-        } else {
-          echo "<li class='nav-item'>
-            <a class='nav-link' href='albumlist.php'>Top 500 Albums<span class='sr-only'>(current)</span></a>
-          </li>
-          <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'>Browse By</a>
-            <div class='dropdown-menu'>
-              <a class='dropdown-item' href='browseartist.php'>Artist</a>
-              <a class='dropdown-item' href='browseyear.php'>Year</a>
-             <a class='dropdown-item' href='browsegenre.php'>Genre</a>
-            </div>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='account.php'>Account</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='logout.php'>Log Out</a>
-          </li>";
-        }
+        
         ?>
       </ul>
 
@@ -125,14 +89,13 @@ echo $response;
     <h1>Top 500 Albums</h1>
     <table class="table striped">
       <?php
-      if (!$showBtn) {
+      
         echo "<thead>
                 <tr>
                     <th>Number</th>
                     <th>Album</th>
                     <th>Artist</th>
                     <th>Year</th>
-                    <th>Rating</th>
                     <th>Artwork</th>
                 </tr>
             </thead>";
@@ -150,46 +113,10 @@ echo $response;
                     <td>$album</td>
                     <td>$artist</td>
                     <td>$year</td>
-                    <td>Rating</td>
                     <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
                     </tr>";
         }
-      } else {
-        echo "<thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Album</th>
-                    <th>Artist</th>
-                    <th>Year</th>
-                    <th>Rating</th>
-                    <th>Owned</th>
-                    <th>Favourite</th>
-                    <th>Review</th>
-                    <th>Artwork</th>
-                </tr>
-            </thead>";
-        while ($row = $result->fetch_assoc()) {
-
-          $number = $row['number'];
-          $album = $row['title'];
-          $artist = $row['name'];
-          $year = $row['year'];
-          $artwork = $row['image'];
-          $albumid = $row['id'];
-
-          echo "<tr>
-                    <td>$number</td>
-                    <td>$album</td>
-                    <td>$artist</td>
-                    <td>$year</td>
-                    <td>Rating</td>
-                    <td><a href='addowned.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
-                    <td><a href='addfavourite.php?album_id=$albumid' class='btn btn-info' role='button'>Favourite</a></td>
-                    <td><a href='addreview.php?album_id=$albumid' class='btn btn-info' role='button'>Review</a></td>
-                    <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                    </tr>";
-        }
-      }
+      
       ?>
     </table>
 
