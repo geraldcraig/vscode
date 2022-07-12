@@ -22,7 +22,8 @@ include ("dbconn.php");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <title>Top Albums</title>
     <meta charset="UTF-8">
@@ -30,25 +31,35 @@ include ("dbconn.php");
 </head>
 <body>
 
-<div id="content">
+<div class="container">
 			<h1>Top 10 Album Plays</h1>
-
-            
+            <table class="table striped">
 			<?php
 
+                echo"<thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Name</th>
+                            <th>Plays</th>
+                            <th>Image</th>
+                        </tr>
+                    </head>";
 				while ($row = $result->fetch_assoc()) {
 
-					$albumid = $row['title'];
+					$title = $row['title'];
+                    $name = $row['name'];
 					$count = $row['SUM(plays)'];
+                    $image = $row['image'];
 
-					echo "<thead>
-                            <tr>
-								<td>$albumid</td>
+					echo "<tr>
+								<td>$title</td>
+                                <td>$name</td>
 								<td>$count</td>
-                            </tr>
-                        </thead>";
+                                <td><img src=$image class='img-thumbnail' style='width: 150px'></td>
+                            </tr>";
 				}
 			?>	
+            </table>
 			
 		</div>
 </body>
