@@ -12,8 +12,8 @@ include ("dbconn.php");
 
 <?php
 
-$currentUser = 'admin';
-$albumid = '5';
+$currentUser = $_GET['user_id'];
+$albumid = $_GET['album_id'];
 $count = '1';
 
 $checkuser = "SELECT * FROM album_plays
@@ -48,15 +48,6 @@ if ($num > 0) {
 
 } else {
 
-    //$userid = '2';
-    //$albumid = '2';
-    //$count = '1';
-    
-    /*$stmt = $conn->prepare("INSERT INTO album_plays (user_id, album_id, count) VALUES (?, ?, ?)");
-    $stmt->bind_param("iii", '2', '2', '2');
-    $stmt->execute();
-
-    $stmt->close();*/
 
     $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
     VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";

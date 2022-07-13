@@ -53,14 +53,15 @@
 
         include ("dbconn.php");
     
-        $read = "SELECT SUM(plays), album.id, album.title, artist.name, image.image FROM album_plays
+        $read = "SELECT SUM(plays), title, name, image FROM album_plays
         INNER JOIN album
-        ON album_plays.album_id = album.id
+        on album_plays.album_id = album.id
         INNER JOIN artist
         ON album.artist_id = artist.id
         INNER JOIN image
         ON album.image_id = image.id
         GROUP BY album_plays.album_id
+        ORDER BY SUM(plays) DESC
         LIMIT 10";
         
         $result = $conn->query($read);

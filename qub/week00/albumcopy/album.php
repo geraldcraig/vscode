@@ -10,6 +10,7 @@ include ("dbconn.php");
     INNER JOIN image
     ON album.image_id = image.id
     GROUP BY album_plays.album_id
+    ORDER BY SUM(plays) DESC
     LIMIT 10";
     
     $result = $conn->query($read);
