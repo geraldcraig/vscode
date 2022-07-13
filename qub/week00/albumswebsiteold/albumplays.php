@@ -12,7 +12,7 @@ include ("dbconn.php");
 
 <?php
 
-$currentUser = $_GET['user_id'];
+$currentUser = $_GET['user_name'];
 $albumid = $_GET['album_id'];
 $count = '1';
 
