@@ -1,21 +1,22 @@
 <?php
 
-session_start();
+include ("dbconn.php");
+    
+$read = "SELECT SUM(plays), title, name, image FROM album_plays
+INNER JOIN album
+on album_plays.album_id = album.id
+INNER JOIN artist
+ON album.artist_id = artist.id
+INNER JOIN image
+ON album.image_id = image.id
+GROUP BY album_plays.album_id
+LIMIT 10";
+    
+    $result = $conn->query($read);
 
-if (!isset($_SESSION['user'])) {
-  $showBtn = false;
-} else {
-  $showBtn = true;
-  $currentUser = $_SESSION['user'];
-}
-
-$endpoint = "http://localhost/qub/week00/albumsapiold/api.php";
-
-//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
-
-$result = file_get_contents($endpoint);
-
-$data = json_decode($result, true);
+	if (!$result) {
+		echo $conn->error;
+	}
 
 ?>
 
@@ -99,14 +100,14 @@ $data = json_decode($result, true);
   <div class="row row-cols-1 row-cols-md-5 g-4">
 
     <?php
-    foreach ($data as $row) {
+    while ($row = $result->fetch_assoc()) {
 
-      $number = $row['number'];
-      $year = $row['year'];
       $album = $row['title'];
       $artist = $row['name'];
-      $albumid = $row['id'];
+      $count = $row['SUM(plays)'];
       $artwork = $row['image'];
+      $albumid = $row['id'];
+      
 
       echo "<div class='col'>
               <div class='card' style='width: 200px'>
@@ -114,7 +115,7 @@ $data = json_decode($result, true);
                 <div class='card-body'>
 								  <h3>$album</h4>
 								  <h3>$artist</h4>
-								  <h4>$number</h4>
+								  <h4>$count</h4>
                 </div>
 					    </div>
             </div>";
