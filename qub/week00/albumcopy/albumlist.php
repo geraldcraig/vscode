@@ -97,6 +97,7 @@ if (!$result) {
                     <th>Artist</th>
                     <th>Year</th>
                     <th>Artwork</th>
+                    <th>Add Play</th>
                 </tr>
             </thead>";
         while ($row = $result->fetch_assoc()) {
@@ -114,8 +115,11 @@ if (!$result) {
                     <td>$artist</td>
                     <td>$year</td>
                     <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
+                    <td><a href='albumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Add Play</a></td>
+        
                     </tr>";
-        }
+      }
+        
       
       ?>
     </table>

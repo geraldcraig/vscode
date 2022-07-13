@@ -42,8 +42,8 @@ if ($num > 0) {
      
      } else {
  
-         //echo "Update request performed";
-         header("Location: index.php");
+         echo "Update request performed";
+         //header("Location: index.php");
          
      }
 
@@ -61,8 +61,8 @@ if ($num > 0) {
     
     } else {
 
-        //echo "POST request performed";
-        header("Location: index.php");
+        echo "POST request performed";
+        //header("Location: index.php");
         
     }
 }

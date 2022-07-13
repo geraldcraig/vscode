@@ -1,80 +1,67 @@
 <?php
 
 include ("dbconn.php");
+    
+    $read = "SELECT SUM(plays), title, name, image FROM album_plays
+    INNER JOIN album
+    on album_plays.album_id = album.id
+    INNER JOIN artist
+    ON album.artist_id = artist.id
+    INNER JOIN image
+    ON album.image_id = image.id
+    GROUP BY album_plays.album_id
+    ORDER BY SUM(plays) DESC
+    LIMIT 10";
+    
+    $result = $conn->query($read);
 
+	if (!$result) {
+		echo $conn->error;
+	}
+
+    //var_dump(json_decode($result));
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <title>Top Albums</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
 
-<h1>Album Count Test</h1>
+<div class="container">
+			<h1>Top 10 Album Plays</h1>
+            <table class="table striped">
+			<?php
 
-<?php
+                echo"<thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Name</th>
+                            <th>Plays</th>
+                            <th>Image</th>
+                        </tr>
+                    </head>";
+				while ($row = $result->fetch_assoc()) {
 
-$currentUser = 'admin';
-$albumid = '5';
-$count = '1';
+					$title = $row['title'];
+                    $name = $row['name'];
+					$count = $row['SUM(plays)'];
+                    $image = $row['image'];
 
-$checkuser = "SELECT * FROM album_plays
-WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
-AND album_plays.album_id = '$albumid' ";
-
-$result = $conn->query($checkuser);
-
-if (!$result) {
-    echo $conn->error;
-}
-
-$num = $result->num_rows;
-
-if ($num > 0) {
-
-     $updatequery = "UPDATE album_plays SET plays = plays + 1 
-     WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
-     AND album_plays.album_id = '$albumid' ";
-
-     $result = $conn->query($updatequery);
-    
-     if(!$result) {
-         
-         echo $conn->error;
-     
-     } else {
- 
-         echo "Update request performed";
-         
-     }
-
-} else {
-
-    //$userid = '2';
-    //$albumid = '2';
-    //$count = '1';
-    
-    /*$stmt = $conn->prepare("INSERT INTO album_plays (user_id, album_id, count) VALUES (?, ?, ?)");
-    $stmt->bind_param("iii", '2', '2', '2');
-    $stmt->execute();
-
-    $stmt->close();*/
-
-    $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
-    VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";
-           
-    $result = $conn->query($insertquery);
-    
-    if(!$result) {
-        
-        echo $conn->error;
-    
-    } else {
-
-        echo "POST request performed";
-        
-    }
-}
-
-?> 
-
+					echo "<tr>
+								<td>$title</td>
+                                <td>$name</td>
+								<td>$count</td>
+                                <td><img src=$image class='img-thumbnail' style='width: 150px'></td>
+                            </tr>";
+				}
+			?>	
+            </table>
+			
+		</div>
 </body>
 </html>

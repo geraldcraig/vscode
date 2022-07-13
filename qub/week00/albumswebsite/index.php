@@ -9,9 +9,9 @@ if (!isset($_SESSION['user'])) {
   $currentuser = $_SESSION['user'];
 }
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?count";
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?topten";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?count";
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?topten";
 
 $result = file_get_contents($endpoint);
 
@@ -81,7 +81,7 @@ $data = json_decode($result, true);
     <?php
     foreach ($data as $row) {
 
-      $number = $row['number'];
+      $played = $row['SUM(plays)'];
       $album = $row['title'];
       $artist = $row['name'];
       $artwork = $row['image'];
@@ -94,7 +94,7 @@ $data = json_decode($result, true);
                 <div class='card-body'>
 								  <h3>$album</h4>
 								  <h3>$artist</h4>
-								  <h4>$number</h4>
+								  <h4>No. of Plays: $played</h4>
                 </div>
 					    </div>
             </div>";

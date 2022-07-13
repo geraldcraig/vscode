@@ -3,27 +3,18 @@
     header("Content-Type: application/json");
 
     // display top 10 albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['count'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
         include ("dbconn.php");
     
-        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
+        $read = "SELECT SUM(plays), album.id, album.title, artist.name, image.image FROM album_plays
+        INNER JOIN album
+        on album_plays.album_id = album.id
         INNER JOIN artist
         ON album.artist_id = artist.id
-        INNER JOIN year
-        ON album.year_id = year.id
-        INNER JOIN album_image
-        ON album.id = album_image.album_id
         INNER JOIN image
-        ON album_image.image_id = image.id
-        INNER JOIN album_genre
-        ON album.id = album_genre.album_id
-        INNER JOIN genre
-        ON album_genre.genre_id = genre.id
-        INNER JOIN album_subgenre
-        ON album.id = album_subgenre.album_id
-        INNER JOIN subgenre
-        ON album_subgenre.subgenre_id = subgenre.id
-        ORDER BY album.number
+        ON album.image_id = image.id
+        GROUP BY album_plays.album_id
+        ORDER BY SUM(plays) DESC, artist.name
         LIMIT 10";
         
         $result = $conn->query($read);
@@ -49,7 +40,7 @@
     }
 
     // display all albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
     
@@ -95,7 +86,7 @@
     }
 
      // get album
-     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
+     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
@@ -143,7 +134,7 @@
     }
 
     // search
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (!isset($_GET['album'])) && (isset($_GET['search'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (isset($_GET['search'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
@@ -193,7 +184,7 @@
     }
 
     // get user
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['count'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (isset($_GET['user']))) {
 
         include ("dbconn.php");
     
