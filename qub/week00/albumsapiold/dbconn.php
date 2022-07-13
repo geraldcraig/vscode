@@ -2,7 +2,7 @@
         $host = "localhost";
         $user = "root";
         $pw = "root";
-        $db = "albumwebsite";
+        $db = "recordwebsite";
 
         //$host = "gcraig15.webhosting6.eeecs.qub.ac.uk";
         //$user = "gcraig15";

@@ -13,10 +13,8 @@
         ON album.artist_id = artist.id
         INNER JOIN year
         ON album.year_id = year.id
-        INNER JOIN album_image
-        ON album.id = album_image.album_id
         INNER JOIN image
-        ON album_image.image_id = image.id
+        ON album.image_id = image.id
         INNER JOIN album_genre
         ON album.id = album_genre.album_id
         INNER JOIN genre
@@ -92,10 +90,8 @@
         ON album.artist_id = artist.id
         INNER JOIN year
         ON album.year_id = year.id
-        INNER JOIN album_image
-        ON album.id = album_image.album_id
         INNER JOIN image
-        ON album_image.image_id = image.id
+        ON album.image_id = image.id
         WHERE name='$filterdata' ";
 
         $result = $conn -> query($filterquery);
@@ -133,10 +129,8 @@
         ON album.artist_id = artist.id
         INNER JOIN year
         ON album.year_id = year.id
-        INNER JOIN album_image
-        ON album.id = album_image.album_id
         INNER JOIN image
-        ON album_image.image_id = image.id
+        ON album.image_id = image.id
         INNER JOIN album_genre
         ON album.id = album_genre.album_id
         INNER JOIN genre
@@ -281,10 +275,8 @@
         ON album.artist_id = artist.id
         INNER JOIN year
         ON album.year_id = year.id
-        INNER JOIN album_image
-        ON album.id = album_image.album_id
         INNER JOIN image
-        ON album_image.image_id = image.id
+        ON album.image_id = image.id
         WHERE (year LIKE '%$searchitem%') OR (name LIKE '%$searchitem%') 
         OR (title LIKE '%$searchitem%') OR (genre_type LIKE '%$searchitem%')
         OR (subgenre_type LIKE '%$searchitem%')";
