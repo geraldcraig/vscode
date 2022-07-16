@@ -9,9 +9,9 @@ if (!isset($_SESSION['user'])) {
   $currentUser = $_SESSION['user'];
 }
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?accountplays";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountplays";
 
 $result = file_get_contents($endpoint);
 
@@ -39,6 +39,9 @@ $data = json_decode($result, true);
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="albumlist.php">Top 500 Albums</a>
+        </li>
         <?php
         if (!$showBtn) {
           echo "<li class='nav-item'>
@@ -53,9 +56,6 @@ $data = json_decode($result, true);
         } else {
           echo "<li class='nav-item'>
                   <a class='nav-link' href='account.php'>Account</a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='accountalbumplays.php'>Album Plays</a>
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='logout.php'>Log Out</a>
@@ -73,45 +73,71 @@ $data = json_decode($result, true);
 </nav>
 
 <div class="container mt-3">
-    <h1>Account</h1>
-    <table class="table table-secondary table striped">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-          <th>Password</th>
-          <th>Update Account</th>
-          <th>Delete Account</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-          foreach ($data as $row) {
+  <h1>Top 500 Albums</h1>
+  <table class="table table-secondary table-striped">
+    <?php
+    if (!$showBtn) {
+      echo "<thead>
+              <tr>
+                  <th>Number</th>
+                  <th>Album</th>
+                  <th>Artist</th>
+                  <th>Year</th>
+                 <th>Artwork</th>
+              </tr>
+            </thead>";
 
-            $fname = $row['firstname'];
-            $lname = $row['lastname'];
-            $uname = $row['username'];
-            $pword = $row['userpassword'];
+        foreach ($data as $row) {
 
-            if ($uname == $currentUser) {
+          $number = $row['number'];
+          $album = $row['title'];
+          $artist = $row['name'];
+          $year = $row['year'];
+          $artwork = $row['image'];
+          $albumid = $row['id'];
 
-              echo "<tr>
-                      <td>$fname</td>
-                      <td>$lname</td>
-                      <td>$uname</td>
-                      <td>$pword</td>
-                      <td><a href='#' class='btn btn-info' role='button'>Update</a></td>
-                      <td><a href='#' class='btn btn-info' role='button'>Delete</a></td>
-                    </tr>";
-            }
-          }
+          echo "<tr>
+                  <td>$number</td>
+                  <td>$album</td>
+                  <td>$artist</td>
+                  <td>$year</td>
+                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
+        }
+    } else {
+      echo "<thead>
+              <tr>
+                  <th>Number</th>
+                  <th>Album</th>
+                  <th>Artist</th>
+                  <th>Year</th>
+                 <th>Artwork</th>
+                 <th>Listened To</th>
+              </tr>
+            </thead>";
 
-        ?>
-      </tbody>
-    </table>
+        foreach ($data as $row) {
+
+          $number = $row['number'];
+          $album = $row['title'];
+          $artist = $row['name'];
+          $year = $row['year'];
+          $artwork = $row['image'];
+          $albumid = $row['id'];
+
+          echo "<tr>
+                  <td>$number</td>
+                  <td>$album</td>
+                  <td>$artist</td>
+                  <td>$year</td>
+                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
+                  ";
+        }
+    }
+    ?>
+  </table>
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
 </html>
