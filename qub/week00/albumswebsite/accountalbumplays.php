@@ -9,11 +9,11 @@ if (!isset($_SESSION['user'])) {
   $currentuser = $_SESSION['user'];
 }
 
-$user = $_GET['user'];
+$userid = $currentuser;
 
 //$endpoint = "http://localhost/qub/week00/albumsapi/api.php?accountplays";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountplays=$user";
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountplays=$userid";
 
 $result = file_get_contents($endpoint);
 
@@ -94,7 +94,7 @@ $data = json_decode($result, true);
           $number = $row['number'];
           $album = $row['title'];
           $artist = $row['name'];
-          //$year = $row['year'];
+          $year = $row['year'];
           $artwork = $row['image'];
           $albumid = $row['id'];
 
@@ -124,7 +124,8 @@ $data = json_decode($result, true);
           $artist = $row['name'];
           $year = $row['year'];
           $artwork = $row['image'];
-          $albumid = $row['id'];
+          $albumplays = $row['plays'];
+          $albumid = $row['album_id'];
 
           echo "<tr>
                   <td>$number</td>
@@ -132,7 +133,8 @@ $data = json_decode($result, true);
                   <td>$artist</td>
                   <td>$year</td>
                   <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                  ";
+                  <td>$albumplays</td>
+                </tr>";
         }
     }
     ?>

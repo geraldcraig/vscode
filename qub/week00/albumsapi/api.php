@@ -189,7 +189,7 @@
 
         $userid = $_GET['accountplays'];
     
-        $read = "SELECT plays, user_id, title, name, year, image FROM album_plays
+        $read = "SELECT plays, user_id, album_id, album.number, title, name, year, image FROM album_plays
         INNER JOIN album
         ON album_plays.album_id = album.id
         INNER JOIN artist
@@ -198,7 +198,7 @@
         ON album.year_id = year.id
         INNER JOIN image
         ON album.image_id = image.id
-        WHERE user_id = $userid
+        WHERE user_id IN (SELECT id FROM user WHERE username = '$userid')
         ORDER BY plays DESC";
         
         $result = $conn->query($read);
