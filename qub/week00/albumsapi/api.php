@@ -3,7 +3,7 @@
     header("Content-Type: application/json");
 
     // display top 10 albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user']))) {
         include ("dbconn.php");
     
         $read = "SELECT SUM(plays), album.id, album.title, artist.name, image.image FROM album_plays
@@ -40,7 +40,7 @@
     }
 
     // display all albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
     
@@ -86,7 +86,7 @@
     }
 
      // get album
-     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['user']))) {
+     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
@@ -134,7 +134,7 @@
     }
 
     // search
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (isset($_GET['search'])) && (!isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user']))) {
 
         include ("dbconn.php");
 
@@ -183,8 +183,48 @@
 
     }
 
+    // display user album plays
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (isset($_GET['accountplays'])) && (!isset($_GET['user']))) {
+        include ("dbconn.php");
+
+        $userid = $_GET['accountplays'];
+    
+        $read = "SELECT plays, user_id, title, name, year, image FROM album_plays
+        INNER JOIN album
+        ON album_plays.album_id = album.id
+        INNER JOIN artist
+        ON album.artist_id = artist.id
+        INNER JOIN year
+        ON album.year_id = year.id
+        INNER JOIN image
+        ON album.image_id = image.id
+        WHERE user_id = $userid
+        ORDER BY plays DESC";
+        
+        $result = $conn->query($read);
+        
+        if (!$result) {
+            echo $conn -> error;
+        }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
     // get user
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (isset($_GET['user']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (isset($_GET['user']))) {
 
         include ("dbconn.php");
     

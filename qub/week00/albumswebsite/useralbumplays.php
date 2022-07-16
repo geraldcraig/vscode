@@ -1,23 +1,21 @@
 <?php
 
-session_start();
+include ("dbconn.php");
 
-if (!isset($_SESSION['user'])) {
-  $showBtn =false;
-} else {
-  $showBtn = true;
-  $currentuser = $_SESSION['user'];
+$user = $_GET['user_name'];
+$albumid = $_GET['album_id'];
+
+$checkuser = "SELECT * FROM album_plays
+WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$user')
+AND album_plays.album_id = '$albumid' ";
+
+$result = $conn->query($checkuser);
+
+if (!$result) {
+    echo $conn->error;
 }
 
-$user = $_GET['user'];
-
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?accountplays";
-
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountplays=$user";
-
-$result = file_get_contents($endpoint);
-
-$data = json_decode($result, true);
+$num = $result->num_rows;
 
 ?>
 
@@ -45,24 +43,14 @@ $data = json_decode($result, true);
           <a class="nav-link" href="albumlist.php">Top 500 Albums</a>
         </li>
         <?php
-        if (!$showBtn) {
-          echo "<li class='nav-item'>
-                  <a class='nav-link' href='login.php'>Log In</a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='register.php'>Register</a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='adminlogin.php'>Admin</a>
-                </li>";
-        } else {
+       
           echo "<li class='nav-item'>
                   <a class='nav-link' href='account.php'>Account</a>
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='logout.php'>Log Out</a>
                 </li>";
-        }
+        
         ?>
        
       </ul>
@@ -78,34 +66,9 @@ $data = json_decode($result, true);
   <h1>Album Plays</h1>
   <table class="table table-secondary table-striped">
     <?php
-    if (!$showBtn) {
-      echo "<thead>
-              <tr>
-                  <th>Number</th>
-                  <th>Album</th>
-                  <th>Artist</th>
-                  <th>Year</th>
-                 <th>Artwork</th>
-              </tr>
-            </thead>";
 
-        foreach ($data as $row) {
+    if ($num > 0) {
 
-          $number = $row['number'];
-          $album = $row['title'];
-          $artist = $row['name'];
-          //$year = $row['year'];
-          $artwork = $row['image'];
-          $albumid = $row['id'];
-
-          echo "<tr>
-                  <td>$number</td>
-                  <td>$album</td>
-                  <td>$artist</td>
-                  <td>year</td>
-                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
-        }
-    } else {
       echo "<thead>
               <tr>
                   <th>Number</th>
@@ -117,7 +80,7 @@ $data = json_decode($result, true);
               </tr>
             </thead>";
 
-        foreach ($data as $row) {
+        while ($row = $result->fetch_assoc()) {
 
           $number = $row['number'];
           $album = $row['title'];
@@ -131,10 +94,10 @@ $data = json_decode($result, true);
                   <td>$album</td>
                   <td>$artist</td>
                   <td>$year</td>
-                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                  ";
+                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
         }
     }
+    
     ?>
   </table>
 </div>
