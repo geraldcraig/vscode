@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 //$userid =$_GET['user'];
  
@@ -15,8 +15,13 @@ session_start();
 include('dbconn.php');
 
   $userid = $conn->real_escape_string($_GET['user']);
-    
-  $insertquery="DELETE FROM user WHERE id = $userid";
+
+  //$username = 'sailor';
+
+  //$userid = "SELECT id from user where username = 'sailor' ";
+
+  $user = "DELETE FROM album_plays WHERE user_id = 5";
+  $insertquery="DELETE FROM user WHERE id =  $userid ";
            
   $result = $conn->query($insertquery);
         
