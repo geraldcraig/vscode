@@ -6,9 +6,9 @@
 
 //$userid = $conn->real_escape_string($_GET['user']);
  
-//$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser=$userid";
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?deleteuser=$userid";
 
-//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userid=$userid";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?deleteuser=$userid";
  
 //$result = file_get_contents($endpoint);
  
@@ -18,13 +18,9 @@ include('dbconn.php');
 
   $userid = $conn->real_escape_string($_GET['user']);
 
-  //$username = 'sailor';
-
-  //$userid = "SELECT id from user where username = 'sailor' ";
-
-  $insertquery="DELETE FROM user WHERE id =  $userid ";
+  $deletequery="DELETE FROM user WHERE id =  $userid ";
            
-  $result = $conn->query($insertquery);
+  $result = $conn->query($deletequery);
         
   if(!$result) {
             

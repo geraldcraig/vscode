@@ -276,7 +276,7 @@
 
         include('dbconn.php');
 
-        $userid = $_GET['userid'];
+        $userid = $_GET['deleteuser'];
 
         $stmt = $conn->prepare("DELETE FROM user WHERE id = ?");
         $stmt->bind_param("i", $userid);
@@ -284,5 +284,27 @@
             
         $stmt->close();
     }
+
+    /*  delete user
+    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
+
+        include('dbconn.php');
+
+        $userid = $conn->real_escape_string($_GET['deleteuser']);
+    
+        $insertquery="DELETE FROM user WHERE id = $userid";
+           
+        $result = $conn->query($insertquery);
+        
+        if(!$result) {
+            
+            echo $conn->error;
+        
+        } else {
+
+            echo "Delete request performed";
+            
+        }
+    }*/
 
 ?> 
