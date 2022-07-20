@@ -2,11 +2,11 @@
 
 //session_start();
 
-$userid = '8';
+//$userid =$_GET['user'];
 
-//$userid = $conn->real_escape_string($_POST[7]);
+//$userid = $conn->real_escape_string($_GET['user']);
  
-$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser=$userid";
+//$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser=$userid";
 
 //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userid=$userid";
  
@@ -14,7 +14,7 @@ $endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser=$userid
  
 //$data = json_decode($result, true);
 
-/*include('dbconn.php');
+include('dbconn.php');
 
   $userid = $conn->real_escape_string($_GET['user']);
 
@@ -22,7 +22,6 @@ $endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser=$userid
 
   //$userid = "SELECT id from user where username = 'sailor' ";
 
-  $user = "DELETE FROM album_plays WHERE user_id = 5";
   $insertquery="DELETE FROM user WHERE id =  $userid ";
            
   $result = $conn->query($insertquery);
@@ -37,6 +36,6 @@ $endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser=$userid
 
     // echo "Delete request performed";
             
-  }*/
+  }
  
 ?>

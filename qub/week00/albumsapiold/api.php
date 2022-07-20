@@ -371,7 +371,7 @@
         
     }
 
-    // post delete user
+    /* post delete user
     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
@@ -391,7 +391,7 @@
             echo "Delete request performed";
             
         }
-    }
+    }*/
 
     // post add album
     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum'])) && (!isset($_GET['deleteuser']))) {
@@ -463,6 +463,27 @@
         } else {
 
             echo "POST request performed";
+            
+        }
+    }
+
+    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
+
+        include('dbconn.php');
+
+        $userid = $conn->real_escape_string($_GET['deleteuser']);
+    
+        $insertquery="DELETE FROM user WHERE id = $userid";
+           
+        $result = $conn->query($insertquery);
+        
+        if(!$result) {
+            
+            echo $conn->error;
+        
+        } else {
+
+            echo "Delete request performed";
             
         }
     }

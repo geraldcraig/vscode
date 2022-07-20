@@ -253,7 +253,7 @@
     }
 
     // post add user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['deleteuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser']))) {
 
         include('dbconn.php');
 
@@ -272,7 +272,7 @@
     }
 
     // delete user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['deleteuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
 
