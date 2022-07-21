@@ -471,7 +471,9 @@
 
         include('dbconn.php');
 
-        $userid = $conn->real_escape_string($_GET['deleteuser']);
+        parse_str(file_get_contents('php://input'), $_DELETE);
+
+        $userid = $_DELETE['deleteid'];
     
         $insertquery="DELETE FROM user WHERE id = $userid";
            

@@ -271,7 +271,7 @@
         
     }
 
-    // delete user
+    /* delete user
     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
@@ -284,13 +284,16 @@
             
         $stmt->close();
     }
+    */
 
-    /*  delete user
+    // delete user
     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
 
-        $userid = $conn->real_escape_string($_GET['deleteuser']);
+        parse_str(file_get_contents('php://input'), $_DELETE);
+
+        $userid = $_DELETE['deleteid'];
     
         $insertquery="DELETE FROM user WHERE id = $userid";
            
@@ -305,6 +308,6 @@
             echo "Delete request performed";
             
         }
-    }*/
+    }
 
 ?> 

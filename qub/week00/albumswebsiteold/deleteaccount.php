@@ -1,42 +1,38 @@
 <?php
 
-//session_start();
+$userid = $_GET['user'];
 
-$userid = '8';
+$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser";
 
-//$userid = $conn->real_escape_string($_POST[7]);
- 
-$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?deleteuser=$userid";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?deleteuser";
 
-//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userid=$userid";
- 
-//$result = file_get_contents($endpoint);
- 
-//$data = json_decode($result, true);
+$postdata = http_build_query(array('deleteid' => $userid));
 
-/*include('dbconn.php');
+$opts = array(
 
-  $userid = $conn->real_escape_string($_GET['user']);
+  'http' => array(
+    'method' => 'DELETE',
+    'header' => 'Content-Type: application/x-www-form-urlencoded',
+    'content' => $postdata
+  )
 
-  //$username = 'sailor';
+);
 
-  //$userid = "SELECT id from user where username = 'sailor' ";
+$context = stream_context_create($opts);
+$resource = file_get_contents($endpoint, false, $context);
 
-  $user = "DELETE FROM album_plays WHERE user_id = 5";
-  $insertquery="DELETE FROM user WHERE id =  $userid ";
-           
-  $result = $conn->query($insertquery);
-        
-  if(!$result) {
-            
-    echo $conn->error;
-        
-  } else {
-
-    header("Location: editaccounts.php");
-
-    // echo "Delete request performed";
-            
-  }*/
- 
+echo $resource;
 ?>
+
+
+      <?php
+      if ($resource != FALSE) {
+
+        header("Location: editaccounts.php");
+    
+      } else {
+
+        echo "Unable to delete user";
+      }
+      ?>
+
