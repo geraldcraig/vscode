@@ -343,7 +343,7 @@
     }
 
     // post add user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['deleteuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays']))) {
 
         include('dbconn.php');
 
@@ -394,7 +394,7 @@
     }*/
 
     // post add album
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum'])) && (!isset($_GET['deleteuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum'])) && (!isset($_GET['albumplays']))) {
 
         include('dbconn.php');
 
@@ -444,6 +444,68 @@
             
         }
     }
+
+    // post add album play
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (isset($_GET['albumplays']))) {
+
+        include('dbconn.php');
+
+        $currentUser = $_POST['adduser_name'];
+        $albumid = $_POST['addalbum_id'];
+        $count = '1';
+
+        $checkuser = "SELECT * FROM album_plays
+        WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
+        AND album_plays.album_id = '$albumid' ";
+
+        $result = $conn->query($checkuser);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $num = $result->num_rows;
+
+        if ($num > 0) {
+
+        $updatequery = "UPDATE album_plays SET plays = plays + 1 
+        WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
+        AND album_plays.album_id = '$albumid' ";
+
+        $result = $conn->query($updatequery);
+    
+        if(!$result) {
+         
+            echo $conn->error;
+     
+        } else {
+ 
+         echo "Update request performed";
+         //header("Location: index.php");
+         
+     }
+
+    } else {
+
+
+    $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
+    VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";
+           
+    $result = $conn->query($insertquery);
+    
+    if(!$result) {
+        
+        echo $conn->error;
+    
+    } else {
+
+        echo "POST request performed";
+        //header("Location: index.php");
+        
+    }
+        
+    }
+}
 
     // delete album
     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deletealbum']))) {
