@@ -61,7 +61,7 @@ $data = json_decode($result, true);
             <a class='nav-link' href='collection.php'>Collection</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='favourites.php'>Favourites</a>
+            <a class='nav-link' href='accountalbumplays.php'>Album Plays</a>
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='reviews.php'>Reviews</a>

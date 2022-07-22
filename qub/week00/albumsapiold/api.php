@@ -4,7 +4,7 @@
 
     // get all albums
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
-     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
     
@@ -49,7 +49,7 @@
 
     // get top 10 albums
     if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['top10'])) && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
-     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
     
@@ -88,7 +88,7 @@
 
     // get artist
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (isset($_GET['artist']))
-     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
     
@@ -118,7 +118,7 @@
 
     // filter
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
-     && (isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
+     && (isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
 
@@ -157,7 +157,7 @@
 
     // get album
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
-     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
 
@@ -204,7 +204,7 @@
 
     // get album_id
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
-     && (!isset($_GET['filter'])) && (isset($_GET['album_id'])) && (!isset($_GET['search']))) {
+     && (!isset($_GET['filter'])) && (isset($_GET['album_id'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
         $albumid = $conn->real_escape_string($_GET['album_id']);
@@ -242,7 +242,7 @@
 
     //get user
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (isset($_GET['user'])) && (!isset($_GET['artist']))
-    && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
+    && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
     
@@ -272,7 +272,7 @@
 
     // get user_id
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (!isset($_GET['album'])) && (isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
-     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search']))) {
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
 
@@ -304,7 +304,7 @@
 
     // get search
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
-     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (isset($_GET['search']))) {
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['accountplays']))) {
 
         include ("dbconn.php");
         $searchitem = $conn->real_escape_string($_GET['search']);
@@ -319,6 +319,48 @@
         WHERE (year LIKE '%$searchitem%') OR (name LIKE '%$searchitem%') 
         OR (title LIKE '%$searchitem%') OR (genre_type LIKE '%$searchitem%')
         OR (subgenre_type LIKE '%$searchitem%')";
+        
+        $result = $conn->query($read);
+        
+        if (!$result) {
+            echo $conn -> error;
+        }
+    
+        // build a response array
+        $api_response = array();
+        
+        while ($row = $result->fetch_assoc()) {
+            
+            array_push($api_response, $row);
+        }
+            
+        // encode the response as JSON
+        $response = json_encode($api_response);
+        
+        // echo out the response
+        echo $response;
+
+    }
+
+    // display user album plays
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['top10'])) && (!isset($_GET['album'])) && (!isset($_GET['userid'])) && (!isset($_GET['user'])) && (!isset($_GET['artist']))
+     && (!isset($_GET['filter'])) && (!isset($_GET['album_id'])) && (!isset($_GET['search'])) && (isset($_GET['accountplays']))) {
+
+        include ("dbconn.php");
+
+        $userid = $_GET['accountplays'];
+    
+        $read = "SELECT plays, user_id, album_id, album.number, title, name, year, image FROM album_plays
+        INNER JOIN album
+        ON album_plays.album_id = album.id
+        INNER JOIN artist
+        ON album.artist_id = artist.id
+        INNER JOIN year
+        ON album.year_id = year.id
+        INNER JOIN image
+        ON album.image_id = image.id
+        WHERE user_id IN (SELECT id FROM user WHERE username = '$userid')
+        ORDER BY plays DESC";
         
         $result = $conn->query($read);
         
@@ -478,10 +520,7 @@
          
             echo $conn->error;
      
-        } else {
- 
-         echo "Update request performed";
-         //header("Location: index.php");
+        } 
          
      }
 
@@ -497,14 +536,7 @@
         
         echo $conn->error;
     
-    } else {
-
-        echo "POST request performed";
-        //header("Location: index.php");
-        
-    }
-        
-    }
+    }   
 }
 
 // post admin login

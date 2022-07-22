@@ -159,7 +159,7 @@ $data = json_decode($result, true);
                     <td>$year</td>
                     <td>$userid</td>
                     <td><a href='addowned.php?album_id=$albumid' class='btn btn-info' role='button'>Owned</a></td>
-                    <td><a href='albumplays2.php?album_id=$albumid&user_name=$currentUser' class='btn btn-info' role='button'>Favourite</a></td>
+                    <td><a href='albumplays.php?album_id=$albumid&user_name=$currentUser' class='btn btn-info' role='button'>Add Play</a></td>
                     <td><a href='addreview.php?album_id=$albumid' class='btn btn-info' role='button'>Review</a></td>
                     <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
                     </tr>";

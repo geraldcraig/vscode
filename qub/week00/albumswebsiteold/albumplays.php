@@ -1,71 +1,40 @@
 <?php
 
-include ("dbconn.php");
-
-?>
-
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>Album Count Test</h1>
-
-<?php
-
 $currentUser = $_GET['user_name'];
 $albumid = $_GET['album_id'];
-$count = '1';
 
-$checkuser = "SELECT * FROM album_plays
-WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
-AND album_plays.album_id = '$albumid' ";
+$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?albumplays";
 
-$result = $conn->query($checkuser);
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?albumplays";
 
-if (!$result) {
-    echo $conn->error;
-}
+$postdata = http_build_query(
 
-$num = $result->num_rows;
+    array(
+        'adduser_name' => $currentUser,
+        'addalbum_id' => $albumid
+    )
 
-if ($num > 0) {
+);
 
-     $updatequery = "UPDATE album_plays SET plays = plays + 1 
-     WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
-     AND album_plays.album_id = '$albumid' ";
+$opts = array(
 
-     $result = $conn->query($updatequery);
-    
-     if(!$result) {
-         
-         echo $conn->error;
-     
-     } else {
- 
-         echo "Update request performed";
-         
-     }
+    'http' => array(
+        'method' => 'POST',
+        'header' => 'Content-Type: application/x-www-form-urlencoded',
+        'content' => $postdata
+    )
 
-} else {
+    );
 
+    $context = stream_context_create($opts);
+    $resource = file_get_contents($endpoint, false, $context);
 
-    $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
-    VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";
-           
-    $result = $conn->query($insertquery);
-    
-    if(!$result) {
-        
-        echo $conn->error;
-    
-    } else {
+    echo $resource;
 
-        echo "POST request performed";
-        
-    }
-}
+    if($resource != FALSE) {
+        header("Location: index.php");
+      } else {
+        echo "Unable to add album play";
+      }
 
-?> 
-
-</body>
-</html>
+?>
