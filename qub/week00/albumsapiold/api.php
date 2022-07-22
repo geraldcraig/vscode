@@ -405,28 +405,6 @@
         
     }
 
-    /* post delete user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (isset($_GET['deleteuser']))) {
-
-        include('dbconn.php');
-
-        $userid = $conn->real_escape_string($_GET['deleteuser']);
-    
-        $insertquery="DELETE FROM user WHERE id = $userid";
-           
-        $result = $conn->query($insertquery);
-        
-        if(!$result) {
-            
-            echo $conn->error;
-        
-        } else {
-
-            echo "Delete request performed";
-            
-        }
-    }*/
-
     // post add album
     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
 
@@ -482,91 +460,91 @@
     // post add album play
     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
 
-        include('dbconn.php');
 
-        $currentUser = $_POST['adduser_name'];
-        $albumid = $_POST['addalbum_id'];
-        $count = '1';
-
-        $checkuser = "SELECT * FROM album_plays
-        WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
-        AND album_plays.album_id = '$albumid' ";
-
-        $result = $conn->query($checkuser);
-
-        if (!$result) {
-            echo $conn->error;
+            include('dbconn.php');
+    
+            $currentUser = $_POST['adduser_name'];
+            $albumid = $_POST['addalbum_id'];
+            $count = '1';
+    
+            $checkuser = "SELECT * FROM album_plays
+            WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
+            AND album_plays.album_id = '$albumid' ";
+    
+            $result = $conn->query($checkuser);
+    
+            if (!$result) {
+                echo $conn->error;
+            }
+    
+            $num = $result->num_rows;
+    
+            if ($num > 0) {
+    
+            $updatequery = "UPDATE album_plays SET plays = plays + 1 
+            WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
+            AND album_plays.album_id = '$albumid' ";
+    
+            $result = $conn->query($updatequery);
+        
+            if(!$result) {
+             
+                echo $conn->error;
+         
+            } 
+    
+            } else {
+    
+    
+            $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
+            VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";
+               
+            $result = $conn->query($insertquery);
+        
+            if(!$result) {
+            
+                echo $conn->error;
+    
+            } 
+            
+            }
         }
 
-        $num = $result->num_rows;
+    // post admin login
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
 
-        if ($num > 0) {
+        include('dbconn.php');
 
-        $updatequery = "UPDATE album_plays SET plays = plays + 1 
-        WHERE album_plays.user_id IN (SELECT user.id FROM user WHERE username = '$currentUser')
-        AND album_plays.album_id = '$albumid' ";
+        $uname = $_POST["username"];
+        $upass = $_POST["password"];
 
-        $result = $conn->query($updatequery);
+        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+
+        $result = $conn->query($checkuser);
     
-        if(!$result) {
-         
-            echo $conn->error;
-     
-        } 
-         
-     
+        if (!$result) {
+	        echo $conn->error;
+        }
 
-    } else {
-
-
-    $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
-    VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";
-           
-    $result = $conn->query($insertquery);
-    
-    if(!$result) {
-        
-        echo $conn->error;
-    
-    } 
-}  
-}
-
-// post admin login
-if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
-
-    include('dbconn.php');
-
-    $uname = $_POST["username"];
-    $upass = $_POST["password"];
-
-    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
-
-    $result = $conn->query($checkuser);
-    
-    if (!$result) {
-	    echo $conn->error;
     }
 
-}
+    // post user login
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin']))) {
 
-// post user login
-if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin']))) {
+        include('dbconn.php');
 
-    include('dbconn.php');
+        $uname = $_POST["username"];
+        $upass = $_POST["password"];
 
-    $uname = $_POST["username"];
-    $upass = $_POST["password"];
+        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
-    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
-
-    $result = $conn->query($checkuser);
+        $result = $conn->query($checkuser);
     
-    if (!$result) {
-	    echo $conn->error;
-    }
+        if (!$result) {
+	        echo $conn->error;
+        }
 
-}
+    }
 
     // delete album
     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deletealbum']))) {
@@ -583,11 +561,7 @@ if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!iss
             
             echo $conn->error;
         
-        } else {
-
-            echo "POST request performed";
-            
-        }
+        } 
     }
 
     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
@@ -606,9 +580,5 @@ if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!iss
             
             echo $conn->error;
         
-        } else {
-
-            echo "Delete request performed";
-            
-        }
+        } 
     }
