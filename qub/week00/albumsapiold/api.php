@@ -397,14 +397,6 @@
 
         $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
-    
-        //$insertquery="INSERT INTO user (firstname, lastname, username, userpassword) VALUES ('$newfirstname', '$newlastname', '$newusername', '$newpassword')";
-           
-        //$firstname = $_POST['addfirstname'];
-        //$lastname = $_POST['addlastname'];
-        //$username = $_POST['addusername'];
-        //$userpassword = $_POST['addpassword'];
-
         $stmt->execute();
 
             echo "New records created successfully";
@@ -522,7 +514,7 @@
      
         } 
          
-     }
+     
 
     } else {
 
@@ -536,7 +528,8 @@
         
         echo $conn->error;
     
-    }   
+    } 
+}  
 }
 
 // post admin login

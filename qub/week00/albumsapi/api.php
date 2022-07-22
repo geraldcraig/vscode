@@ -274,41 +274,41 @@
     // post admin login
     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
 
-    include('dbconn.php');
+        include('dbconn.php');
 
-    $uname = $_POST["username"];
-    $upass = $_POST["password"];
+        $uname = $_POST["username"];
+        $upass = $_POST["password"];
 
-    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
-    $result = $conn->query($checkuser);
+        $result = $conn->query($checkuser);
     
-    if (!$result) {
-	    echo $conn->error;
+        if (!$result) {
+	        echo $conn->error;
+        }
+
     }
 
-}
+    // post user login
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
 
-// post user login
-if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
+        include('dbconn.php');
 
-    include('dbconn.php');
+        $uname = $_POST["username"];
+        $upass = $_POST["password"];
 
-    $uname = $_POST["username"];
-    $upass = $_POST["password"];
+        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
-    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
-
-    $result = $conn->query($checkuser);
+        $result = $conn->query($checkuser);
     
-    if (!$result) {
-	    echo $conn->error;
+        if (!$result) {
+	        echo $conn->error;
+        }
+
     }
 
-}
-
-       // post add album play
-       if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (isset($_GET['albumplays']))) {
+    // post add album play
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (isset($_GET['albumplays']))) {
 
         include('dbconn.php');
 
@@ -342,37 +342,22 @@ if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!iss
      
         } 
 
-    } else {
+        } else {
 
 
-    $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
-    VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";
+        $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
+        VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";
            
-    $result = $conn->query($insertquery);
+        $result = $conn->query($insertquery);
     
-    if(!$result) {
+        if(!$result) {
         
-        echo $conn->error;
-    
-    } 
+            echo $conn->error;
+
+        } 
         
+        }
     }
-    }
-
-    /* delete user
-    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
-
-        include('dbconn.php');
-
-        $userid = $_GET['deleteuser'];
-
-        $stmt = $conn->prepare("DELETE FROM user WHERE id = ?");
-        $stmt->bind_param("i", $userid);
-        $stmt->execute();
-            
-        $stmt->close();
-    }
-    */
 
     // delete user
     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
@@ -383,19 +368,15 @@ if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!iss
 
         $userid = $_DELETE['deleteid'];
     
-        $insertquery="DELETE FROM user WHERE id = $userid";
+        $deleterequest="DELETE FROM user WHERE id = $userid";
            
-        $result = $conn->query($insertquery);
+        $result = $conn->query($deleterequest);
         
         if(!$result) {
             
             echo $conn->error;
         
-        } else {
-
-            echo "Delete request performed";
-            
-        }
+        } 
     }
 
 ?> 

@@ -138,7 +138,7 @@ $data = json_decode($result, true);
                     <th>Year</th>
                     <th>Rating</th>
                     <th>Owned</th>
-                    <th>Favourite</th>
+                    <th>Listened To</th>
                     <th>Review</th>
                     <th>Artwork</th>
                 </tr>
@@ -168,14 +168,6 @@ $data = json_decode($result, true);
       ?>
     </table>
 
-    <p>Default:</p>
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
   </div>
 
 </body>
