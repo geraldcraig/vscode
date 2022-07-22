@@ -2,22 +2,33 @@
 
     session_start();
 
-    include("dbconn.php");
-
     $uname = $_POST["username"];
     $upass = $_POST["password"];
 
-    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+    $endpoint = "http://localhost/qub/week00/albumsapiold/api.php?adminlogin";
 
-    $result = $conn->query($checkuser);
+    $postdata = http_build_query(
+
+        array('addusername' => $uname,
+                'addpassword' => $upass)
+
+    );
+
+    $opts = array(
+
+        'http' => array(
+            'method' => 'POST',
+            'header' => 'Content-Type: application/x-www-form-urlencoded',
+            'content' => $postdata
+        )
+
+    );
+
+    $context = stream_context_create($opts);
+    $resource = file_get_contents($endpoint, false, $context);
     
-    if (!$result) {
-	    echo $conn->error;
-    }
 
-    $num = $result->num_rows;
-
-    if ($num > 0 && $uname == 'admin') {
+    if ($resource !== FALSE && $uname == 'admin') {
         $_SESSION['admin'] = $uname;
 	    header("Location: adminaccount.php");
     } else {

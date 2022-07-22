@@ -2,22 +2,35 @@
 
     session_start();
 
-    include("dbconn.php");
-
     $uname = $_POST["username"];
     $upass = $_POST["password"];
 
-    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+    //$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?userlogin";
 
-    $result = $conn->query($checkuser);
+    $endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userlogin";
+
+    $postdata = http_build_query(
+
+        array('addusername' => $uname,
+                'addpassword' => $upass)
+
+    );
+
+    $opts = array(
+
+        'http' => array(
+            'method' => 'POST',
+            'header' => 'Content-Type: application/x-www-form-urlencoded',
+            'content' => $postdata
+        )
+
+    );
+
+    $context = stream_context_create($opts);
+    $resource = file_get_contents($endpoint, false, $context);
     
-    if (!$result) {
-	    echo $conn->error;
-    }
 
-    $num = $result->num_rows;
-
-    if ($num > 0) {
+    if ($resource !== FALSE ) {
         $_SESSION['user'] = $uname;
 	    header("Location: index.php");
     } else {

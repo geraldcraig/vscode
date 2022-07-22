@@ -343,7 +343,7 @@
     }
 
     // post add user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
 
         include('dbconn.php');
 
@@ -394,7 +394,7 @@
     }*/
 
     // post add album
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum'])) && (!isset($_GET['albumplays']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
 
         include('dbconn.php');
 
@@ -446,7 +446,7 @@
     }
 
     // post add album play
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (isset($_GET['albumplays']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
 
         include('dbconn.php');
 
@@ -505,6 +505,42 @@
     }
         
     }
+}
+
+// post admin login
+if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
+
+    include('dbconn.php');
+
+    $uname = $_POST["username"];
+    $upass = $_POST["password"];
+
+    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+
+    $result = $conn->query($checkuser);
+    
+    if (!$result) {
+	    echo $conn->error;
+    }
+
+}
+
+// post user login
+if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin']))) {
+
+    include('dbconn.php');
+
+    $uname = $_POST["username"];
+    $upass = $_POST["password"];
+
+    $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+
+    $result = $conn->query($checkuser);
+    
+    if (!$result) {
+	    echo $conn->error;
+    }
+
 }
 
     // delete album
