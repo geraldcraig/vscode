@@ -31,4 +31,10 @@ $opts = array(
 
     echo $resource;
 
+    if($resource != FALSE) {
+        header("Location: index.php");
+      } else {
+        echo "Unable to add album play";
+      }
+
 ?>

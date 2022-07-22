@@ -304,12 +304,7 @@
          
             echo $conn->error;
      
-        } else {
- 
-         //echo "Update request performed";
-         //header("Location: index.php");
-         
-     }
+        } 
 
     } else {
 
@@ -323,12 +318,7 @@
         
         echo $conn->error;
     
-    } else {
-
-        //echo "POST request performed";
-        //header("Location: index.php");
-        
-    }
+    } 
         
     }
     }
