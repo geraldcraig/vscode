@@ -187,7 +187,7 @@
     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (isset($_GET['accountplays'])) && (!isset($_GET['user']))) {
         include ("dbconn.php");
 
-        $userid = $_GET['accountplays'];
+        $userid = $conn->real_escape_string($_GET['accountplays']);
     
         $read = "SELECT plays, user_id, album_id, album.number, title, name, year, image FROM album_plays
         INNER JOIN album
@@ -257,10 +257,10 @@
 
         include('dbconn.php');
 
-        $firstname = $_POST['addfirstname'];
-        $lastname = $_POST['addlastname'];
-        $username = $_POST['addusername'];
-        $userpassword = $_POST['addpassword'];
+        $firstname = $conn->real_escape_string($_POST['addfirstname']);
+        $lastname = $conn->real_escape_string($_POST['addlastname']);
+        $username = $conn->real_escape_string($_POST['addusername']);
+        $userpassword = $conn->real_escape_string($_POST['addpassword']);
 
 
         $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
@@ -276,8 +276,8 @@
 
         include('dbconn.php');
 
-        $uname = $_POST["username"];
-        $upass = $_POST["password"];
+        $uname = $conn->real_escape_string($_POST["username"]);
+        $upass = $conn->real_escape_string($_POST["password"]);
 
         $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
@@ -294,8 +294,8 @@
 
         include('dbconn.php');
 
-        $uname = $_POST["username"];
-        $upass = $_POST["password"];
+        $uname = $conn->real_escape_string($_POST["username"]);
+        $upass = $conn->real_escape_string($_POST["password"]);
 
         $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
@@ -312,8 +312,8 @@
 
         include('dbconn.php');
 
-        $currentUser = $_POST['adduser_name'];
-        $albumid = $_POST['addalbum_id'];
+        $currentUser = $conn->real_escape_string($_POST['adduser_name']);
+        $albumid = $conn->real_escape_string($_POST['addalbum_id']);
         $count = '1';
 
         $checkuser = "SELECT * FROM album_plays

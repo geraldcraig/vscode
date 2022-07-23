@@ -24,12 +24,12 @@
     <form name="mylist" method="POST" action="processadminlogin.php" enctype="multipart/form-data">
       <div class="form-group">
         <label for="username">Username:</label>
-        <input type="text" id="myItemInput" name="username" />
+        <input type="text" id="username" name="username" required/>
       </div>
 
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="text" id="myItemInput" name="password" />
+        <input type="password" id="password" name="password" required/>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

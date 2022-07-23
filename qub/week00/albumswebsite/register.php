@@ -22,23 +22,23 @@
   <h2>Register form</h2>
 	<form name="mylist" method="POST" action="processregister.php" enctype="multipart/form-data">
     <div class="form-group">
-			<label for="username">First Name:</label> 
-			<input type="text" id="myItemInput" name="firstname"/>
+			<label for="firstname">First Name:</label> 
+			<input type="text" id="firstname" name="firstname" required/>
     </div>
 
 		<div class="form-group">
-			<label for="password">Last Name:</label> 
-			<input type="text" id="myItemInput" name="lastname"/>
+			<label for="lastname">Last Name:</label> 
+			<input type="text" id="lastname" name="lastname" required/>
 		</div>
 
     <div class="form-group">
-			<label for="password">Username:</label> 
-			<input type="text" id="myItemInput" name="username"/>
+			<label for="username">Username:</label> 
+			<input type="text" id="username" name="username" required/>
 		</div>
 
     <div class="form-group">
 			<label for="password">Password:</label> 
-			<input type="text" id="myItemInput" name="password"/>
+			<input type="password" id="password" name="password" required/>
 		</div>
     <button type="submit" class="btn btn-primary">Submit</button>	
   </form>
