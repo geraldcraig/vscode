@@ -417,6 +417,42 @@
         }
         
     }
+/*
+     // post add user
+     if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
+
+        include('dbconn.php');
+
+        $firstname = $_POST['addfirstname'];
+        $lastname = $_POST['addlastname'];
+        $username = $_POST['addusername'];
+        $userpassword = $_POST['addpassword'];
+
+        $checkuser = "SELECT username FROM user WHERE username = $username";
+
+        $result = $conn->query($checkuser);
+    
+            if (!$result) {
+                echo $conn->error;
+            }
+    
+            $num = $result->num_rows;
+    
+            if ($num == 0) {
+
+
+        $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
+        $stmt->execute();
+
+            echo "New records created successfully";
+
+        $stmt->close();
+        }
+        
+    }
+*/
+    
 
     // post add album
     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['newalbum'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))) {
@@ -446,8 +482,6 @@
         
         // echo out the response
         echo $response;
-
-
 
         $number = $conn->real_escape_string($_POST['addnumber']);
         $title = $conn->real_escape_string($_POST['addtitle']);
