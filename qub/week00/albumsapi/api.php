@@ -252,7 +252,7 @@
 
     }
 
-    // post add user
+    /* post add user
     if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
 
         include('dbconn.php');
@@ -269,6 +269,40 @@
 
         $stmt->close();
         
+    }*/
+
+    // post add user
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
+
+        include('dbconn.php');
+
+        $firstname = $conn->real_escape_string($_POST['addfirstname']);
+        $lastname = $conn->real_escape_string($_POST['addlastname']);
+        $username = $conn->real_escape_string($_POST['addusername']);
+        $userpassword = $conn->real_escape_string($_POST['addpassword']);
+
+        $checkusername = "SELECT * FROM user WHERE username = '$username' ";
+
+        $result = $conn->query($checkusername);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $num = $result->num_rows;
+
+        if ($num == 0) {
+
+            $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
+            $stmt->execute();
+            $stmt->close(); 
+
+        } else {
+
+            echo "username already exists";
+        }
+
     }
 
     // post admin login
@@ -378,5 +412,20 @@
         
         } 
     }
+
+     /* delete user
+     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
+
+        include('dbconn.php');
+
+        parse_str(file_get_contents('php://input'), $_DELETE);
+
+        $userid = $_DELETE['deleteid'];
+
+        $stmt = $mysqli->prepare("DELETE FROM user WHERE id = ?");
+        $stmt->bind_param("i", $userid);
+        $stmt->execute();
+        $stmt->close();     
+    }*/
 
 ?> 

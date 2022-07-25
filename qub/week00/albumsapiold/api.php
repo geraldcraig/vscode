@@ -594,7 +594,7 @@
     }
 
     // delete album
-    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deletealbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deletealbum']))&& (!isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
 
@@ -611,7 +611,7 @@
         } 
     }
 
-    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='DELETE')&& (!isset($_GET['deletealbum'])) && (isset($_GET['deleteuser']))) {
 
         include('dbconn.php');
 

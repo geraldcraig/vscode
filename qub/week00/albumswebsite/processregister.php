@@ -1,20 +1,20 @@
 <?php
 
-  $fname = $_POST['firstname'];
-  $lname = $_POST['lastname'];
+  	$fname = $_POST['firstname'];
+  	$lname = $_POST['lastname'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
 
 	//$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?newuser";
 
-  $endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?newuser";
+  	$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?newuser";
 
 	$postdata = http_build_query(
 
 		array(
-      'addfirstname' => $fname,
-      'addlastname' => $lname,
+      		'addfirstname' => $fname,
+     		'addlastname' => $lname,
 			'addusername' => $username,
 			'addpassword' => $password
 		)
@@ -39,6 +39,7 @@
               if($resource != FALSE) {
                 header("Location: index.php");
               } else {
-                echo "Unable to add user";
+				header("Location: register.php");
+                //echo "Unable to add user";
               }
         ?>
