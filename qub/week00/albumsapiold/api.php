@@ -394,6 +394,18 @@
         $username = $_POST['addusername'];
         $userpassword = $_POST['addpassword'];
 
+        $checkuser = "SELECT username FROM user WHERE username = $username";
+
+        $result = $conn->query($checkuser);
+    
+            if (!$result) {
+                echo $conn->error;
+            }
+    
+            $num = $result->num_rows;
+    
+            if ($num == 0) {
+
 
         $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
@@ -402,6 +414,7 @@
             echo "New records created successfully";
 
         $stmt->close();
+        }
         
     }
 
