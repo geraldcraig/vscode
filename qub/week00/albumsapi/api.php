@@ -319,6 +319,16 @@
     
         if (!$result) {
 	        echo $conn->error;
+        } 
+
+        $num = $result->num_rows;
+
+        if ($num > 0) {
+            //header("Location: index.php");
+            header("HTTP/1.0 200 Authorized");
+        } else {
+            //header("Location: index.php");
+            header("HTTP/1.0 401 Unauthorized");
         }
 
     }
