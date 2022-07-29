@@ -299,8 +299,8 @@
             $stmt->close(); 
 
         } else {
-
-            echo "username already exists";
+            header("Location: index.php");
+            //echo "username already exists";
         }
 
     }

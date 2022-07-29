@@ -37,9 +37,9 @@
 	echo $resource;
 
               if($resource != FALSE) {
-                header("Location: index.php");
+                header("Location: login.php");
               } else {
-				header("Location: register.php");
+				header("Location: registerredirect.php");
                 //echo "Unable to add user";
               }
         ?>
