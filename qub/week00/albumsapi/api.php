@@ -425,8 +425,8 @@
 
         if ($num == 1) {
 
-            $updatequery = "UPDATE user SET firstname = 'Gordon', lastname = 'Sumner', username = 'sting', userpassword = 'password'
-            WHERE id = 9" ;
+            $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
+            WHERE id IN(SELECT id FROM user WHERE username = '$username') " ;
 
             /*$stmt = $conn->prepare("UPDATE user SET (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?) WHERE username = '$username' ");
             $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);

@@ -28,7 +28,8 @@
 
     $context = stream_context_create($opts);
     $resource = file_get_contents($endpoint, false, $context);
-    
+
+    echo $resource;
 
     if ($resource !== FALSE && $uname == 'admin') {
         $_SESSION['admin'] = $uname;
