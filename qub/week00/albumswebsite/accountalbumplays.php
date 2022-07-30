@@ -108,12 +108,13 @@ $data = json_decode($result, true);
     } else {
       echo "<thead>
               <tr>
-                  <th>Number</th>
+                  <th>Album Number</th>
                   <th>Album</th>
                   <th>Artist</th>
                   <th>Year</th>
                  <th>Artwork</th>
                  <th>No. of Album Plays</th>
+                 <th>Delete Album Plays</th>
               </tr>
             </thead>";
 
@@ -134,6 +135,7 @@ $data = json_decode($result, true);
                   <td>$year</td>
                   <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
                   <td>$albumplays</td>
+                  <td><a href='deletealbumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Delete</a></td>
                 </tr>";
         }
     }

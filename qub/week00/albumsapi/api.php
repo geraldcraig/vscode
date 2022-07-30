@@ -403,8 +403,50 @@
         }
     }
 
+    // update user
+    if (($_SERVER['REQUEST_METHOD']==='PUT') && (isset($_GET['updateuser']))) {
+
+        include('dbconn.php');
+
+        $firstname = $conn->real_escape_string($_POST['addfirstname']);
+        $lastname = $conn->real_escape_string($_POST['addlastname']);
+        $username = $conn->real_escape_string($_POST['addusername']);
+        $userpassword = $conn->real_escape_string($_POST['addpassword']);
+
+        $checkusername = "SELECT * FROM user WHERE username = '$username' ";
+
+        $result = $conn->query($checkusername);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $num = $result->num_rows;
+
+        if ($num == 1) {
+
+            $updatequery = "UPDATE user SET firstname = 'Gordon', lastname = 'Sumner', username = 'sting', userpassword = 'password'
+            WHERE id = 9" ;
+
+            /*$stmt = $conn->prepare("UPDATE user SET (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?) WHERE username = '$username' ");
+            $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
+            $stmt->execute();
+            $stmt->close(); */
+
+            $result = $conn->query($updatequery);
+
+            if (!$result) {
+                echo $conn->error;
+            }
+
+        } else {
+            header("Location: index.php");
+            //echo "username already exists";
+        }
+    }
+
     // delete user
-    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser'])) && (!isset($_GET['deletealbumplays']))) {
 
         include('dbconn.php');
 
@@ -437,5 +479,27 @@
         $stmt->execute();
         $stmt->close();     
     }*/
+
+    // delete album plays
+    if (($_SERVER['REQUEST_METHOD']==='DELETE') && (!isset($_GET['deleteuser'])) && (isset($_GET['deletealbumplays']))) {
+
+        include('dbconn.php');
+
+        parse_str(file_get_contents('php://input'), $_DELETE);
+
+        $user = $_DELETE['deleteuser'];
+        $albumid = $_DELETE['deletealbumid'];
+    
+        $deleterequest="DELETE FROM album_plays WHERE user_id IN
+        (SELECT id FROM user WHERE username = '$user') AND album_id = $albumid;";
+           
+        $result = $conn->query($deleterequest);
+        
+        if(!$result) {
+            
+            echo $conn->error;
+        
+        } 
+    }
 
 ?> 
