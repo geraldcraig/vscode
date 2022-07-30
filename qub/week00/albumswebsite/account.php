@@ -93,6 +93,7 @@ $data = json_decode($result, true);
             $lname = $row['lastname'];
             $uname = $row['username'];
             $pword = $row['userpassword'];
+            $userid = $row['id'];
 
             if ($uname == $currentUser) {
 
@@ -102,7 +103,7 @@ $data = json_decode($result, true);
                       <td>$uname</td>
                       <td>$pword</td>
                       <td><a href='#' class='btn btn-info' role='button'>Update</a></td>
-                      <td><a href='#' class='btn btn-info' role='button'>Delete</a></td>
+                      <td><a href='deleteuseraccount.php?user=$userid' class='btn btn-info' role='button'>Delete</a></td>
                     </tr>";
             }
           }

@@ -323,7 +323,7 @@
 
         $num = $result->num_rows;
 
-        if ($num > 0) {
+        if ($num > 0 && 'userpassword' == $upass) {
             //header("Location: index.php");
             header("HTTP/1.0 200 Authorized");
         } else {
