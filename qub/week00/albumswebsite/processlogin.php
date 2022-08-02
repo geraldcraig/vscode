@@ -2,12 +2,14 @@
 
     session_start();
 
+    //$_SESSION['user'] = $uname;
+
     $uname = $_POST["username"];
     $upass = $_POST["password"];
 
-    //$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?userlogin";
+    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?userlogin";
 
-    $endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userlogin";
+    //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userlogin";
 
     $postdata = http_build_query(
 
@@ -31,7 +33,16 @@
 
     echo $resource;
     
-    if ($resource !== FALSE ) {
+    /*if ($resource !== FALSE ) {
+        $_SESSION['user'] = $uname;
+	    header("Location: index.php");
+    } else {
+	    header("Location: login.php");
+    }*/
+
+    $num = $result->num_rows;
+
+    if ($resource !== FALSE) {
         $_SESSION['user'] = $uname;
 	    header("Location: index.php");
     } else {

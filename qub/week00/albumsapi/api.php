@@ -338,8 +338,8 @@
 
         include('dbconn.php');
 
-        $uname = $conn->real_escape_string($_POST["username"]);
-        $upass = $conn->real_escape_string($_POST["password"]);
+        $uname = $conn->real_escape_string($_GET["username"]);
+        $upass = $conn->real_escape_string($_GET["password"]);
 
         $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
@@ -347,6 +347,8 @@
     
         if (!$result) {
 	        echo $conn->error;
+        } else {
+            echo $result;
         }
 
     }
@@ -412,8 +414,9 @@
         $lastname = $conn->real_escape_string($_POST['addlastname']);
         $username = $conn->real_escape_string($_POST['addusername']);
         $userpassword = $conn->real_escape_string($_POST['addpassword']);
+        $userid = $conn->real_escape_string($_POST['adduserid']);
 
-        $checkusername = "SELECT * FROM user WHERE username = '$username' ";
+        $checkusername = "SELECT * FROM user WHERE id = '$userid' ";
 
         $result = $conn->query($checkusername);
 
@@ -421,12 +424,12 @@
             echo $conn->error;
         }
 
-        $num = $result->num_rows;
+        /*$num = $result->num_rows;
 
-        if ($num == 1) {
+        if ($num == 1) {*/
 
             $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
-            WHERE id IN(SELECT id FROM user WHERE username = '$username') " ;
+            WHERE id = '$userid' ";
 
             /*$stmt = $conn->prepare("UPDATE user SET (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?) WHERE username = '$username' ");
             $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
@@ -437,12 +440,14 @@
 
             if (!$result) {
                 echo $conn->error;
+            } else {
+                echo "update performed";
             }
 
-        } else {
+        /*} else {
             header("Location: index.php");
             //echo "username already exists";
-        }
+        }*/
     }
 
     // delete user

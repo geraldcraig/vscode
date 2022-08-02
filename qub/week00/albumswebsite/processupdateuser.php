@@ -6,9 +6,9 @@
     $upass = $_POST["password"];
     $userid = $_POST['userid'];
 
-    //$endpoint = "http://localhost/qub/week00/albumsapiold/api.php?userlogin";
+    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?userlogin";
 
-    $endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?updateuser";
+    //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?updateuser";
 
     $postdata = http_build_query(
 
@@ -25,7 +25,7 @@
     $opts = array(
 
         'http' => array(
-            'method' => 'PUT',
+            'method' => 'POST',
             'header' => 'Content-Type: application/x-www-form-urlencoded',
             'content' => $postdata
         )

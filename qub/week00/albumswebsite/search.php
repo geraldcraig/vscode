@@ -13,9 +13,9 @@ $searchitem = $_GET['search'];
 
 $newitem = str_replace(' ', '%20', $searchitem);
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?search=$newitem";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php?search=$newitem";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$newitem";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$newitem";
 
 $result = file_get_contents($endpoint);
 
@@ -79,17 +79,18 @@ $data = json_decode($result, true);
 <div class="container mt-3">
   <h1>Search Results</h1>
   <table class="table table-secondary table-striped">
-    <thead>
-      <tr>
-        <th>Number</th>
-        <th>Album</th>
-        <th>Artist</th>
-        <th>Year</th>
-        <th>Artwork</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
+    <?php
+    if (!$showBtn) {
+      echo "<thead>
+              <tr>
+                  <th>Number</th>
+                  <th>Album</th>
+                  <th>Artist</th>
+                  <th>Year</th>
+                 <th>Artwork</th>
+              </tr>
+            </thead>";
+
         foreach ($data as $row) {
 
           $number = $row['number'];
@@ -106,8 +107,37 @@ $data = json_decode($result, true);
                   <td>$year</td>
                   <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
         }
-      ?>
-    </tbody>
+    } else {
+      echo "<thead>
+              <tr>
+                  <th>Number</th>
+                  <th>Album</th>
+                  <th>Artist</th>
+                  <th>Year</th>
+                 <th>Artwork</th>
+                 <th>Listened To</th>
+              </tr>
+            </thead>";
+
+        foreach ($data as $row) {
+
+          $number = $row['number'];
+          $album = $row['title'];
+          $artist = $row['name'];
+          $year = $row['year'];
+          $artwork = $row['image'];
+          $albumid = $row['id'];
+
+          echo "<tr>
+                  <td>$number</td>
+                  <td>$album</td>
+                  <td>$artist</td>
+                  <td>$year</td>
+                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
+                  <td><a href='albumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Add Play</a></td>";
+        }
+    }
+    ?>
   </table>
 </div>
 

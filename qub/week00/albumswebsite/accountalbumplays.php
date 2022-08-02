@@ -11,9 +11,9 @@ if (!isset($_SESSION['user'])) {
 
 $username = $currentuser;
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?accountplays";
+$endpoint = "http://localhost/qub/week00/albumsapi/api.php?accountplays=$username";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountplays=$username";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountplays=$username";
 
 $result = file_get_contents($endpoint);
 
