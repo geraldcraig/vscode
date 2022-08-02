@@ -2,8 +2,6 @@
 
     session_start();
 
-    //$_SESSION['user'] = $uname;
-
     $uname = $_POST["username"];
     $upass = $_POST["password"];
 
@@ -32,20 +30,17 @@
     $resource = file_get_contents($endpoint, false, $context);
 
     echo $resource;
-    
-    /*if ($resource !== FALSE ) {
-        $_SESSION['user'] = $uname;
-	    header("Location: index.php");
-    } else {
-	    header("Location: login.php");
-    }*/
 
-    $num = $result->num_rows;
+    $num = $resourse->num_rows;
 
-    if ($resource !== FALSE) {
-        $_SESSION['user'] = $uname;
-	    header("Location: index.php");
+    if ($num > 0) {
+        if ($resource !== FALSE) {
+            $_SESSION['user'] = $uname;
+            header("Location: index.php");
+        }
     } else {
+        //$_SESSION['user'] = $uname;
 	    header("Location: login.php");
     }
+
 ?>

@@ -6,7 +6,7 @@
     $upass = $_POST["password"];
     $userid = $_POST['userid'];
 
-    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?userlogin";
+    $endpoint = "http://localhost/qub/week00/albumsapi/api.php?updateuser";
 
     //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?updateuser";
 
