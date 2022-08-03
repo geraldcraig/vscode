@@ -323,13 +323,10 @@
 
         $num = $result->num_rows;
 
-        if ($num > 0 && 'userpassword' == $upass) {
-            //header("Location: index.php");
-            header("HTTP/1.0 200 Authorized");
-        } else {
-            //header("Location: index.php");
-            header("HTTP/1.0 401 Unauthorized");
-        }
+        if ($num > 0) {
+
+            header("Location: index.php");
+        } 
 
     }
 
@@ -426,25 +423,22 @@
         $userpassword = $conn->real_escape_string($_POST['addpassword']);
         $userid = $conn->real_escape_string($_POST['adduserid']);
 
-        $checkusername = "SELECT * FROM user WHERE id = '$userid' ";
+        $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
+        WHERE id = '$userid' ";
 
-        $result = $conn->query($checkusername);
+        $result = $conn->query($updatequery);
 
         if (!$result) {
             echo $conn->error;
         }
 
-        /*$num = $result->num_rows;
+        /*$updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
+        WHERE id = '$userid' ";
 
-        if ($num == 1) {*/
-
-            $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
-            WHERE id = '$userid' ";
-
-            /*$stmt = $conn->prepare("UPDATE user SET (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?) WHERE username = '$username' ");
+            $stmt = $conn->prepare("UPDATE user SET (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?) WHERE username = '$username' ");
             $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
             $stmt->execute();
-            $stmt->close(); */
+            $stmt->close();
 
             $result = $conn->query($updatequery);
 
@@ -454,7 +448,7 @@
                 echo "update performed";
             }
 
-        /*} else {
+        } else {
             header("Location: index.php");
             //echo "username already exists";
         }*/
