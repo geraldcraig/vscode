@@ -1,6 +1,6 @@
 <?php
 
-$userid = $_GET['user'];
+$userid = $_GET['userid'];
 
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?deleteuser";
 
@@ -23,7 +23,7 @@ $resource = file_get_contents($endpoint, false, $context);
 
 echo $resource;
 
-  if ($resource != FALSE) {
+  if ($resource !== FALSE) {
 
     header("Location: logout.php");
     

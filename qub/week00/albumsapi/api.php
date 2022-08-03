@@ -349,6 +349,13 @@
 	        echo $conn->error;
         } 
 
+        $num = $result->num_rows;
+
+        if ($num > 0) {
+
+            header("Location: index.php");
+        } 
+
 
     }
 
@@ -408,6 +415,10 @@
     if (($_SERVER['REQUEST_METHOD']==='PUT') && (isset($_GET['updateuser']))) {
 
         include('dbconn.php');
+
+        parse_str(file_get_contents('php://input'), $_PUT);
+
+        //$userid = $_DELETE['deleteid'];
 
         $firstname = $conn->real_escape_string($_POST['addfirstname']);
         $lastname = $conn->real_escape_string($_POST['addlastname']);
