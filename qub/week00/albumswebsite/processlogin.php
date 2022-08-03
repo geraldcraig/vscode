@@ -27,17 +27,14 @@
     );
 
     $context = stream_context_create($opts);
-    $resource = file_get_contents($endpoint, true, $context);
+    $resource = file_get_contents($endpoint, false, $context);
 
     echo $resource;
 
-    //$num = $resourse->num_rows;
-
-    
-        if ($resource !== FALSE) {
+    if ($resource !== FALSE) {
             //$_SESSION['user'] = $uname;
-            header("Location: login.php");
-        } else {
+        header("Location: login.php");
+    } else {
         $_SESSION['user'] = $uname;
 	    header("Location: index.php");
     }
