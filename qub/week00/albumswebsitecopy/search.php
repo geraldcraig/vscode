@@ -3,17 +3,19 @@
 session_start();
 
 if (!isset($_SESSION['user'])) {
-  $showBtn =false;
+  $showBtn = false;
 } else {
   $showBtn = true;
   $currentuser = $_SESSION['user'];
 }
 
-$username = $currentuser;
+$searchitem = $_GET['search'];
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?accountplays=$username";
+$newitem = str_replace(' ', '%20', $searchitem);
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountplays=$username";
+$endpoint = "http://localhost/qub/week00/albumsapicopy/api.php?search=$newitem";
+
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$newitem";
 
 $result = file_get_contents($endpoint);
 
@@ -75,7 +77,7 @@ $data = json_decode($result, true);
 </nav>
 
 <div class="container mt-3">
-  <h1>Album Plays</h1>
+  <h1>Search Results</h1>
   <table class="table table-secondary table-striped">
     <?php
     if (!$showBtn) {
@@ -102,19 +104,18 @@ $data = json_decode($result, true);
                   <td>$number</td>
                   <td>$album</td>
                   <td>$artist</td>
-                  <td>year</td>
+                  <td>$year</td>
                   <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
         }
     } else {
       echo "<thead>
               <tr>
-                  <th>Album Number</th>
+                  <th>Number</th>
                   <th>Album</th>
                   <th>Artist</th>
                   <th>Year</th>
                  <th>Artwork</th>
-                 <th>No. of Album Plays</th>
-                 <th>Delete Album Plays</th>
+                 <th>Listened To</th>
               </tr>
             </thead>";
 
@@ -125,8 +126,7 @@ $data = json_decode($result, true);
           $artist = $row['name'];
           $year = $row['year'];
           $artwork = $row['image'];
-          $albumplays = $row['plays'];
-          $albumid = $row['album_id'];
+          $albumid = $row['id'];
 
           echo "<tr>
                   <td>$number</td>
@@ -134,9 +134,7 @@ $data = json_decode($result, true);
                   <td>$artist</td>
                   <td>$year</td>
                   <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                  <td>$albumplays</td>
-                  <td><a href='deletealbumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Delete</a></td>
-                </tr>";
+                  <td><a href='albumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Add Play</a></td>";
         }
     }
     ?>

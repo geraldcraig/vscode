@@ -3,20 +3,20 @@
 session_start();
 
 if (!isset($_SESSION['admin'])) {
-  $showBtn = false;
+  $showBtn =false;
 } else {
   $showBtn = true;
   $currentUser = $_SESSION['admin'];
 }
- 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
- 
+$endpoint = "http://localhost/qub/week00/albumsapicopy/api.php?user";
+
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
+
 $result = file_get_contents($endpoint);
- 
+
 $data = json_decode($result, true);
- 
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ $data = json_decode($result, true);
 
 <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
   <div class="container-fluid">
-  <a class="navbar-brand" href="adminaccount.php">Admin Account</a>
+    <a class="navbar-brand" href="adminaccount.php">Admin Account</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -52,10 +52,10 @@ $data = json_decode($result, true);
                 </li>";
         } else {
           echo "<li class='nav-item'>
-          <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
+                  <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
                 </li>
                 <li class='nav-item'>
-                  <a class='nav-link' href='logout.php'>Admin Log Out</a>
+                  <a class='nav-link' href='adminlogout.php'>Admin Log Out</a>
                 </li>";
         }
         ?>
@@ -69,39 +69,44 @@ $data = json_decode($result, true);
   </div>
 </nav>
 
-<div class="container">
-        <h1>Edit Accounts</h1>
-        <table class="table table-secondary table-striped">
-            <thead>
-                <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Delete account</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($data as $row) {
+<div class="container mt-3">
+    <h1>Admin Account</h1>
+    <table class="table table-secondary table striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Update Account</th>
+          <th>Delete Account</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          foreach ($data as $row) {
 
-                      $fname = $row['firstname'];
-                      $lname = $row['lastname'];
-                      $uname = $row['username'];
-                      $pword = $row['userpassword'];
-                      $userid = $row['id'];
-                   
-                        echo "<tr>  
-                                <td>$fname</td>
-                                <td>$lname</td>
-                                <td>$uname</td>
-                                <td>$pword</td>
-                                <td><a href='deleteaccount.php?user=$userid' class='btn btn-info' role='button'>Delete</a></td>
-                              </tr> ";
-                    }
-                ?>
-            </tbody>
-        </table>
+            $fname = $row['firstname'];
+            $lname = $row['lastname'];
+            $uname = $row['username'];
+            $pword = $row['userpassword'];
+
+            if ($uname == 'admin') {
+
+              echo "<tr>
+                      <td>$fname</td>
+                      <td>$lname</td>
+                      <td>$uname</td>
+                      <td>$pword</td>
+                      <td><a href='#' class='btn btn-info' role='button'>Update</a></td>
+                      <td><a href='#' class='btn btn-info' role='button'>Delete</a></td>
+                    </tr>";
+            }
+          }
+
+        ?>
+      </tbody>
+    </table>
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

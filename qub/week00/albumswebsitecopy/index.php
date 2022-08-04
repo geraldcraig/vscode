@@ -3,17 +3,15 @@
 session_start();
 
 if (!isset($_SESSION['user'])) {
-  $showBtn =false;
+  $showBtn = false;
 } else {
   $showBtn = true;
   $currentuser = $_SESSION['user'];
 }
 
-$username = $currentuser;
+$endpoint = "http://localhost/qub/week00/albumsapicopy/api.php?topten";
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?accountplays=$username";
-
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountplays=$username";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?topten";
 
 $result = file_get_contents($endpoint);
 
@@ -74,74 +72,36 @@ $data = json_decode($result, true);
   </div>
 </nav>
 
-<div class="container mt-3">
-  <h1>Album Plays</h1>
-  <table class="table table-secondary table-striped">
+<div>
+  <h1>Top 10 Most Listened To Albums</h1>
+</div>
+
+  <div class="row row-cols-1 row-cols-md-5 g-4">
+
     <?php
-    if (!$showBtn) {
-      echo "<thead>
-              <tr>
-                  <th>Number</th>
-                  <th>Album</th>
-                  <th>Artist</th>
-                  <th>Year</th>
-                 <th>Artwork</th>
-              </tr>
-            </thead>";
+    foreach ($data as $row) {
 
-        foreach ($data as $row) {
+      $played = $row['SUM(plays)'];
+      $album = $row['title'];
+      $artist = $row['name'];
+      $artwork = $row['image'];
+      $albumid = $row['id'];
+      
 
-          $number = $row['number'];
-          $album = $row['title'];
-          $artist = $row['name'];
-          $year = $row['year'];
-          $artwork = $row['image'];
-          $albumid = $row['id'];
-
-          echo "<tr>
-                  <td>$number</td>
-                  <td>$album</td>
-                  <td>$artist</td>
-                  <td>year</td>
-                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>";
-        }
-    } else {
-      echo "<thead>
-              <tr>
-                  <th>Album Number</th>
-                  <th>Album</th>
-                  <th>Artist</th>
-                  <th>Year</th>
-                 <th>Artwork</th>
-                 <th>No. of Album Plays</th>
-                 <th>Delete Album Plays</th>
-              </tr>
-            </thead>";
-
-        foreach ($data as $row) {
-
-          $number = $row['number'];
-          $album = $row['title'];
-          $artist = $row['name'];
-          $year = $row['year'];
-          $artwork = $row['image'];
-          $albumplays = $row['plays'];
-          $albumid = $row['album_id'];
-
-          echo "<tr>
-                  <td>$number</td>
-                  <td>$album</td>
-                  <td>$artist</td>
-                  <td>$year</td>
-                  <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                  <td>$albumplays</td>
-                  <td><a href='deletealbumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Delete</a></td>
-                </tr>";
-        }
+      echo "<div class='col'>
+              <div class='card' style='width: 200px'>
+                <a href='album.php?album_id=$albumid'><img class='card-img-top' src=$artwork alt='Card Image' style='width: 100%'></a>
+                <div class='card-body'>
+								  <h3>$album</h4>
+								  <h3>$artist</h4>
+								  <h4>No. of Plays: $played</h4>
+                </div>
+					    </div>
+            </div>";
     }
     ?>
-  </table>
-</div>
+
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

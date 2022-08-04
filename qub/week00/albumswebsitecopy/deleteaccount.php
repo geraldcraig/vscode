@@ -2,9 +2,9 @@
 
 $userid = $_GET['user'];
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?deleteuser";
+$endpoint = "http://localhost/qub/week00/albumsapicopy/api.php?deleteuser";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?deleteuser";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?deleteuser";
 
 $postdata = http_build_query(array('deleteid' => $userid));
 
