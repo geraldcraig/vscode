@@ -272,7 +272,7 @@
     }*/
 
     // post add user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['updateuser']))) {
 
         include('dbconn.php');
 
@@ -306,7 +306,7 @@
     }
 
     // post admin login
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['updateuser']))) {
 
         include('dbconn.php');
 
@@ -331,7 +331,7 @@
     }
 
     // post user login
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['updateuser']))) {
 
         include('dbconn.php');
 
@@ -357,7 +357,7 @@
     }
 
     // post add album play
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (isset($_GET['albumplays']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (isset($_GET['albumplays'])) && (!isset($_GET['updateuser']))) {
 
         include('dbconn.php');
 
@@ -408,8 +408,46 @@
         }
     }
 
+     // update user
+     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))&& (!isset($_GET['albumplays'])) && (isset($_GET['updateuser']))) {
+
+        include('dbconn.php');
+
+        $firstname = $conn->real_escape_string($_POST['addfirstname']);
+        $lastname = $conn->real_escape_string($_POST['addlastname']);
+        $username = $conn->real_escape_string($_POST['addusername']);
+        $userpassword = $conn->real_escape_string($_POST['addpassword']);
+        $userid = $conn->real_escape_string($_POST['adduserid']);
+
+        /*$checkuserid = "SELECT * FROM user WHERE id = '$userid' ";
+
+        $result = $conn->query($checkuserid);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $num = $result->num_rows;
+
+        if ($num > 0) {*/
+
+        $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
+        WHERE id = '$userid' ";
+
+        $result = $conn->query($updatequery);
+    
+        if(!$result) {
+ 
+            echo $conn->error;
+        
+        } 
+
+       // }
+
+    }
+
     // update user
-    if (($_SERVER['REQUEST_METHOD']==='PUT') && (isset($_GET['updateuser']))) {
+    if (($_SERVER['REQUEST_METHOD']==='PUT') && (!isset($_GET['updateuser']))) {
 
         include('dbconn.php');
 
@@ -417,11 +455,11 @@
 
         //$userid = $_DELETE['deleteid'];
 
-        $firstname = $conn->real_escape_string($_POST['addfirstname']);
-        $lastname = $conn->real_escape_string($_POST['addlastname']);
-        $username = $conn->real_escape_string($_POST['addusername']);
-        $userpassword = $conn->real_escape_string($_POST['addpassword']);
-        $userid = $conn->real_escape_string($_POST['adduserid']);
+        $firstname = $conn->real_escape_string($_PUT['addfirstname']);
+        $lastname = $conn->real_escape_string($_PUT['addlastname']);
+        $username = $conn->real_escape_string($_PUT['addusername']);
+        $userpassword = $conn->real_escape_string($_PUT['addpassword']);
+        $userid = $conn->real_escape_string($_PUT['adduserid']);
 
         $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
         WHERE id = '$userid' ";

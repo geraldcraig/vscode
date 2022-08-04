@@ -2,11 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION['userid'])) {
+if (!isset($_SESSION['user'])) {
   $showBtn =false;
 } else {
   $showBtn = true;
-  $currentUser = $_SESSION['userid'];
+  $currentUser = $_SESSION['user'];
 }
 
 $endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";

@@ -4,7 +4,7 @@
     $lname = $_POST['lastname'];
     $uname = $_POST["username"];
     $upass = $_POST["password"];
-    $userid = $_GET['userid'];
+    $userid = $_POST['userid'];
 
     $endpoint = "http://localhost/qub/week00/albumsapi/api.php?updateuser";
 
@@ -25,7 +25,7 @@
     $opts = array(
 
         'http' => array(
-            'method' => 'PUT',
+            'method' => 'POST',
             'header' => 'Content-Type: application/x-www-form-urlencoded',
             'content' => $postdata
         )
@@ -38,10 +38,11 @@
     echo $resource;
     
 
-    if ($resource !== FALSE ) {
+    if ($resource != FALSE ) {
+        //$_SESSION['user'] = $uname;
+	    header("Location: login.php");
+    } else {
         $_SESSION['user'] = $uname;
 	    header("Location: account.php");
-    } else {
-	    header("Location: login.php");
     }
 ?>
