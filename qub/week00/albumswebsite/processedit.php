@@ -1,12 +1,14 @@
 <?php
     include("dbconn.php");
    
-    $newfname = $conn->real_escape_string($_POST["firstname"]);
-    $newusername = $conn->real_escape_string($_POST["username"]);
-    $userid = $conn->real_escape_string($_POST["id"]);
+    $newfname = $conn->real_escape_string($_POST['firstname']);
+    $newlname = $conn->real_escape_string($_POST['lastname']);
+    $newusername = $conn->real_escape_string($_POST['username']);
+    $newuserpword = $conn->real_escape_string($_POST['password']);
+    $userid = $conn->real_escape_string($_POST['id']);
     
    
-    $update = "UPDATE user SET username = '$newusername', firstname = '$newfname' WHERE id = '$userid' ";
+    $update = "UPDATE user SET firstname = '$newfname', lastname = '$newlname', username = '$newusername', userpassword = '$newuserpword' WHERE id = '$userid' ";
  
     echo $update;
 ?>
