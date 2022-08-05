@@ -27,22 +27,22 @@
     );
 
     $context = stream_context_create($opts);
-    $resource = file_get_contents($endpoint, false, $context);
+    $resource = file_get_contents($endpoint, true, $context);
 
     echo $resource;
 
-    /*if ($resource !== FALSE) {
+    if ($resource !== FALSE && $uname == 'admin') {
         $_SESSION['admin'] = $uname;
 	    header("Location: adminaccount.php");
     } else {
         //$_SESSION['admin'] == 'admin';
 	    header("Location: adminlogin.php");
-    }*/
+    }
 
-    if ($resource !== FALSE) {
+    /*if ($resource !== FALSE) {
         header("Location: adminlogin.php");
     } else {
         $_SESSION['user'] = $uname;
 	    header("Location: adminaccount.php");
-    }
+    }*/
 ?>
