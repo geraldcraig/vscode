@@ -58,6 +58,9 @@ $data = json_decode($result, true);
                   <a class='nav-link' href='accountalbumplays.php'>Album Plays</a>
                 </li>
                 <li class='nav-item'>
+                  <a class='nav-link' href='accountownedalbums.php'>Owned Albums</a>
+                </li>
+                <li class='nav-item'>
                   <a class='nav-link' href='logout.php'>Log Out</a>
                 </li>";
         }

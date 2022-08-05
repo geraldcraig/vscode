@@ -116,6 +116,7 @@ $data = json_decode($result, true);
                   <th>Year</th>
                  <th>Artwork</th>
                  <th>Listened To</th>
+                 <th>Add To Owned</th>
               </tr>
             </thead>";
 
@@ -134,7 +135,8 @@ $data = json_decode($result, true);
                   <td>$artist</td>
                   <td>$year</td>
                   <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
-                  <td><a href='albumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Add Play</a></td>";
+                  <td><a href='albumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Add Play</a></td>
+                  <td><a href='ownedalbum.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Add Owned</a></td>";
         }
     }
     ?>
