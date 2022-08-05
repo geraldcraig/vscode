@@ -37,4 +37,12 @@
     } else {
 	    header("Location: adminlogin.php");
     }
+
+    /*if ($resource !== FALSE) {
+        //$_SESSION['user'] = $uname;
+        header("Location: adminlogin.php");
+    } else {
+        $_SESSION['admin'] = $uname;
+        header("Location: adminaccount.php");
+    }*/
 ?>

@@ -91,7 +91,7 @@ $data = json_decode($result, true);
             $uname = $row['username'];
             $pword = $row['userpassword'];
 
-            if ($uname == 'admin') {
+            if ($uname == $currentUser) {
 
               echo "<tr>
                       <td>$fname</td>

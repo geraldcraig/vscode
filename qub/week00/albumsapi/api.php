@@ -325,7 +325,7 @@
 
         if ($num > 0) {
 
-            header("Location: index.php");
+            header("Location: adminaccount.php");
         } 
 
     }
@@ -346,12 +346,12 @@
 	        echo $conn->error;
         } 
 
-        //$num = $result->num_rows;
+        $num = $result->num_rows;
 
-        if ($uname = 'admin') {
+        if ($num > 0) {
 
-            //header("Location: index.php");
-            echo $result;
+            header("Location: index.php");
+            
         } 
 
 
