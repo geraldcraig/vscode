@@ -32,7 +32,6 @@
     echo $resource;
 
     if ($resource !== FALSE) {
-            //$_SESSION['user'] = $uname;
         header("Location: login.php");
     } else {
         $_SESSION['user'] = $uname;

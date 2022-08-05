@@ -310,8 +310,8 @@
 
         include('dbconn.php');
 
-        $uname = $conn->real_escape_string($_POST["username"]);
-        $upass = $conn->real_escape_string($_POST["password"]);
+        $uname = $conn->real_escape_string($_POST["addusername"]);
+        $upass = $conn->real_escape_string($_POST["addpassword"]);
 
         $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 

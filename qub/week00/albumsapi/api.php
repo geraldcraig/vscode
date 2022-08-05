@@ -310,8 +310,8 @@
 
         include('dbconn.php');
 
-        $uname = $conn->real_escape_string($_POST["username"]);
-        $upass = $conn->real_escape_string($_POST["password"]);
+        $uname = $conn->real_escape_string($_POST['addusername']);
+        $upass = $conn->real_escape_string($_POST['addpassword']);
 
         $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
 
@@ -338,7 +338,7 @@
         $uname = $conn->real_escape_string($_POST['addusername']);
         $upass = $conn->real_escape_string($_POST['addpassword']);
 
-        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+        $checkuser = "SELECT * FROM user WHERE username = '$uname' AND userpassword = '$upass' ";
 
         $result = $conn->query($checkuser);
     
@@ -346,11 +346,12 @@
 	        echo $conn->error;
         } 
 
-        $num = $result->num_rows;
+        //$num = $result->num_rows;
 
-        if ($num > 0) {
+        if ($uname = 'admin') {
 
-            header("Location: index.php");
+            //header("Location: index.php");
+            echo $result;
         } 
 
 
