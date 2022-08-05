@@ -294,7 +294,7 @@
         if ($num == 0) {
 
             $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
+            $stmt->bind_param("ssss", $firstname, $lastname, $username, MD5($userpassword));
             $stmt->execute();
             $stmt->close(); 
 
@@ -313,7 +313,7 @@
         $uname = $conn->real_escape_string($_POST['addusername']);
         $upass = $conn->real_escape_string($_POST['addpassword']);
 
-        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = MD5('$upass') ";
 
         $result = $conn->query($checkuser);
     
@@ -338,7 +338,7 @@
         $uname = $conn->real_escape_string($_POST['addusername']);
         $upass = $conn->real_escape_string($_POST['addpassword']);
 
-        $checkuser = "SELECT * FROM user WHERE username = '$uname' AND userpassword = '$upass' ";
+        $checkuser = "SELECT * FROM user WHERE username = '$uname' AND userpassword = MD5('$upass') ";
 
         $result = $conn->query($checkuser);
     
@@ -409,44 +409,6 @@
         }
     }
 
-     /* update user
-     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin']))&& (!isset($_GET['albumplays'])) && (!isset($_GET['updateuser']))) {
-
-        include('dbconn.php');
-
-        $firstname = $conn->real_escape_string($_POST['addfirstname']);
-        $lastname = $conn->real_escape_string($_POST['addlastname']);
-        $username = $conn->real_escape_string($_POST['addusername']);
-        $userpassword = $conn->real_escape_string($_POST['addpassword']);
-        $userid = $conn->real_escape_string($_POST['adduserid']);
-
-        $checkuserid = "SELECT * FROM user WHERE id = '$userid' ";
-
-        $result = $conn->query($checkuserid);
-
-        if (!$result) {
-            echo $conn->error;
-        }
-
-        $num = $result->num_rows;
-
-        if ($num > 0) {
-
-        $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
-        WHERE id = '$userid' ";
-
-        $result = $conn->query($updatequery);
-    
-        if(!$result) {
- 
-            echo $conn->error;
-        
-        } 
-
-       // }
-
-    }*/
-
     // update user
     if (($_SERVER['REQUEST_METHOD']==='PUT') && (isset($_GET['updateuser']))) {
 
@@ -460,7 +422,7 @@
         $userpassword = $conn->real_escape_string($_PUT['addpassword']);
         $userid = $conn->real_escape_string($_PUT['adduserid']);
 
-        $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
+        $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = MD5('$userpassword')
         WHERE id = '$userid' ";
 
         $result = $conn->query($updatequery);
