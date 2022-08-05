@@ -252,25 +252,6 @@
 
     }
 
-    /* post add user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
-
-        include('dbconn.php');
-
-        $firstname = $conn->real_escape_string($_POST['addfirstname']);
-        $lastname = $conn->real_escape_string($_POST['addlastname']);
-        $username = $conn->real_escape_string($_POST['addusername']);
-        $userpassword = $conn->real_escape_string($_POST['addpassword']);
-
-
-        $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
-        $stmt->execute();
-
-        $stmt->close();
-        
-    }*/
-
     // post add user
     if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays']))) {
 
