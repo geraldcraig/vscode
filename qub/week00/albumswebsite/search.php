@@ -11,11 +11,11 @@ if (!isset($_SESSION['user'])) {
 
 $searchitem = $_GET['search'];
 
-$newitem = str_replace(' ', '%20', $searchitem);
+$searchquery = str_replace(' ', '%20', $searchitem);
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?search=$newitem";
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?search=$searchquery";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$newitem";
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$searchquery";
 
 $result = file_get_contents($endpoint);
 

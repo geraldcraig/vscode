@@ -294,7 +294,7 @@
         if ($num == 0) {
 
             $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $firstname, $lastname, $username, $userpassword);
+            $stmt->bind_param("ssss", $firstname, $lastname, $username, MD5($userpassword));
             $stmt->execute();
             $stmt->close(); 
 
@@ -313,7 +313,7 @@
         $uname = $conn->real_escape_string($_POST["addusername"]);
         $upass = $conn->real_escape_string($_POST["addpassword"]);
 
-        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = MD5('$upass') ";
 
         $result = $conn->query($checkuser);
     
@@ -339,7 +339,7 @@
         $uname = $conn->real_escape_string($_POST['addusername']);
         $upass = $conn->real_escape_string($_POST['addpassword']);
 
-        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = '$upass' ";
+        $checkuser = "SELECT * FROM user WHERE username ='$uname' AND userpassword = MD5('$upass') ";
 
         $result = $conn->query($checkuser);
     
@@ -460,7 +460,7 @@
         $userpassword = $conn->real_escape_string($_PUT['addpassword']);
         $userid = $conn->real_escape_string($_PUT['adduserid']);
 
-        $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = '$userpassword'
+        $updatequery = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', userpassword = MD5('$userpassword')
         WHERE id = '$userid' ";
 
         $result = $conn->query($updatequery);
