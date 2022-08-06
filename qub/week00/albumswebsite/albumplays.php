@@ -32,7 +32,7 @@ $opts = array(
     echo $resource;
 
     if($resource != FALSE) {
-        header("Location: index.php");
+        header("Location: accountalbumplays.php");
       } else {
         echo "Unable to add album play";
       }

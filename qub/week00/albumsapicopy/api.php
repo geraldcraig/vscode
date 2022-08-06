@@ -44,7 +44,7 @@
 
         include ("dbconn.php");
     
-        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, image.image FROM album
+        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
         INNER JOIN artist
         ON album.artist_id = artist.id
         INNER JOIN year
@@ -53,7 +53,15 @@
         ON album.id = album_image.album_id
         INNER JOIN image
         ON album_image.image_id = image.id
-        ORDER BY album.number";
+        INNER JOIN album_genre
+        ON album.id = album_genre.album_id
+        INNER JOIN genre
+        ON album_genre.genre_id = genre.id
+        INNER JOIN album_subgenre
+        ON album.id = album_subgenre.album_id
+        INNER JOIN subgenre
+        ON album_subgenre.subgenre_id = subgenre.id
+        ORDER BY album.number DESC";
         
         $result = $conn->query($read);
         
@@ -132,7 +140,7 @@
 
         $searchitem = $conn->real_escape_string($_GET['search']);
     
-        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, image.image FROM album
+        $read = "SELECT album.id, album.number, album.title, artist.name, year.year, genre.genre, subgenre.subgenre, image.image FROM album
         INNER JOIN artist
         ON album.artist_id = artist.id
         INNER JOIN year
@@ -141,6 +149,14 @@
         ON album.id = album_image.album_id
         INNER JOIN image
         ON album_image.image_id = image.id
+        INNER JOIN album_genre
+        ON album.id = album_genre.album_id
+        INNER JOIN genre
+        ON album_genre.genre_id = genre.id
+        INNER JOIN album_subgenre
+        ON album.id = album_subgenre.album_id
+        INNER JOIN subgenre
+        ON album_subgenre.subgenre_id = subgenre.id
         WHERE (year LIKE '%$searchitem%') OR (name LIKE '%$searchitem%')
         OR (title LIKE '%$searchitem%')
         ORDER BY album.number";
@@ -337,36 +353,60 @@
         $number = $conn->real_escape_string($_POST['addnumber']);
         $title = $conn->real_escape_string($_POST['addtitle']);
         $artist = $conn->real_escape_string($_POST['addartist']);
-        $year = $conn->real_escape_string($_POST['addyear']);
         $genre = $conn->real_escape_string($_POST['addgenre']);
         $subgenre = $conn->real_escape_string($_POST['addsubgenre']);
+        $year = $conn->real_escape_string($_POST['addyear']);
         $image = $conn->real_escape_string($_POST['addimage']);
 
-        $checkalbum = "SELECT * FROM album WHERE username = '$username' ";
+        $addalbum = "INSERT INTO album (number, title, artist_id, year_id, image_id) 
+        VALUES ('$number', '$title', (SELECT id FROM artist WHERE name = '$artist'), 
+        (SELECT id FROM year WHERE year = '$year'), '$number')";
 
-        $result = $conn->query($checkalbum);
+        $result = $conn->query($addalbum);
 
         if (!$result) {
             echo $conn->error;
         }
 
-        $num = $result->num_rows;
+        $addgenre = "INSERT INTO album_genre (album_id, genre_id) 
+	    VALUES ((SELECT id FROM album WHERE title = '$title'), (SELECT id FROM genre WHERE genre = '$genre'))";
 
-        if ($num == 0) {
+        $result = $conn->query($addgenre);
 
-            $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, username, userpassword) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $firstname, $lastname, $username, MD5($userpassword));
-            $stmt->execute();
-            $stmt->close(); 
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $addsubgenre = "INSERT INTO album_subgenre (album_id, subgenre_id) 
+	    VALUES ((SELECT id FROM album WHERE title = '$title'), (SELECT id FROM subgenre WHERE subgenre = '$subgenre'))";
+
+        $result = $conn->query($addsubgenre);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $addimage = "INSERT INTO album_image (album_id, image_id) 
+	    VALUES ((SELECT id FROM album WHERE title = '$title'), (SELECT id FROM image WHERE album_number = '$number'))";
+
+        $result = $conn->query($addimage);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        /*$num = $result->num_rows;
+
+        if ($num > 0) {
+
+            header("Location: albumlist.php");
 
         } else {
+
             header("Location: index.php");
             //echo "username already exists";
-        }
-        "INSERT INTO album (number, title, artist_id, year_id, image_id) 
-        VALUES (501, 'Blackstar', (SELECT id FROM artist WHERE name = 'David Bowie'), 
-        (SELECT id FROM year WHERE year = 1990), 25)" ;
-
+        }*/
+     
     }
 
     // post admin login
@@ -387,7 +427,7 @@
 
         $num = $result->num_rows;
 
-        if ($num > 0) {
+        if ($num == 1) {
 
             //echo $result;
             header("Location: adminaccount.php");

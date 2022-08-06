@@ -27,7 +27,7 @@
     );
 
     $context = stream_context_create($opts);
-    $resource = file_get_contents($endpoint, true, $context);
+    $resource = file_get_contents($endpoint, false, $context);
 
     echo $resource;
 

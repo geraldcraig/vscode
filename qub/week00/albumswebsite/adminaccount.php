@@ -55,6 +55,9 @@ $data = json_decode($result, true);
                   <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
                 </li>
                 <li class='nav-item'>
+                  <a class='nav-link' href='newalbum.php'>Add New Album</a>
+                </li>
+                <li class='nav-item'>
                   <a class='nav-link' href='adminlogout.php'>Admin Log Out</a>
                 </li>";
         }

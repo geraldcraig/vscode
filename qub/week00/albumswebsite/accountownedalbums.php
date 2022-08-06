@@ -11,9 +11,9 @@ if (!isset($_SESSION['user'])) {
 
 $username = $currentuser;
 
-//$endpoint = "http://localhost/qub/week00/albumsapicopy/api.php?ownedalbum=$username";
+//$endpoint = "http://localhost/qub/week00/albumsapicopy/api.php?accountowned=$username";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?ownedalbum=$username";
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountowned=$username";
 
 $result = file_get_contents($endpoint);
 
@@ -114,6 +114,7 @@ $data = json_decode($result, true);
                   <th>Year</th>
                  <th>Artwork</th>
                  <th>Delete Owned Album</th>
+                 <th>Add Album Play</th>
               </tr>
             </thead>";
 
@@ -133,6 +134,7 @@ $data = json_decode($result, true);
                   <td>$year</td>
                   <td><a href='album.php?album_id=$albumid'><img src=$artwork class='img-thumbnail' style='width: 150px'></a></td>
                   <td><a href='deleteownedalbum.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Delete</a></td>
+                  <td><a href='albumplays.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Add Play</a></td>
                 </tr>";
         }
     }

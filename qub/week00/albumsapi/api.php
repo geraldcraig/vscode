@@ -3,7 +3,7 @@
     header("Content-Type: application/json");
 
     // display top 10 albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['accountowned']))) {
         include ("dbconn.php");
     
         $read = "SELECT SUM(plays), album.id, album.title, artist.name, image.image FROM album_plays
@@ -40,7 +40,7 @@
     }
 
     // display all albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['accountowned']))) {
 
         include ("dbconn.php");
     
@@ -86,7 +86,7 @@
     }
 
      // get album
-     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['ownedalbum']))) {
+     if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['accountowned']))) {
 
         include ("dbconn.php");
 
@@ -134,7 +134,7 @@
     }
 
     // search
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['accountowned']))) {
 
         include ("dbconn.php");
 
@@ -184,7 +184,7 @@
     }
 
     // display user album plays
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['accountowned']))) {
         include ("dbconn.php");
 
         $userid = $conn->real_escape_string($_GET['accountplays']);
@@ -224,7 +224,7 @@
     }
 
     // get user
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (isset($_GET['user'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (isset($_GET['user'])) && (!isset($_GET['accountowned']))) {
 
         include ("dbconn.php");
     
@@ -253,10 +253,10 @@
     }
 
     // display user owned albums
-    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (!isset($_GET['album'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (isset($_GET['accountowned']))) {
         include ("dbconn.php");
 
-        $userid = $conn->real_escape_string($_GET['ownedalbum']);
+        $userid = $conn->real_escape_string($_GET['accountowned']);
     
         $read = "SELECT user_id, album_id, album.number, title, name, year, image FROM owned_album
         INNER JOIN album
@@ -293,7 +293,7 @@
     }
 
     // post add user
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum'])) && (!isset($_GET['newalbum']))) {
 
         include('dbconn.php');
 
@@ -327,7 +327,7 @@
     }
 
     // post admin login
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum'])) && (!isset($_GET['newalbum']))) {
 
         include('dbconn.php');
 
@@ -352,7 +352,7 @@
     }
 
     // post user login
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum'])) && (!isset($_GET['newalbum']))) {
 
         include('dbconn.php');
 
@@ -379,7 +379,7 @@
     }
 
     // post add album play
-    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum']))) {
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum'])) && (!isset($_GET['newalbum']))) {
 
         include('dbconn.php');
 
@@ -431,7 +431,7 @@
     }
 
      // post add owned album
-     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (isset($_GET['ownedalbum']))) {
+     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (isset($_GET['ownedalbum'])) && (!isset($_GET['newalbum']))) {
 
         include('dbconn.php');
 
@@ -465,6 +465,70 @@
         } 
 
         } 
+    }
+
+    // post add album
+    if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum'])) && (isset($_GET['newalbum']))) {
+
+        include('dbconn.php');
+
+        $number = $conn->real_escape_string($_POST['addnumber']);
+        $title = $conn->real_escape_string($_POST['addtitle']);
+        $artist = $conn->real_escape_string($_POST['addartist']);
+        $genre = $conn->real_escape_string($_POST['addgenre']);
+        $subgenre = $conn->real_escape_string($_POST['addsubgenre']);
+        $year = $conn->real_escape_string($_POST['addyear']);
+        $image = $conn->real_escape_string($_POST['addimage']);
+
+        $addalbum = "INSERT INTO album (number, title, artist_id, year_id, image_id) 
+        VALUES ('$number', '$title', (SELECT id FROM artist WHERE name = '$artist'), 
+        (SELECT id FROM year WHERE year = '$year'), '$number')";
+
+        $result = $conn->query($addalbum);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $addgenre = "INSERT INTO album_genre (album_id, genre_id) 
+	    VALUES ((SELECT id FROM album WHERE title = '$title'), (SELECT id FROM genre WHERE genre = '$genre'))";
+
+        $result = $conn->query($addgenre);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $addsubgenre = "INSERT INTO album_subgenre (album_id, subgenre_id) 
+	    VALUES ((SELECT id FROM album WHERE title = '$title'), (SELECT id FROM subgenre WHERE subgenre = '$subgenre'))";
+
+        $result = $conn->query($addsubgenre);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        $addimage = "INSERT INTO album_image (album_id, image_id) 
+	    VALUES ((SELECT id FROM album WHERE title = '$title'), (SELECT id FROM image WHERE number = '$number'))";
+
+        $result = $conn->query($addimage);
+
+        if (!$result) {
+            echo $conn->error;
+        }
+
+        /*$num = $result->num_rows;
+
+        if ($num > 0) {
+
+            header("Location: albumlist.php");
+
+        } else {
+
+            header("Location: index.php");
+            //echo "username already exists";
+        }*/
+     
     }
 
     // update user
