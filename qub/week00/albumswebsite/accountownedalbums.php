@@ -41,7 +41,7 @@ $data = json_decode($result, true);
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+      <li class="nav-item">
           <a class="nav-link" href="albumlist.php">Top 500 Albums</a>
         </li>
         <?php
@@ -58,6 +58,12 @@ $data = json_decode($result, true);
         } else {
           echo "<li class='nav-item'>
                   <a class='nav-link' href='account.php'>Account</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='accountalbumplays.php'>Album Plays</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='accountownedalbums.php'>Owned Albums</a>
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='logout.php'>Log Out</a>
