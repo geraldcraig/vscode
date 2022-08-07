@@ -9,6 +9,15 @@ if (!isset($_SESSION['user'])) {
   $currentUser = $_SESSION['user'];
 }
 
+if (!isset($_SESSION['user'])) {
+  $showUserBtn = false;
+  $showAdminBtn = false;
+} elif (!$_SESSION['user'] === 'admin') {
+  $showAdminBtn = true;
+} else {
+  $showUserBtn = true;
+}
+
 $endpoint = "http://localhost/qub/week00/albumsapiold/api.php?top10";
 
 //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
