@@ -515,18 +515,6 @@
         if (!$result) {
             echo $conn->error;
         }
-
-        /*$num = $result->num_rows;
-
-        if ($num > 0) {
-
-            header("Location: albumlist.php");
-
-        } else {
-
-            header("Location: index.php");
-            //echo "username already exists";
-        }*/
      
     }
 
@@ -552,6 +540,11 @@
             echo $conn->error;
         }
 
+        /*$stmt = $mysqli->prepare("UPDATE user SET firstname = ?, lastname = ?, username = ?, userpassword = ? WHERE id = '$userid' ");
+        $stmt->bind_param("ssss", $firstname, $lastname, $username, MD5($userpassword));
+        $stmt->execute();
+        $stmt->close();*/
+
     }
 
     // delete user
@@ -571,23 +564,14 @@
             
             echo $conn->error;
         
-        } 
-    }
+        }
 
-     /* delete user
-     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (isset($_GET['deleteuser']))) {
-
-        include('dbconn.php');
-
-        parse_str(file_get_contents('php://input'), $_DELETE);
-
-        $userid = $_DELETE['deleteid'];
-
-        $stmt = $mysqli->prepare("DELETE FROM user WHERE id = ?");
+        /*$stmt = $mysqli->prepare("DELETE FROM user WHERE id = ?");
         $stmt->bind_param("i", $userid);
         $stmt->execute();
-        $stmt->close();     
-    }*/
+        $stmt->close();*/
+        
+    }
 
     // delete album plays
     if (($_SERVER['REQUEST_METHOD']==='DELETE') && (!isset($_GET['deleteuser'])) && (isset($_GET['deletealbumplays'])) && (!isset($_GET['deleteownedalbum']))) {
