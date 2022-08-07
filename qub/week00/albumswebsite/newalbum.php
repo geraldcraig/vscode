@@ -1,3 +1,24 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+  $showBtn =false;
+} else {
+  $showBtn = true;
+  $currentUser = $_SESSION['admin'];
+}
+
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
+
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
+
+$result = file_get_contents($endpoint);
+
+$data = json_decode($result, true);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +33,35 @@
 
 <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Record Website</a>
+    <a class="navbar-brand" href="adminaccount.php">Admin Account</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <?php
+        if (!$showBtn) {
+          echo "<li class='nav-item'>
+                  <a class='nav-link' href='login.php'>Log In</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='register.php'>Register</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='adminlogin.php'>Admin</a>
+                </li>";
+        } else {
+          echo "<li class='nav-item'>
+                  <a class='nav-link' href='editaccounts.php'>Edit Accounts</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='newalbum.php'>Add New Album</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='adminlogout.php'>Admin Log Out</a>
+                </li>";
+        }
+        ?>
 </nav>
 
 <div class="container mt-3 bg-secondary">

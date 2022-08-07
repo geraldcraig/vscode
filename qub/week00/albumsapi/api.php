@@ -415,7 +415,6 @@
 
         } else {
 
-
         $insertquery = "INSERT INTO album_plays (user_id, album_id, plays) 
         VALUES ((SELECT user.id FROM user WHERE username = '$currentUser'), '$albumid', '$count')";
            
@@ -425,7 +424,7 @@
         
             echo $conn->error;
 
-        } 
+            } 
         
         }
     }

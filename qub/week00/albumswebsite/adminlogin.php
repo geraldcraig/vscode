@@ -21,7 +21,7 @@
 
 <div class="container mt-3 bg-secondary">
     <h1>Admin Login</h1>
-    <form name="mylist" method="POST" action="processadminlogin.php" enctype="multipart/form-data">
+    <form name="mylist" method="POST" action="processadminlogin2.php" enctype="multipart/form-data">
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required/>
