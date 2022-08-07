@@ -42,6 +42,19 @@ $data = json_decode($result, true);
         <li class="nav-item">
           <a class="nav-link" href="albumlist.php">Top 500 Albums</a>
         </li>
+        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse Artist</a>
+            <div class="dropdown-menu">
+            <?php
+
+                foreach ($data as $row) {
+
+                    $item = $row['name'];
+                   echo "<a href='filter.php?sort=$item' /a><option value='$item' >$item</option>";
+
+                }
+                ?>
+        </li>
         <?php
         if (!$showBtn) {
           echo "<li class='nav-item'>
