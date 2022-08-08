@@ -133,7 +133,7 @@
 
     }
 
-     // get album
+     // get album info
      if (($_SERVER['REQUEST_METHOD']==='GET') && (!isset($_GET['topten'])) && (isset($_GET['album'])) && (!isset($_GET['filteralbum'])) && (!isset($_GET['search'])) && (!isset($_GET['accountplays'])) && (!isset($_GET['user'])) && (!isset($_GET['accountowned']))) {
 
         include ("dbconn.php");
@@ -514,7 +514,7 @@
         } 
     }
 
-    // post add album
+    // post add new album
     if (($_SERVER['REQUEST_METHOD']==='POST') && (!isset($_GET['newuser'])) && (!isset($_GET['adminlogin'])) && (!isset($_GET['userlogin'])) && (!isset($_GET['albumplays'])) && (!isset($_GET['ownedalbum'])) && (isset($_GET['newalbum']))) {
 
         include('dbconn.php');
