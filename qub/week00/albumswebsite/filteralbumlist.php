@@ -9,9 +9,11 @@ if (!isset($_SESSION['user'])) {
   $currentuser = $_SESSION['user'];
 }
 
-$endpoint = "http://localhost/qub/week00/albumsapicopy/api.php";
+$filterquery = $_GET['sort'];
 
-//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php";
+//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?filteralbum=$filterquery";
+
+$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?filteralbum=$filterquery";
 
 $result = file_get_contents($endpoint);
 
@@ -42,20 +44,7 @@ $data = json_decode($result, true);
         <li class="nav-item">
           <a class="nav-link" href="albumlist.php">Top 500 Albums</a>
         </li>
-        <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse Artist</a>
-            <div class="dropdown-menu">
-            <a class='dropdown-menu'>Bowie</a>
-            <?php
 
-                foreach ($data as $row) {
-
-                    $item = $row['name'];
-                   echo "<a class='dropdown-menu' href='filter.php?sort=$item' /a><option value='$item' >$item</option>";
-
-                }
-                ?>
-        </li>
         <?php
         if (!$showBtn) {
           echo "<li class='nav-item'>

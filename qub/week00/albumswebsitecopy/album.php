@@ -114,21 +114,14 @@ $data = json_decode($result, true);
 </div>
 
 <div>
-  <h1>Album Info</h1>
-</div>
-<div id="mainContent">
-  <p>Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. 
-    Nisl turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. 
-    Maecenas aliquam maecenas ligula nostra, accumsan taciti. 
-    Sociis mauris in integer, a dolor netus non dui aliquet, sagittis felis sodales, dolor sociis mauris, vel eu libero cras. Faucibus at. Arcu habitasse elementum.
-</p>
+  <h1>Album and Artist Info</h1>
 </div>
 
 <div>
-  <h1>Reviews</h1>
-  <td><a href='deleteownedalbum.php?album_id=$albumid&user_name=$currentuser' class='btn btn-info' role='button'>Add Review</a></td>
-</div>
-
+<h1>Rating and Reviews</h1>
+</div>	
+  
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
