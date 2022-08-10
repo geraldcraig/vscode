@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="myinterface.css">
+
+  <title>Lotto Number Generator</title>
+</head>
+
+<body>
+  <section class="section">
+
+    <div class="container">
+
+      <div class="columns is-vcentered">
+
+        <div class="column is-one-fifth">
+          <img src="multi-lotto.png">
+        </div>
+
+        <div class="column">
+          <h1 class="title">
+            lucky dip
+          </h1>
+        </div>
+
+      </div>
+
+      <div class="columns is-vcentered">
+        <div class="column mybox" id="num1">1</div>
+        <div class="column mybox" id="num2">2</div>
+        <div class="column mybox" id="num3">3</div>
+        <div class="column mybox" id="num4">4</div>
+        <div class="column mybox" id="num5">5</div>
+        <div class="column mybox" id="num6">6</div>
+      </div>
+
+      <div class="columns is-centered is-mobile">
+        <div class="column is-full">
+
+          <div id="mybutton" onclick="generate()">
+            generate
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</body>
+<script>
+
+  function generate() {
+
+    var temp = [];
+
+    // generate numbers
+    for (var i = 0; i < 6; i++) {
+      temp[i] = Math.floor(Math.random() * 49) + 1;
+
+    }
+
+    // output array to console
+    console.log("Numbers generated: " + temp);
+
+    /*
+
+    // using statements only (no loop)
+    // retrieve a number from the the array
+    var newnum = temp[0];
+
+    // use the DOM to get the element
+    var changenum = document.getElementById("num1");
+
+    // output the number to the element
+    changenum.innerHTML = newnum;
+
+    newnum = temp[1];
+    var changenum = document.getElementById("num2");
+    changenum.innerHTML = newnum;
+
+    newnum = temp[2];
+    var changenum = document.getElementById("num3");
+    changenum.innerHTML = newnum;
+
+    newnum = temp[3];
+    var changenum = document.getElementById("num4");
+    changenum.innerHTML = newnum;
+
+    newnum = temp[4];
+    var changenum = document.getElementById("num5");
+    changenum.innerHTML = newnum;
+
+    newnum = temp[5];
+    var changenum = document.getElementById("num6");
+    changenum.innerHTML = newnum;
+
+    */
+
+
+    // using standard for loop
+    for (var i = 0; i < 6; i++) {
+
+      // create the element id
+      var name = "num" + (i + 1);
+
+      // get the number from the array
+      var newnum = temp[i];
+      
+      // use the DOM to get the element
+      var changenum = document.getElementById(name);
+
+      // output the number to the element
+      changenum.innerHTML = newnum;
+    }
+    
+
+    /*
+    // alternative approach using a for . . in loop
+    var i = 1;
+    for (var members in temp) {
+      
+      var name = "num" + (i++);
+      var changenum = document.getElementById(name);
+      changenum.innerHTML = temp[members];
+
+    }
+    */
+
+    /*
+    // alternative approach using a for . .  of loop
+    var i = 1;
+    for (var members of temp) {
+
+      var name = "num" + (i++);
+      var changenum = document.getElementById(name);
+      changenum.innerHTML = members;
+    }
+    */
+
+  }
+
+</script>
+
+</html>

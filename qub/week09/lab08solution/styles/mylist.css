@@ -1,0 +1,241 @@
+﻿
+body{
+	font-family: Arial, Helvetica, sans-serif;	
+	background-color:#fff;
+}
+
+#container{
+	margin:  0 auto;
+	width:90%;
+	background-color:#ddd;
+	min-height:400px;
+	font-size:large;
+    padding-bottom:20px;
+}
+
+
+#top{
+	height:120px;
+	padding:0px;
+	font-size:xx-large;
+	background-image:url('../img/paper.jpeg');
+	border-bottom:medium solid black;
+	border-top-left-radius:30px;
+	border-top-right-radius:30px;
+}
+
+#top #title{
+	
+	padding-left:20px;
+	padding-top:50px;
+}
+
+#main{
+	background-color:ghostwhite;
+	width:90%;
+	margin: auto;
+	margin-top:10px;
+	min-height:200px;
+
+}
+
+#main header{
+	background-color:ghostwhite;
+	margin-left:10px;
+	padding-top:10px;
+	min-height:20px;
+	font-size:large;
+	border-radius:20px;
+}
+
+p{
+	margin:10px;
+	padding-top:10px;
+}
+
+
+ul#myListText {
+	
+	margin-top: 10px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+ul#myListText li{
+	 border: solid 5px #c9c9c9;
+	padding: 10px;
+	margin-top:5px;
+}
+
+ul#myListText a{
+	text-decoration:none;
+}
+
+ul#myListText a:hover li{
+	border: solid 5px #999;
+}
+
+article{
+	
+	padding:10px;
+}
+
+label{
+	width: 10%;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+	font-size:large;
+
+	padding:5px;
+	margin-top:3px;
+}
+
+
+input[type="text"]{
+  display: block;
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  margin-bottom:10px;
+  transition: border 0.3s;
+  font-size: 18px; 
+  width:50%;
+}
+
+
+
+
+option{
+	margin:0px;
+	padding:0px;
+}
+
+
+#myItemInput input[type="text"]:focus, #myItemInput input[type="text"].focus {
+  border: solid 5px #969696;
+}
+
+.submit input{
+	margin-left: 4.5em;
+}
+ 
+
+input[type="submit"] {
+	
+	margin-left:85%;
+	background-color:azure;
+	  border: solid 5px #c9c9c9;
+    font-size:15px;
+	padding: 8px;
+} 
+
+.dateright{
+	float:right;
+}
+
+.imageright{
+	float:right;
+	margin:20px;
+
+}
+
+.addright, .addleft{
+	float:right;
+	margin-top:10px;
+	margin-right:10px;
+	padding:7px;
+	background-color:grey;
+	margin-bottom:5px;
+    border: solid 5px #c9c9c9;	 
+}
+
+.addleft{
+	float:left;
+}
+
+
+a .addright, a .addleft {
+	font-size:18px;
+	color:white;
+	text-decoration:none;
+}
+
+.con{
+	float:left;
+}
+
+.nav{
+	width:100%;
+	clear:both;
+}
+
+a:hover .addright, a:hover .addleft{
+	font-size:18px;
+	color:black;
+	text-decoration:none;
+
+}
+
+.delete{
+	padding:2px;
+	font-size:x-small;
+	display:inline;
+
+}
+
+
+fieldset#inputtext{
+	border: 1px solid #781351;
+	background-color:antiquewhite;
+}
+
+fieldset#instruct{
+	background-color:#CCFFFF;
+	border: 1px solid grey;
+	margin-bottom:20px;
+}
+
+legend
+{
+	color: #fff;
+	background: #bbb;
+	border: 1px solid #781351;
+	padding: 5px 8px;
+	width:100px;
+	padding-left:20px;
+
+}
+
+.ui-datepicker-trigger{
+ float:left;
+ width:30px;
+ padding-left:10px;
+}
+
+#datepick{
+ float:left;
+}
+
+
+textarea{
+display: block;
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  margin-bottom:10px;
+  transition: border 0.3s;
+  font-size: 18px; 
+  width:50%;
+
+ }
+ 
+select{ 
+  display: block;
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  margin-bottom:10px;
+  transition: border 0.3s;
+  font-size: 18px; 
+  width:40%;
+}
+

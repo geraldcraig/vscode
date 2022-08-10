@@ -1,0 +1,51 @@
+body{
+    
+font-family:"arial";    
+}
+
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 4px 8px ;
+}
+
+.box {
+  text-align: center;
+  /*font: 15px "Helvetica Neue";*/
+  background:#666;
+  color: #fff;
+  padding: 15px 10px;
+ }
+ 
+ a:link{
+	 text-decoration:none;
+ }
+ a:hover{
+	 color:#000;
+ }
+ 
+ #head{
+	 width:100%;
+	 background:#000;
+	 color:white;
+	 text-align:center;
+	 padding:20pt;
+ }
+ 
+ .houseimg img{
+     width:100%;
+ }
+ 
+ .myaddress{
+     width:50%;
+     height: 100px;
+     color:black;
+     text-align: left;
+ }
+ 
+ .myleft{
+      text-align: left;
+      color:black;
+ }

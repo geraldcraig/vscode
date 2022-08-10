@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local Storage</title>
+
+    <script>
+
+        function addItem() {
+
+            // get the text
+            var textdata = document.getElementById("answer").value;
+
+            // set the value in localStorage key called 'test'
+            localStorage.setItem('test', textdata);
+
+            // print value to console output
+            console.log(localStorage.getItem('test'));
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <input id="answer"></br>
+    <button onclick="addItem()">Submit</button>
+
+    <p><a href='other.html'>Saved Item</a></p>
+</body>
+
+</html>

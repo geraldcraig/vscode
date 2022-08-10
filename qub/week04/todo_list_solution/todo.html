@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple TODO List</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css" />
+
+</head>
+
+<body>
+
+  <div id="container" style="margin: 10px;">
+    <h1>Current List Items</h1>
+    <ul id="myCurrentList"> </ul>
+
+    <div class="buttons">
+
+      <div class="action_btn">
+
+        <button class="action_btn" type="submit" onclick="returnToIndex()">Add Another Item</button>
+
+      </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+
+  // get the storeditems from localStorage
+  var storedList = JSON.parse(localStorage.getItem('storeditems'));
+
+  // create an output string to display
+  var output = "";
+
+  // parse the storeditems and add the date and item to the output as a list item
+  for (var i = 0; i < storedList.length; i++) {
+    output += '<li>' + storedList[i].listItemDate + ' : ' + storedList[i].listItem + '</li>';
+  }
+
+  // get the current list element
+  var currentList = document.getElementById('myCurrentList');
+
+  // display the output
+  currentList.innerHTML = output;
+
+  // event handler for button
+  function returnToIndex() {
+    
+    console.log("returnToIndex called");
+    window.location = "index.html";
+  
+  }
+
+</script>

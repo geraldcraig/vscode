@@ -1,0 +1,29 @@
+h1.title_1 {
+    font-size: 60px;
+    text-align: center;
+    color: royalblue;
+}
+
+p {
+    text-align: center;
+    background-color:aquamarine;
+    color: royalblue;
+}
+
+li.nav {
+    display: inline;
+    float: right;
+    padding-right: 10px;
+}
+
+
+ol {
+    background-color:blanchedalmond;
+    color: darkmagenta;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

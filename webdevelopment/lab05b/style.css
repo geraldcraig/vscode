@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    background-color: aqua;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+    margin: auto;
+    width: 550px;
+    background-color: white;
+    border-right: thin solid grey;
+    border-bottom: thin solid grey;
+}
+
+#top {
+    min-height: 150px;
+    margin: auto;
+    width: 550px;
+    background-image: url('img/user.jpg');
+    background-position: 50% 30%;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#main {
+    min-height: 200px;
+    margin: 10px;
+    width: 550px;
+}
+
+#footer {
+    min-height: 30px;
+    margin: auto;
+    width:550px;
+    background-color: #66ffcc;
+    text-align: center;
+    font-size: x-small;
+}
+
+.wrap {
+    align-content: center;
+}
+
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

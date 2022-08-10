@@ -1,0 +1,27 @@
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+#navbar h1 {
+    float: left;
+    padding: 13px;
+    font-weight: bold;
+    font-size: 30px;
+    padding-right: 100px;
+}
+#navbar ul {
+    list-style: none;
+    padding: 10px;
+}
+
+#navbar li {
+    display: inline;
+}
+
+.content {
+    padding: 10px;
+    font-size: xx-large;
+    font-weight: light;
+
+}

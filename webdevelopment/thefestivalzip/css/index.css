@@ -1,0 +1,89 @@
+/* HOME PAGE */
+
+.hero {
+    /* Text styles */
+    text-align: center;
+    
+    /* Background styles */
+    background-image: url(../img/UNADJUSTEDNONRAW_thumb_2441.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.tab {
+    margin-left: 2.5em;
+}
+
+/* jumbotron background image */
+.jumbotron.jumbotron-fluid {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 5em;
+}
+
+#heroimg {
+    height: auto;
+    margin: 0 auto;
+}
+
+/* jumbotron festival image */
+#festival {
+    margin: 0 auto;
+    font-size: 8vw;
+}
+
+#jumbolink a {
+    text-decoration: none;
+    color: white;
+}
+
+div#jumbolink {
+    margin-bottom: 0;
+}
+
+div#welcome {
+    margin-top: 0;
+}
+
+/* news section icon */
+i.icon-newspaper {
+    font-size: 6em;
+}
+.text
+
+p.card-text {
+    height: 150px;
+}
+
+form.artistapply {
+    padding: 3em 3em;
+    border: black 5px solid;
+    margin: 3em 0;
+}
+
+/* carousel decoration */
+
+i.icon-left-open.carousel {
+    color: black;
+}
+
+i.icon-right-open.carousel {
+    color: black;
+}
+
+
+/* news section heading */
+.newsheading {
+    padding-top: 2.2em;
+}
+
+
+.content {
+    min-height: 724px;
+    
+}

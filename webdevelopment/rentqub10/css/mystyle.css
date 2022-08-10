@@ -1,0 +1,80 @@
+body{
+	font-family:"arial";    
+}
+
+.customwidth{
+	width:70%;
+	margin: 0 auto;  
+    padding-top:100px;	
+	
+}
+
+.pad{
+	margin-top:10px;
+	border-bottom: solid 1px grey;
+	padding-bottom:10px;
+}
+
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 4px 8px ;
+}
+
+.box {
+  text-align: center;
+  background:#666;
+  color: #fff;
+  padding: 15px 10px;
+ }
+ 
+ a:link{
+	 text-decoration:none;
+ }
+ a:hover{
+	 color:#000;
+ }
+ 
+ #head, #headadmin{
+	 width:100%;
+	 background:#4C4C76;
+	 color:white;
+	 text-align:center;
+	 padding:20pt;
+ }
+ 
+ #head img, #headadmin img{
+	 width:10%;
+ }
+ 
+ #head h2, #headadmin h2{
+	 display:inline;
+ }
+ 
+ #headadmin{
+	 background:#ddd;
+ }
+ 
+ #rent{
+	 float:right;
+ }
+ 
+ .houseimg img{
+     width:100%;
+ }
+ 
+ .myaddress{
+     width:50%;
+     height: 100px;
+     color:black;
+     text-align: left;
+ }
+ 
+.myleft{
+    text-align: left;
+    color:black;
+}
+ 
+ 

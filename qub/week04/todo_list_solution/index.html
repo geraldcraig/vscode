@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple TODO List</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css" />
+
+</head>
+
+<body>
+  <div id="content" style="margin: 10px;">
+
+    <h1>Add New List Item</h1>
+
+    <input id="listItemData" type='text' placeholder="I need to . . . ">
+    <input id="dayData" type='date'>
+
+    <div class="buttons">
+
+      <div class="action_btn">
+
+        <button id="newItem" name="newItem" class="action_btn" type="submit" value="myItem">Add Item</button>
+        <button name="viewList" class="action_btn" type="submit" value="viewSchedule" onclick="showList()">View
+          List</button>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+
+  // setup event handler for add item button
+  var newListItem = document.getElementById('newItem');
+
+  newListItem.onclick = function () {
+
+    console.log("newListItem called");
+
+    // object for new item data
+    var myNewItem = {};
+    myNewItem.listItem = document.getElementById("listItemData").value;
+    myNewItem.listItemDate = document.getElementById("dayData").value;
+
+    console.log(myNewItem);
+
+    // save the new item
+    addItemToList(myNewItem);
+  }
+
+
+  function addItemToList(newItem) {
+
+    console.log("addItemToList called");
+
+    if (localStorage.getItem('storeditems') === null) {
+      var store = [];
+      store.push(newItem);
+      localStorage.setItem('storeditems', JSON.stringify(store));
+
+    } else {
+      var currentList = JSON.parse(localStorage.getItem('storeditems'));
+      console.log(currentList);
+      currentList.push(newItem);
+      localStorage.setItem('storeditems', JSON.stringify(currentList));
+    }
+  }
+
+
+  function showList() {
+
+    console.log("showList called");
+    window.location = "todo.html";
+
+  }
+
+</script>

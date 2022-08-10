@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>start</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+
+            console.log('jquery engine loaded');
+
+            $('form').submit(function (e) {
+
+                $('form').find('span').remove();
+
+                var inp = $('#pupilsname').val();
+                inp = jQuery.trim(inp);
+
+                var inp2 = $('#pupilsclass').val();
+                inp2 = jQuery.trim(inp);
+
+                if (inp.length <= 0) {
+                    e.preventDefault(); //prevent default form submit
+                    console.log('form NOT submitted');
+                    $('#pupilsname').before($('<span>Please submit a name</span>').delay(4000).fadeOut(300));
+
+                }
+
+                if (inp2.length <= 0) {
+                    e.preventDefault(); //prevent default form submit
+                    console.log('form NOT submitted');
+                    $('#pupilsclass').before($('<span>Please submit a class</span>').delay(4000).fadeOut(300));
+                    // , $('#pupilsclass').attr('placeholder', 'class required*')
+                }
+
+            });
+        });
+
+    </script>
+
+    <style>
+        .myedit {
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Milk Money</h1>
+
+    <!--.container is main centered wrapper -->
+    <div class="container">
+        <!--just use a number and class 'column' or 'columns' -->
+        <div class="row">
+            <div class="ten columns">
+
+                <p>Please fill in the form to request milk money for your child</p>
+                <!--a web form-->
+                <form>
+                    <div class="row">
+                        <div class="eight columns myedit">
+                            <label for="pupilsname">Pupil's Name</label>
+                            <input class="u-full-width" type="text" placeholder="First Last Name" id="pupilsname">
+                        </div>
+
+                        <div class="four columns">
+                            <label for="pupilsclass"> Pupil's Class</label>
+                            <input class="u-full-width" type="text" placeholder="class" id="pupilsclass" />
+                        </div>
+                    </div>
+
+
+
+                    <input class="button-primary mysubmit" type="submit" value="Submit" />
+
+
+
+                </form>
+            </div>
+            <div class="two columns">
+                <a class="button" href="#">Help</a>
+                <a class="button" href="#">Info</a>
+                <a class="button" href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
