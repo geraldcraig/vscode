@@ -11,9 +11,9 @@ if (!isset($_SESSION['user'])) {
 
 $filterquery = $_GET['sort'];
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?filteralbum=$filterquery";
+$endpoint = "http://localhost/qub/albumsapi/api.php?filteralbum=$filterquery";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?filteralbum=$filterquery";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?filteralbum=$filterquery";
 
 $result = file_get_contents($endpoint);
 

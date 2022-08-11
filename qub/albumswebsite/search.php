@@ -13,9 +13,9 @@ $searchitem = $_GET['search'];
 
 $searchquery = str_replace(' ', '%20', $searchitem);
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?search=$searchquery";
+$endpoint = "http://localhost/qub/albumsapi/api.php?search=$searchquery";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$searchquery";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?search=$searchquery";
 
 $result = file_get_contents($endpoint);
 

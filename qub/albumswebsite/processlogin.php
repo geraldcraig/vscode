@@ -5,9 +5,9 @@
     $uname = $_POST["username"];
     $upass = $_POST["password"];
 
-    //$endpoint = "http://localhost/qub/week00/albumsapi/api.php?userlogin";
+    $endpoint = "http://localhost/qub/albumsapi/api.php?userlogin";
 
-    $endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userlogin";
+    //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?userlogin";
 
     $postdata = http_build_query(
 

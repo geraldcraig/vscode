@@ -9,9 +9,9 @@ if (!isset($_SESSION['admin'])) {
   $currentUser = $_SESSION['admin'];
 }
 
-//$endpoint = "http://localhost/qub/week00/albumsapi/api.php?user";
+$endpoint = "http://localhost/qub/albumsapi/api.php?user";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?user";
 
 $result = file_get_contents($endpoint);
 

@@ -3,9 +3,9 @@
 $currentUser = $_GET['user_name'];
 $albumid = $_GET['album_id'];
 
-//$endpoint = "http://localhost/qub/week00/albumsapicopy/api.php?ownedalbum";
+$endpoint = "http://localhost/qub/albumsapi/api.php?ownedalbum";
 
-$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?ownedalbum";
+//$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?ownedalbum";
 
 $postdata = http_build_query(
 
