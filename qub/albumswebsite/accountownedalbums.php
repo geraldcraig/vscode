@@ -11,7 +11,7 @@ if (!isset($_SESSION['user'])) {
 
 $username = $currentuser;
 
-$endpoint = "http://localhost/qub/albumsapicopy/api.php?accountowned=$username";
+$endpoint = "http://localhost/qub/albumsapi/api.php?accountowned=$username";
 
 //$endpoint = "http://gcraig15.webhosting6.eeecs.qub.ac.uk/albumsapi/api.php?accountowned=$username";
 

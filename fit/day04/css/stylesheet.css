@@ -1,0 +1,62 @@
+.banner_text {
+
+
+}
+
+/*three column layout*/
+* {
+    box-sizing: border-box;
+}
+div.col{
+    float: left;
+    width: 33.33%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+div.row{
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+div.col img {
+    width: 100%;
+}
+
+p {
+    clear: both;
+}
+
+/* button animation*/
+.button {
+    background-color: blue;
+    border: none;
+    padding:  16px 32px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin: 4px 2px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.5;
+}
+
+/* CSS Grid*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    clear: both;
+}
+
+.grid_item img {
+    width: 100%;
+}
+
+.grid_item {
+    padding: 20px;
+}
