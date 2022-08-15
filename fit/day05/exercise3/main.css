@@ -1,12 +1,9 @@
-
-
-/*three column layout*/
 * {
     box-sizing: border-box;
 }
 div.col{
     float: left;
-    width: 33.33%;
+    width: 100%;
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -23,4 +20,8 @@ div.col img {
 
 p {
     clear: both;
+}
+
+div.container1 {
+
 }
