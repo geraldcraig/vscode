@@ -1,0 +1,7 @@
+.flip {
+    transition: 1.5s ease; /* speed and style of transition */
+}
+
+.flip:hover {
+    transform: scaleX(-1); /* Flipping on x-axis */
+}

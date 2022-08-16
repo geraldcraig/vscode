@@ -1,0 +1,17 @@
+.zoom {
+    transition: .5s ease; /* speed and style of transition */
+}
+
+.zoom:hover {
+    transform: scale(1.2); /* size of zoom out */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+}
