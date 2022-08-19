@@ -58,10 +58,20 @@ main {
     font-size: 1.25em;
 }
 
-#weights, #cardio, #training {
+#culture, #balloon, #nightlife {
     width: 29%;
     float: left;
     margin: 0 2%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+  }
+  
+tr:hover {
+    background-color: #D6EEEE;
 }
 
 #exercises {
@@ -120,6 +130,7 @@ ol {
 }
 
 /*three column layout*/
+
 * {
     box-sizing: border-box;
 }
@@ -128,12 +139,14 @@ div.col{
     width: 33.33%;
     padding-left: 2%;
     padding-right: 2%;
+    padding-bottom: 2%;
 }
 
 div.row{
     padding-top: 20px;
     padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 20%;
 }
 
 div.col img {
@@ -142,4 +155,53 @@ div.col img {
 
 p {
     clear: both;
+}
+
+/* button animation*/
+.button {
+    background-color: blue;
+    border: none;
+    padding:  16px 32px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin: 4px 2px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.5;
+}
+
+/* CSS Grid*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    clear: both;
+}
+
+.grid_item img {
+    width: 100%;
+}
+
+.grid_item {
+    padding: 20px;
+}
+
+.flip {
+    transition: 1.5s ease; /* speed and style of transition */
+}
+
+.flip:hover {
+    transform: scaleX(-1); /* Flipping on x-axis */
+}
+
+.zoom {
+    transition: .5s ease; /* speed and style of transition */
+}
+
+.zoom:hover {
+    transform: scale(1.2); /* size of zoom out */
 }
