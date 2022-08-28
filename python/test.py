@@ -1,20 +1,14 @@
-class I:
-    def __init__(self):
-        self.s = 'abc'
-        self.i = 0
+from os import strerror
 
-        def __iter__(self):
-            return self
-
-        def __next__(self):
-            if self.i == len(self.s):
-                raise StopIteration
-        v = self.s[self.i]
-        self.i += 1
-        return v
-
-for x in I():
-    print(x, end='')            
+try:
+	fo = open('newtext.txt', 'wt') # A new file (newtext.txt) is created.
+	for i in range(10):
+		s = "line #" + str(i+1) + "\n"
+		for ch in s:
+			fo.write(ch)
+	fo.close()
+except IOError as e:
+	print("I/O error occurred: ", strerror(e.errno))       
 
 
 
