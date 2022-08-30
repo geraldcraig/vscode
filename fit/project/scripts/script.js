@@ -12,6 +12,6 @@ document.getElementById("btnLoad").addEventListener("click", function()
             document.getElementById("demo").innerHTML = this.responseText;
         }
     };
-    xhttp.open("GET", "someText.txt", true);
+    xhttp.open("GET", "specialOffers.txt", true);
     xhttp.send();
 });
