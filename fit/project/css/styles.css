@@ -34,3 +34,19 @@ nav li a:hover {
     box-shadow: 8px 8px 10px #000000;
     transform: translate(10px);
 }
+#panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding: 50px;
+    display: none;
+}
+
+#myCanvas {
+    border: 1px solid #d3d3d3;
+    margin-left: 10em;
+}

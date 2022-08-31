@@ -47,5 +47,6 @@ document.getElementById("btnGet").addEventListener("click", function()
     var data1 = localStorage.getItem("userData1");
     var data2 = localStorage.getItem("userData2");
     var data3 = localStorage.getItem("userData3");
-    alert("The value stored in localStorage for 'userData' is: " + "\nFirst Name: " + data1 + "\nLast Name:  " + data2 + "\nEmail Address: " + data3);
+    document.getElementById("result").innerHTML = "The value stored in localStorage for 'userData' is: " + "\nFirst Name: " + data1 + "\nLast Name:  " + data2 + "\nEmail Address: " + data3;
+    
 });
