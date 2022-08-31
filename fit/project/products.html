@@ -62,7 +62,7 @@
     <!-- Header -->
     <header class="jumbotron jumbotron-fluid text-center mt-5">
         <div class="container">
-            <h1 class="display-1">About Us</h1>
+            <h1 class="display-1">Products</h1>
             <p class="lead">Our mission is to help our customers find the best musical instrument to meet their needs.
             </p>
         </div>
@@ -120,19 +120,19 @@
         </div>
 
         <script>
-            window.onload = function () {
-                var canvas = document.getElementById("myCanvas");
-                var ctx = canvas.getContext("2d");
-                ctx.font = "30px Comic Sans MS";
-                ctx.fillStyle = "red";
-                ctx.textAlign = "center";
-                ctx.fillText("Hello World!", canvas.width / 2, canvas.clientHeight / 2);
-            };
+            $(document).ready(function () {
+                $("#flip").click(function () {
+                    $("#panel").slideToggle("slow");
+                });
+            });
         </script>
 
-        <canvas id="myCanvas" width="200" height="100"></canvas>
-
-
+        <div id="flip">This weeks Special Offers</div>
+        <div id="panel">
+            <p>Fender Player Series Strat £619</p>
+            <p>Fender Vintera 60s Jazz Bass £945</p>
+            <p>Roland RD88 Stage Piano £999</p>
+        </div>
 
     </main>
 
