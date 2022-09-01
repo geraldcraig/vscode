@@ -132,7 +132,80 @@
 
         <canvas id="myCanvas" width="200" height="100"></canvas>
 
+        <button onclick="getLocation()">Try It</button>
 
+        <p id="demo5"></p>
+
+        <script>
+            const x = document.getElementById("demo5");
+
+
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "geolocation is not supported by this browser"
+                }
+            }
+
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude;
+            }
+
+        </script>
+        <script>
+            if (typeof (w) == "undefined") {
+                w = new Worker(scripts/webworker.js);
+            }
+            w.onmessage = function (event) {
+                document.getElementById("result").innerHTML = event.data;
+            };
+        </script>
+
+        <h5 id="message">Web Worker demo...</h5>
+        <button onclick="startWorker()" class="btn btn-primary" value="Submit">Start Web Worker</button>
+        <button onclick="stopWorker()" class="btn btn-primary" value="Submit">Stop Web Worker</button>
+
+        <script>
+            var webWorker;
+
+            function startWorker() {
+                var iMessage = document.getElementById("message");
+                iMessage.innerHTML = "Web Worker started and writing to console.";
+                webWorker = new Worker("scripts/webworker.js");
+            }
+
+            function stopWorker() {
+                webWorker.terminate();
+                var iMessage = document.getElementById("message");
+                iMessage.innerHTML = "Web Worker terminated.";
+                console.log("Web Worker terminated.");
+            }
+        </script>
+
+        <!-- <h2>JavaScript Web Workers API</h2>
+        <p>Count numbers: <output id="result"></output></p>
+        <button onclick="startWorker()">Start Worker</button>
+        <button onclick="stopWorker()">Stop Worker</button>
+
+        <script>
+            let w;
+
+            function startWorker() {
+                if (typeof (w) == "undefined") {
+                    w = new Worker("scripts/webworker.js");
+                }
+                w.onmessage = function (event) {
+                    document.getElementById("result").innerHTML = event.data;
+                };
+            }
+
+            function stopWorker() {
+                w.terminate();
+                w = undefined;
+            }
+        </script> -->
 
     </main>
 
