@@ -4,6 +4,8 @@ function validation() {
     var fname = document.getElementById("setData1").value;
     var lname = document.getElementById("setData2").value;
     var email = document.getElementById("setData3").value;
+    var comment = document.getElementById("comment").value;
+    var terms = document.getElementById("agreeterms").value;
 
     /* */
     if (fname == "") {
@@ -22,8 +24,20 @@ function validation() {
             console.log("email missing @");
             return false;
         }
-    
 
+    if (comment == "") {
+        alert("Comment must be entered.")
+        return false;
+    }
+
+    if (document.terms.checked) {
+        document.getElementById("checkbox_error").innerHTML = "";
+        return true;
+    } else {
+        document.getElementById("checkbox_error").innerHTML = "Terms not checked";
+        return false;
+    }
+    
     alert("Thank you for your message \nWe will get back to you soon...");
 
 }
@@ -50,7 +64,7 @@ document.getElementById("btnGet").addEventListener("click", function()
     var data2 = localStorage.getItem("userData2");
     var data3 = localStorage.getItem("userData3");
     var comment = localStorage.getItem("comment");
-    document.getElementById("result").innerHTML = "The value stored in localStorage for 'userData' is: ";
+    document.getElementById("result").innerHTML = "The data entered into the Contact Us form is: ";
     document.getElementById("result1").innerHTML = "First Name: " + data1;
     document.getElementById("result2").innerHTML = "Last Name:  " + data2;
     document.getElementById("result3").innerHTML = "Email Address: " + data3;

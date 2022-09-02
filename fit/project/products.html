@@ -81,7 +81,7 @@
                 </ul>
             </div>
             <div class="col-md-5">
-                <img src="images/guitars.jpeg" alt="guitars" class="img-fluid rounded">
+                <img class="flip" src="images/guitars.jpeg" alt="guitars" class="img-fluid rounded">
             </div>
         </div>
 
@@ -98,7 +98,7 @@
                 </ul>
             </div>
             <div class="col-md-5">
-                <img src="images/keyboard.jpg" alt="keyboard" class="img-fluid rounded">
+                <img class="flip" src="images/keyboard.jpg" alt="keyboard" class="img-fluid rounded">
             </div>
         </div>
 
@@ -115,11 +115,11 @@
                 </ul>
             </div>
             <div class="col-md-5">
-                <img src="images/drums.jpeg" alt="drums" class="img-fluid rounded">
+                <img class="flip" src="images/drums.jpeg" alt="drums" class="img-fluid rounded">
             </div>
         </div>
 
-        <script>
+        <!-- <script>
             $(document).ready(function () {
                 $("#flip").click(function () {
                     $("#panel").slideToggle("slow");
@@ -132,7 +132,22 @@
             <p>Fender Player Series Strat £619</p>
             <p>Fender Vintera 60s Jazz Bass £945</p>
             <p>Roland RD88 Stage Piano £999</p>
-        </div>
+        </div> -->
+
+        <script>
+            $(document).ready(function () {
+                $("button").click(function () {
+                    $("p").slideToggle();
+                });
+            });
+        </script>
+
+
+        <button>Toggle slideUp() and slideDown()</button>
+
+        <p>Fender Player Series Strat £619</p>
+        <p>Fender Vintera 60s Jazz Bass £945</p>
+        <p>Roland RD88 Stage Piano £999</p>
 
     </main>
 
