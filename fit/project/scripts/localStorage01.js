@@ -5,7 +5,6 @@ function validation() {
     var lname = document.getElementById("setData2").value;
     var email = document.getElementById("setData3").value;
     var comment = document.getElementById("comment").value;
-    var terms = document.getElementById("agreeterms").value;
 
     /* */
     if (fname == "") {
@@ -27,14 +26,6 @@ function validation() {
 
     if (comment == "") {
         alert("Comment must be entered.")
-        return false;
-    }
-
-    if (document.terms.checked) {
-        document.getElementById("checkbox_error").innerHTML = "";
-        return true;
-    } else {
-        document.getElementById("checkbox_error").innerHTML = "Terms not checked";
         return false;
     }
     
