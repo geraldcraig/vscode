@@ -1,7 +1,7 @@
-/* jQuery for hero image to consume the header window space
+// jQuery for hero image to consume the header window space
 $(document).ready(function () {
     $('.hero').height($(window).height());
-}); */
+}); 
 
 document.getElementById("btnLoad").addEventListener("click", function () {
     var xhttp = new XMLHttpRequest();
