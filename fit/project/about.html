@@ -5,8 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="The Music Shop.">
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -133,7 +132,6 @@
         <script>
             const x = document.getElementById("demo5");
 
-
             function getLocation() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition);
@@ -148,40 +146,20 @@
             }
 
         </script>
+
         <script>
             if (typeof (w) == "undefined") {
-                w = new Worker(scripts/webworker.js);
+                w = new Worker(scripts / webworker.js);
             }
             w.onmessage = function (event) {
                 document.getElementById("result").innerHTML = event.data;
             };
         </script>
 
-        <h5 id="message">Web Worker demo...</h5>
-        <button onclick="startWorker()" class="btn btn-primary" value="Submit">Start Web Worker</button>
-        <button onclick="stopWorker()" class="btn btn-primary" value="Submit">Stop Web Worker</button>
-
-        <script>
-            var webWorker;
-
-            function startWorker() {
-                var iMessage = document.getElementById("message");
-                iMessage.innerHTML = "Web Worker started and writing to console.";
-                webWorker = new Worker("scripts/webworker.js");
-            }
-
-            function stopWorker() {
-                webWorker.terminate();
-                var iMessage = document.getElementById("message");
-                iMessage.innerHTML = "Web Worker terminated.";
-                console.log("Web Worker terminated.");
-            }
-        </script>
-
-        <!-- <h2>JavaScript Web Workers API</h2>
-        <p>Count numbers: <output id="result"></output></p>
-        <button onclick="startWorker()">Start Worker</button>
-        <button onclick="stopWorker()">Stop Worker</button>
+        <h2>JavaScript Web Workers API</h2>
+        <p>Timer(seconds): <output id="result"></output></p>
+        <button onclick="startWorker()" class="btn btn-primary" value="Submit">Start Timer</button>
+        <button onclick="stopWorker()" class="btn btn-primary" value="Submit">Stop Timer</button>
 
         <script>
             let w;
@@ -199,7 +177,7 @@
                 w.terminate();
                 w = undefined;
             }
-        </script> -->
+        </script>
 
     </main>
 
