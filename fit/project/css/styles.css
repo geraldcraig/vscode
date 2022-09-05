@@ -43,6 +43,12 @@ body, header, nav, main, footer, h1, div, img {
     line-height: 1.5;
 }
 
+.carousel-inner img {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
 nav li a:hover {
     color: #000;
     background-color: #000;

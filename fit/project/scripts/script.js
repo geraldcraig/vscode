@@ -15,3 +15,4 @@ document.getElementById("btnLoad").addEventListener("click", function()
     xhttp.open("GET", "specialOffers.txt", true);
     xhttp.send();
 });
+
