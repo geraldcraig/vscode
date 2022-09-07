@@ -1,4 +1,4 @@
-text = "hello"
+text = input("Enter word to cipher: ")
 cipher = ''
 for char in text:
     if not char.isalpha():
