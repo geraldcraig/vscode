@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Page Title</title>
+    <meta charset="utf-8">
+    <title>JavaScript Loop Through an Object</title>
 </head>
-
 <body>
-
-    <h1>This is a Heading</h1>
-    <p>This is a paragraph.</p>
-
-    var record = {
-    name: "David Bowie",
-    title: "Ziggy Stardust",
-    format: "CD",
-    price: 5.99
+    <script>
+    var person = {
+        name: "Peter",
+        age: 28,
+        gender: "Male"
+    };
+    
+    // Iterating over object properties
+    for(var i in person)  {  
+        document.write(person[i] + "<br>"); // Prints: name, age and gender
     }
-
-    function item(cat) {
-    console.log("Name: " + cat.name + " Title: " + cat.title);
-    }
-
-    item(record);
-
+    </script>
 </body>
-
 </html>
