@@ -59,64 +59,65 @@
     </header>
 
     <!-- Main Content Area -->
-    <div class="tablet-desktop">
-
-        <table class="table table-striped table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Artist</th>
-                    <th>Title</th>
-                    <th>Format</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>David Bowie</td>
-                    <td>Ziggy Stardust</td>
-                    <td>Vinyl</td>
-                    <td>£25.99</td>
-                    <td><img src="images/ziggy.jpg" style="width: 5%;"></td>
-                </tr>
-                <tr>
-                    <td>David Bowie</td>
-                    <td>Ziggy Stardust</td>
-                    <td>Vinyl</td>
-                    <td>£25.99</td>
-                    <td><img src="images/ziggy.jpg" style="width: 5%;"></td>
-                </tr>
-                <tr>
-                    <td>David Bowie</td>
-                    <td>Ziggy Stardust</td>
-                    <td>Vinyl</td>
-                    <td>£25.99</td>
-                    <td><img src="images/ziggy.jpg" style="width: 5%;"></td>
-                </tr>
-                <tr>
-                    <td>David Bowie</td>
-                    <td>Ziggy Stardust</td>
-                    <td>Vinyl</td>
-                    <td>£25.99</td>
-                    <td><img src="images/ziggy.jpg" style="width: 5%;"></td>
-                </tr>
-                <tr>
-                    <td>David Bowie</td>
-                    <td>Ziggy Stardust</td>
-                    <td>Vinyl</td>
-                    <td>£25.99</td>
-                    <td><img src="images/ziggy.jpg" style="width: 5%;"></td>
-                </tr>
-                <tr>
-                    <td>David Bowie</td>
-                    <td>Ziggy Stardust</td>
-                    <td>Vinyl</td>
-                    <td>£25.99</td>
-                    <td><img src="images/ziggy.jpg" style="width: 5%;"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-sm table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Artist</th>
+                        <th>Title</th>
+                        <th>Format</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Miles Davis</td>
+                        <td>Kind of Blue</td>
+                        <td>Vinyl</td>
+                        <td>£25.99</td>
+                        <td><img src="images/blue.jpeg" style="width: 20%;"></td>
+                    </tr>
+                    <tr>
+                        <td>John Coltrane</td>
+                        <td>A love Supreme</td>
+                        <td>Vinyl</td>
+                        <td>£25.99</td>
+                        <td><img src="images/supreme.jpeg" style="width: 20%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Charles Mingus</td>
+                        <td>Mingus Ah Um</td>
+                        <td>Vinyl</td>
+                        <td>£25.99</td>
+                        <td><img src="images/mingus.jpeg" style="width: 20%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Ornette Coleman</td>
+                        <td>The Shape of Jazz to Come</td>
+                        <td>Vinyl</td>
+                        <td>£25.99</td>
+                        <td><img src="images/ornette.jpeg" style="width: 20%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Sonny Rollins</td>
+                        <td>Saxophone Colossus</td>
+                        <td>Vinyl</td>
+                        <td>£25.99</td>
+                        <td><img src="images/rollins.jpeg" style="width: 20%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Dave Bruebeck</td>
+                        <td>Time Out</td>
+                        <td>Vinyl</td>
+                        <td>£25.99</td>
+                        <td><img src="images/brubeck.jpeg" style="width: 20%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
 
     <script>
         $(document).ready(function () {
@@ -126,25 +127,33 @@
         });
 
         const item1 = {
-            name: "David Bowie",
-            title: "Lets Dance",
+            name: "Art Blakey and the Jazz Messengers",
+            title: "Moanin'",
             format: "CD",
-            price: "£3.99"
+            price: "£3.99",
         };
 
         const item2 = {
-            name: "Miles Davis",
-            title: "Kind of Blue",
+            name: "Billie Holiday",
+            title: "Lady In Satin",
             format: "Vinyl",
             price: "£13.99"
         };
 
         const item3 = {
-            name: "John Coltrane",
-            title: "A Love Supreme",
+            name: "Stan Getz and Joao Gilberto",
+            title: "Getz/Gilberto",
             format: "CD",
             price: "£6.99"
         };
+
+        const item4 = {
+            name: "Thelonious Monk",
+            title: "Genius of Modern Music: Volume 1",
+            format: "CD",
+            price: "£6.99"
+        };
+
     </script>
 
     <div id="flip">Click Here for This Weeks Special Offers</div>
@@ -152,10 +161,12 @@
         <p id="demo1"></p>
         <p id="demo2"></p>
         <p id="demo3"></p>
+        <p id="demo4"></p>
         <script>
             document.getElementById("demo1").innerHTML = item1.name + " - " + item1.title + " - " + item1.format + " - " + item1.price;
             document.getElementById("demo2").innerHTML = item2.name + " - " + item2.title + " - " + item2.format + " - " + item2.price;
             document.getElementById("demo3").innerHTML = item3.name + " - " + item3.title + " - " + item3.format + " - " + item3.price;
+            document.getElementById("demo4").innerHTML = item4.name + " - " + item4.title + " - " + item4.format + " - " + item4.price;
         </script>
     </div>
 
