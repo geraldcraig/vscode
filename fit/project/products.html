@@ -54,7 +54,7 @@
     <header class="jumbotron jumbotron-fluid text-center mt-5">
         <div class="container">
             <h1 class="display-1">Products</h1>
-            <p class="lead">Welcome to The Record Store. We have a large collection of new and used Cd and Vinyl.</p>
+            <p class="lead">Welcome to The Record Store. We have a large collection of new and used CDs and Vinyl.</p>
         </div>
     </header>
 
@@ -69,6 +69,7 @@
                         <th>Format</th>
                         <th>Price</th>
                         <th>Image</th>
+                        <th>Check Availability</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,47 +77,66 @@
                         <td>Miles Davis</td>
                         <td>Kind of Blue</td>
                         <td>Vinyl</td>
-                        <td>£25.99</td>
+                        <td>£29.99</td>
                         <td><img src="images/blue.jpeg" style="width: 20%;"></td>
+                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>John Coltrane</td>
                         <td>A love Supreme</td>
                         <td>Vinyl</td>
-                        <td>£25.99</td>
+                        <td>£24.99</td>
                         <td><img src="images/supreme.jpeg" style="width: 20%;"></td>
+                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>Charles Mingus</td>
                         <td>Mingus Ah Um</td>
                         <td>Vinyl</td>
-                        <td>£25.99</td>
+                        <td>£27.99</td>
                         <td><img src="images/mingus.jpeg" style="width: 20%;"></td>
+                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>Ornette Coleman</td>
                         <td>The Shape of Jazz to Come</td>
                         <td>Vinyl</td>
-                        <td>£25.99</td>
+                        <td>£21.99</td>
                         <td><img src="images/ornette.jpeg" style="width: 20%;"></td>
+                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>Sonny Rollins</td>
                         <td>Saxophone Colossus</td>
                         <td>Vinyl</td>
-                        <td>£25.99</td>
+                        <td>£22.99</td>
                         <td><img src="images/rollins.jpeg" style="width: 20%;"></td>
+                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>Dave Bruebeck</td>
                         <td>Time Out</td>
                         <td>Vinyl</td>
-                        <td>£25.99</td>
+                        <td>£26.99</td>
                         <td><img src="images/brubeck.jpeg" style="width: 20%;"></td>
+                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
+
+                    <script>
+                        function mOver(obj) {
+                            obj.innerHTML = "10 in stock"
+                        }
+
+                        function mOut(obj) {
+                            obj.innerHTML = "Check Availability"
+                        }
+                    </script>
                 </tbody>
             </table>
         </div>
+    </div>
+
+    
     
 
     <script>

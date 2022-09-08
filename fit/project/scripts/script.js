@@ -23,7 +23,7 @@ function loadXMLDoc() {
         this.responseText;
       }
     };
-    xhttp.open("GET", "specialOffers.txt", true);
+    xhttp.open("GET", "xmlhttprequest.txt", true);
     xhttp.send();
   }
 
