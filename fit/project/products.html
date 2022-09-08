@@ -124,14 +124,39 @@
                 $("#panel").slideToggle("slow");
             });
         });
+
+        const item1 = {
+            name: "David Bowie",
+            title: "Lets Dance",
+            format: "CD",
+            price: "£3.99"
+        };
+
+        const item2 = {
+            name: "Miles Davis",
+            title: "Kind of Blue",
+            format: "Vinyl",
+            price: "£13.99"
+        };
+
+        const item3 = {
+            name: "John Coltrane",
+            title: "A Love Supreme",
+            format: "CD",
+            price: "£6.99"
+        };
     </script>
 
     <div id="flip">Click Here for This Weeks Special Offers</div>
     <div id="panel">
-        <p>U2 Joshua Tree Cd £4.99</p>
-        <p>U2 Joshua Tree Cd £4.99</p>
-        <p>U2 Joshua Tree Cd £4.99</p>
-        <p><img src="images/turntable.jpg" style="width: 10%;"></p>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <script>
+            document.getElementById("demo1").innerHTML = item1.name + " - " + item1.title + " - " + item1.format + " - " + item1.price;
+            document.getElementById("demo2").innerHTML = item2.name + " - " + item2.title + " - " + item2.format + " - " + item2.price;
+            document.getElementById("demo3").innerHTML = item3.name + " - " + item3.title + " - " + item3.format + " - " + item3.price;
+        </script>
     </div>
 
     </main>
