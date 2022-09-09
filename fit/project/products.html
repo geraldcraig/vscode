@@ -35,9 +35,6 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav m1-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="about.html">About Us</a>
                 </li>
                 <li class="nav-item">
@@ -79,7 +76,7 @@
                         <td>Vinyl</td>
                         <td>£29.99</td>
                         <td><img src="images/blue.jpeg" style="width: 20%;"></td>
-                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
+                        <td><div onmouseover="mOver2(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>John Coltrane</td>
@@ -87,7 +84,7 @@
                         <td>Vinyl</td>
                         <td>£24.99</td>
                         <td><img src="images/supreme.jpeg" style="width: 20%;"></td>
-                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
+                        <td><div onmouseover="mOver1(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>Charles Mingus</td>
@@ -95,7 +92,7 @@
                         <td>Vinyl</td>
                         <td>£27.99</td>
                         <td><img src="images/mingus.jpeg" style="width: 20%;"></td>
-                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
+                        <td><div onmouseover="mOver6(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>Ornette Coleman</td>
@@ -103,7 +100,7 @@
                         <td>Vinyl</td>
                         <td>£21.99</td>
                         <td><img src="images/ornette.jpeg" style="width: 20%;"></td>
-                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
+                        <td><div onmouseover="mOver3(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>Sonny Rollins</td>
@@ -111,7 +108,7 @@
                         <td>Vinyl</td>
                         <td>£22.99</td>
                         <td><img src="images/rollins.jpeg" style="width: 20%;"></td>
-                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
+                        <td><div onmouseover="mOver5(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
                         <td>Dave Bruebeck</td>
@@ -119,12 +116,32 @@
                         <td>Vinyl</td>
                         <td>£26.99</td>
                         <td><img src="images/brubeck.jpeg" style="width: 20%;"></td>
-                        <td><div onmouseover="mOver(this)" onmouseout="mOut(this)">Check Availability</div></td>
+                        <td><div onmouseover="mOver4(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
 
                     <script>
-                        function mOver(obj) {
+                        function mOver1(obj) {
+                            obj.innerHTML = "out of stock"
+                        }
+
+                        function mOver2(obj) {
                             obj.innerHTML = "10 in stock"
+                        }
+
+                        function mOver3(obj) {
+                            obj.innerHTML = "9 in stock"
+                        }
+
+                        function mOver4(obj) {
+                            obj.innerHTML = "8 in stock"
+                        }
+
+                        function mOver5(obj) {
+                            obj.innerHTML = "7 in stock"
+                        }
+
+                        function mOver6(obj) {
+                            obj.innerHTML = "6 in stock"
                         }
 
                         function mOut(obj) {
@@ -135,9 +152,6 @@
             </table>
         </div>
     </div>
-
-    
-    
 
     <script>
         $(document).ready(function () {
