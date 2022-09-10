@@ -20,39 +20,18 @@ def encryption(text, key):
 
     print("The cipertext is: ", cipher)
 
+month = ["january", "february", "march"]
+
 text = input("Enter phrase to encrypt: ")
 
-month = input("Enter your birth month: ")
+birthMonth = input("Enter your birth month: ")
 
-if not month.isalpha():
+if not birthMonth.isalpha():
     print("Error...month must contain letters only")
 else:
-    month = month.lower()
-    if month == "jan" or month == "january":
-        key = 1
-    elif month == "feb" or month == "february":
-        key = 2
-    elif month == "mar" or month == "march":
-        key = 3
-    elif month == "apr" or month == "april":
-        key = 4
-    elif month == "may":
-        key = 5
-    elif month == "jun" or month == "june":
-        key = 6
-    elif month == "jul" or month == "july":
-        key = 7
-    elif month == "aug" or month == "august":
-        key = 8
-    elif month == "sep" or month == "september":
-        key = 9
-    elif month == "oct" or month == "october":
-        key = 10
-    elif month == "nov" or month == "november":
-        key = 11
-    elif month == "dec" or month == "december":
-        key = 12
-    else:
-        print("error")
+    key = month.index(birthMonth) + 1
+
+print(key)
+ 
 
 encryption(text, key)
