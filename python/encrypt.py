@@ -20,22 +20,21 @@ def encryption(text, key):
 
     print("The ciphertext is:", cipher)
 
-month = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
 text = input("Enter phrase to encrypt: ")
 
 birthMonth = input("Enter your birth month: ")
 
-birthMonth = birthMonth.lower()
-
 while True:
-    if birthMonth in month:
-        key = month.index(birthMonth) + 1
+    birthMonth = birthMonth.lower()
+    if birthMonth in months:
+        key = months.index(birthMonth) + 1
         encryption(text, key)
         break
     else:
         birthMonth = input("Sorry not recognised, please enter a valid month: ")
-        birthMonth = birthMonth.lower()
+        
 
 
 
