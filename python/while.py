@@ -1,6 +1,13 @@
-month = "ja"
+
+
+month = input("enter month: ")
 i = ["jan", "feb", "mar"]
-while  month in i:
-  key = i.index(month)
-else:
-  print("i is no longer less than 6")
+
+while True:
+    if month in i:
+      key = i.index(month)
+    else:
+      month = input("plaease enter valid month: ")
+
+
+
