@@ -20,12 +20,14 @@ def encryption(text, key):
 
     print("The ciphertext is:", cipher)
 
+# list to store all the months of the year
 months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
+# variables to store user input phrase and birth month
 text = input("Enter phrase to encrypt: ")
-
 birthMonth = input("Enter your birth month: ")
 
+# while loop to get index of birth month
 while True:
     birthMonth = birthMonth.lower()
     if birthMonth in months:
