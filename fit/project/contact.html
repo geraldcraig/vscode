@@ -55,9 +55,12 @@
     <div class="container">
         <div class="row mx-auto">
             <div class="col-sm-6">
+                <!-- JavaScript web form validation -->
                 <form name="mylist" onsubmit="validation()">
+                    <!-- web form -->
                     <div class="form-group">
                         <label for="fname">First name</label>
+                        <!-- HTML web form validation -->
                         <input type="text" class="form-control" id="fname" placeholder="First Name" name="firstname"
                             maxlength="20" autofocus>
                     </div>
@@ -78,10 +81,12 @@
                         <textarea class="form-control" rows="5" id="comment" name="text" maxlength="300"></textarea>
                     </div>
 
+                    <!-- save and retrieve data to local storage -->
                     <button id="btnSet" type="submit" class="btn btn-primary" value="Submit">Submit</button>
                     <button id="btnSet" type="reset" class="btn btn-primary" value="Submit">Reset</button>
                     <button id="btnGet" type="button" class="btn btn-primary" value="Submit">Get Data</button>
 
+                    <!-- HTML user feedback -->
                     <div>
                         <p id="result"></p>
                         <p id="result1"></p>
@@ -92,6 +97,7 @@
 
                 </form>
 
+                <!-- connection to API and collect user location -->
                 <button onclick="getLocation()" type="submit" class="btn btn-primary" value="Submit">Location</button>
 
                 <p>Click the Location button to add your location.</p>
@@ -117,6 +123,7 @@
 
             </div>
             <div class="col-sm-6">
+                <!-- embedded video -->
                 <video style="width:100%;max-height:100%" autoplay muted loop>
                     <source src="video/rotating_vinyl.mp4" type="video/mp4">Your browser does not support the
                     video tag.

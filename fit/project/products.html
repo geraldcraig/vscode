@@ -76,6 +76,7 @@
                         <td>Vinyl</td>
                         <td>£29.99</td>
                         <td><img src="images/blue.jpeg" style="width: 20%;"></td>
+                        <!-- JavaScript to handle screen events -->
                         <td><div onmouseover="mOver2(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
                     <tr>
@@ -119,6 +120,7 @@
                         <td><div onmouseover="mOver4(this)" onmouseout="mOut(this)">Check Availability</div></td>
                     </tr>
 
+                    <!-- JavaScript to manipulate the DOM -->
                     <script>
                         function mOver1(obj) {
                             obj.innerHTML = "out of stock"
@@ -153,6 +155,7 @@
         </div>
     </div>
 
+    <!-- jQuery for simplifying code that communicates with data -->
     <script>
         $(document).ready(function () {
             $("#flip").click(function () {
@@ -160,6 +163,7 @@
             });
         });
 
+        /* JavaScript Objects */
         const item1 = {
             name: "Art Blakey and the Jazz Messengers",
             title: "Moanin'",
