@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color: gray;
+    margin: 50px;
+}
+
+.card {
+    background-color: black;
+    color:gray;
+	margin: 50px;
+	
+}
+
+.navbar {
+    background-color: black;
+}
+
+
+
